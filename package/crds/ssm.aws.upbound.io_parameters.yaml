@@ -93,6 +93,10 @@ spec:
                     description: Region is the region you'd like your resource to
                       be created in.
                     type: string
+                  sensitive:
+                    description: Can be set to `true` to expose the parameter's value
+                      at `status.atProvider.value`.
+                    type: boolean
                   tags:
                     additionalProperties:
                       type: string
@@ -317,6 +321,9 @@ spec:
                     description: Map of tags assigned to the resource, including those
                       inherited from the provider default_tags configuration block.
                     type: object
+                  value:
+                    description: Value of the parameter
+                    type: string
                   version:
                     description: Version of the parameter.
                     type: number

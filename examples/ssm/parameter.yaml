@@ -11,7 +11,7 @@ spec:
     region: us-west-1
     type: String
     valueSecretRef:
-      key: example-key
+      key: example-param
       name: parameter-secret
       namespace: upbound-system
 
@@ -28,4 +28,4 @@ metadata:
   namespace: upbound-system
 type: Opaque
 stringData:
-  example-key: "Upbound!"
+  example-param: "us-west-1"

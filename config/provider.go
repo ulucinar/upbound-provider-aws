@@ -82,6 +82,7 @@ import (
 	"github.com/upbound/provider-aws/config/sfn"
 	"github.com/upbound/provider-aws/config/sns"
 	"github.com/upbound/provider-aws/config/sqs"
+	"github.com/upbound/provider-aws/config/ssm"
 	"github.com/upbound/provider-aws/config/transfer"
 )
 
@@ -102,6 +103,7 @@ var (
 		Controller: []string{
 			"internal/controller/providerconfig",
 			"internal/controller/eks/clusterauth",
+			"internal/controller/ssm/parameter",
 		},
 	}
 )
@@ -225,6 +227,7 @@ func GetProvider() *config.Provider {
 		networkmanager.Configure,
 		opsworks.Configure,
 		sagemaker.Configure,
+		ssm.Configure,
 	} {
 		configure(pc)
 	}
