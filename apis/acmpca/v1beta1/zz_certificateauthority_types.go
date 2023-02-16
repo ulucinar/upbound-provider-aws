@@ -70,7 +70,7 @@ type CertificateAuthorityParameters struct {
 	// +kubebuilder:validation:Required
 	CertificateAuthorityConfiguration []CertificateAuthorityConfigurationParameters `json:"certificateAuthorityConfiguration" tf:"certificate_authority_configuration,omitempty"`
 
-	// Whether the certificate authority is enabled or disabled. Defaults to true.
+	// Whether the certificate authority is enabled or disabled. Defaults to true. Can only be disabled if the CA is in an ACTIVE state.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
