@@ -45,6 +45,7 @@ func main() {
 		providerSource     = app.Flag("terraform-provider-source", "Terraform provider source.").Required().Envar("TERRAFORM_PROVIDER_SOURCE").String()
 		providerVersion    = app.Flag("terraform-provider-version", "Terraform provider version.").Required().Envar("TERRAFORM_PROVIDER_VERSION").String()
 		nativeProviderPath = app.Flag("terraform-native-provider-path", "Terraform native provider path for shared execution.").Default("").Envar("TERRAFORM_NATIVE_PROVIDER_PATH").String()
+		pluginProcessTTL   = app.Flag("provider-ttl", "TTL for the native plugin processes before they are replaced..").Default("100").Int()
 
 		namespace                  = app.Flag("namespace", "Namespace used to set as default scope in default secret store config.").Default("crossplane-system").Envar("POD_NAMESPACE").String()
 		enableExternalSecretStores = app.Flag("enable-external-secret-stores", "Enable support for ExternalSecretStores.").Default("false").Envar("ENABLE_EXTERNAL_SECRET_STORES").Bool()
@@ -86,7 +87,7 @@ func main() {
 	// This removes some complexity for setting up development environments.
 	var scheduler terraform.ProviderScheduler = terraform.NewNoOpProviderScheduler()
 	if len(*nativeProviderPath) != 0 {
-		scheduler = terraform.NewSharedProviderScheduler(log, 1000, terraform.WithNativeProviderPath(*nativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*providerSource))
+		scheduler = terraform.NewSharedProviderScheduler(log, *pluginProcessTTL, terraform.WithNativeProviderPath(*nativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*providerSource))
 	}
 
 	o := tjcontroller.Options{
