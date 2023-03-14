@@ -84,9 +84,9 @@ func main() {
 	// we do not use the shared gRPC server and default to the regular
 	// Terraform CLI behaviour (of forking a plugin process per invocation).
 	// This removes some complexity for setting up development environments.
-	var runner terraform.ProviderRunner = terraform.NewNoOpProviderRunner()
+	var scheduler terraform.ProviderScheduler = terraform.NewNoOpProviderScheduler()
 	if len(*nativeProviderPath) != 0 {
-		runner = terraform.NewSharedProvider(log, *nativeProviderPath, "registry.terraform.io/"+*providerSource)
+		scheduler = terraform.NewSharedProviderScheduler(log, 1000, terraform.WithNativeProviderPath(*nativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*providerSource))
 	}
 
 	o := tjcontroller.Options{
@@ -98,7 +98,7 @@ func main() {
 			Features:                &feature.Flags{},
 		},
 		Provider:       config.GetProvider(),
-		WorkspaceStore: terraform.NewWorkspaceStore(log, terraform.WithProviderRunner(runner), terraform.WithProcessReportInterval(*pollInterval)),
+		WorkspaceStore: terraform.NewWorkspaceStore(log, terraform.WithProviderScheduler(scheduler), terraform.WithDisableInit(len(*nativeProviderPath) != 0), terraform.WithProcessReportInterval(*pollInterval)),
 		SetupFn:        clients.TerraformSetupBuilder(*terraformVersion, *providerSource, *providerVersion),
 	}
 
