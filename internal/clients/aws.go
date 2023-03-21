@@ -7,6 +7,7 @@ package clients
 import (
 	"context"
 
+	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/pkg/errors"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -23,10 +24,18 @@ const (
 	keySecretAccessKey = "secret_key"
 )
 
+type SetupConfig struct {
+	NativeProviderPath    *string
+	NativeProviderSource  *string
+	NativeProviderVersion *string
+	TerraformVersion      *string
+	DefaultScheduler      terraform.ProviderScheduler
+}
+
 // TerraformSetupBuilder returns Terraform setup with provider specific
 // configuration like provider credentials used to connect to cloud APIs in the
 // expected form of a Terraform provider.
-func TerraformSetupBuilder(version, providerSource, providerVersion string) terraform.SetupFn { //nolint:gocyclo
+func TerraformSetupBuilder(_ logging.Logger, config *SetupConfig) terraform.SetupFn { //nolint:gocyclo
 	return func(ctx context.Context, client client.Client, mg resource.Managed) (terraform.Setup, error) {
 		cfg, err := GetAWSConfig(ctx, client, mg)
 		if err != nil {
@@ -45,10 +54,10 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 
 		ps := terraform.Setup{
-			Version: version,
+			Version: *config.TerraformVersion,
 			Requirement: terraform.ProviderRequirement{
-				Source:  providerSource,
-				Version: providerVersion,
+				Source:  *config.NativeProviderSource,
+				Version: *config.NativeProviderVersion,
 			},
 			Configuration: map[string]any{
 				keyRegion:          cfg.Region,
@@ -61,6 +70,7 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			ClientMetadata: map[string]string{
 				keyAccountId: *identity.Account,
 			},
+			Scheduler: config.DefaultScheduler,
 		}
 		return ps, err
 	}
