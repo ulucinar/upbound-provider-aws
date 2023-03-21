@@ -35,13 +35,14 @@ import (
 
 func main() {
 	var (
-		app              = kingpin.New(filepath.Base(os.Args[0]), "AWS support for Crossplane.").DefaultEnvars()
-		debug            = app.Flag("debug", "Run with debug logging.").Short('d').Bool()
-		syncInterval     = app.Flag("sync", "Sync interval controls how often all resources will be double checked for drift.").Short('s').Default("1h").Duration()
-		pollInterval     = app.Flag("poll", "Poll interval controls how often an individual resource should be checked for drift.").Default("10m").Duration()
-		leaderElection   = app.Flag("leader-election", "Use leader election for the controller manager.").Short('l').Default("false").OverrideDefaultFromEnvar("LEADER_ELECTION").Bool()
-		maxReconcileRate = app.Flag("max-reconcile-rate", "The global maximum rate per second at which resources may be checked for drift from the desired state.").Default("10").Int()
-		pluginProcessTTL = app.Flag("provider-ttl", "TTL for the native plugin processes before they are replaced..").Default("100").Int()
+		app                   = kingpin.New(filepath.Base(os.Args[0]), "AWS support for Crossplane.").DefaultEnvars()
+		debug                 = app.Flag("debug", "Run with debug logging.").Short('d').Bool()
+		syncInterval          = app.Flag("sync", "Sync interval controls how often all resources will be double checked for drift.").Short('s').Default("1h").Duration()
+		pollInterval          = app.Flag("poll", "Poll interval controls how often an individual resource should be checked for drift.").Default("10m").Duration()
+		leaderElection        = app.Flag("leader-election", "Use leader election for the controller manager.").Short('l').Default("false").OverrideDefaultFromEnvar("LEADER_ELECTION").Bool()
+		maxReconcileRate      = app.Flag("max-reconcile-rate", "The global maximum rate per second at which resources may be checked for drift from the desired state.").Default("10").Int()
+		pluginProcessTTL      = app.Flag("provider-ttl", "TTL for the native plugin processes before they are replaced..").Default("100").Int()
+		useWorkspaceScheduler = app.Flag("use-ws-scheduler", "Always use the workspace provider scheduler.").Bool()
 
 		namespace                  = app.Flag("namespace", "Namespace used to set as default scope in default secret store config.").Default("crossplane-system").Envar("POD_NAMESPACE").String()
 		enableExternalSecretStores = app.Flag("enable-external-secret-stores", "Enable support for ExternalSecretStores.").Default("false").Envar("ENABLE_EXTERNAL_SECRET_STORES").Bool()
@@ -88,7 +89,12 @@ func main() {
 	// This removes some complexity for setting up development environments.
 	setupConfig.DefaultScheduler = terraform.NewNoOpProviderScheduler()
 	if len(*setupConfig.NativeProviderPath) != 0 {
-		setupConfig.DefaultScheduler = terraform.NewSharedProviderScheduler(log, *pluginProcessTTL, terraform.WithNativeProviderPath(*setupConfig.NativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*setupConfig.NativeProviderSource))
+		switch {
+		case *useWorkspaceScheduler:
+			setupConfig.DefaultScheduler = terraform.NewWorkspaceProviderScheduler(log, terraform.WithNativeProviderPath(*setupConfig.NativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*setupConfig.NativeProviderSource))
+		default:
+			setupConfig.DefaultScheduler = terraform.NewSharedProviderScheduler(log, *pluginProcessTTL, terraform.WithNativeProviderPath(*setupConfig.NativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*setupConfig.NativeProviderSource))
+		}
 	}
 
 	o := tjcontroller.Options{
