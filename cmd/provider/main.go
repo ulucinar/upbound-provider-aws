@@ -41,7 +41,7 @@ func main() {
 		pollInterval     = app.Flag("poll", "Poll interval controls how often an individual resource should be checked for drift.").Default("10m").Duration()
 		leaderElection   = app.Flag("leader-election", "Use leader election for the controller manager.").Short('l').Default("false").OverrideDefaultFromEnvar("LEADER_ELECTION").Bool()
 		maxReconcileRate = app.Flag("max-reconcile-rate", "The global maximum rate per second at which resources may be checked for drift from the desired state.").Default("10").Int()
-		pluginProcessTTL = app.Flag("provider-ttl", "TTL for the native plugin processes before they are replaced..").Default("100").Int()
+		pluginProcessTTL = app.Flag("provider-ttl", "TTL for the native plugin processes before they are replaced. Changing the default may increase memory consumption.").Default("100").Int()
 
 		namespace                  = app.Flag("namespace", "Namespace used to set as default scope in default secret store config.").Default("crossplane-system").Envar("POD_NAMESPACE").String()
 		enableExternalSecretStores = app.Flag("enable-external-secret-stores", "Enable support for ExternalSecretStores.").Default("false").Envar("ENABLE_EXTERNAL_SECRET_STORES").Bool()
@@ -51,7 +51,6 @@ func main() {
 	setupConfig.NativeProviderSource = app.Flag("terraform-provider-source", "Terraform provider source.").Required().Envar("TERRAFORM_PROVIDER_SOURCE").String()
 	setupConfig.NativeProviderVersion = app.Flag("terraform-provider-version", "Terraform provider version.").Required().Envar("TERRAFORM_PROVIDER_VERSION").String()
 	setupConfig.NativeProviderPath = app.Flag("terraform-native-provider-path", "Terraform native provider path for shared execution.").Default("").Envar("TERRAFORM_NATIVE_PROVIDER_PATH").String()
-	setupConfig.UseWorkspaceScheduler = app.Flag("use-ws-scheduler", "Always use the workspace provider scheduler.").Bool()
 
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 

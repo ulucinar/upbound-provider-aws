@@ -43,7 +43,6 @@ type SetupConfig struct {
 	NativeProviderVersion *string
 	TerraformVersion      *string
 	DefaultScheduler      terraform.ProviderScheduler
-	UseWorkspaceScheduler *bool
 }
 
 func SelectTerraformSetup(log logging.Logger, config *SetupConfig) terraform.SetupFn {
@@ -59,9 +58,6 @@ func SelectTerraformSetup(log logging.Logger, config *SetupConfig) terraform.Set
 				Version: *config.NativeProviderVersion,
 			},
 			Scheduler: config.DefaultScheduler,
-		}
-		if *config.UseWorkspaceScheduler {
-			ps.Scheduler = terraform.NewWorkspaceProviderScheduler(log, terraform.WithNativeProviderPath(*config.NativeProviderPath), terraform.WithNativeProviderName("registry.terraform.io/"+*config.NativeProviderSource))
 		}
 
 		account, err := getAccountId(ctx, c, mg)
