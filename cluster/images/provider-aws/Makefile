@@ -58,7 +58,6 @@ img.build.shared: $(UP)
 		--build-arg CROSSPLANE_PROVIDER_VERSION=$(VERSION) \
 		-t $(IMAGE) \
 		$(IMAGE_TEMP_DIR) || $(FAIL)
-	# @$(MAKE) UP=$(UP) XPKG_REG_ORGS=$(XPKG_REG_ORGS) XPKG_REG_ORGS_NO_PROMOTE=$(XPKG_REG_ORGS_NO_PROMOTE) XPKGS=$(PROJECT_NAME)-$(APIGROUP) XPKG_DIR=$(IMAGE_TEMP_DIR)/package XPKG_EXAMPLES_DIR=$(IMAGE_TEMP_DIR)/examples $(ARG_XPKG_AUTH_EXT) build.xpkg || $(FAIL)
 
 build.xpkg: do.build.xpkgs
 
