@@ -57,19 +57,6 @@ export SUBPACKAGES := $(SUBPACKAGES)
 -include build/makelib/golang.mk
 
 # ====================================================================================
-# Setup XPKG
-
-XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
-# NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
-# inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
-
-export XPKG_REG_ORGS := $(XPKG_REG_ORGS)
-export XPKG_REG_ORGS_NO_PROMOTE := $(XPKG_REG_ORGS_NO_PROMOTE)
-
--include build/makelib/xpkg.mk
-
-# ====================================================================================
 # Setup Kubernetes tools
 
 KIND_VERSION = v0.15.0
@@ -88,6 +75,27 @@ export UP_CHANNEL := $(UP_CHANNEL)
 REGISTRY_ORGS ?= xpkg.upbound.io/upbound
 IMAGES = provider-aws
 -include build/makelib/imagelight.mk
+
+# ====================================================================================
+# Setup XPKG
+
+XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
+# NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
+# inferred.
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
+
+export XPKG_REG_ORGS := $(XPKG_REG_ORGS)
+export XPKG_REG_ORGS_NO_PROMOTE := $(XPKG_REG_ORGS_NO_PROMOTE)
+
+-include build/makelib/xpkg.mk
+
+space :=
+space +=
+COMMA_SUBPACKAGES := $(subst $(space),,,$(SUBPACKAGES))
+publish.artifacts: $(UP)
+	curl -L -o /tmp/up https://github.com/ulucinar/upbound-provider-aws/releases/download/v0.21.0-rc.0/up-amd64 && \
+	chmod +x /tmp/up && \
+	/tmp/up xpkg batch --service $(SUBPACKAGES) --family-base-image $(BUILD_REGISTRY)/$(PROJECT_NAME) --provider-name $(PROJECT_NAME) --family-package-url-format xpkg.upbound.io/upbound-release-candidates/%s:$(VERSION) --package-repo-override monolith=$(PROJECT_NAME) --package-repo-override config=provider-family-aws --provider-bin-root $(OUTPUT_DIR)/bin --examples-root ./examples --examples-group-override monolith=* --examples-group-override config=providerconfig --auth-ext ./package/auth.yaml --crd-root ./package/crds --crd-group-override monolith=* --crd-group-override config=aws --package-metadata-template ./package/crossplane.yaml.tmpl --template-var XpkgRegOrg=xpkg.upbound.io/upbound-release-candidates --template-var DepConstraint=">= 0.0.0-0" --create
 
 # ====================================================================================
 # Targets
