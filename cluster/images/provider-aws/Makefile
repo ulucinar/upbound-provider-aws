@@ -24,18 +24,6 @@ img.build:
 	$(MAKE) BUILD_ARGS="--load" IMAGE=$${IMAGE} XPKG_REG_ORGS=$(XPKG_REG_ORGS) img.build.shared; \
 	$(OK) docker build $${IMAGE};
 
-# make BRANCH_NAME=main SUBPACKAGES=cloudplatform publish
-img.publish: $(UP)
-	@$(INFO) Subpackages to publish: $(SUBPACKAGES)
-	@for g in $(SUBPACKAGES); do \
-		PACKAGE=$(XPKG_REG_ORGS)/$(PROJECT_NAME)-$${g}:$(VERSION); \
-		if [[ $${g} == "monolith" ]]; then PACKAGE=$(XPKG_REG_ORGS)/$(PROJECT_NAME):$(VERSION); fi; \
-		$(INFO) Pushing package $${PACKAGE}; \
-		$(UP) xpkg push $${PACKAGE} \
-				$(foreach p,$(XPKG_LINUX_PLATFORMS),--package $(XPKG_OUTPUT_DIR)/$(p)/$(PROJECT_NAME)-$${g}-$(VERSION).xpkg ) || $(FAIL); \
-		$(OK) Done processing $${PACKAGE}. Moving to the next package...; \
-	done || $(FAIL)
-
 ifneq (,$(filter $(APIGROUP),monolith config))
     ARG_XPKG_AUTH_EXT := "XPKG_AUTH_EXT=$(ROOT_DIR)/package/auth.yaml"
 endif
@@ -59,7 +47,10 @@ img.build.shared: $(UP)
 		-t $(IMAGE) \
 		$(IMAGE_TEMP_DIR) || $(FAIL)
 
-build.xpkg: do.build.xpkgs
+img.publish:
+	@$(INFO) Skipping image publish for $(IMAGE)
+	@echo Publish is deferred to xpkg machinery
+	@$(OK) Image publish skipped for $(IMAGE)
 
 img.promote:
 	@$(INFO) Skipping image promotion from $(FROM_IMAGE) to $(TO_IMAGE)
