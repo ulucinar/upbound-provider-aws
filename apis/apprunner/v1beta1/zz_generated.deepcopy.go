@@ -131,17 +131,17 @@ func (in *AutoScalingConfigurationVersionInitParameters) DeepCopyInto(out *AutoS
 	}
 	if in.MaxConcurrency != nil {
 		in, out := &in.MaxConcurrency, &out.MaxConcurrency
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxSize != nil {
 		in, out := &in.MaxSize, &out.MaxSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinSize != nil {
 		in, out := &in.MinSize, &out.MinSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -218,7 +218,7 @@ func (in *AutoScalingConfigurationVersionObservation) DeepCopyInto(out *AutoScal
 	}
 	if in.AutoScalingConfigurationRevision != nil {
 		in, out := &in.AutoScalingConfigurationRevision, &out.AutoScalingConfigurationRevision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -233,17 +233,17 @@ func (in *AutoScalingConfigurationVersionObservation) DeepCopyInto(out *AutoScal
 	}
 	if in.MaxConcurrency != nil {
 		in, out := &in.MaxConcurrency, &out.MaxConcurrency
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxSize != nil {
 		in, out := &in.MaxSize, &out.MaxSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinSize != nil {
 		in, out := &in.MinSize, &out.MinSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Status != nil {
@@ -303,17 +303,17 @@ func (in *AutoScalingConfigurationVersionParameters) DeepCopyInto(out *AutoScali
 	}
 	if in.MaxConcurrency != nil {
 		in, out := &in.MaxConcurrency, &out.MaxConcurrency
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxSize != nil {
 		in, out := &in.MaxSize, &out.MaxSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinSize != nil {
 		in, out := &in.MinSize, &out.MinSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -1140,12 +1140,12 @@ func (in *HealthCheckConfigurationInitParameters) DeepCopyInto(out *HealthCheckC
 	*out = *in
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Path != nil {
@@ -1160,12 +1160,12 @@ func (in *HealthCheckConfigurationInitParameters) DeepCopyInto(out *HealthCheckC
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1185,12 +1185,12 @@ func (in *HealthCheckConfigurationObservation) DeepCopyInto(out *HealthCheckConf
 	*out = *in
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Path != nil {
@@ -1205,12 +1205,12 @@ func (in *HealthCheckConfigurationObservation) DeepCopyInto(out *HealthCheckConf
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1230,12 +1230,12 @@ func (in *HealthCheckConfigurationParameters) DeepCopyInto(out *HealthCheckConfi
 	*out = *in
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Path != nil {
@@ -1250,12 +1250,12 @@ func (in *HealthCheckConfigurationParameters) DeepCopyInto(out *HealthCheckConfi
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1894,7 +1894,7 @@ func (in *ObservabilityConfigurationObservation) DeepCopyInto(out *Observability
 	}
 	if in.ObservabilityConfigurationRevision != nil {
 		in, out := &in.ObservabilityConfigurationRevision, &out.ObservabilityConfigurationRevision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Status != nil {
@@ -2927,7 +2927,7 @@ func (in *VPCConnectorObservation) DeepCopyInto(out *VPCConnectorObservation) {
 	}
 	if in.VPCConnectorRevision != nil {
 		in, out := &in.VPCConnectorRevision, &out.VPCConnectorRevision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

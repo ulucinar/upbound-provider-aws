@@ -611,7 +611,7 @@ func (in *ConfigurationInitParameters) DeepCopyInto(out *ConfigurationInitParame
 	*out = *in
 	if in.Revision != nil {
 		in, out := &in.Revision, &out.Revision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -728,7 +728,7 @@ func (in *ConfigurationObservation) DeepCopyInto(out *ConfigurationObservation) 
 	}
 	if in.Revision != nil {
 		in, out := &in.Revision, &out.Revision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -783,7 +783,7 @@ func (in *ConfigurationObservation_2) DeepCopyInto(out *ConfigurationObservation
 	}
 	if in.LatestRevision != nil {
 		in, out := &in.LatestRevision, &out.LatestRevision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -853,7 +853,7 @@ func (in *ConfigurationParameters) DeepCopyInto(out *ConfigurationParameters) {
 	}
 	if in.Revision != nil {
 		in, out := &in.Revision, &out.Revision
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

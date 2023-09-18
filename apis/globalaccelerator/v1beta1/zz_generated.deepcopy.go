@@ -449,7 +449,7 @@ func (in *EndpointConfigurationInitParameters) DeepCopyInto(out *EndpointConfigu
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -479,7 +479,7 @@ func (in *EndpointConfigurationObservation) DeepCopyInto(out *EndpointConfigurat
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -509,7 +509,7 @@ func (in *EndpointConfigurationParameters) DeepCopyInto(out *EndpointConfigurati
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -568,7 +568,7 @@ func (in *EndpointGroupInitParameters) DeepCopyInto(out *EndpointGroupInitParame
 	}
 	if in.HealthCheckIntervalSeconds != nil {
 		in, out := &in.HealthCheckIntervalSeconds, &out.HealthCheckIntervalSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckPath != nil {
@@ -578,7 +578,7 @@ func (in *EndpointGroupInitParameters) DeepCopyInto(out *EndpointGroupInitParame
 	}
 	if in.HealthCheckPort != nil {
 		in, out := &in.HealthCheckPort, &out.HealthCheckPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckProtocol != nil {
@@ -595,7 +595,7 @@ func (in *EndpointGroupInitParameters) DeepCopyInto(out *EndpointGroupInitParame
 	}
 	if in.ThresholdCount != nil {
 		in, out := &in.ThresholdCount, &out.ThresholdCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficDialPercentage != nil {
@@ -669,7 +669,7 @@ func (in *EndpointGroupObservation) DeepCopyInto(out *EndpointGroupObservation) 
 	}
 	if in.HealthCheckIntervalSeconds != nil {
 		in, out := &in.HealthCheckIntervalSeconds, &out.HealthCheckIntervalSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckPath != nil {
@@ -679,7 +679,7 @@ func (in *EndpointGroupObservation) DeepCopyInto(out *EndpointGroupObservation) 
 	}
 	if in.HealthCheckPort != nil {
 		in, out := &in.HealthCheckPort, &out.HealthCheckPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckProtocol != nil {
@@ -706,7 +706,7 @@ func (in *EndpointGroupObservation) DeepCopyInto(out *EndpointGroupObservation) 
 	}
 	if in.ThresholdCount != nil {
 		in, out := &in.ThresholdCount, &out.ThresholdCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficDialPercentage != nil {
@@ -743,7 +743,7 @@ func (in *EndpointGroupParameters) DeepCopyInto(out *EndpointGroupParameters) {
 	}
 	if in.HealthCheckIntervalSeconds != nil {
 		in, out := &in.HealthCheckIntervalSeconds, &out.HealthCheckIntervalSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckPath != nil {
@@ -753,7 +753,7 @@ func (in *EndpointGroupParameters) DeepCopyInto(out *EndpointGroupParameters) {
 	}
 	if in.HealthCheckPort != nil {
 		in, out := &in.HealthCheckPort, &out.HealthCheckPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HealthCheckProtocol != nil {
@@ -790,7 +790,7 @@ func (in *EndpointGroupParameters) DeepCopyInto(out *EndpointGroupParameters) {
 	}
 	if in.ThresholdCount != nil {
 		in, out := &in.ThresholdCount, &out.ThresholdCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficDialPercentage != nil {
@@ -1131,12 +1131,12 @@ func (in *PortOverrideInitParameters) DeepCopyInto(out *PortOverrideInitParamete
 	*out = *in
 	if in.EndpointPort != nil {
 		in, out := &in.EndpointPort, &out.EndpointPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ListenerPort != nil {
 		in, out := &in.ListenerPort, &out.ListenerPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1156,12 +1156,12 @@ func (in *PortOverrideObservation) DeepCopyInto(out *PortOverrideObservation) {
 	*out = *in
 	if in.EndpointPort != nil {
 		in, out := &in.EndpointPort, &out.EndpointPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ListenerPort != nil {
 		in, out := &in.ListenerPort, &out.ListenerPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1181,12 +1181,12 @@ func (in *PortOverrideParameters) DeepCopyInto(out *PortOverrideParameters) {
 	*out = *in
 	if in.EndpointPort != nil {
 		in, out := &in.EndpointPort, &out.EndpointPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ListenerPort != nil {
 		in, out := &in.ListenerPort, &out.ListenerPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1206,12 +1206,12 @@ func (in *PortRangeInitParameters) DeepCopyInto(out *PortRangeInitParameters) {
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1231,12 +1231,12 @@ func (in *PortRangeObservation) DeepCopyInto(out *PortRangeObservation) {
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1256,12 +1256,12 @@ func (in *PortRangeParameters) DeepCopyInto(out *PortRangeParameters) {
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

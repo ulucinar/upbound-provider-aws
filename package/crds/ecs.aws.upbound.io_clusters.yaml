@@ -130,7 +130,8 @@ spec:
                           description: The number of tasks, at a minimum, to run on
                             the specified capacity provider. Only one capacity provider
                             in a capacity provider strategy can have a base defined.
-                          type: number
+                          format: int64
+                          type: integer
                         capacityProvider:
                           description: The short name of the capacity provider.
                           type: string
@@ -138,7 +139,8 @@ spec:
                           description: The relative percentage of the total number
                             of launched tasks that should use the specified capacity
                             provider.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   region:
@@ -258,7 +260,8 @@ spec:
                           description: The number of tasks, at a minimum, to run on
                             the specified capacity provider. Only one capacity provider
                             in a capacity provider strategy can have a base defined.
-                          type: number
+                          format: int64
+                          type: integer
                         capacityProvider:
                           description: The short name of the capacity provider.
                           type: string
@@ -266,7 +269,8 @@ spec:
                           description: The relative percentage of the total number
                             of launched tasks that should use the specified capacity
                             provider.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   serviceConnectDefaults:
@@ -579,7 +583,8 @@ spec:
                           description: The number of tasks, at a minimum, to run on
                             the specified capacity provider. Only one capacity provider
                             in a capacity provider strategy can have a base defined.
-                          type: number
+                          format: int64
+                          type: integer
                         capacityProvider:
                           description: The short name of the capacity provider.
                           type: string
@@ -587,7 +592,8 @@ spec:
                           description: The relative percentage of the total number
                             of launched tasks that should use the specified capacity
                             provider.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   id:

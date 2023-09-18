@@ -19,7 +19,7 @@ func (in *CapacityProviderStrategyInitParameters) DeepCopyInto(out *CapacityProv
 	*out = *in
 	if in.Base != nil {
 		in, out := &in.Base, &out.Base
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityProvider != nil {
@@ -29,7 +29,7 @@ func (in *CapacityProviderStrategyInitParameters) DeepCopyInto(out *CapacityProv
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -49,7 +49,7 @@ func (in *CapacityProviderStrategyObservation) DeepCopyInto(out *CapacityProvide
 	*out = *in
 	if in.Base != nil {
 		in, out := &in.Base, &out.Base
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityProvider != nil {
@@ -59,7 +59,7 @@ func (in *CapacityProviderStrategyObservation) DeepCopyInto(out *CapacityProvide
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -79,7 +79,7 @@ func (in *CapacityProviderStrategyParameters) DeepCopyInto(out *CapacityProvider
 	*out = *in
 	if in.Base != nil {
 		in, out := &in.Base, &out.Base
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityProvider != nil {
@@ -89,7 +89,7 @@ func (in *CapacityProviderStrategyParameters) DeepCopyInto(out *CapacityProvider
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -247,7 +247,7 @@ func (in *EcsParametersInitParameters) DeepCopyInto(out *EcsParametersInitParame
 	}
 	if in.TaskCount != nil {
 		in, out := &in.TaskCount, &out.TaskCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TaskDefinitionArn != nil {
@@ -350,7 +350,7 @@ func (in *EcsParametersObservation) DeepCopyInto(out *EcsParametersObservation) 
 	}
 	if in.TaskCount != nil {
 		in, out := &in.TaskCount, &out.TaskCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TaskDefinitionArn != nil {
@@ -453,7 +453,7 @@ func (in *EcsParametersParameters) DeepCopyInto(out *EcsParametersParameters) {
 	}
 	if in.TaskCount != nil {
 		in, out := &in.TaskCount, &out.TaskCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TaskDefinitionArn != nil {
@@ -553,7 +553,7 @@ func (in *FlexibleTimeWindowInitParameters) DeepCopyInto(out *FlexibleTimeWindow
 	*out = *in
 	if in.MaximumWindowInMinutes != nil {
 		in, out := &in.MaximumWindowInMinutes, &out.MaximumWindowInMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Mode != nil {
@@ -578,7 +578,7 @@ func (in *FlexibleTimeWindowObservation) DeepCopyInto(out *FlexibleTimeWindowObs
 	*out = *in
 	if in.MaximumWindowInMinutes != nil {
 		in, out := &in.MaximumWindowInMinutes, &out.MaximumWindowInMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Mode != nil {
@@ -603,7 +603,7 @@ func (in *FlexibleTimeWindowParameters) DeepCopyInto(out *FlexibleTimeWindowPara
 	*out = *in
 	if in.MaximumWindowInMinutes != nil {
 		in, out := &in.MaximumWindowInMinutes, &out.MaximumWindowInMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Mode != nil {
@@ -1039,12 +1039,12 @@ func (in *RetryPolicyInitParameters) DeepCopyInto(out *RetryPolicyInitParameters
 	*out = *in
 	if in.MaximumEventAgeInSeconds != nil {
 		in, out := &in.MaximumEventAgeInSeconds, &out.MaximumEventAgeInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaximumRetryAttempts != nil {
 		in, out := &in.MaximumRetryAttempts, &out.MaximumRetryAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1064,12 +1064,12 @@ func (in *RetryPolicyObservation) DeepCopyInto(out *RetryPolicyObservation) {
 	*out = *in
 	if in.MaximumEventAgeInSeconds != nil {
 		in, out := &in.MaximumEventAgeInSeconds, &out.MaximumEventAgeInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaximumRetryAttempts != nil {
 		in, out := &in.MaximumRetryAttempts, &out.MaximumRetryAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1089,12 +1089,12 @@ func (in *RetryPolicyParameters) DeepCopyInto(out *RetryPolicyParameters) {
 	*out = *in
 	if in.MaximumEventAgeInSeconds != nil {
 		in, out := &in.MaximumEventAgeInSeconds, &out.MaximumEventAgeInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaximumRetryAttempts != nil {
 		in, out := &in.MaximumRetryAttempts, &out.MaximumRetryAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

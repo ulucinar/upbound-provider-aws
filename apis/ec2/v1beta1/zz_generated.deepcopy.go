@@ -121,7 +121,7 @@ func (in *ACLRuleObservation) DeepCopyInto(out *ACLRuleObservation) {
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -171,12 +171,12 @@ func (in *ACLRulePortRangeObservation) DeepCopyInto(out *ACLRulePortRangeObserva
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -295,7 +295,7 @@ func (in *AMICopyEBSBlockDeviceObservation) DeepCopyInto(out *AMICopyEBSBlockDev
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OutpostArn != nil {
@@ -310,12 +310,12 @@ func (in *AMICopyEBSBlockDeviceObservation) DeepCopyInto(out *AMICopyEBSBlockDev
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -1584,12 +1584,12 @@ func (in *AcceleratorCountInitParameters) DeepCopyInto(out *AcceleratorCountInit
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1609,12 +1609,12 @@ func (in *AcceleratorCountObservation) DeepCopyInto(out *AcceleratorCountObserva
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1634,12 +1634,12 @@ func (in *AcceleratorCountParameters) DeepCopyInto(out *AcceleratorCountParamete
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1659,12 +1659,12 @@ func (in *AcceleratorTotalMemoryMibInitParameters) DeepCopyInto(out *Accelerator
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1684,12 +1684,12 @@ func (in *AcceleratorTotalMemoryMibObservation) DeepCopyInto(out *AcceleratorTot
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1709,12 +1709,12 @@ func (in *AcceleratorTotalMemoryMibParameters) DeepCopyInto(out *AcceleratorTota
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2046,7 +2046,7 @@ func (in *AttachmentObservation) DeepCopyInto(out *AttachmentObservation) {
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Instance != nil {
@@ -2250,12 +2250,12 @@ func (in *BaselineEBSBandwidthMbpsInitParameters) DeepCopyInto(out *BaselineEBSB
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2275,12 +2275,12 @@ func (in *BaselineEBSBandwidthMbpsObservation) DeepCopyInto(out *BaselineEBSBand
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2300,12 +2300,12 @@ func (in *BaselineEBSBandwidthMbpsParameters) DeepCopyInto(out *BaselineEBSBandw
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2441,12 +2441,12 @@ func (in *CPUOptionsInitParameters) DeepCopyInto(out *CPUOptionsInitParameters) 
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2471,12 +2471,12 @@ func (in *CPUOptionsObservation) DeepCopyInto(out *CPUOptionsObservation) {
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2501,12 +2501,12 @@ func (in *CPUOptionsParameters) DeepCopyInto(out *CPUOptionsParameters) {
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2638,7 +2638,7 @@ func (in *CapacityReservationInitParameters) DeepCopyInto(out *CapacityReservati
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceMatchCriteria != nil {
@@ -2770,7 +2770,7 @@ func (in *CapacityReservationObservation) DeepCopyInto(out *CapacityReservationO
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceMatchCriteria != nil {
@@ -2880,7 +2880,7 @@ func (in *CapacityReservationParameters) DeepCopyInto(out *CapacityReservationPa
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceMatchCriteria != nil {
@@ -3545,12 +3545,12 @@ func (in *ClassicLoadBalancerListenerObservation) DeepCopyInto(out *ClassicLoadB
 	*out = *in
 	if in.InstancePort != nil {
 		in, out := &in.InstancePort, &out.InstancePort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LoadBalancerPort != nil {
 		in, out := &in.LoadBalancerPort, &out.LoadBalancerPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -4332,16 +4332,12 @@ func (in *DefaultNetworkACLInitParameters) DeepCopyInto(out *DefaultNetworkACLIn
 	if in.Egress != nil {
 		in, out := &in.Egress, &out.Egress
 		*out = make([]EgressInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		copy(*out, *in)
 	}
 	if in.Ingress != nil {
 		in, out := &in.Ingress, &out.Ingress
 		*out = make([]IngressInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		copy(*out, *in)
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -4518,16 +4514,12 @@ func (in *DefaultNetworkACLParameters) DeepCopyInto(out *DefaultNetworkACLParame
 	if in.Egress != nil {
 		in, out := &in.Egress, &out.Egress
 		*out = make([]EgressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		copy(*out, *in)
 	}
 	if in.Ingress != nil {
 		in, out := &in.Ingress, &out.Ingress
 		*out = make([]IngressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		copy(*out, *in)
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
@@ -4947,75 +4939,6 @@ func (in *DefaultSecurityGroup) DeepCopyObject() runtime.Object {
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupEgressInitParameters) DeepCopyInto(out *DefaultSecurityGroupEgressInitParameters) {
 	*out = *in
-	if in.CidrBlocks != nil {
-		in, out := &in.CidrBlocks, &out.CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Description != nil {
-		in, out := &in.Description, &out.Description
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlocks != nil {
-		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.PrefixListIds != nil {
-		in, out := &in.PrefixListIds, &out.PrefixListIds
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.SecurityGroups != nil {
-		in, out := &in.SecurityGroups, &out.SecurityGroups
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Self != nil {
-		in, out := &in.Self, &out.Self
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new DefaultSecurityGroupEgressInitParameters.
@@ -5049,7 +4972,7 @@ func (in *DefaultSecurityGroupEgressObservation) DeepCopyInto(out *DefaultSecuri
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -5097,7 +5020,7 @@ func (in *DefaultSecurityGroupEgressObservation) DeepCopyInto(out *DefaultSecuri
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5115,75 +5038,6 @@ func (in *DefaultSecurityGroupEgressObservation) DeepCopy() *DefaultSecurityGrou
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupEgressParameters) DeepCopyInto(out *DefaultSecurityGroupEgressParameters) {
 	*out = *in
-	if in.CidrBlocks != nil {
-		in, out := &in.CidrBlocks, &out.CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Description != nil {
-		in, out := &in.Description, &out.Description
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlocks != nil {
-		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.PrefixListIds != nil {
-		in, out := &in.PrefixListIds, &out.PrefixListIds
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.SecurityGroups != nil {
-		in, out := &in.SecurityGroups, &out.SecurityGroups
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Self != nil {
-		in, out := &in.Self, &out.Self
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new DefaultSecurityGroupEgressParameters.
@@ -5199,75 +5053,6 @@ func (in *DefaultSecurityGroupEgressParameters) DeepCopy() *DefaultSecurityGroup
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupIngressInitParameters) DeepCopyInto(out *DefaultSecurityGroupIngressInitParameters) {
 	*out = *in
-	if in.CidrBlocks != nil {
-		in, out := &in.CidrBlocks, &out.CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Description != nil {
-		in, out := &in.Description, &out.Description
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlocks != nil {
-		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.PrefixListIds != nil {
-		in, out := &in.PrefixListIds, &out.PrefixListIds
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.SecurityGroups != nil {
-		in, out := &in.SecurityGroups, &out.SecurityGroups
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Self != nil {
-		in, out := &in.Self, &out.Self
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new DefaultSecurityGroupIngressInitParameters.
@@ -5301,7 +5086,7 @@ func (in *DefaultSecurityGroupIngressObservation) DeepCopyInto(out *DefaultSecur
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -5349,7 +5134,7 @@ func (in *DefaultSecurityGroupIngressObservation) DeepCopyInto(out *DefaultSecur
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5367,75 +5152,6 @@ func (in *DefaultSecurityGroupIngressObservation) DeepCopy() *DefaultSecurityGro
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupIngressParameters) DeepCopyInto(out *DefaultSecurityGroupIngressParameters) {
 	*out = *in
-	if in.CidrBlocks != nil {
-		in, out := &in.CidrBlocks, &out.CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Description != nil {
-		in, out := &in.Description, &out.Description
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlocks != nil {
-		in, out := &in.IPv6CidrBlocks, &out.IPv6CidrBlocks
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.PrefixListIds != nil {
-		in, out := &in.PrefixListIds, &out.PrefixListIds
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.SecurityGroups != nil {
-		in, out := &in.SecurityGroups, &out.SecurityGroups
-		*out = make([]*string, len(*in))
-		for i := range *in {
-			if (*in)[i] != nil {
-				in, out := &(*in)[i], &(*out)[i]
-				*out = new(string)
-				**out = **in
-			}
-		}
-	}
-	if in.Self != nil {
-		in, out := &in.Self, &out.Self
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new DefaultSecurityGroupIngressParameters.
@@ -5451,20 +5167,6 @@ func (in *DefaultSecurityGroupIngressParameters) DeepCopy() *DefaultSecurityGrou
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupInitParameters) DeepCopyInto(out *DefaultSecurityGroupInitParameters) {
 	*out = *in
-	if in.Egress != nil {
-		in, out := &in.Egress, &out.Egress
-		*out = make([]DefaultSecurityGroupEgressInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.Ingress != nil {
-		in, out := &in.Ingress, &out.Ingress
-		*out = make([]DefaultSecurityGroupIngressInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.RevokeRulesOnDelete != nil {
 		in, out := &in.RevokeRulesOnDelete, &out.RevokeRulesOnDelete
 		*out = new(bool)
@@ -5626,20 +5328,6 @@ func (in *DefaultSecurityGroupObservation) DeepCopy() *DefaultSecurityGroupObser
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *DefaultSecurityGroupParameters) DeepCopyInto(out *DefaultSecurityGroupParameters) {
 	*out = *in
-	if in.Egress != nil {
-		in, out := &in.Egress, &out.Egress
-		*out = make([]DefaultSecurityGroupEgressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.Ingress != nil {
-		in, out := &in.Ingress, &out.Ingress
-		*out = make([]DefaultSecurityGroupIngressParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -5916,7 +5604,7 @@ func (in *DefaultSubnetObservation) DeepCopyInto(out *DefaultSubnetObservation) 
 	}
 	if in.EnableLniAtDeviceIndex != nil {
 		in, out := &in.EnableLniAtDeviceIndex, &out.EnableLniAtDeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnableResourceNameDNSARecordOnLaunch != nil {
@@ -6497,7 +6185,7 @@ func (in *DefaultVPCInitParameters) DeepCopyInto(out *DefaultVPCInitParameters) 
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -6659,7 +6347,7 @@ func (in *DefaultVPCObservation) DeepCopyInto(out *DefaultVPCObservation) {
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceTenancy != nil {
@@ -6774,7 +6462,7 @@ func (in *DefaultVPCParameters) DeepCopyInto(out *DefaultVPCParameters) {
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -6999,12 +6687,12 @@ func (in *DestinationPortRangeInitParameters) DeepCopyInto(out *DestinationPortR
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -7024,12 +6712,12 @@ func (in *DestinationPortRangeObservation) DeepCopyInto(out *DestinationPortRang
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -7049,12 +6737,12 @@ func (in *DestinationPortRangeParameters) DeepCopyInto(out *DestinationPortRange
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -7089,12 +6777,12 @@ func (in *DestinationPortRangesObservation) DeepCopyInto(out *DestinationPortRan
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -7315,7 +7003,7 @@ func (in *EBSBlockDeviceInitParameters) DeepCopyInto(out *EBSBlockDeviceInitPara
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OutpostArn != nil {
@@ -7325,12 +7013,12 @@ func (in *EBSBlockDeviceInitParameters) DeepCopyInto(out *EBSBlockDeviceInitPara
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -7370,7 +7058,7 @@ func (in *EBSBlockDeviceObservation) DeepCopyInto(out *EBSBlockDeviceObservation
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OutpostArn != nil {
@@ -7385,12 +7073,12 @@ func (in *EBSBlockDeviceObservation) DeepCopyInto(out *EBSBlockDeviceObservation
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -7430,7 +7118,7 @@ func (in *EBSBlockDeviceParameters) DeepCopyInto(out *EBSBlockDeviceParameters) 
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OutpostArn != nil {
@@ -7455,12 +7143,12 @@ func (in *EBSBlockDeviceParameters) DeepCopyInto(out *EBSBlockDeviceParameters) 
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -7828,7 +7516,7 @@ func (in *EBSInitParameters) DeepCopyInto(out *EBSInitParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotID != nil {
@@ -7838,12 +7526,12 @@ func (in *EBSInitParameters) DeepCopyInto(out *EBSInitParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -7878,7 +7566,7 @@ func (in *EBSObservation) DeepCopyInto(out *EBSObservation) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -7893,12 +7581,12 @@ func (in *EBSObservation) DeepCopyInto(out *EBSObservation) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -7933,7 +7621,7 @@ func (in *EBSParameters) DeepCopyInto(out *EBSParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -7958,12 +7646,12 @@ func (in *EBSParameters) DeepCopyInto(out *EBSParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -8082,7 +7770,7 @@ func (in *EBSSnapshotCopyInitParameters) DeepCopyInto(out *EBSSnapshotCopyInitPa
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8229,7 +7917,7 @@ func (in *EBSSnapshotCopyObservation) DeepCopyInto(out *EBSSnapshotCopyObservati
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -8239,7 +7927,7 @@ func (in *EBSSnapshotCopyObservation) DeepCopyInto(out *EBSSnapshotCopyObservati
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8334,7 +8022,7 @@ func (in *EBSSnapshotCopyParameters) DeepCopyInto(out *EBSSnapshotCopyParameters
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8470,7 +8158,7 @@ func (in *EBSSnapshotImportInitParameters) DeepCopyInto(out *EBSSnapshotImportIn
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8626,7 +8314,7 @@ func (in *EBSSnapshotImportObservation) DeepCopyInto(out *EBSSnapshotImportObser
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -8636,7 +8324,7 @@ func (in *EBSSnapshotImportObservation) DeepCopyInto(out *EBSSnapshotImportObser
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8730,7 +8418,7 @@ func (in *EBSSnapshotImportParameters) DeepCopyInto(out *EBSSnapshotImportParame
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8820,7 +8508,7 @@ func (in *EBSSnapshotInitParameters) DeepCopyInto(out *EBSSnapshotInitParameters
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8957,7 +8645,7 @@ func (in *EBSSnapshotObservation) DeepCopyInto(out *EBSSnapshotObservation) {
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -8967,7 +8655,7 @@ func (in *EBSSnapshotObservation) DeepCopyInto(out *EBSSnapshotObservation) {
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -9027,7 +8715,7 @@ func (in *EBSSnapshotParameters) DeepCopyInto(out *EBSSnapshotParameters) {
 	}
 	if in.TemporaryRestoreDays != nil {
 		in, out := &in.TemporaryRestoreDays, &out.TemporaryRestoreDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -9139,7 +8827,7 @@ func (in *EBSVolumeInitParameters) DeepCopyInto(out *EBSVolumeInitParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MultiAttachEnabled != nil {
@@ -9154,7 +8842,7 @@ func (in *EBSVolumeInitParameters) DeepCopyInto(out *EBSVolumeInitParameters) {
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotID != nil {
@@ -9179,7 +8867,7 @@ func (in *EBSVolumeInitParameters) DeepCopyInto(out *EBSVolumeInitParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -9261,7 +8949,7 @@ func (in *EBSVolumeObservation) DeepCopyInto(out *EBSVolumeObservation) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -9281,7 +8969,7 @@ func (in *EBSVolumeObservation) DeepCopyInto(out *EBSVolumeObservation) {
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotID != nil {
@@ -9321,7 +9009,7 @@ func (in *EBSVolumeObservation) DeepCopyInto(out *EBSVolumeObservation) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -9361,7 +9049,7 @@ func (in *EBSVolumeParameters) DeepCopyInto(out *EBSVolumeParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -9396,7 +9084,7 @@ func (in *EBSVolumeParameters) DeepCopyInto(out *EBSVolumeParameters) {
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotID != nil {
@@ -9421,7 +9109,7 @@ func (in *EBSVolumeParameters) DeepCopyInto(out *EBSVolumeParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -10112,51 +9800,6 @@ func (in *EIPStatus) DeepCopy() *EIPStatus {
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *EgressInitParameters) DeepCopyInto(out *EgressInitParameters) {
 	*out = *in
-	if in.Action != nil {
-		in, out := &in.Action, &out.Action
-		*out = new(string)
-		**out = **in
-	}
-	if in.CidrBlock != nil {
-		in, out := &in.CidrBlock, &out.CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlock != nil {
-		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.IcmpCode != nil {
-		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IcmpType != nil {
-		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
-		**out = **in
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.RuleNo != nil {
-		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new EgressInitParameters.
@@ -10184,7 +9827,7 @@ func (in *EgressObservation) DeepCopyInto(out *EgressObservation) {
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -10194,12 +9837,12 @@ func (in *EgressObservation) DeepCopyInto(out *EgressObservation) {
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -10209,12 +9852,12 @@ func (in *EgressObservation) DeepCopyInto(out *EgressObservation) {
 	}
 	if in.RuleNo != nil {
 		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -10461,51 +10104,6 @@ func (in *EgressOnlyInternetGatewayStatus) DeepCopy() *EgressOnlyInternetGateway
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *EgressParameters) DeepCopyInto(out *EgressParameters) {
 	*out = *in
-	if in.Action != nil {
-		in, out := &in.Action, &out.Action
-		*out = new(string)
-		**out = **in
-	}
-	if in.CidrBlock != nil {
-		in, out := &in.CidrBlock, &out.CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlock != nil {
-		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.IcmpCode != nil {
-		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IcmpType != nil {
-		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
-		**out = **in
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.RuleNo != nil {
-		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new EgressParameters.
@@ -11123,7 +10721,7 @@ func (in *ExplanationsObservation) DeepCopyInto(out *ExplanationsObservation) {
 	}
 	if in.LoadBalancerListenerPort != nil {
 		in, out := &in.LoadBalancerListenerPort, &out.LoadBalancerListenerPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LoadBalancerTargetGroup != nil {
@@ -11142,7 +10740,7 @@ func (in *ExplanationsObservation) DeepCopyInto(out *ExplanationsObservation) {
 	}
 	if in.LoadBalancerTargetPort != nil {
 		in, out := &in.LoadBalancerTargetPort, &out.LoadBalancerTargetPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MissingComponent != nil {
@@ -11171,7 +10769,7 @@ func (in *ExplanationsObservation) DeepCopyInto(out *ExplanationsObservation) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PortRanges != nil {
@@ -11414,7 +11012,7 @@ func (in *FlowLogInitParameters) DeepCopyInto(out *FlowLogInitParameters) {
 	}
 	if in.MaxAggregationInterval != nil {
 		in, out := &in.MaxAggregationInterval, &out.MaxAggregationInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -11548,7 +11146,7 @@ func (in *FlowLogObservation) DeepCopyInto(out *FlowLogObservation) {
 	}
 	if in.MaxAggregationInterval != nil {
 		in, out := &in.MaxAggregationInterval, &out.MaxAggregationInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SubnetID != nil {
@@ -11685,7 +11283,7 @@ func (in *FlowLogParameters) DeepCopyInto(out *FlowLogParameters) {
 	}
 	if in.MaxAggregationInterval != nil {
 		in, out := &in.MaxAggregationInterval, &out.MaxAggregationInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -11847,7 +11445,7 @@ func (in *ForwardPathComponentsACLRuleObservation) DeepCopyInto(out *ForwardPath
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -12140,7 +11738,7 @@ func (in *ForwardPathComponentsObservation) DeepCopyInto(out *ForwardPathCompone
 	}
 	if in.SequenceNumber != nil {
 		in, out := &in.SequenceNumber, &out.SequenceNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceVPC != nil {
@@ -12397,12 +11995,12 @@ func (in *ForwardPathComponentsSecurityGroupRulePortRangeObservation) DeepCopyIn
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -13226,12 +12824,12 @@ func (in *InboundHeaderDestinationPortRangesObservation) DeepCopyInto(out *Inbou
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -13367,12 +12965,12 @@ func (in *InboundHeaderSourcePortRangesObservation) DeepCopyInto(out *InboundHea
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -13405,46 +13003,6 @@ func (in *InboundHeaderSourcePortRangesParameters) DeepCopy() *InboundHeaderSour
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *IngressInitParameters) DeepCopyInto(out *IngressInitParameters) {
 	*out = *in
-	if in.Action != nil {
-		in, out := &in.Action, &out.Action
-		*out = new(string)
-		**out = **in
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlock != nil {
-		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.IcmpCode != nil {
-		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IcmpType != nil {
-		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
-		**out = **in
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.RuleNo != nil {
-		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new IngressInitParameters.
@@ -13472,7 +13030,7 @@ func (in *IngressObservation) DeepCopyInto(out *IngressObservation) {
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -13482,12 +13040,12 @@ func (in *IngressObservation) DeepCopyInto(out *IngressObservation) {
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -13497,12 +13055,12 @@ func (in *IngressObservation) DeepCopyInto(out *IngressObservation) {
 	}
 	if in.RuleNo != nil {
 		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -13520,61 +13078,6 @@ func (in *IngressObservation) DeepCopy() *IngressObservation {
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *IngressParameters) DeepCopyInto(out *IngressParameters) {
 	*out = *in
-	if in.Action != nil {
-		in, out := &in.Action, &out.Action
-		*out = new(string)
-		**out = **in
-	}
-	if in.CidrBlock != nil {
-		in, out := &in.CidrBlock, &out.CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.CidrBlockRef != nil {
-		in, out := &in.CidrBlockRef, &out.CidrBlockRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.CidrBlockSelector != nil {
-		in, out := &in.CidrBlockSelector, &out.CidrBlockSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.FromPort != nil {
-		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IPv6CidrBlock != nil {
-		in, out := &in.IPv6CidrBlock, &out.IPv6CidrBlock
-		*out = new(string)
-		**out = **in
-	}
-	if in.IcmpCode != nil {
-		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
-		**out = **in
-	}
-	if in.IcmpType != nil {
-		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
-		**out = **in
-	}
-	if in.Protocol != nil {
-		in, out := &in.Protocol, &out.Protocol
-		*out = new(string)
-		**out = **in
-	}
-	if in.RuleNo != nil {
-		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
-		**out = **in
-	}
-	if in.ToPort != nil {
-		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new IngressParameters.
@@ -13694,7 +13197,7 @@ func (in *InstanceEBSBlockDeviceInitParameters) DeepCopyInto(out *InstanceEBSBlo
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotID != nil {
@@ -13719,12 +13222,12 @@ func (in *InstanceEBSBlockDeviceInitParameters) DeepCopyInto(out *InstanceEBSBlo
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -13764,7 +13267,7 @@ func (in *InstanceEBSBlockDeviceObservation) DeepCopyInto(out *InstanceEBSBlockD
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -13794,7 +13297,7 @@ func (in *InstanceEBSBlockDeviceObservation) DeepCopyInto(out *InstanceEBSBlockD
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -13804,7 +13307,7 @@ func (in *InstanceEBSBlockDeviceObservation) DeepCopyInto(out *InstanceEBSBlockD
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -13844,7 +13347,7 @@ func (in *InstanceEBSBlockDeviceParameters) DeepCopyInto(out *InstanceEBSBlockDe
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -13884,12 +13387,12 @@ func (in *InstanceEBSBlockDeviceParameters) DeepCopyInto(out *InstanceEBSBlockDe
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -14019,7 +13522,7 @@ func (in *InstanceInitParameters) DeepCopyInto(out *InstanceInitParameters) {
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -14031,7 +13534,7 @@ func (in *InstanceInitParameters) DeepCopyInto(out *InstanceInitParameters) {
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -14111,7 +13614,7 @@ func (in *InstanceInitParameters) DeepCopyInto(out *InstanceInitParameters) {
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -14180,7 +13683,7 @@ func (in *InstanceInitParameters) DeepCopyInto(out *InstanceInitParameters) {
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrivateDNSNameOptions != nil {
@@ -14403,12 +13906,12 @@ func (in *InstanceNetworkInterfaceInitParameters) DeepCopyInto(out *InstanceNetw
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -14433,12 +13936,12 @@ func (in *InstanceNetworkInterfaceObservation) DeepCopyInto(out *InstanceNetwork
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -14468,12 +13971,12 @@ func (in *InstanceNetworkInterfaceParameters) DeepCopyInto(out *InstanceNetworkI
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -14528,7 +14031,7 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -14540,7 +14043,7 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -14625,7 +14128,7 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -14709,7 +14212,7 @@ func (in *InstanceObservation) DeepCopyInto(out *InstanceObservation) {
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrimaryNetworkInterfaceID != nil {
@@ -14891,7 +14394,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -14903,7 +14406,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -14983,7 +14486,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -15052,7 +14555,7 @@ func (in *InstanceParameters) DeepCopyInto(out *InstanceParameters) {
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrivateDNSNameOptions != nil {
@@ -15200,12 +14703,12 @@ func (in *InstanceRequirementsAcceleratorCountInitParameters) DeepCopyInto(out *
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15225,12 +14728,12 @@ func (in *InstanceRequirementsAcceleratorCountObservation) DeepCopyInto(out *Ins
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15250,12 +14753,12 @@ func (in *InstanceRequirementsAcceleratorCountParameters) DeepCopyInto(out *Inst
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15275,12 +14778,12 @@ func (in *InstanceRequirementsAcceleratorTotalMemoryMibInitParameters) DeepCopyI
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15300,12 +14803,12 @@ func (in *InstanceRequirementsAcceleratorTotalMemoryMibObservation) DeepCopyInto
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15325,12 +14828,12 @@ func (in *InstanceRequirementsAcceleratorTotalMemoryMibParameters) DeepCopyInto(
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15350,12 +14853,12 @@ func (in *InstanceRequirementsBaselineEBSBandwidthMbpsInitParameters) DeepCopyIn
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15375,12 +14878,12 @@ func (in *InstanceRequirementsBaselineEBSBandwidthMbpsObservation) DeepCopyInto(
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15400,12 +14903,12 @@ func (in *InstanceRequirementsBaselineEBSBandwidthMbpsParameters) DeepCopyInto(o
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15577,7 +15080,7 @@ func (in *InstanceRequirementsInitParameters) DeepCopyInto(out *InstanceRequirem
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -15587,7 +15090,7 @@ func (in *InstanceRequirementsInitParameters) DeepCopyInto(out *InstanceRequirem
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -15696,12 +15199,12 @@ func (in *InstanceRequirementsMemoryMibInitParameters) DeepCopyInto(out *Instanc
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15721,12 +15224,12 @@ func (in *InstanceRequirementsMemoryMibObservation) DeepCopyInto(out *InstanceRe
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15746,12 +15249,12 @@ func (in *InstanceRequirementsMemoryMibParameters) DeepCopyInto(out *InstanceReq
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15846,12 +15349,12 @@ func (in *InstanceRequirementsNetworkInterfaceCountInitParameters) DeepCopyInto(
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15871,12 +15374,12 @@ func (in *InstanceRequirementsNetworkInterfaceCountObservation) DeepCopyInto(out
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -15896,12 +15399,12 @@ func (in *InstanceRequirementsNetworkInterfaceCountParameters) DeepCopyInto(out 
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -16073,7 +15576,7 @@ func (in *InstanceRequirementsObservation) DeepCopyInto(out *InstanceRequirement
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -16083,7 +15586,7 @@ func (in *InstanceRequirementsObservation) DeepCopyInto(out *InstanceRequirement
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -16269,7 +15772,7 @@ func (in *InstanceRequirementsParameters) DeepCopyInto(out *InstanceRequirements
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -16279,7 +15782,7 @@ func (in *InstanceRequirementsParameters) DeepCopyInto(out *InstanceRequirements
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -16388,12 +15891,12 @@ func (in *InstanceRequirementsVcpuCountInitParameters) DeepCopyInto(out *Instanc
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -16413,12 +15916,12 @@ func (in *InstanceRequirementsVcpuCountObservation) DeepCopyInto(out *InstanceRe
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -16438,12 +15941,12 @@ func (in *InstanceRequirementsVcpuCountParameters) DeepCopyInto(out *InstanceReq
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -17255,7 +16758,7 @@ func (in *LaunchSpecificationEBSBlockDeviceInitParameters) DeepCopyInto(out *Lau
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -17270,12 +16773,12 @@ func (in *LaunchSpecificationEBSBlockDeviceInitParameters) DeepCopyInto(out *Lau
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -17315,7 +16818,7 @@ func (in *LaunchSpecificationEBSBlockDeviceObservation) DeepCopyInto(out *Launch
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -17330,12 +16833,12 @@ func (in *LaunchSpecificationEBSBlockDeviceObservation) DeepCopyInto(out *Launch
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -17375,7 +16878,7 @@ func (in *LaunchSpecificationEBSBlockDeviceParameters) DeepCopyInto(out *LaunchS
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -17390,12 +16893,12 @@ func (in *LaunchSpecificationEBSBlockDeviceParameters) DeepCopyInto(out *LaunchS
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -17921,7 +17424,7 @@ func (in *LaunchSpecificationRootBlockDeviceInitParameters) DeepCopyInto(out *La
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -17931,12 +17434,12 @@ func (in *LaunchSpecificationRootBlockDeviceInitParameters) DeepCopyInto(out *La
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -17971,7 +17474,7 @@ func (in *LaunchSpecificationRootBlockDeviceObservation) DeepCopyInto(out *Launc
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -17981,12 +17484,12 @@ func (in *LaunchSpecificationRootBlockDeviceObservation) DeepCopyInto(out *Launc
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -18021,7 +17524,7 @@ func (in *LaunchSpecificationRootBlockDeviceParameters) DeepCopyInto(out *Launch
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -18031,12 +17534,12 @@ func (in *LaunchSpecificationRootBlockDeviceParameters) DeepCopyInto(out *Launch
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -18093,12 +17596,12 @@ func (in *LaunchTemplateCPUOptionsInitParameters) DeepCopyInto(out *LaunchTempla
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -18123,12 +17626,12 @@ func (in *LaunchTemplateCPUOptionsObservation) DeepCopyInto(out *LaunchTemplateC
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -18153,12 +17656,12 @@ func (in *LaunchTemplateCPUOptionsParameters) DeepCopyInto(out *LaunchTemplateCP
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -18524,7 +18027,7 @@ func (in *LaunchTemplateInitParameters_2) DeepCopyInto(out *LaunchTemplateInitPa
 	}
 	if in.DefaultVersion != nil {
 		in, out := &in.DefaultVersion, &out.DefaultVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -18829,7 +18332,7 @@ func (in *LaunchTemplateMetadataOptionsInitParameters) DeepCopyInto(out *LaunchT
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -18869,7 +18372,7 @@ func (in *LaunchTemplateMetadataOptionsObservation) DeepCopyInto(out *LaunchTemp
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -18909,7 +18412,7 @@ func (in *LaunchTemplateMetadataOptionsParameters) DeepCopyInto(out *LaunchTempl
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -19002,7 +18505,7 @@ func (in *LaunchTemplateObservation_2) DeepCopyInto(out *LaunchTemplateObservati
 	}
 	if in.DefaultVersion != nil {
 		in, out := &in.DefaultVersion, &out.DefaultVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -19106,7 +18609,7 @@ func (in *LaunchTemplateObservation_2) DeepCopyInto(out *LaunchTemplateObservati
 	}
 	if in.LatestVersion != nil {
 		in, out := &in.LatestVersion, &out.LatestVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LicenseSpecification != nil {
@@ -19312,7 +18815,7 @@ func (in *LaunchTemplateParameters_2) DeepCopyInto(out *LaunchTemplateParameters
 	}
 	if in.DefaultVersion != nil {
 		in, out := &in.DefaultVersion, &out.DefaultVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -20470,7 +19973,7 @@ func (in *ManagedPrefixListInitParameters) DeepCopyInto(out *ManagedPrefixListIn
 	}
 	if in.MaxEntries != nil {
 		in, out := &in.MaxEntries, &out.MaxEntries
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -20564,7 +20067,7 @@ func (in *ManagedPrefixListObservation) DeepCopyInto(out *ManagedPrefixListObser
 	}
 	if in.MaxEntries != nil {
 		in, out := &in.MaxEntries, &out.MaxEntries
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -20609,7 +20112,7 @@ func (in *ManagedPrefixListObservation) DeepCopyInto(out *ManagedPrefixListObser
 	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -20641,7 +20144,7 @@ func (in *ManagedPrefixListParameters) DeepCopyInto(out *ManagedPrefixListParame
 	}
 	if in.MaxEntries != nil {
 		in, out := &in.MaxEntries, &out.MaxEntries
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -20796,12 +20299,12 @@ func (in *MemoryMibInitParameters) DeepCopyInto(out *MemoryMibInitParameters) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -20821,12 +20324,12 @@ func (in *MemoryMibObservation) DeepCopyInto(out *MemoryMibObservation) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -20846,12 +20349,12 @@ func (in *MemoryMibParameters) DeepCopyInto(out *MemoryMibParameters) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -20876,7 +20379,7 @@ func (in *MetadataOptionsInitParameters) DeepCopyInto(out *MetadataOptionsInitPa
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -20911,7 +20414,7 @@ func (in *MetadataOptionsObservation) DeepCopyInto(out *MetadataOptionsObservati
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -20946,7 +20449,7 @@ func (in *MetadataOptionsParameters) DeepCopyInto(out *MetadataOptionsParameters
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -21442,7 +20945,7 @@ func (in *NetworkACLEgressObservation) DeepCopyInto(out *NetworkACLEgressObserva
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -21452,12 +20955,12 @@ func (in *NetworkACLEgressObservation) DeepCopyInto(out *NetworkACLEgressObserva
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -21467,12 +20970,12 @@ func (in *NetworkACLEgressObservation) DeepCopyInto(out *NetworkACLEgressObserva
 	}
 	if in.RuleNo != nil {
 		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -21532,7 +21035,7 @@ func (in *NetworkACLIngressObservation) DeepCopyInto(out *NetworkACLIngressObser
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -21542,12 +21045,12 @@ func (in *NetworkACLIngressObservation) DeepCopyInto(out *NetworkACLIngressObser
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -21557,12 +21060,12 @@ func (in *NetworkACLIngressObservation) DeepCopyInto(out *NetworkACLIngressObser
 	}
 	if in.RuleNo != nil {
 		in, out := &in.RuleNo, &out.RuleNo
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -21859,7 +21362,7 @@ func (in *NetworkACLRuleInitParameters) DeepCopyInto(out *NetworkACLRuleInitPara
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -21869,12 +21372,12 @@ func (in *NetworkACLRuleInitParameters) DeepCopyInto(out *NetworkACLRuleInitPara
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -21889,12 +21392,12 @@ func (in *NetworkACLRuleInitParameters) DeepCopyInto(out *NetworkACLRuleInitPara
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -21956,7 +21459,7 @@ func (in *NetworkACLRuleObservation) DeepCopyInto(out *NetworkACLRuleObservation
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -21971,12 +21474,12 @@ func (in *NetworkACLRuleObservation) DeepCopyInto(out *NetworkACLRuleObservation
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkACLID != nil {
@@ -21996,12 +21499,12 @@ func (in *NetworkACLRuleObservation) DeepCopyInto(out *NetworkACLRuleObservation
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -22031,7 +21534,7 @@ func (in *NetworkACLRuleParameters) DeepCopyInto(out *NetworkACLRuleParameters) 
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -22041,12 +21544,12 @@ func (in *NetworkACLRuleParameters) DeepCopyInto(out *NetworkACLRuleParameters) 
 	}
 	if in.IcmpCode != nil {
 		in, out := &in.IcmpCode, &out.IcmpCode
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IcmpType != nil {
 		in, out := &in.IcmpType, &out.IcmpType
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkACLID != nil {
@@ -22081,12 +21584,12 @@ func (in *NetworkACLRuleParameters) DeepCopyInto(out *NetworkACLRuleParameters) 
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -22618,7 +22121,7 @@ func (in *NetworkInsightsPathInitParameters) DeepCopyInto(out *NetworkInsightsPa
 	}
 	if in.DestinationPort != nil {
 		in, out := &in.DestinationPort, &out.DestinationPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -22710,7 +22213,7 @@ func (in *NetworkInsightsPathObservation) DeepCopyInto(out *NetworkInsightsPathO
 	}
 	if in.DestinationPort != nil {
 		in, out := &in.DestinationPort, &out.DestinationPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -22790,7 +22293,7 @@ func (in *NetworkInsightsPathParameters) DeepCopyInto(out *NetworkInsightsPathPa
 	}
 	if in.DestinationPort != nil {
 		in, out := &in.DestinationPort, &out.DestinationPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DestinationRef != nil {
@@ -22954,7 +22457,7 @@ func (in *NetworkInterfaceAttachmentInitParameters) DeepCopyInto(out *NetworkInt
 	*out = *in
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -23011,7 +22514,7 @@ func (in *NetworkInterfaceAttachmentObservation) DeepCopyInto(out *NetworkInterf
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -23051,7 +22554,7 @@ func (in *NetworkInterfaceAttachmentParameters) DeepCopyInto(out *NetworkInterfa
 	*out = *in
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceID != nil {
@@ -23141,12 +22644,12 @@ func (in *NetworkInterfaceCountInitParameters) DeepCopyInto(out *NetworkInterfac
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -23166,12 +22669,12 @@ func (in *NetworkInterfaceCountObservation) DeepCopyInto(out *NetworkInterfaceCo
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -23191,12 +22694,12 @@ func (in *NetworkInterfaceCountParameters) DeepCopyInto(out *NetworkInterfaceCou
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -23236,7 +22739,7 @@ func (in *NetworkInterfaceInitParameters_2) DeepCopyInto(out *NetworkInterfaceIn
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -23252,7 +22755,7 @@ func (in *NetworkInterfaceInitParameters_2) DeepCopyInto(out *NetworkInterfaceIn
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6AddressList != nil {
@@ -23284,7 +22787,7 @@ func (in *NetworkInterfaceInitParameters_2) DeepCopyInto(out *NetworkInterfaceIn
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -23337,7 +22840,7 @@ func (in *NetworkInterfaceInitParameters_2) DeepCopyInto(out *NetworkInterfaceIn
 	}
 	if in.PrivateIpsCount != nil {
 		in, out := &in.PrivateIpsCount, &out.PrivateIpsCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceDestCheck != nil {
@@ -23461,7 +22964,7 @@ func (in *NetworkInterfaceObservation_2) DeepCopyInto(out *NetworkInterfaceObser
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -23477,7 +22980,7 @@ func (in *NetworkInterfaceObservation_2) DeepCopyInto(out *NetworkInterfaceObser
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6AddressList != nil {
@@ -23509,7 +23012,7 @@ func (in *NetworkInterfaceObservation_2) DeepCopyInto(out *NetworkInterfaceObser
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -23582,7 +23085,7 @@ func (in *NetworkInterfaceObservation_2) DeepCopyInto(out *NetworkInterfaceObser
 	}
 	if in.PrivateIpsCount != nil {
 		in, out := &in.PrivateIpsCount, &out.PrivateIpsCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SecurityGroups != nil {
@@ -23673,7 +23176,7 @@ func (in *NetworkInterfaceParameters_2) DeepCopyInto(out *NetworkInterfaceParame
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -23689,7 +23192,7 @@ func (in *NetworkInterfaceParameters_2) DeepCopyInto(out *NetworkInterfaceParame
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6AddressList != nil {
@@ -23721,7 +23224,7 @@ func (in *NetworkInterfaceParameters_2) DeepCopyInto(out *NetworkInterfaceParame
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -23774,7 +23277,7 @@ func (in *NetworkInterfaceParameters_2) DeepCopyInto(out *NetworkInterfaceParame
 	}
 	if in.PrivateIpsCount != nil {
 		in, out := &in.PrivateIpsCount, &out.PrivateIpsCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -24101,12 +23604,12 @@ func (in *NetworkInterfacesInitParameters) DeepCopyInto(out *NetworkInterfacesIn
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4AddressCount != nil {
 		in, out := &in.IPv4AddressCount, &out.IPv4AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Addresses != nil {
@@ -24122,7 +23625,7 @@ func (in *NetworkInterfacesInitParameters) DeepCopyInto(out *NetworkInterfacesIn
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -24138,7 +23641,7 @@ func (in *NetworkInterfacesInitParameters) DeepCopyInto(out *NetworkInterfacesIn
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -24154,7 +23657,7 @@ func (in *NetworkInterfacesInitParameters) DeepCopyInto(out *NetworkInterfacesIn
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -24175,7 +23678,7 @@ func (in *NetworkInterfacesInitParameters) DeepCopyInto(out *NetworkInterfacesIn
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrivateIPAddress != nil {
@@ -24220,12 +23723,12 @@ func (in *NetworkInterfacesObservation) DeepCopyInto(out *NetworkInterfacesObser
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4AddressCount != nil {
 		in, out := &in.IPv4AddressCount, &out.IPv4AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Addresses != nil {
@@ -24241,7 +23744,7 @@ func (in *NetworkInterfacesObservation) DeepCopyInto(out *NetworkInterfacesObser
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -24257,7 +23760,7 @@ func (in *NetworkInterfacesObservation) DeepCopyInto(out *NetworkInterfacesObser
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -24273,7 +23776,7 @@ func (in *NetworkInterfacesObservation) DeepCopyInto(out *NetworkInterfacesObser
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -24294,7 +23797,7 @@ func (in *NetworkInterfacesObservation) DeepCopyInto(out *NetworkInterfacesObser
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -24360,12 +23863,12 @@ func (in *NetworkInterfacesParameters) DeepCopyInto(out *NetworkInterfacesParame
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4AddressCount != nil {
 		in, out := &in.IPv4AddressCount, &out.IPv4AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Addresses != nil {
@@ -24381,7 +23884,7 @@ func (in *NetworkInterfacesParameters) DeepCopyInto(out *NetworkInterfacesParame
 	}
 	if in.IPv4PrefixCount != nil {
 		in, out := &in.IPv4PrefixCount, &out.IPv4PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv4Prefixes != nil {
@@ -24397,7 +23900,7 @@ func (in *NetworkInterfacesParameters) DeepCopyInto(out *NetworkInterfacesParame
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -24413,7 +23916,7 @@ func (in *NetworkInterfacesParameters) DeepCopyInto(out *NetworkInterfacesParame
 	}
 	if in.IPv6PrefixCount != nil {
 		in, out := &in.IPv6PrefixCount, &out.IPv6PrefixCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Prefixes != nil {
@@ -24434,7 +23937,7 @@ func (in *NetworkInterfacesParameters) DeepCopyInto(out *NetworkInterfacesParame
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -24587,12 +24090,12 @@ func (in *OutboundHeaderDestinationPortRangesObservation) DeepCopyInto(out *Outb
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -24728,12 +24231,12 @@ func (in *OutboundHeaderSourcePortRangesObservation) DeepCopyInto(out *OutboundH
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -24972,7 +24475,7 @@ func (in *OverridesInstanceRequirementsInitParameters) DeepCopyInto(out *Overrid
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -24982,7 +24485,7 @@ func (in *OverridesInstanceRequirementsInitParameters) DeepCopyInto(out *Overrid
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -25168,7 +24671,7 @@ func (in *OverridesInstanceRequirementsObservation) DeepCopyInto(out *OverridesI
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -25178,7 +24681,7 @@ func (in *OverridesInstanceRequirementsObservation) DeepCopyInto(out *OverridesI
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -25364,7 +24867,7 @@ func (in *OverridesInstanceRequirementsParameters) DeepCopyInto(out *OverridesIn
 	}
 	if in.OnDemandMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.OnDemandMaxPricePercentageOverLowestPrice, &out.OnDemandMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RequireHibernateSupport != nil {
@@ -25374,7 +24877,7 @@ func (in *OverridesInstanceRequirementsParameters) DeepCopyInto(out *OverridesIn
 	}
 	if in.SpotMaxPricePercentageOverLowestPrice != nil {
 		in, out := &in.SpotMaxPricePercentageOverLowestPrice, &out.SpotMaxPricePercentageOverLowestPrice
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TotalLocalStorageGb != nil {
@@ -25539,7 +25042,7 @@ func (in *PlacementGroupInitParameters) DeepCopyInto(out *PlacementGroupInitPara
 	*out = *in
 	if in.PartitionCount != nil {
 		in, out := &in.PartitionCount, &out.PartitionCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SpreadLevel != nil {
@@ -25626,7 +25129,7 @@ func (in *PlacementGroupObservation) DeepCopyInto(out *PlacementGroupObservation
 	}
 	if in.PartitionCount != nil {
 		in, out := &in.PartitionCount, &out.PartitionCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PlacementGroupID != nil {
@@ -25691,7 +25194,7 @@ func (in *PlacementGroupParameters) DeepCopyInto(out *PlacementGroupParameters) 
 	*out = *in
 	if in.PartitionCount != nil {
 		in, out := &in.PartitionCount, &out.PartitionCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -25801,7 +25304,7 @@ func (in *PlacementInitParameters) DeepCopyInto(out *PlacementInitParameters) {
 	}
 	if in.PartitionNumber != nil {
 		in, out := &in.PartitionNumber, &out.PartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SpreadDomain != nil {
@@ -25856,7 +25359,7 @@ func (in *PlacementObservation) DeepCopyInto(out *PlacementObservation) {
 	}
 	if in.PartitionNumber != nil {
 		in, out := &in.PartitionNumber, &out.PartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SpreadDomain != nil {
@@ -25911,7 +25414,7 @@ func (in *PlacementParameters) DeepCopyInto(out *PlacementParameters) {
 	}
 	if in.PartitionNumber != nil {
 		in, out := &in.PartitionNumber, &out.PartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SpreadDomain != nil {
@@ -25956,12 +25459,12 @@ func (in *PortRangeObservation) DeepCopyInto(out *PortRangeObservation) {
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -26011,12 +25514,12 @@ func (in *PortRangesObservation) DeepCopyInto(out *PortRangesObservation) {
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -26368,7 +25871,7 @@ func (in *ReturnPathComponentsACLRuleObservation) DeepCopyInto(out *ReturnPathCo
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -26418,12 +25921,12 @@ func (in *ReturnPathComponentsACLRulePortRangeObservation) DeepCopyInto(out *Ret
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -26919,7 +26422,7 @@ func (in *ReturnPathComponentsObservation) DeepCopyInto(out *ReturnPathComponent
 	}
 	if in.SequenceNumber != nil {
 		in, out := &in.SequenceNumber, &out.SequenceNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceVPC != nil {
@@ -26989,12 +26492,12 @@ func (in *ReturnPathComponentsOutboundHeaderDestinationPortRangesObservation) De
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -27130,12 +26633,12 @@ func (in *ReturnPathComponentsOutboundHeaderSourcePortRangesObservation) DeepCop
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -27372,12 +26875,12 @@ func (in *ReturnPathComponentsSecurityGroupRulePortRangeObservation) DeepCopyInt
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -27742,7 +27245,7 @@ func (in *RootBlockDeviceInitParameters) DeepCopyInto(out *RootBlockDeviceInitPa
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -27762,12 +27265,12 @@ func (in *RootBlockDeviceInitParameters) DeepCopyInto(out *RootBlockDeviceInitPa
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -27807,7 +27310,7 @@ func (in *RootBlockDeviceObservation) DeepCopyInto(out *RootBlockDeviceObservati
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -27832,7 +27335,7 @@ func (in *RootBlockDeviceObservation) DeepCopyInto(out *RootBlockDeviceObservati
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -27842,7 +27345,7 @@ func (in *RootBlockDeviceObservation) DeepCopyInto(out *RootBlockDeviceObservati
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -27877,7 +27380,7 @@ func (in *RootBlockDeviceParameters) DeepCopyInto(out *RootBlockDeviceParameters
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -27912,12 +27415,12 @@ func (in *RootBlockDeviceParameters) DeepCopyInto(out *RootBlockDeviceParameters
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -29470,7 +28973,7 @@ func (in *SecurityGroupEgressObservation) DeepCopyInto(out *SecurityGroupEgressO
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -29518,7 +29021,7 @@ func (in *SecurityGroupEgressObservation) DeepCopyInto(out *SecurityGroupEgressO
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -29584,7 +29087,7 @@ func (in *SecurityGroupIngressObservation) DeepCopyInto(out *SecurityGroupIngres
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -29632,7 +29135,7 @@ func (in *SecurityGroupIngressObservation) DeepCopyInto(out *SecurityGroupIngres
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -30021,7 +29524,7 @@ func (in *SecurityGroupRuleInitParameters_2) DeepCopyInto(out *SecurityGroupRule
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -30047,7 +29550,7 @@ func (in *SecurityGroupRuleInitParameters_2) DeepCopyInto(out *SecurityGroupRule
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -30167,7 +29670,7 @@ func (in *SecurityGroupRuleObservation_2) DeepCopyInto(out *SecurityGroupRuleObs
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -30224,7 +29727,7 @@ func (in *SecurityGroupRuleObservation_2) DeepCopyInto(out *SecurityGroupRuleObs
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -30280,7 +29783,7 @@ func (in *SecurityGroupRuleParameters_2) DeepCopyInto(out *SecurityGroupRulePara
 	}
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlocks != nil {
@@ -30364,7 +29867,7 @@ func (in *SecurityGroupRuleParameters_2) DeepCopyInto(out *SecurityGroupRulePara
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -30404,12 +29907,12 @@ func (in *SecurityGroupRulePortRangeObservation) DeepCopyInto(out *SecurityGroup
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -30922,12 +30425,12 @@ func (in *SourcePortRangeInitParameters) DeepCopyInto(out *SourcePortRangeInitPa
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -30947,12 +30450,12 @@ func (in *SourcePortRangeObservation) DeepCopyInto(out *SourcePortRangeObservati
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -30972,12 +30475,12 @@ func (in *SourcePortRangeParameters) DeepCopyInto(out *SourcePortRangeParameters
 	*out = *in
 	if in.FromPort != nil {
 		in, out := &in.FromPort, &out.FromPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ToPort != nil {
 		in, out := &in.ToPort, &out.ToPort
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -31012,12 +30515,12 @@ func (in *SourcePortRangesObservation) DeepCopyInto(out *SourcePortRangesObserva
 	*out = *in
 	if in.From != nil {
 		in, out := &in.From, &out.From
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.To != nil {
 		in, out := &in.To, &out.To
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -31348,7 +30851,7 @@ func (in *SpotFleetRequestInitParameters) DeepCopyInto(out *SpotFleetRequestInit
 	}
 	if in.InstancePoolsToUseCount != nil {
 		in, out := &in.InstancePoolsToUseCount, &out.InstancePoolsToUseCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LaunchSpecification != nil {
@@ -31388,7 +30891,7 @@ func (in *SpotFleetRequestInitParameters) DeepCopyInto(out *SpotFleetRequestInit
 	}
 	if in.OnDemandTargetCapacity != nil {
 		in, out := &in.OnDemandTargetCapacity, &out.OnDemandTargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReplaceUnhealthyInstances != nil {
@@ -31425,7 +30928,7 @@ func (in *SpotFleetRequestInitParameters) DeepCopyInto(out *SpotFleetRequestInit
 	}
 	if in.TargetCapacity != nil {
 		in, out := &in.TargetCapacity, &out.TargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetCapacityUnitType != nil {
@@ -31558,7 +31061,7 @@ func (in *SpotFleetRequestObservation) DeepCopyInto(out *SpotFleetRequestObserva
 	}
 	if in.InstancePoolsToUseCount != nil {
 		in, out := &in.InstancePoolsToUseCount, &out.InstancePoolsToUseCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LaunchSpecification != nil {
@@ -31598,7 +31101,7 @@ func (in *SpotFleetRequestObservation) DeepCopyInto(out *SpotFleetRequestObserva
 	}
 	if in.OnDemandTargetCapacity != nil {
 		in, out := &in.OnDemandTargetCapacity, &out.OnDemandTargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReplaceUnhealthyInstances != nil {
@@ -31655,7 +31158,7 @@ func (in *SpotFleetRequestObservation) DeepCopyInto(out *SpotFleetRequestObserva
 	}
 	if in.TargetCapacity != nil {
 		in, out := &in.TargetCapacity, &out.TargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetCapacityUnitType != nil {
@@ -31746,7 +31249,7 @@ func (in *SpotFleetRequestParameters) DeepCopyInto(out *SpotFleetRequestParamete
 	}
 	if in.InstancePoolsToUseCount != nil {
 		in, out := &in.InstancePoolsToUseCount, &out.InstancePoolsToUseCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LaunchSpecification != nil {
@@ -31786,7 +31289,7 @@ func (in *SpotFleetRequestParameters) DeepCopyInto(out *SpotFleetRequestParamete
 	}
 	if in.OnDemandTargetCapacity != nil {
 		in, out := &in.OnDemandTargetCapacity, &out.OnDemandTargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -31828,7 +31331,7 @@ func (in *SpotFleetRequestParameters) DeepCopyInto(out *SpotFleetRequestParamete
 	}
 	if in.TargetCapacity != nil {
 		in, out := &in.TargetCapacity, &out.TargetCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetCapacityUnitType != nil {
@@ -31956,12 +31459,12 @@ func (in *SpotInstanceRequestCPUOptionsInitParameters) DeepCopyInto(out *SpotIns
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -31986,12 +31489,12 @@ func (in *SpotInstanceRequestCPUOptionsObservation) DeepCopyInto(out *SpotInstan
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -32016,12 +31519,12 @@ func (in *SpotInstanceRequestCPUOptionsParameters) DeepCopyInto(out *SpotInstanc
 	}
 	if in.CoreCount != nil {
 		in, out := &in.CoreCount, &out.CoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ThreadsPerCore != nil {
 		in, out := &in.ThreadsPerCore, &out.ThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -32272,7 +31775,7 @@ func (in *SpotInstanceRequestEBSBlockDeviceInitParameters) DeepCopyInto(out *Spo
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -32302,12 +31805,12 @@ func (in *SpotInstanceRequestEBSBlockDeviceInitParameters) DeepCopyInto(out *Spo
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -32347,7 +31850,7 @@ func (in *SpotInstanceRequestEBSBlockDeviceObservation) DeepCopyInto(out *SpotIn
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -32377,7 +31880,7 @@ func (in *SpotInstanceRequestEBSBlockDeviceObservation) DeepCopyInto(out *SpotIn
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -32387,7 +31890,7 @@ func (in *SpotInstanceRequestEBSBlockDeviceObservation) DeepCopyInto(out *SpotIn
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -32427,7 +31930,7 @@ func (in *SpotInstanceRequestEBSBlockDeviceParameters) DeepCopyInto(out *SpotIns
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -32457,12 +31960,12 @@ func (in *SpotInstanceRequestEBSBlockDeviceParameters) DeepCopyInto(out *SpotIns
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -32652,12 +32155,12 @@ func (in *SpotInstanceRequestInitParameters) DeepCopyInto(out *SpotInstanceReque
 	}
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -32669,7 +32172,7 @@ func (in *SpotInstanceRequestInitParameters) DeepCopyInto(out *SpotInstanceReque
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -32749,7 +32252,7 @@ func (in *SpotInstanceRequestInitParameters) DeepCopyInto(out *SpotInstanceReque
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -32828,7 +32331,7 @@ func (in *SpotInstanceRequestInitParameters) DeepCopyInto(out *SpotInstanceReque
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrivateDNSNameOptions != nil {
@@ -33156,7 +32659,7 @@ func (in *SpotInstanceRequestMetadataOptionsInitParameters) DeepCopyInto(out *Sp
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -33191,7 +32694,7 @@ func (in *SpotInstanceRequestMetadataOptionsObservation) DeepCopyInto(out *SpotI
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -33226,7 +32729,7 @@ func (in *SpotInstanceRequestMetadataOptionsParameters) DeepCopyInto(out *SpotIn
 	}
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -33261,12 +32764,12 @@ func (in *SpotInstanceRequestNetworkInterfaceInitParameters) DeepCopyInto(out *S
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -33296,12 +32799,12 @@ func (in *SpotInstanceRequestNetworkInterfaceObservation) DeepCopyInto(out *Spot
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -33331,12 +32834,12 @@ func (in *SpotInstanceRequestNetworkInterfaceParameters) DeepCopyInto(out *SpotI
 	}
 	if in.DeviceIndex != nil {
 		in, out := &in.DeviceIndex, &out.DeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkCardIndex != nil {
 		in, out := &in.NetworkCardIndex, &out.NetworkCardIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.NetworkInterfaceID != nil {
@@ -33381,12 +32884,12 @@ func (in *SpotInstanceRequestObservation) DeepCopyInto(out *SpotInstanceRequestO
 	}
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -33398,7 +32901,7 @@ func (in *SpotInstanceRequestObservation) DeepCopyInto(out *SpotInstanceRequestO
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -33483,7 +32986,7 @@ func (in *SpotInstanceRequestObservation) DeepCopyInto(out *SpotInstanceRequestO
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -33577,7 +33080,7 @@ func (in *SpotInstanceRequestObservation) DeepCopyInto(out *SpotInstanceRequestO
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrimaryNetworkInterfaceID != nil {
@@ -33799,12 +33302,12 @@ func (in *SpotInstanceRequestParameters) DeepCopyInto(out *SpotInstanceRequestPa
 	}
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUCoreCount != nil {
 		in, out := &in.CPUCoreCount, &out.CPUCoreCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CPUOptions != nil {
@@ -33816,7 +33319,7 @@ func (in *SpotInstanceRequestParameters) DeepCopyInto(out *SpotInstanceRequestPa
 	}
 	if in.CPUThreadsPerCore != nil {
 		in, out := &in.CPUThreadsPerCore, &out.CPUThreadsPerCore
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CapacityReservationSpecification != nil {
@@ -33896,7 +33399,7 @@ func (in *SpotInstanceRequestParameters) DeepCopyInto(out *SpotInstanceRequestPa
 	}
 	if in.IPv6AddressCount != nil {
 		in, out := &in.IPv6AddressCount, &out.IPv6AddressCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6Addresses != nil {
@@ -33975,7 +33478,7 @@ func (in *SpotInstanceRequestParameters) DeepCopyInto(out *SpotInstanceRequestPa
 	}
 	if in.PlacementPartitionNumber != nil {
 		in, out := &in.PlacementPartitionNumber, &out.PlacementPartitionNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PrivateDNSNameOptions != nil {
@@ -34259,7 +33762,7 @@ func (in *SpotInstanceRequestRootBlockDeviceInitParameters) DeepCopyInto(out *Sp
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -34284,12 +33787,12 @@ func (in *SpotInstanceRequestRootBlockDeviceInitParameters) DeepCopyInto(out *Sp
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -34329,7 +33832,7 @@ func (in *SpotInstanceRequestRootBlockDeviceObservation) DeepCopyInto(out *SpotI
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -34354,7 +33857,7 @@ func (in *SpotInstanceRequestRootBlockDeviceObservation) DeepCopyInto(out *SpotI
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeID != nil {
@@ -34364,7 +33867,7 @@ func (in *SpotInstanceRequestRootBlockDeviceObservation) DeepCopyInto(out *SpotI
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -34399,7 +33902,7 @@ func (in *SpotInstanceRequestRootBlockDeviceParameters) DeepCopyInto(out *SpotIn
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -34424,12 +33927,12 @@ func (in *SpotInstanceRequestRootBlockDeviceParameters) DeepCopyInto(out *SpotIn
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -34555,7 +34058,7 @@ func (in *SpotOptionsInitParameters) DeepCopyInto(out *SpotOptionsInitParameters
 	*out = *in
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceInterruptionBehavior != nil {
@@ -34595,7 +34098,7 @@ func (in *SpotOptionsObservation) DeepCopyInto(out *SpotOptionsObservation) {
 	*out = *in
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceInterruptionBehavior != nil {
@@ -34635,7 +34138,7 @@ func (in *SpotOptionsParameters) DeepCopyInto(out *SpotOptionsParameters) {
 	*out = *in
 	if in.BlockDurationMinutes != nil {
 		in, out := &in.BlockDurationMinutes, &out.BlockDurationMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceInterruptionBehavior != nil {
@@ -34966,7 +34469,7 @@ func (in *SubnetInitParameters_2) DeepCopyInto(out *SubnetInitParameters_2) {
 	}
 	if in.EnableLniAtDeviceIndex != nil {
 		in, out := &in.EnableLniAtDeviceIndex, &out.EnableLniAtDeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnableResourceNameDNSARecordOnLaunch != nil {
@@ -35138,7 +34641,7 @@ func (in *SubnetObservation_2) DeepCopyInto(out *SubnetObservation_2) {
 	}
 	if in.EnableLniAtDeviceIndex != nil {
 		in, out := &in.EnableLniAtDeviceIndex, &out.EnableLniAtDeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnableResourceNameDNSARecordOnLaunch != nil {
@@ -35293,7 +34796,7 @@ func (in *SubnetParameters_2) DeepCopyInto(out *SubnetParameters_2) {
 	}
 	if in.EnableLniAtDeviceIndex != nil {
 		in, out := &in.EnableLniAtDeviceIndex, &out.EnableLniAtDeviceIndex
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnableResourceNameDNSARecordOnLaunch != nil {
@@ -36118,7 +35621,7 @@ func (in *TrafficMirrorFilterRuleInitParameters) DeepCopyInto(out *TrafficMirror
 	}
 	if in.Protocol != nil {
 		in, out := &in.Protocol, &out.Protocol
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RuleAction != nil {
@@ -36128,7 +35631,7 @@ func (in *TrafficMirrorFilterRuleInitParameters) DeepCopyInto(out *TrafficMirror
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceCidrBlock != nil {
@@ -36224,7 +35727,7 @@ func (in *TrafficMirrorFilterRuleObservation) DeepCopyInto(out *TrafficMirrorFil
 	}
 	if in.Protocol != nil {
 		in, out := &in.Protocol, &out.Protocol
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RuleAction != nil {
@@ -36234,7 +35737,7 @@ func (in *TrafficMirrorFilterRuleObservation) DeepCopyInto(out *TrafficMirrorFil
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceCidrBlock != nil {
@@ -36293,7 +35796,7 @@ func (in *TrafficMirrorFilterRuleParameters) DeepCopyInto(out *TrafficMirrorFilt
 	}
 	if in.Protocol != nil {
 		in, out := &in.Protocol, &out.Protocol
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -36308,7 +35811,7 @@ func (in *TrafficMirrorFilterRuleParameters) DeepCopyInto(out *TrafficMirrorFilt
 	}
 	if in.RuleNumber != nil {
 		in, out := &in.RuleNumber, &out.RuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SourceCidrBlock != nil {
@@ -37138,7 +36641,7 @@ func (in *TransitGatewayInitParameters_2) DeepCopyInto(out *TransitGatewayInitPa
 	*out = *in
 	if in.AmazonSideAsn != nil {
 		in, out := &in.AmazonSideAsn, &out.AmazonSideAsn
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AutoAcceptSharedAttachments != nil {
@@ -38182,7 +37685,7 @@ func (in *TransitGatewayObservation_2) DeepCopyInto(out *TransitGatewayObservati
 	*out = *in
 	if in.AmazonSideAsn != nil {
 		in, out := &in.AmazonSideAsn, &out.AmazonSideAsn
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Arn != nil {
@@ -38318,7 +37821,7 @@ func (in *TransitGatewayParameters_2) DeepCopyInto(out *TransitGatewayParameters
 	*out = *in
 	if in.AmazonSideAsn != nil {
 		in, out := &in.AmazonSideAsn, &out.AmazonSideAsn
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AutoAcceptSharedAttachments != nil {
@@ -43905,7 +43408,7 @@ func (in *VPCIPv4CidrBlockAssociationInitParameters) DeepCopyInto(out *VPCIPv4Ci
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -43972,7 +43475,7 @@ func (in *VPCIPv4CidrBlockAssociationObservation) DeepCopyInto(out *VPCIPv4CidrB
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VPCID != nil {
@@ -44007,7 +43510,7 @@ func (in *VPCIPv4CidrBlockAssociationParameters) DeepCopyInto(out *VPCIPv4CidrBl
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -44132,7 +43635,7 @@ func (in *VPCInitParameters_2) DeepCopyInto(out *VPCInitParameters_2) {
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -44152,7 +43655,7 @@ func (in *VPCInitParameters_2) DeepCopyInto(out *VPCInitParameters_2) {
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceTenancy != nil {
@@ -44345,7 +43848,7 @@ func (in *VPCIpamObservation) DeepCopyInto(out *VPCIpamObservation) {
 	}
 	if in.ScopeCount != nil {
 		in, out := &in.ScopeCount, &out.ScopeCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -44549,7 +44052,7 @@ func (in *VPCIpamPoolCidrAllocationInitParameters) DeepCopyInto(out *VPCIpamPool
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -44637,7 +44140,7 @@ func (in *VPCIpamPoolCidrAllocationObservation) DeepCopyInto(out *VPCIpamPoolCid
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ResourceID != nil {
@@ -44708,7 +44211,7 @@ func (in *VPCIpamPoolCidrAllocationParameters) DeepCopyInto(out *VPCIpamPoolCidr
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -44780,7 +44283,7 @@ func (in *VPCIpamPoolCidrInitParameters) DeepCopyInto(out *VPCIpamPoolCidrInitPa
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -44859,7 +44362,7 @@ func (in *VPCIpamPoolCidrObservation) DeepCopyInto(out *VPCIpamPoolCidrObservati
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -44906,7 +44409,7 @@ func (in *VPCIpamPoolCidrParameters) DeepCopyInto(out *VPCIpamPoolCidrParameters
 	}
 	if in.NetmaskLength != nil {
 		in, out := &in.NetmaskLength, &out.NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -44971,17 +44474,17 @@ func (in *VPCIpamPoolInitParameters) DeepCopyInto(out *VPCIpamPoolInitParameters
 	}
 	if in.AllocationDefaultNetmaskLength != nil {
 		in, out := &in.AllocationDefaultNetmaskLength, &out.AllocationDefaultNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMaxNetmaskLength != nil {
 		in, out := &in.AllocationMaxNetmaskLength, &out.AllocationMaxNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMinNetmaskLength != nil {
 		in, out := &in.AllocationMinNetmaskLength, &out.AllocationMinNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationResourceTags != nil {
@@ -45098,17 +44601,17 @@ func (in *VPCIpamPoolObservation) DeepCopyInto(out *VPCIpamPoolObservation) {
 	}
 	if in.AllocationDefaultNetmaskLength != nil {
 		in, out := &in.AllocationDefaultNetmaskLength, &out.AllocationDefaultNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMaxNetmaskLength != nil {
 		in, out := &in.AllocationMaxNetmaskLength, &out.AllocationMaxNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMinNetmaskLength != nil {
 		in, out := &in.AllocationMinNetmaskLength, &out.AllocationMinNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationResourceTags != nil {
@@ -45168,7 +44671,7 @@ func (in *VPCIpamPoolObservation) DeepCopyInto(out *VPCIpamPoolObservation) {
 	}
 	if in.PoolDepth != nil {
 		in, out := &in.PoolDepth, &out.PoolDepth
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PublicIPSource != nil {
@@ -45243,17 +44746,17 @@ func (in *VPCIpamPoolParameters) DeepCopyInto(out *VPCIpamPoolParameters) {
 	}
 	if in.AllocationDefaultNetmaskLength != nil {
 		in, out := &in.AllocationDefaultNetmaskLength, &out.AllocationDefaultNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMaxNetmaskLength != nil {
 		in, out := &in.AllocationMaxNetmaskLength, &out.AllocationMaxNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationMinNetmaskLength != nil {
 		in, out := &in.AllocationMinNetmaskLength, &out.AllocationMinNetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AllocationResourceTags != nil {
@@ -45532,7 +45035,7 @@ func (in *VPCIpamScopeObservation) DeepCopyInto(out *VPCIpamScopeObservation) {
 	}
 	if in.PoolCount != nil {
 		in, out := &in.PoolCount, &out.PoolCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -45839,7 +45342,7 @@ func (in *VPCObservation_2) DeepCopyInto(out *VPCObservation_2) {
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6AssociationID != nil {
@@ -45864,7 +45367,7 @@ func (in *VPCObservation_2) DeepCopyInto(out *VPCObservation_2) {
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceTenancy != nil {
@@ -45994,7 +45497,7 @@ func (in *VPCParameters_2) DeepCopyInto(out *VPCParameters_2) {
 	}
 	if in.IPv4NetmaskLength != nil {
 		in, out := &in.IPv4NetmaskLength, &out.IPv4NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.IPv6CidrBlock != nil {
@@ -46014,7 +45517,7 @@ func (in *VPCParameters_2) DeepCopyInto(out *VPCParameters_2) {
 	}
 	if in.IPv6NetmaskLength != nil {
 		in, out := &in.IPv6NetmaskLength, &out.IPv6NetmaskLength
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceTenancy != nil {
@@ -46111,21 +45614,6 @@ func (in *VPCPeeringConnectionAccepter) DeepCopyObject() runtime.Object {
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterAccepterInitParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterAccepterInitParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionAccepterAccepterInitParameters.
@@ -46171,21 +45659,6 @@ func (in *VPCPeeringConnectionAccepterAccepterObservation) DeepCopy() *VPCPeerin
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterAccepterParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterAccepterParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionAccepterAccepterParameters.
@@ -46201,24 +45674,10 @@ func (in *VPCPeeringConnectionAccepterAccepterParameters) DeepCopy() *VPCPeering
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterInitParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterInitParameters) {
 	*out = *in
-	if in.Accepter != nil {
-		in, out := &in.Accepter, &out.Accepter
-		*out = make([]VPCPeeringConnectionAccepterAccepterInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.AutoAccept != nil {
 		in, out := &in.AutoAccept, &out.AutoAccept
 		*out = new(bool)
 		**out = **in
-	}
-	if in.Requester != nil {
-		in, out := &in.Requester, &out.Requester
-		*out = make([]VPCPeeringConnectionAccepterRequesterInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -46381,13 +45840,6 @@ func (in *VPCPeeringConnectionAccepterObservation) DeepCopy() *VPCPeeringConnect
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterParameters) {
 	*out = *in
-	if in.Accepter != nil {
-		in, out := &in.Accepter, &out.Accepter
-		*out = make([]VPCPeeringConnectionAccepterAccepterParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.AutoAccept != nil {
 		in, out := &in.AutoAccept, &out.AutoAccept
 		*out = new(bool)
@@ -46397,13 +45849,6 @@ func (in *VPCPeeringConnectionAccepterParameters) DeepCopyInto(out *VPCPeeringCo
 		in, out := &in.Region, &out.Region
 		*out = new(string)
 		**out = **in
-	}
-	if in.Requester != nil {
-		in, out := &in.Requester, &out.Requester
-		*out = make([]VPCPeeringConnectionAccepterRequesterParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -46450,21 +45895,6 @@ func (in *VPCPeeringConnectionAccepterParameters) DeepCopy() *VPCPeeringConnecti
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterRequesterInitParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterRequesterInitParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionAccepterRequesterInitParameters.
@@ -46510,21 +45940,6 @@ func (in *VPCPeeringConnectionAccepterRequesterObservation) DeepCopy() *VPCPeeri
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionAccepterRequesterParameters) DeepCopyInto(out *VPCPeeringConnectionAccepterRequesterParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionAccepterRequesterParameters.
@@ -46818,21 +46233,6 @@ func (in *VPCPeeringConnectionOptions) DeepCopyObject() runtime.Object {
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsAccepterInitParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsAccepterInitParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsAccepterInitParameters.
@@ -46878,21 +46278,6 @@ func (in *VPCPeeringConnectionOptionsAccepterObservation) DeepCopy() *VPCPeering
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsAccepterParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsAccepterParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsAccepterParameters.
@@ -46908,20 +46293,6 @@ func (in *VPCPeeringConnectionOptionsAccepterParameters) DeepCopy() *VPCPeeringC
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsInitParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsInitParameters) {
 	*out = *in
-	if in.Accepter != nil {
-		in, out := &in.Accepter, &out.Accepter
-		*out = make([]VPCPeeringConnectionOptionsAccepterInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.Requester != nil {
-		in, out := &in.Requester, &out.Requester
-		*out = make([]VPCPeeringConnectionOptionsRequesterInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsInitParameters.
@@ -47008,24 +46379,10 @@ func (in *VPCPeeringConnectionOptionsObservation) DeepCopy() *VPCPeeringConnecti
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsParameters) {
 	*out = *in
-	if in.Accepter != nil {
-		in, out := &in.Accepter, &out.Accepter
-		*out = make([]VPCPeeringConnectionOptionsAccepterParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
 		**out = **in
-	}
-	if in.Requester != nil {
-		in, out := &in.Requester, &out.Requester
-		*out = make([]VPCPeeringConnectionOptionsRequesterParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
 	}
 	if in.VPCPeeringConnectionID != nil {
 		in, out := &in.VPCPeeringConnectionID, &out.VPCPeeringConnectionID
@@ -47057,21 +46414,6 @@ func (in *VPCPeeringConnectionOptionsParameters) DeepCopy() *VPCPeeringConnectio
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsRequesterInitParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsRequesterInitParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsRequesterInitParameters.
@@ -47117,21 +46459,6 @@ func (in *VPCPeeringConnectionOptionsRequesterObservation) DeepCopy() *VPCPeerin
 // DeepCopyInto is an autogenerated deepcopy function, copying the receiver, writing into out. in must be non-nil.
 func (in *VPCPeeringConnectionOptionsRequesterParameters) DeepCopyInto(out *VPCPeeringConnectionOptionsRequesterParameters) {
 	*out = *in
-	if in.AllowClassicLinkToRemoteVPC != nil {
-		in, out := &in.AllowClassicLinkToRemoteVPC, &out.AllowClassicLinkToRemoteVPC
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowRemoteVPCDNSResolution != nil {
-		in, out := &in.AllowRemoteVPCDNSResolution, &out.AllowRemoteVPCDNSResolution
-		*out = new(bool)
-		**out = **in
-	}
-	if in.AllowVPCToRemoteClassicLink != nil {
-		in, out := &in.AllowVPCToRemoteClassicLink, &out.AllowVPCToRemoteClassicLink
-		*out = new(bool)
-		**out = **in
-	}
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsRequesterParameters.
@@ -47149,7 +46476,7 @@ func (in *VPCPeeringConnectionOptionsSpec) DeepCopyInto(out *VPCPeeringConnectio
 	*out = *in
 	in.ResourceSpec.DeepCopyInto(&out.ResourceSpec)
 	in.ForProvider.DeepCopyInto(&out.ForProvider)
-	in.InitProvider.DeepCopyInto(&out.InitProvider)
+	out.InitProvider = in.InitProvider
 }
 
 // DeepCopy is an autogenerated deepcopy function, copying the receiver, creating a new VPCPeeringConnectionOptionsSpec.
@@ -47451,7 +46778,7 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel1DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel1DpdTimeoutSeconds, &out.Tunnel1DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1EnableTunnelLifecycleControl != nil {
@@ -47489,11 +46816,11 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel1Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase1DhGroupNumbers, &out.Tunnel1Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -47522,16 +46849,16 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel1Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase1LifetimeSeconds, &out.Tunnel1Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase2DhGroupNumbers, &out.Tunnel1Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -47560,22 +46887,22 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel1Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase2LifetimeSeconds, &out.Tunnel1Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel1RekeyFuzzPercentage, &out.Tunnel1RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel1RekeyMarginTimeSeconds, &out.Tunnel1RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1ReplayWindowSize != nil {
 		in, out := &in.Tunnel1ReplayWindowSize, &out.Tunnel1ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1StartupAction != nil {
@@ -47590,7 +46917,7 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel2DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel2DpdTimeoutSeconds, &out.Tunnel2DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2EnableTunnelLifecycleControl != nil {
@@ -47628,11 +46955,11 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel2Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase1DhGroupNumbers, &out.Tunnel2Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -47661,16 +46988,16 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel2Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase1LifetimeSeconds, &out.Tunnel2Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase2DhGroupNumbers, &out.Tunnel2Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -47699,22 +47026,22 @@ func (in *VPNConnectionInitParameters_2) DeepCopyInto(out *VPNConnectionInitPara
 	}
 	if in.Tunnel2Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase2LifetimeSeconds, &out.Tunnel2Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel2RekeyFuzzPercentage, &out.Tunnel2RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel2RekeyMarginTimeSeconds, &out.Tunnel2RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2ReplayWindowSize != nil {
 		in, out := &in.Tunnel2ReplayWindowSize, &out.Tunnel2ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2StartupAction != nil {
@@ -47928,7 +47255,7 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel1BGPHoldtime != nil {
 		in, out := &in.Tunnel1BGPHoldtime, &out.Tunnel1BGPHoldtime
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1CgwInsideAddress != nil {
@@ -47943,7 +47270,7 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel1DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel1DpdTimeoutSeconds, &out.Tunnel1DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1EnableTunnelLifecycleControl != nil {
@@ -47981,11 +47308,11 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel1Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase1DhGroupNumbers, &out.Tunnel1Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48014,16 +47341,16 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel1Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase1LifetimeSeconds, &out.Tunnel1Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase2DhGroupNumbers, &out.Tunnel1Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48052,22 +47379,22 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel1Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase2LifetimeSeconds, &out.Tunnel1Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel1RekeyFuzzPercentage, &out.Tunnel1RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel1RekeyMarginTimeSeconds, &out.Tunnel1RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1ReplayWindowSize != nil {
 		in, out := &in.Tunnel1ReplayWindowSize, &out.Tunnel1ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1StartupAction != nil {
@@ -48092,7 +47419,7 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel2BGPHoldtime != nil {
 		in, out := &in.Tunnel2BGPHoldtime, &out.Tunnel2BGPHoldtime
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2CgwInsideAddress != nil {
@@ -48107,7 +47434,7 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel2DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel2DpdTimeoutSeconds, &out.Tunnel2DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2EnableTunnelLifecycleControl != nil {
@@ -48145,11 +47472,11 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel2Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase1DhGroupNumbers, &out.Tunnel2Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48178,16 +47505,16 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel2Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase1LifetimeSeconds, &out.Tunnel2Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase2DhGroupNumbers, &out.Tunnel2Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48216,22 +47543,22 @@ func (in *VPNConnectionObservation_2) DeepCopyInto(out *VPNConnectionObservation
 	}
 	if in.Tunnel2Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase2LifetimeSeconds, &out.Tunnel2Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel2RekeyFuzzPercentage, &out.Tunnel2RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel2RekeyMarginTimeSeconds, &out.Tunnel2RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2ReplayWindowSize != nil {
 		in, out := &in.Tunnel2ReplayWindowSize, &out.Tunnel2ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2StartupAction != nil {
@@ -48393,7 +47720,7 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel1DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel1DpdTimeoutSeconds, &out.Tunnel1DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1EnableTunnelLifecycleControl != nil {
@@ -48431,11 +47758,11 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel1Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase1DhGroupNumbers, &out.Tunnel1Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48464,16 +47791,16 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel1Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase1LifetimeSeconds, &out.Tunnel1Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel1Phase2DhGroupNumbers, &out.Tunnel1Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48502,7 +47829,7 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel1Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel1Phase2LifetimeSeconds, &out.Tunnel1Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1PresharedKeySecretRef != nil {
@@ -48512,17 +47839,17 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel1RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel1RekeyFuzzPercentage, &out.Tunnel1RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel1RekeyMarginTimeSeconds, &out.Tunnel1RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1ReplayWindowSize != nil {
 		in, out := &in.Tunnel1ReplayWindowSize, &out.Tunnel1ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel1StartupAction != nil {
@@ -48537,7 +47864,7 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel2DpdTimeoutSeconds != nil {
 		in, out := &in.Tunnel2DpdTimeoutSeconds, &out.Tunnel2DpdTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2EnableTunnelLifecycleControl != nil {
@@ -48575,11 +47902,11 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel2Phase1DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase1DhGroupNumbers, &out.Tunnel2Phase1DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48608,16 +47935,16 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel2Phase1LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase1LifetimeSeconds, &out.Tunnel2Phase1LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2Phase2DhGroupNumbers != nil {
 		in, out := &in.Tunnel2Phase2DhGroupNumbers, &out.Tunnel2Phase2DhGroupNumbers
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
@@ -48646,7 +47973,7 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel2Phase2LifetimeSeconds != nil {
 		in, out := &in.Tunnel2Phase2LifetimeSeconds, &out.Tunnel2Phase2LifetimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2PresharedKeySecretRef != nil {
@@ -48656,17 +47983,17 @@ func (in *VPNConnectionParameters_2) DeepCopyInto(out *VPNConnectionParameters_2
 	}
 	if in.Tunnel2RekeyFuzzPercentage != nil {
 		in, out := &in.Tunnel2RekeyFuzzPercentage, &out.Tunnel2RekeyFuzzPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2RekeyMarginTimeSeconds != nil {
 		in, out := &in.Tunnel2RekeyMarginTimeSeconds, &out.Tunnel2RekeyMarginTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2ReplayWindowSize != nil {
 		in, out := &in.Tunnel2ReplayWindowSize, &out.Tunnel2ReplayWindowSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tunnel2StartupAction != nil {
@@ -49647,12 +48974,12 @@ func (in *VcpuCountInitParameters) DeepCopyInto(out *VcpuCountInitParameters) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -49672,12 +48999,12 @@ func (in *VcpuCountObservation) DeepCopyInto(out *VcpuCountObservation) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -49697,12 +49024,12 @@ func (in *VcpuCountParameters) DeepCopyInto(out *VcpuCountParameters) {
 	*out = *in
 	if in.Max != nil {
 		in, out := &in.Max, &out.Max
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Min != nil {
 		in, out := &in.Min, &out.Min
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -49737,7 +49064,7 @@ func (in *VgwTelemetryObservation) DeepCopyInto(out *VgwTelemetryObservation) {
 	*out = *in
 	if in.AcceptedRouteCount != nil {
 		in, out := &in.AcceptedRouteCount, &out.AcceptedRouteCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CertificateArn != nil {

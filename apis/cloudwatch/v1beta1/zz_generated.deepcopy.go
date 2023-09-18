@@ -862,7 +862,7 @@ func (in *MetricAlarmInitParameters) DeepCopyInto(out *MetricAlarmInitParameters
 	}
 	if in.DatapointsToAlarm != nil {
 		in, out := &in.DatapointsToAlarm, &out.DatapointsToAlarm
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Dimensions != nil {
@@ -887,7 +887,7 @@ func (in *MetricAlarmInitParameters) DeepCopyInto(out *MetricAlarmInitParameters
 	}
 	if in.EvaluationPeriods != nil {
 		in, out := &in.EvaluationPeriods, &out.EvaluationPeriods
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ExtendedStatistic != nil {
@@ -936,7 +936,7 @@ func (in *MetricAlarmInitParameters) DeepCopyInto(out *MetricAlarmInitParameters
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Statistic != nil {
@@ -1059,7 +1059,7 @@ func (in *MetricAlarmObservation) DeepCopyInto(out *MetricAlarmObservation) {
 	}
 	if in.DatapointsToAlarm != nil {
 		in, out := &in.DatapointsToAlarm, &out.DatapointsToAlarm
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Dimensions != nil {
@@ -1084,7 +1084,7 @@ func (in *MetricAlarmObservation) DeepCopyInto(out *MetricAlarmObservation) {
 	}
 	if in.EvaluationPeriods != nil {
 		in, out := &in.EvaluationPeriods, &out.EvaluationPeriods
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ExtendedStatistic != nil {
@@ -1138,7 +1138,7 @@ func (in *MetricAlarmObservation) DeepCopyInto(out *MetricAlarmObservation) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Statistic != nil {
@@ -1239,7 +1239,7 @@ func (in *MetricAlarmParameters) DeepCopyInto(out *MetricAlarmParameters) {
 	}
 	if in.DatapointsToAlarm != nil {
 		in, out := &in.DatapointsToAlarm, &out.DatapointsToAlarm
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Dimensions != nil {
@@ -1264,7 +1264,7 @@ func (in *MetricAlarmParameters) DeepCopyInto(out *MetricAlarmParameters) {
 	}
 	if in.EvaluationPeriods != nil {
 		in, out := &in.EvaluationPeriods, &out.EvaluationPeriods
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ExtendedStatistic != nil {
@@ -1313,7 +1313,7 @@ func (in *MetricAlarmParameters) DeepCopyInto(out *MetricAlarmParameters) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -1438,7 +1438,7 @@ func (in *MetricInitParameters) DeepCopyInto(out *MetricInitParameters) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stat != nil {
@@ -1493,7 +1493,7 @@ func (in *MetricObservation) DeepCopyInto(out *MetricObservation) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stat != nil {
@@ -1548,7 +1548,7 @@ func (in *MetricParameters) DeepCopyInto(out *MetricParameters) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stat != nil {
@@ -1605,7 +1605,7 @@ func (in *MetricQueryInitParameters) DeepCopyInto(out *MetricQueryInitParameters
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReturnData != nil {
@@ -1657,7 +1657,7 @@ func (in *MetricQueryObservation) DeepCopyInto(out *MetricQueryObservation) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReturnData != nil {
@@ -1709,7 +1709,7 @@ func (in *MetricQueryParameters) DeepCopyInto(out *MetricQueryParameters) {
 	}
 	if in.Period != nil {
 		in, out := &in.Period, &out.Period
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReturnData != nil {

@@ -1386,7 +1386,7 @@ func (in *StepAdjustmentInitParameters) DeepCopyInto(out *StepAdjustmentInitPara
 	}
 	if in.ScalingAdjustment != nil {
 		in, out := &in.ScalingAdjustment, &out.ScalingAdjustment
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1416,7 +1416,7 @@ func (in *StepAdjustmentObservation) DeepCopyInto(out *StepAdjustmentObservation
 	}
 	if in.ScalingAdjustment != nil {
 		in, out := &in.ScalingAdjustment, &out.ScalingAdjustment
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1446,7 +1446,7 @@ func (in *StepAdjustmentParameters) DeepCopyInto(out *StepAdjustmentParameters) 
 	}
 	if in.ScalingAdjustment != nil {
 		in, out := &in.ScalingAdjustment, &out.ScalingAdjustment
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1471,7 +1471,7 @@ func (in *StepScalingPolicyConfigurationInitParameters) DeepCopyInto(out *StepSc
 	}
 	if in.Cooldown != nil {
 		in, out := &in.Cooldown, &out.Cooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MetricAggregationType != nil {
@@ -1481,7 +1481,7 @@ func (in *StepScalingPolicyConfigurationInitParameters) DeepCopyInto(out *StepSc
 	}
 	if in.MinAdjustmentMagnitude != nil {
 		in, out := &in.MinAdjustmentMagnitude, &out.MinAdjustmentMagnitude
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.StepAdjustment != nil {
@@ -1513,7 +1513,7 @@ func (in *StepScalingPolicyConfigurationObservation) DeepCopyInto(out *StepScali
 	}
 	if in.Cooldown != nil {
 		in, out := &in.Cooldown, &out.Cooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MetricAggregationType != nil {
@@ -1523,7 +1523,7 @@ func (in *StepScalingPolicyConfigurationObservation) DeepCopyInto(out *StepScali
 	}
 	if in.MinAdjustmentMagnitude != nil {
 		in, out := &in.MinAdjustmentMagnitude, &out.MinAdjustmentMagnitude
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.StepAdjustment != nil {
@@ -1555,7 +1555,7 @@ func (in *StepScalingPolicyConfigurationParameters) DeepCopyInto(out *StepScalin
 	}
 	if in.Cooldown != nil {
 		in, out := &in.Cooldown, &out.Cooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MetricAggregationType != nil {
@@ -1565,7 +1565,7 @@ func (in *StepScalingPolicyConfigurationParameters) DeepCopyInto(out *StepScalin
 	}
 	if in.MinAdjustmentMagnitude != nil {
 		in, out := &in.MinAdjustmentMagnitude, &out.MinAdjustmentMagnitude
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.StepAdjustment != nil {
@@ -1619,12 +1619,12 @@ func (in *TargetInitParameters) DeepCopyInto(out *TargetInitParameters) {
 	*out = *in
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -1701,12 +1701,12 @@ func (in *TargetObservation) DeepCopyInto(out *TargetObservation) {
 	}
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ResourceID != nil {
@@ -1776,12 +1776,12 @@ func (in *TargetParameters) DeepCopyInto(out *TargetParameters) {
 	*out = *in
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -1905,12 +1905,12 @@ func (in *TargetTrackingScalingPolicyConfigurationInitParameters) DeepCopyInto(o
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {
@@ -1954,12 +1954,12 @@ func (in *TargetTrackingScalingPolicyConfigurationObservation) DeepCopyInto(out 
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {
@@ -2003,12 +2003,12 @@ func (in *TargetTrackingScalingPolicyConfigurationParameters) DeepCopyInto(out *
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {

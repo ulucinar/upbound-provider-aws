@@ -3540,7 +3540,7 @@ func (in *ScheduledInitParameters) DeepCopyInto(out *ScheduledInitParameters) {
 	}
 	if in.ScheduleOffset != nil {
 		in, out := &in.ScheduleOffset, &out.ScheduleOffset
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScheduleStartTime != nil {
@@ -3590,7 +3590,7 @@ func (in *ScheduledObservation) DeepCopyInto(out *ScheduledObservation) {
 	}
 	if in.ScheduleOffset != nil {
 		in, out := &in.ScheduleOffset, &out.ScheduleOffset
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScheduleStartTime != nil {
@@ -3640,7 +3640,7 @@ func (in *ScheduledParameters) DeepCopyInto(out *ScheduledParameters) {
 	}
 	if in.ScheduleOffset != nil {
 		in, out := &in.ScheduleOffset, &out.ScheduleOffset
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScheduleStartTime != nil {

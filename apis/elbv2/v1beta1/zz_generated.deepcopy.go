@@ -144,7 +144,12 @@ func (in *ActionAuthenticateCognitoInitParameters) DeepCopyInto(out *ActionAuthe
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
+		**out = **in
+	}
+	if in.UserPoolClientID != nil {
+		in, out := &in.UserPoolClientID, &out.UserPoolClientID
+		*out = new(string)
 		**out = **in
 	}
 }
@@ -194,7 +199,7 @@ func (in *ActionAuthenticateCognitoObservation) DeepCopyInto(out *ActionAuthenti
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UserPoolArn != nil {
@@ -259,7 +264,7 @@ func (in *ActionAuthenticateCognitoParameters) DeepCopyInto(out *ActionAuthentic
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UserPoolArn != nil {
@@ -281,16 +286,6 @@ func (in *ActionAuthenticateCognitoParameters) DeepCopyInto(out *ActionAuthentic
 		in, out := &in.UserPoolClientID, &out.UserPoolClientID
 		*out = new(string)
 		**out = **in
-	}
-	if in.UserPoolClientIDRef != nil {
-		in, out := &in.UserPoolClientIDRef, &out.UserPoolClientIDRef
-		*out = new(v1.Reference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.UserPoolClientIDSelector != nil {
-		in, out := &in.UserPoolClientIDSelector, &out.UserPoolClientIDSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
 	}
 	if in.UserPoolDomain != nil {
 		in, out := &in.UserPoolDomain, &out.UserPoolDomain
@@ -369,7 +364,7 @@ func (in *ActionAuthenticateOidcInitParameters) DeepCopyInto(out *ActionAuthenti
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -444,7 +439,7 @@ func (in *ActionAuthenticateOidcObservation) DeepCopyInto(out *ActionAuthenticat
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -520,7 +515,7 @@ func (in *ActionAuthenticateOidcParameters) DeepCopyInto(out *ActionAuthenticate
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -755,7 +750,7 @@ func (in *ActionInitParameters) DeepCopyInto(out *ActionInitParameters) {
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -815,7 +810,7 @@ func (in *ActionObservation) DeepCopyInto(out *ActionObservation) {
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -880,7 +875,7 @@ func (in *ActionParameters) DeepCopyInto(out *ActionParameters) {
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -1092,7 +1087,7 @@ func (in *AuthenticateCognitoInitParameters) DeepCopyInto(out *AuthenticateCogni
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UserPoolArn != nil {
@@ -1157,7 +1152,7 @@ func (in *AuthenticateCognitoObservation) DeepCopyInto(out *AuthenticateCognitoO
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UserPoolArn != nil {
@@ -1222,7 +1217,7 @@ func (in *AuthenticateCognitoParameters) DeepCopyInto(out *AuthenticateCognitoPa
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UserPoolArn != nil {
@@ -1302,7 +1297,7 @@ func (in *AuthenticateOidcInitParameters) DeepCopyInto(out *AuthenticateOidcInit
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -1377,7 +1372,7 @@ func (in *AuthenticateOidcObservation) DeepCopyInto(out *AuthenticateOidcObserva
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -1453,7 +1448,7 @@ func (in *AuthenticateOidcParameters) DeepCopyInto(out *AuthenticateOidcParamete
 	}
 	if in.SessionTimeout != nil {
 		in, out := &in.SessionTimeout, &out.SessionTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TokenEndpoint != nil {
@@ -1682,7 +1677,7 @@ func (in *DefaultActionInitParameters) DeepCopyInto(out *DefaultActionInitParame
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -1742,7 +1737,7 @@ func (in *DefaultActionObservation) DeepCopyInto(out *DefaultActionObservation) 
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -1807,7 +1802,7 @@ func (in *DefaultActionParameters) DeepCopyInto(out *DefaultActionParameters) {
 	}
 	if in.Order != nil {
 		in, out := &in.Order, &out.Order
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Redirect != nil {
@@ -2031,7 +2026,7 @@ func (in *ForwardStickinessInitParameters) DeepCopyInto(out *ForwardStickinessIn
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -2056,7 +2051,7 @@ func (in *ForwardStickinessObservation) DeepCopyInto(out *ForwardStickinessObser
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -2081,7 +2076,7 @@ func (in *ForwardStickinessParameters) DeepCopyInto(out *ForwardStickinessParame
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -2106,7 +2101,7 @@ func (in *ForwardTargetGroupInitParameters) DeepCopyInto(out *ForwardTargetGroup
 	*out = *in
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2131,7 +2126,7 @@ func (in *ForwardTargetGroupObservation) DeepCopyInto(out *ForwardTargetGroupObs
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2166,7 +2161,7 @@ func (in *ForwardTargetGroupParameters) DeepCopyInto(out *ForwardTargetGroupPara
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2362,12 +2357,12 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	}
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Matcher != nil {
@@ -2392,12 +2387,12 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2422,12 +2417,12 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Matcher != nil {
@@ -2452,12 +2447,12 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2482,12 +2477,12 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	}
 	if in.HealthyThreshold != nil {
 		in, out := &in.HealthyThreshold, &out.HealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Interval != nil {
 		in, out := &in.Interval, &out.Interval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Matcher != nil {
@@ -2512,12 +2507,12 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	}
 	if in.Timeout != nil {
 		in, out := &in.Timeout, &out.Timeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UnhealthyThreshold != nil {
 		in, out := &in.UnhealthyThreshold, &out.UnhealthyThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2699,7 +2694,7 @@ func (in *LBInitParameters) DeepCopyInto(out *LBInitParameters) {
 	}
 	if in.IdleTimeout != nil {
 		in, out := &in.IdleTimeout, &out.IdleTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Internal != nil {
@@ -2842,7 +2837,7 @@ func (in *LBListenerInitParameters) DeepCopyInto(out *LBListenerInitParameters) 
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -2951,7 +2946,7 @@ func (in *LBListenerObservation) DeepCopyInto(out *LBListenerObservation) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -3043,7 +3038,7 @@ func (in *LBListenerParameters) DeepCopyInto(out *LBListenerParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -3134,7 +3129,7 @@ func (in *LBListenerRuleInitParameters) DeepCopyInto(out *LBListenerRuleInitPara
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -3230,7 +3225,7 @@ func (in *LBListenerRuleObservation) DeepCopyInto(out *LBListenerRuleObservation
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -3309,7 +3304,7 @@ func (in *LBListenerRuleParameters) DeepCopyInto(out *LBListenerRuleParameters) 
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -3496,7 +3491,7 @@ func (in *LBObservation) DeepCopyInto(out *LBObservation) {
 	}
 	if in.IdleTimeout != nil {
 		in, out := &in.IdleTimeout, &out.IdleTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Internal != nil {
@@ -3667,7 +3662,7 @@ func (in *LBParameters) DeepCopyInto(out *LBParameters) {
 	}
 	if in.IdleTimeout != nil {
 		in, out := &in.IdleTimeout, &out.IdleTimeout
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Internal != nil {
@@ -3879,7 +3874,7 @@ func (in *LBTargetGroupAttachmentInitParameters) DeepCopyInto(out *LBTargetGroup
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetID != nil {
@@ -3946,7 +3941,7 @@ func (in *LBTargetGroupAttachmentObservation) DeepCopyInto(out *LBTargetGroupAtt
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetGroupArn != nil {
@@ -3981,7 +3976,7 @@ func (in *LBTargetGroupAttachmentParameters) DeepCopyInto(out *LBTargetGroupAtta
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -4103,7 +4098,7 @@ func (in *LBTargetGroupInitParameters) DeepCopyInto(out *LBTargetGroupInitParame
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PreserveClientIP != nil {
@@ -4128,7 +4123,7 @@ func (in *LBTargetGroupInitParameters) DeepCopyInto(out *LBTargetGroupInitParame
 	}
 	if in.SlowStart != nil {
 		in, out := &in.SlowStart, &out.SlowStart
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stickiness != nil {
@@ -4271,7 +4266,7 @@ func (in *LBTargetGroupObservation) DeepCopyInto(out *LBTargetGroupObservation) 
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PreserveClientIP != nil {
@@ -4296,7 +4291,7 @@ func (in *LBTargetGroupObservation) DeepCopyInto(out *LBTargetGroupObservation) 
 	}
 	if in.SlowStart != nil {
 		in, out := &in.SlowStart, &out.SlowStart
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stickiness != nil {
@@ -4412,7 +4407,7 @@ func (in *LBTargetGroupParameters) DeepCopyInto(out *LBTargetGroupParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PreserveClientIP != nil {
@@ -4442,7 +4437,7 @@ func (in *LBTargetGroupParameters) DeepCopyInto(out *LBTargetGroupParameters) {
 	}
 	if in.SlowStart != nil {
 		in, out := &in.SlowStart, &out.SlowStart
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Stickiness != nil {
@@ -4546,7 +4541,7 @@ func (in *LBTargetGroupStickinessInitParameters) DeepCopyInto(out *LBTargetGroup
 	*out = *in
 	if in.CookieDuration != nil {
 		in, out := &in.CookieDuration, &out.CookieDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CookieName != nil {
@@ -4581,7 +4576,7 @@ func (in *LBTargetGroupStickinessObservation) DeepCopyInto(out *LBTargetGroupSti
 	*out = *in
 	if in.CookieDuration != nil {
 		in, out := &in.CookieDuration, &out.CookieDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CookieName != nil {
@@ -4616,7 +4611,7 @@ func (in *LBTargetGroupStickinessParameters) DeepCopyInto(out *LBTargetGroupStic
 	*out = *in
 	if in.CookieDuration != nil {
 		in, out := &in.CookieDuration, &out.CookieDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CookieName != nil {
@@ -5017,7 +5012,7 @@ func (in *StickinessInitParameters) DeepCopyInto(out *StickinessInitParameters) 
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -5042,7 +5037,7 @@ func (in *StickinessObservation) DeepCopyInto(out *StickinessObservation) {
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -5067,7 +5062,7 @@ func (in *StickinessParameters) DeepCopyInto(out *StickinessParameters) {
 	*out = *in
 	if in.Duration != nil {
 		in, out := &in.Duration, &out.Duration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Enabled != nil {
@@ -5282,7 +5277,7 @@ func (in *TargetGroupInitParameters) DeepCopyInto(out *TargetGroupInitParameters
 	*out = *in
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5307,7 +5302,7 @@ func (in *TargetGroupObservation) DeepCopyInto(out *TargetGroupObservation) {
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5342,7 +5337,7 @@ func (in *TargetGroupParameters) DeepCopyInto(out *TargetGroupParameters) {
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

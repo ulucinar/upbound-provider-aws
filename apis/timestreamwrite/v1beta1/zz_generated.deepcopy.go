@@ -123,7 +123,7 @@ func (in *DatabaseObservation) DeepCopyInto(out *DatabaseObservation) {
 	}
 	if in.TableCount != nil {
 		in, out := &in.TableCount, &out.TableCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -405,12 +405,12 @@ func (in *RetentionPropertiesInitParameters) DeepCopyInto(out *RetentionProperti
 	*out = *in
 	if in.MagneticStoreRetentionPeriodInDays != nil {
 		in, out := &in.MagneticStoreRetentionPeriodInDays, &out.MagneticStoreRetentionPeriodInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MemoryStoreRetentionPeriodInHours != nil {
 		in, out := &in.MemoryStoreRetentionPeriodInHours, &out.MemoryStoreRetentionPeriodInHours
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -430,12 +430,12 @@ func (in *RetentionPropertiesObservation) DeepCopyInto(out *RetentionPropertiesO
 	*out = *in
 	if in.MagneticStoreRetentionPeriodInDays != nil {
 		in, out := &in.MagneticStoreRetentionPeriodInDays, &out.MagneticStoreRetentionPeriodInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MemoryStoreRetentionPeriodInHours != nil {
 		in, out := &in.MemoryStoreRetentionPeriodInHours, &out.MemoryStoreRetentionPeriodInHours
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -455,12 +455,12 @@ func (in *RetentionPropertiesParameters) DeepCopyInto(out *RetentionPropertiesPa
 	*out = *in
 	if in.MagneticStoreRetentionPeriodInDays != nil {
 		in, out := &in.MagneticStoreRetentionPeriodInDays, &out.MagneticStoreRetentionPeriodInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MemoryStoreRetentionPeriodInHours != nil {
 		in, out := &in.MemoryStoreRetentionPeriodInHours, &out.MemoryStoreRetentionPeriodInHours
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

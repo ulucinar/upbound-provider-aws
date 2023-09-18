@@ -188,7 +188,8 @@ spec:
                         ebsVolumeSize:
                           description: The size in GiB of the EBS volume for the data
                             drive on each broker node.
-                          type: number
+                          format: int64
+                          type: integer
                         instanceType:
                           description: Specify the instance type to use for the kafka
                             brokersE.g., kafka.m5.large. (Pricing info)
@@ -313,14 +314,16 @@ spec:
                                               the valid values for the maximum volume
                                               throughput at the following documentation
                                               on throughput bottlenecks
-                                            type: number
+                                            format: int64
+                                            type: integer
                                         type: object
                                       type: array
                                     volumeSize:
                                       description: The size in GiB of the EBS volume
                                         for the data drive on each broker node. Minimum
                                         value of 1 and maximum value of 16384.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -380,7 +383,8 @@ spec:
                         revision:
                           description: Revision of the MSK Configuration to use in
                             the cluster.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   encryptionInfo:
@@ -806,7 +810,8 @@ spec:
                     description: The desired total number of broker nodes in the kafka
                       cluster.  It must be a multiple of the number of specified client
                       subnets.
-                    type: number
+                    format: int64
+                    type: integer
                   openMonitoring:
                     description: Configuration block for JMX and Node monitoring for
                       the MSK cluster. See below.
@@ -907,7 +912,8 @@ spec:
                         ebsVolumeSize:
                           description: The size in GiB of the EBS volume for the data
                             drive on each broker node.
-                          type: number
+                          format: int64
+                          type: integer
                         instanceType:
                           description: Specify the instance type to use for the kafka
                             brokersE.g., kafka.m5.large. (Pricing info)
@@ -943,14 +949,16 @@ spec:
                                               the valid values for the maximum volume
                                               throughput at the following documentation
                                               on throughput bottlenecks
-                                            type: number
+                                            format: int64
+                                            type: integer
                                         type: object
                                       type: array
                                     volumeSize:
                                       description: The size in GiB of the EBS volume
                                         for the data drive on each broker node. Minimum
                                         value of 1 and maximum value of 16384.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -1010,7 +1018,8 @@ spec:
                         revision:
                           description: Revision of the MSK Configuration to use in
                             the cluster.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   encryptionInfo:
@@ -1092,7 +1101,8 @@ spec:
                     description: The desired total number of broker nodes in the kafka
                       cluster.  It must be a multiple of the number of specified client
                       subnets.
-                    type: number
+                    format: int64
+                    type: integer
                   openMonitoring:
                     description: Configuration block for JMX and Node monitoring for
                       the MSK cluster. See below.
@@ -1469,7 +1479,8 @@ spec:
                         ebsVolumeSize:
                           description: The size in GiB of the EBS volume for the data
                             drive on each broker node.
-                          type: number
+                          format: int64
+                          type: integer
                         instanceType:
                           description: Specify the instance type to use for the kafka
                             brokersE.g., kafka.m5.large. (Pricing info)
@@ -1512,14 +1523,16 @@ spec:
                                               the valid values for the maximum volume
                                               throughput at the following documentation
                                               on throughput bottlenecks
-                                            type: number
+                                            format: int64
+                                            type: integer
                                         type: object
                                       type: array
                                     volumeSize:
                                       description: The size in GiB of the EBS volume
                                         for the data drive on each broker node. Minimum
                                         value of 1 and maximum value of 16384.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -1579,7 +1592,8 @@ spec:
                         revision:
                           description: Revision of the MSK Configuration to use in
                             the cluster.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   currentVersion:
@@ -1683,7 +1697,8 @@ spec:
                     description: The desired total number of broker nodes in the kafka
                       cluster.  It must be a multiple of the number of specified client
                       subnets.
-                    type: number
+                    format: int64
+                    type: integer
                   openMonitoring:
                     description: Configuration block for JMX and Node monitoring for
                       the MSK cluster. See below.

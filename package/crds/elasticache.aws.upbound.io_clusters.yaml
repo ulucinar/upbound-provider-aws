@@ -160,7 +160,8 @@ spec:
                       cluster will have. For Redis, this value must be 1. For Memcached,
                       this value must be between 1 and 40. If this number is reduced
                       on subsequent runs, the highest numbered nodes will be removed.
-                    type: number
+                    format: int64
+                    type: integer
                   outpostMode:
                     description: Specify the outpost mode that will apply to the cache
                       cluster creation. Valid values are "single-outpost" and "cross-outpost",
@@ -247,7 +248,8 @@ spec:
                     type: object
                   port:
                     description: create the resource.
-                    type: number
+                    format: int64
+                    type: integer
                   preferredAvailabilityZones:
                     description: 'List of the Availability Zones in which cache nodes
                       are created. If you are creating your cluster in an Amazon VPC
@@ -462,7 +464,8 @@ spec:
                       deleted. If the value of SnapshotRetentionLimit is set to zero
                       (0), backups are turned off. Please note that setting a snapshot_retention_limit
                       is not supported on cache.t1.micro cache nodes
-                    type: number
+                    format: int64
+                    type: integer
                   snapshotWindow:
                     description: 'Daily time range (in UTC) during which ElastiCache
                       will begin taking a daily snapshot of your cache cluster. Example:
@@ -660,7 +663,8 @@ spec:
                       cluster will have. For Redis, this value must be 1. For Memcached,
                       this value must be between 1 and 40. If this number is reduced
                       on subsequent runs, the highest numbered nodes will be removed.
-                    type: number
+                    format: int64
+                    type: integer
                   outpostMode:
                     description: Specify the outpost mode that will apply to the cache
                       cluster creation. Valid values are "single-outpost" and "cross-outpost",
@@ -668,7 +672,8 @@ spec:
                     type: string
                   port:
                     description: create the resource.
-                    type: number
+                    format: int64
+                    type: integer
                   preferredAvailabilityZones:
                     description: 'List of the Availability Zones in which cache nodes
                       are created. If you are creating your cluster in an Amazon VPC
@@ -714,7 +719,8 @@ spec:
                       deleted. If the value of SnapshotRetentionLimit is set to zero
                       (0), backups are turned off. Please note that setting a snapshot_retention_limit
                       is not supported on cache.t1.micro cache nodes
-                    type: number
+                    format: int64
+                    type: integer
                   snapshotWindow:
                     description: 'Daily time range (in UTC) during which ElastiCache
                       will begin taking a daily snapshot of your cache cluster. Example:
@@ -977,7 +983,8 @@ spec:
                           type: string
                         port:
                           description: create the resource.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   clusterAddress:
@@ -1062,7 +1069,8 @@ spec:
                       cluster will have. For Redis, this value must be 1. For Memcached,
                       this value must be between 1 and 40. If this number is reduced
                       on subsequent runs, the highest numbered nodes will be removed.
-                    type: number
+                    format: int64
+                    type: integer
                   outpostMode:
                     description: Specify the outpost mode that will apply to the cache
                       cluster creation. Valid values are "single-outpost" and "cross-outpost",
@@ -1074,7 +1082,8 @@ spec:
                     type: string
                   port:
                     description: create the resource.
-                    type: number
+                    format: int64
+                    type: integer
                   preferredAvailabilityZones:
                     description: 'List of the Availability Zones in which cache nodes
                       are created. If you are creating your cluster in an Amazon VPC
@@ -1133,7 +1142,8 @@ spec:
                       deleted. If the value of SnapshotRetentionLimit is set to zero
                       (0), backups are turned off. Please note that setting a snapshot_retention_limit
                       is not supported on cache.t1.micro cache nodes
-                    type: number
+                    format: int64
+                    type: integer
                   snapshotWindow:
                     description: 'Daily time range (in UTC) during which ElastiCache
                       will begin taking a daily snapshot of your cache cluster. Example:

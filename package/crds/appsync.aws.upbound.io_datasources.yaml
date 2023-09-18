@@ -156,12 +156,14 @@ spec:
                           items:
                             properties:
                               baseTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                               deltaSyncTableName:
                                 description: User-supplied name for the data source.
                                 type: string
                               deltaSyncTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         region:
@@ -481,12 +483,14 @@ spec:
                           items:
                             properties:
                               baseTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                               deltaSyncTableName:
                                 description: User-supplied name for the data source.
                                 type: string
                               deltaSyncTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         useCallerCredentials:
@@ -826,12 +830,14 @@ spec:
                           items:
                             properties:
                               baseTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                               deltaSyncTableName:
                                 description: User-supplied name for the data source.
                                 type: string
                               deltaSyncTableTtl:
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         region:

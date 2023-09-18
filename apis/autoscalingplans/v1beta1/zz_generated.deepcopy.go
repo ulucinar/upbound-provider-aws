@@ -561,12 +561,12 @@ func (in *ScalingInstructionInitParameters) DeepCopyInto(out *ScalingInstruction
 	}
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedLoadMetricSpecification != nil {
@@ -583,7 +583,7 @@ func (in *ScalingInstructionInitParameters) DeepCopyInto(out *ScalingInstruction
 	}
 	if in.PredictiveScalingMaxCapacityBuffer != nil {
 		in, out := &in.PredictiveScalingMaxCapacityBuffer, &out.PredictiveScalingMaxCapacityBuffer
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredictiveScalingMode != nil {
@@ -608,7 +608,7 @@ func (in *ScalingInstructionInitParameters) DeepCopyInto(out *ScalingInstruction
 	}
 	if in.ScheduledActionBufferTime != nil {
 		in, out := &in.ScheduledActionBufferTime, &out.ScheduledActionBufferTime
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ServiceNamespace != nil {
@@ -652,12 +652,12 @@ func (in *ScalingInstructionObservation) DeepCopyInto(out *ScalingInstructionObs
 	}
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedLoadMetricSpecification != nil {
@@ -674,7 +674,7 @@ func (in *ScalingInstructionObservation) DeepCopyInto(out *ScalingInstructionObs
 	}
 	if in.PredictiveScalingMaxCapacityBuffer != nil {
 		in, out := &in.PredictiveScalingMaxCapacityBuffer, &out.PredictiveScalingMaxCapacityBuffer
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredictiveScalingMode != nil {
@@ -699,7 +699,7 @@ func (in *ScalingInstructionObservation) DeepCopyInto(out *ScalingInstructionObs
 	}
 	if in.ScheduledActionBufferTime != nil {
 		in, out := &in.ScheduledActionBufferTime, &out.ScheduledActionBufferTime
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ServiceNamespace != nil {
@@ -743,12 +743,12 @@ func (in *ScalingInstructionParameters) DeepCopyInto(out *ScalingInstructionPara
 	}
 	if in.MaxCapacity != nil {
 		in, out := &in.MaxCapacity, &out.MaxCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinCapacity != nil {
 		in, out := &in.MinCapacity, &out.MinCapacity
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedLoadMetricSpecification != nil {
@@ -765,7 +765,7 @@ func (in *ScalingInstructionParameters) DeepCopyInto(out *ScalingInstructionPara
 	}
 	if in.PredictiveScalingMaxCapacityBuffer != nil {
 		in, out := &in.PredictiveScalingMaxCapacityBuffer, &out.PredictiveScalingMaxCapacityBuffer
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredictiveScalingMode != nil {
@@ -790,7 +790,7 @@ func (in *ScalingInstructionParameters) DeepCopyInto(out *ScalingInstructionPara
 	}
 	if in.ScheduledActionBufferTime != nil {
 		in, out := &in.ScheduledActionBufferTime, &out.ScheduledActionBufferTime
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ServiceNamespace != nil {
@@ -939,7 +939,7 @@ func (in *ScalingPlanObservation) DeepCopyInto(out *ScalingPlanObservation) {
 	}
 	if in.ScalingPlanVersion != nil {
 		in, out := &in.ScalingPlanVersion, &out.ScalingPlanVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1138,7 +1138,7 @@ func (in *TargetTrackingConfigurationInitParameters) DeepCopyInto(out *TargetTra
 	}
 	if in.EstimatedInstanceWarmup != nil {
 		in, out := &in.EstimatedInstanceWarmup, &out.EstimatedInstanceWarmup
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedScalingMetricSpecification != nil {
@@ -1150,12 +1150,12 @@ func (in *TargetTrackingConfigurationInitParameters) DeepCopyInto(out *TargetTra
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {
@@ -1192,7 +1192,7 @@ func (in *TargetTrackingConfigurationObservation) DeepCopyInto(out *TargetTracki
 	}
 	if in.EstimatedInstanceWarmup != nil {
 		in, out := &in.EstimatedInstanceWarmup, &out.EstimatedInstanceWarmup
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedScalingMetricSpecification != nil {
@@ -1204,12 +1204,12 @@ func (in *TargetTrackingConfigurationObservation) DeepCopyInto(out *TargetTracki
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {
@@ -1246,7 +1246,7 @@ func (in *TargetTrackingConfigurationParameters) DeepCopyInto(out *TargetTrackin
 	}
 	if in.EstimatedInstanceWarmup != nil {
 		in, out := &in.EstimatedInstanceWarmup, &out.EstimatedInstanceWarmup
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.PredefinedScalingMetricSpecification != nil {
@@ -1258,12 +1258,12 @@ func (in *TargetTrackingConfigurationParameters) DeepCopyInto(out *TargetTrackin
 	}
 	if in.ScaleInCooldown != nil {
 		in, out := &in.ScaleInCooldown, &out.ScaleInCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ScaleOutCooldown != nil {
 		in, out := &in.ScaleOutCooldown, &out.ScaleOutCooldown
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetValue != nil {

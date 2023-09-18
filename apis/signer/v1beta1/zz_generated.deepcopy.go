@@ -225,7 +225,7 @@ func (in *SignatureValidityPeriodInitParameters) DeepCopyInto(out *SignatureVali
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -250,7 +250,7 @@ func (in *SignatureValidityPeriodObservation) DeepCopyInto(out *SignatureValidit
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -275,7 +275,7 @@ func (in *SignatureValidityPeriodParameters) DeepCopyInto(out *SignatureValidity
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

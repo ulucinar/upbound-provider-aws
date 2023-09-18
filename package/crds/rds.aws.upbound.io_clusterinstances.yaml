@@ -268,7 +268,8 @@ spec:
                       Monitoring metrics are collected for the DB instance. To disable
                       collecting Enhanced Monitoring metrics, specify 0. The default
                       is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.'
-                    type: number
+                    format: int64
+                    type: integer
                   monitoringRoleArn:
                     description: The ARN for the IAM role that permits RDS to send
                       enhanced monitoring metrics to CloudWatch Logs. You can find
@@ -435,7 +436,8 @@ spec:
                       data. Valid values are 7, 731 (2 years) or a multiple of 31.
                       When specifying performance_insights_retention_period, performance_insights_enabled
                       needs to be set to true. Defaults to '7'.
-                    type: number
+                    format: int64
+                    type: integer
                   preferredBackupWindow:
                     description: 'The daily time range during which automated backups
                       are created if automated backups are enabled. Eg: "04:00-09:00".
@@ -450,7 +452,8 @@ spec:
                     description: Default 0. Failover Priority setting on instance
                       level. The reader who has lower tier has higher priority to
                       get promoted to writer.
-                    type: number
+                    format: int64
+                    type: integer
                   publiclyAccessible:
                     description: Bool to control if instance is publicly accessible.
                       Default false. See the documentation on Creating DB Instances
@@ -527,7 +530,8 @@ spec:
                       Monitoring metrics are collected for the DB instance. To disable
                       collecting Enhanced Monitoring metrics, specify 0. The default
                       is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.'
-                    type: number
+                    format: int64
+                    type: integer
                   performanceInsightsEnabled:
                     description: Specifies whether Performance Insights is enabled
                       or not.
@@ -537,7 +541,8 @@ spec:
                       data. Valid values are 7, 731 (2 years) or a multiple of 31.
                       When specifying performance_insights_retention_period, performance_insights_enabled
                       needs to be set to true. Defaults to '7'.
-                    type: number
+                    format: int64
+                    type: integer
                   preferredBackupWindow:
                     description: 'The daily time range during which automated backups
                       are created if automated backups are enabled. Eg: "04:00-09:00".
@@ -552,7 +557,8 @@ spec:
                     description: Default 0. Failover Priority setting on instance
                       level. The reader who has lower tier has higher priority to
                       get promoted to writer.
-                    type: number
+                    format: int64
+                    type: integer
                   publiclyAccessible:
                     description: Bool to control if instance is publicly accessible.
                       Default false. See the documentation on Creating DB Instances
@@ -846,7 +852,8 @@ spec:
                       Monitoring metrics are collected for the DB instance. To disable
                       collecting Enhanced Monitoring metrics, specify 0. The default
                       is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.'
-                    type: number
+                    format: int64
+                    type: integer
                   monitoringRoleArn:
                     description: The ARN for the IAM role that permits RDS to send
                       enhanced monitoring metrics to CloudWatch Logs. You can find
@@ -870,10 +877,12 @@ spec:
                       data. Valid values are 7, 731 (2 years) or a multiple of 31.
                       When specifying performance_insights_retention_period, performance_insights_enabled
                       needs to be set to true. Defaults to '7'.
-                    type: number
+                    format: int64
+                    type: integer
                   port:
                     description: The database port
-                    type: number
+                    format: int64
+                    type: integer
                   preferredBackupWindow:
                     description: 'The daily time range during which automated backups
                       are created if automated backups are enabled. Eg: "04:00-09:00".
@@ -888,7 +897,8 @@ spec:
                     description: Default 0. Failover Priority setting on instance
                       level. The reader who has lower tier has higher priority to
                       get promoted to writer.
-                    type: number
+                    format: int64
+                    type: integer
                   publiclyAccessible:
                     description: Bool to control if instance is publicly accessible.
                       Default false. See the documentation on Creating DB Instances

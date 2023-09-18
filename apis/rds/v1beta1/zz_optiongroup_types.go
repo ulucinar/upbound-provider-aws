@@ -98,7 +98,7 @@ type OptionInitParameters struct {
 	OptionSettings []OptionSettingsInitParameters `json:"optionSettings,omitempty" tf:"option_settings,omitempty"`
 
 	// The Port number when connecting to the Option (e.g., 11211).
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// A list of VPC Security Groups for which the option is enabled.
 	VPCSecurityGroupMemberships []*string `json:"vpcSecurityGroupMemberships,omitempty" tf:"vpc_security_group_memberships,omitempty"`
@@ -119,7 +119,7 @@ type OptionObservation struct {
 	OptionSettings []OptionSettingsObservation `json:"optionSettings,omitempty" tf:"option_settings,omitempty"`
 
 	// The Port number when connecting to the Option (e.g., 11211).
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// A list of VPC Security Groups for which the option is enabled.
 	VPCSecurityGroupMemberships []*string `json:"vpcSecurityGroupMemberships,omitempty" tf:"vpc_security_group_memberships,omitempty"`
@@ -144,7 +144,7 @@ type OptionParameters struct {
 
 	// The Port number when connecting to the Option (e.g., 11211).
 	// +kubebuilder:validation:Optional
-	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
+	Port *int64 `json:"port,omitempty" tf:"port,omitempty"`
 
 	// A list of VPC Security Groups for which the option is enabled.
 	// +kubebuilder:validation:Optional

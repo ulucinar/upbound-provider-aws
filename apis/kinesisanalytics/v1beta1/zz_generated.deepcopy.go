@@ -247,7 +247,7 @@ func (in *ApplicationObservation) DeepCopyInto(out *ApplicationObservation) {
 	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1704,7 +1704,7 @@ func (in *ParallelismInitParameters) DeepCopyInto(out *ParallelismInitParameters
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1724,7 +1724,7 @@ func (in *ParallelismObservation) DeepCopyInto(out *ParallelismObservation) {
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1744,7 +1744,7 @@ func (in *ParallelismParameters) DeepCopyInto(out *ParallelismParameters) {
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

@@ -1327,7 +1327,7 @@ func (in *HistoricalOptionsInitParameters) DeepCopyInto(out *HistoricalOptionsIn
 	*out = *in
 	if in.BudgetAdjustmentPeriod != nil {
 		in, out := &in.BudgetAdjustmentPeriod, &out.BudgetAdjustmentPeriod
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1347,12 +1347,12 @@ func (in *HistoricalOptionsObservation) DeepCopyInto(out *HistoricalOptionsObser
 	*out = *in
 	if in.BudgetAdjustmentPeriod != nil {
 		in, out := &in.BudgetAdjustmentPeriod, &out.BudgetAdjustmentPeriod
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.LookbackAvailablePeriods != nil {
 		in, out := &in.LookbackAvailablePeriods, &out.LookbackAvailablePeriods
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1372,7 +1372,7 @@ func (in *HistoricalOptionsParameters) DeepCopyInto(out *HistoricalOptionsParame
 	*out = *in
 	if in.BudgetAdjustmentPeriod != nil {
 		in, out := &in.BudgetAdjustmentPeriod, &out.BudgetAdjustmentPeriod
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

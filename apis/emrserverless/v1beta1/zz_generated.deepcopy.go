@@ -483,7 +483,7 @@ func (in *AutoStopConfigurationInitParameters) DeepCopyInto(out *AutoStopConfigu
 	}
 	if in.IdleTimeoutMinutes != nil {
 		in, out := &in.IdleTimeoutMinutes, &out.IdleTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -508,7 +508,7 @@ func (in *AutoStopConfigurationObservation) DeepCopyInto(out *AutoStopConfigurat
 	}
 	if in.IdleTimeoutMinutes != nil {
 		in, out := &in.IdleTimeoutMinutes, &out.IdleTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -533,7 +533,7 @@ func (in *AutoStopConfigurationParameters) DeepCopyInto(out *AutoStopConfigurati
 	}
 	if in.IdleTimeoutMinutes != nil {
 		in, out := &in.IdleTimeoutMinutes, &out.IdleTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -620,7 +620,7 @@ func (in *InitialCapacityConfigInitParameters) DeepCopyInto(out *InitialCapacity
 	}
 	if in.WorkerCount != nil {
 		in, out := &in.WorkerCount, &out.WorkerCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -647,7 +647,7 @@ func (in *InitialCapacityConfigObservation) DeepCopyInto(out *InitialCapacityCon
 	}
 	if in.WorkerCount != nil {
 		in, out := &in.WorkerCount, &out.WorkerCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -674,7 +674,7 @@ func (in *InitialCapacityConfigParameters) DeepCopyInto(out *InitialCapacityConf
 	}
 	if in.WorkerCount != nil {
 		in, out := &in.WorkerCount, &out.WorkerCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

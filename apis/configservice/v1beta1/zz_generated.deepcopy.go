@@ -2145,7 +2145,7 @@ func (in *RemediationConfigurationInitParameters) DeepCopyInto(out *RemediationC
 	}
 	if in.MaximumAutomaticAttempts != nil {
 		in, out := &in.MaximumAutomaticAttempts, &out.MaximumAutomaticAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Parameter != nil {
@@ -2162,7 +2162,7 @@ func (in *RemediationConfigurationInitParameters) DeepCopyInto(out *RemediationC
 	}
 	if in.RetryAttemptSeconds != nil {
 		in, out := &in.RetryAttemptSeconds, &out.RetryAttemptSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetID != nil {
@@ -2251,7 +2251,7 @@ func (in *RemediationConfigurationObservation) DeepCopyInto(out *RemediationConf
 	}
 	if in.MaximumAutomaticAttempts != nil {
 		in, out := &in.MaximumAutomaticAttempts, &out.MaximumAutomaticAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Parameter != nil {
@@ -2268,7 +2268,7 @@ func (in *RemediationConfigurationObservation) DeepCopyInto(out *RemediationConf
 	}
 	if in.RetryAttemptSeconds != nil {
 		in, out := &in.RetryAttemptSeconds, &out.RetryAttemptSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetID != nil {
@@ -2315,7 +2315,7 @@ func (in *RemediationConfigurationParameters) DeepCopyInto(out *RemediationConfi
 	}
 	if in.MaximumAutomaticAttempts != nil {
 		in, out := &in.MaximumAutomaticAttempts, &out.MaximumAutomaticAttempts
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Parameter != nil {
@@ -2337,7 +2337,7 @@ func (in *RemediationConfigurationParameters) DeepCopyInto(out *RemediationConfi
 	}
 	if in.RetryAttemptSeconds != nil {
 		in, out := &in.RetryAttemptSeconds, &out.RetryAttemptSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetID != nil {
@@ -2802,12 +2802,12 @@ func (in *SsmControlsInitParameters) DeepCopyInto(out *SsmControlsInitParameters
 	*out = *in
 	if in.ConcurrentExecutionRatePercentage != nil {
 		in, out := &in.ConcurrentExecutionRatePercentage, &out.ConcurrentExecutionRatePercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ErrorPercentage != nil {
 		in, out := &in.ErrorPercentage, &out.ErrorPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2827,12 +2827,12 @@ func (in *SsmControlsObservation) DeepCopyInto(out *SsmControlsObservation) {
 	*out = *in
 	if in.ConcurrentExecutionRatePercentage != nil {
 		in, out := &in.ConcurrentExecutionRatePercentage, &out.ConcurrentExecutionRatePercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ErrorPercentage != nil {
 		in, out := &in.ErrorPercentage, &out.ErrorPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2852,12 +2852,12 @@ func (in *SsmControlsParameters) DeepCopyInto(out *SsmControlsParameters) {
 	*out = *in
 	if in.ConcurrentExecutionRatePercentage != nil {
 		in, out := &in.ConcurrentExecutionRatePercentage, &out.ConcurrentExecutionRatePercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ErrorPercentage != nil {
 		in, out := &in.ErrorPercentage, &out.ErrorPercentage
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

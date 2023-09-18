@@ -19,7 +19,7 @@ func (in *ConnectorInitParameters) DeepCopyInto(out *ConnectorInitParameters) {
 	*out = *in
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -39,7 +39,7 @@ func (in *ConnectorObservation) DeepCopyInto(out *ConnectorObservation) {
 	*out = *in
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VoiceConnectorID != nil {
@@ -64,7 +64,7 @@ func (in *ConnectorParameters) DeepCopyInto(out *ConnectorParameters) {
 	*out = *in
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VoiceConnectorID != nil {
@@ -240,12 +240,12 @@ func (in *RouteInitParameters) DeepCopyInto(out *RouteInitParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -255,7 +255,7 @@ func (in *RouteInitParameters) DeepCopyInto(out *RouteInitParameters) {
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -280,12 +280,12 @@ func (in *RouteObservation) DeepCopyInto(out *RouteObservation) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -295,7 +295,7 @@ func (in *RouteObservation) DeepCopyInto(out *RouteObservation) {
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -320,12 +320,12 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Protocol != nil {
@@ -335,7 +335,7 @@ func (in *RouteParameters) DeepCopyInto(out *RouteParameters) {
 	}
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1140,7 +1140,7 @@ func (in *VoiceConnectorStreamingInitParameters) DeepCopyInto(out *VoiceConnecto
 	*out = *in
 	if in.DataRetention != nil {
 		in, out := &in.DataRetention, &out.DataRetention
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Disabled != nil {
@@ -1215,7 +1215,7 @@ func (in *VoiceConnectorStreamingObservation) DeepCopyInto(out *VoiceConnectorSt
 	*out = *in
 	if in.DataRetention != nil {
 		in, out := &in.DataRetention, &out.DataRetention
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Disabled != nil {
@@ -1268,7 +1268,7 @@ func (in *VoiceConnectorStreamingParameters) DeepCopyInto(out *VoiceConnectorStr
 	*out = *in
 	if in.DataRetention != nil {
 		in, out := &in.DataRetention, &out.DataRetention
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Disabled != nil {
@@ -1605,7 +1605,7 @@ func (in *VoiceConnectorTerminationInitParameters) DeepCopyInto(out *VoiceConnec
 	}
 	if in.CpsLimit != nil {
 		in, out := &in.CpsLimit, &out.CpsLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DefaultPhoneNumber != nil {
@@ -1689,7 +1689,7 @@ func (in *VoiceConnectorTerminationObservation) DeepCopyInto(out *VoiceConnector
 	}
 	if in.CpsLimit != nil {
 		in, out := &in.CpsLimit, &out.CpsLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DefaultPhoneNumber != nil {
@@ -1751,7 +1751,7 @@ func (in *VoiceConnectorTerminationParameters) DeepCopyInto(out *VoiceConnectorT
 	}
 	if in.CpsLimit != nil {
 		in, out := &in.CpsLimit, &out.CpsLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DefaultPhoneNumber != nil {

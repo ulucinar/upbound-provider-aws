@@ -288,7 +288,7 @@ func (in *BlockDeviceMappingEBSInitParameters) DeepCopyInto(out *BlockDeviceMapp
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -303,12 +303,12 @@ func (in *BlockDeviceMappingEBSInitParameters) DeepCopyInto(out *BlockDeviceMapp
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -343,7 +343,7 @@ func (in *BlockDeviceMappingEBSObservation) DeepCopyInto(out *BlockDeviceMapping
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -358,12 +358,12 @@ func (in *BlockDeviceMappingEBSObservation) DeepCopyInto(out *BlockDeviceMapping
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -398,7 +398,7 @@ func (in *BlockDeviceMappingEBSParameters) DeepCopyInto(out *BlockDeviceMappingE
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -413,12 +413,12 @@ func (in *BlockDeviceMappingEBSParameters) DeepCopyInto(out *BlockDeviceMappingE
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -2281,7 +2281,7 @@ func (in *EBSInitParameters) DeepCopyInto(out *EBSInitParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -2296,12 +2296,12 @@ func (in *EBSInitParameters) DeepCopyInto(out *EBSInitParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -2336,7 +2336,7 @@ func (in *EBSObservation) DeepCopyInto(out *EBSObservation) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -2351,12 +2351,12 @@ func (in *EBSObservation) DeepCopyInto(out *EBSObservation) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -2391,7 +2391,7 @@ func (in *EBSParameters) DeepCopyInto(out *EBSParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSKeyID != nil {
@@ -2406,12 +2406,12 @@ func (in *EBSParameters) DeepCopyInto(out *EBSParameters) {
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -2453,7 +2453,7 @@ func (in *FastLaunchConfigurationInitParameters) DeepCopyInto(out *FastLaunchCon
 	}
 	if in.MaxParallelLaunches != nil {
 		in, out := &in.MaxParallelLaunches, &out.MaxParallelLaunches
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotConfiguration != nil {
@@ -2497,7 +2497,7 @@ func (in *FastLaunchConfigurationObservation) DeepCopyInto(out *FastLaunchConfig
 	}
 	if in.MaxParallelLaunches != nil {
 		in, out := &in.MaxParallelLaunches, &out.MaxParallelLaunches
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotConfiguration != nil {
@@ -2541,7 +2541,7 @@ func (in *FastLaunchConfigurationParameters) DeepCopyInto(out *FastLaunchConfigu
 	}
 	if in.MaxParallelLaunches != nil {
 		in, out := &in.MaxParallelLaunches, &out.MaxParallelLaunches
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SnapshotConfiguration != nil {
@@ -2922,7 +2922,7 @@ func (in *ImagePipelineImageTestsConfigurationInitParameters) DeepCopyInto(out *
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2947,7 +2947,7 @@ func (in *ImagePipelineImageTestsConfigurationObservation) DeepCopyInto(out *Ima
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2972,7 +2972,7 @@ func (in *ImagePipelineImageTestsConfigurationParameters) DeepCopyInto(out *Imag
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3995,7 +3995,7 @@ func (in *ImageTestsConfigurationInitParameters) DeepCopyInto(out *ImageTestsCon
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -4020,7 +4020,7 @@ func (in *ImageTestsConfigurationObservation) DeepCopyInto(out *ImageTestsConfig
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -4045,7 +4045,7 @@ func (in *ImageTestsConfigurationParameters) DeepCopyInto(out *ImageTestsConfigu
 	}
 	if in.TimeoutMinutes != nil {
 		in, out := &in.TimeoutMinutes, &out.TimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -4649,7 +4649,7 @@ func (in *InstanceMetadataOptionsInitParameters) DeepCopyInto(out *InstanceMetad
 	*out = *in
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -4674,7 +4674,7 @@ func (in *InstanceMetadataOptionsObservation) DeepCopyInto(out *InstanceMetadata
 	*out = *in
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -4699,7 +4699,7 @@ func (in *InstanceMetadataOptionsParameters) DeepCopyInto(out *InstanceMetadataO
 	*out = *in
 	if in.HTTPPutResponseHopLimit != nil {
 		in, out := &in.HTTPPutResponseHopLimit, &out.HTTPPutResponseHopLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.HTTPTokens != nil {
@@ -5451,7 +5451,7 @@ func (in *SnapshotConfigurationInitParameters) DeepCopyInto(out *SnapshotConfigu
 	*out = *in
 	if in.TargetResourceCount != nil {
 		in, out := &in.TargetResourceCount, &out.TargetResourceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5471,7 +5471,7 @@ func (in *SnapshotConfigurationObservation) DeepCopyInto(out *SnapshotConfigurat
 	*out = *in
 	if in.TargetResourceCount != nil {
 		in, out := &in.TargetResourceCount, &out.TargetResourceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -5491,7 +5491,7 @@ func (in *SnapshotConfigurationParameters) DeepCopyInto(out *SnapshotConfigurati
 	*out = *in
 	if in.TargetResourceCount != nil {
 		in, out := &in.TargetResourceCount, &out.TargetResourceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

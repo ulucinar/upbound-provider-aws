@@ -233,7 +233,7 @@ func (in *ClusterConfigInitParameters) DeepCopyInto(out *ClusterConfigInitParame
 	}
 	if in.DedicatedMasterCount != nil {
 		in, out := &in.DedicatedMasterCount, &out.DedicatedMasterCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DedicatedMasterEnabled != nil {
@@ -248,7 +248,7 @@ func (in *ClusterConfigInitParameters) DeepCopyInto(out *ClusterConfigInitParame
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceType != nil {
@@ -258,7 +258,7 @@ func (in *ClusterConfigInitParameters) DeepCopyInto(out *ClusterConfigInitParame
 	}
 	if in.WarmCount != nil {
 		in, out := &in.WarmCount, &out.WarmCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.WarmEnabled != nil {
@@ -307,7 +307,7 @@ func (in *ClusterConfigObservation) DeepCopyInto(out *ClusterConfigObservation) 
 	}
 	if in.DedicatedMasterCount != nil {
 		in, out := &in.DedicatedMasterCount, &out.DedicatedMasterCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DedicatedMasterEnabled != nil {
@@ -322,7 +322,7 @@ func (in *ClusterConfigObservation) DeepCopyInto(out *ClusterConfigObservation) 
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceType != nil {
@@ -332,7 +332,7 @@ func (in *ClusterConfigObservation) DeepCopyInto(out *ClusterConfigObservation) 
 	}
 	if in.WarmCount != nil {
 		in, out := &in.WarmCount, &out.WarmCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.WarmEnabled != nil {
@@ -381,7 +381,7 @@ func (in *ClusterConfigParameters) DeepCopyInto(out *ClusterConfigParameters) {
 	}
 	if in.DedicatedMasterCount != nil {
 		in, out := &in.DedicatedMasterCount, &out.DedicatedMasterCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DedicatedMasterEnabled != nil {
@@ -396,7 +396,7 @@ func (in *ClusterConfigParameters) DeepCopyInto(out *ClusterConfigParameters) {
 	}
 	if in.InstanceCount != nil {
 		in, out := &in.InstanceCount, &out.InstanceCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InstanceType != nil {
@@ -406,7 +406,7 @@ func (in *ClusterConfigParameters) DeepCopyInto(out *ClusterConfigParameters) {
 	}
 	if in.WarmCount != nil {
 		in, out := &in.WarmCount, &out.WarmCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.WarmEnabled != nil {
@@ -1657,7 +1657,7 @@ func (in *DurationInitParameters) DeepCopyInto(out *DurationInitParameters) {
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1682,7 +1682,7 @@ func (in *DurationObservation) DeepCopyInto(out *DurationObservation) {
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1707,7 +1707,7 @@ func (in *DurationParameters) DeepCopyInto(out *DurationParameters) {
 	}
 	if in.Value != nil {
 		in, out := &in.Value, &out.Value
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1732,17 +1732,17 @@ func (in *EBSOptionsInitParameters) DeepCopyInto(out *EBSOptionsInitParameters) 
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -1772,17 +1772,17 @@ func (in *EBSOptionsObservation) DeepCopyInto(out *EBSOptionsObservation) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -1812,17 +1812,17 @@ func (in *EBSOptionsParameters) DeepCopyInto(out *EBSOptionsParameters) {
 	}
 	if in.Iops != nil {
 		in, out := &in.Iops, &out.Iops
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Throughput != nil {
 		in, out := &in.Throughput, &out.Throughput
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeSize != nil {
 		in, out := &in.VolumeSize, &out.VolumeSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.VolumeType != nil {
@@ -2350,7 +2350,7 @@ func (in *SAMLOptionsInitParameters) DeepCopyInto(out *SAMLOptionsInitParameters
 	}
 	if in.SessionTimeoutMinutes != nil {
 		in, out := &in.SessionTimeoutMinutes, &out.SessionTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SubjectKey != nil {
@@ -2397,7 +2397,7 @@ func (in *SAMLOptionsObservation) DeepCopyInto(out *SAMLOptionsObservation) {
 	}
 	if in.SessionTimeoutMinutes != nil {
 		in, out := &in.SessionTimeoutMinutes, &out.SessionTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SubjectKey != nil {
@@ -2449,7 +2449,7 @@ func (in *SAMLOptionsParameters) DeepCopyInto(out *SAMLOptionsParameters) {
 	}
 	if in.SessionTimeoutMinutes != nil {
 		in, out := &in.SessionTimeoutMinutes, &out.SessionTimeoutMinutes
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SubjectKey != nil {
@@ -2474,7 +2474,7 @@ func (in *SnapshotOptionsInitParameters) DeepCopyInto(out *SnapshotOptionsInitPa
 	*out = *in
 	if in.AutomatedSnapshotStartHour != nil {
 		in, out := &in.AutomatedSnapshotStartHour, &out.AutomatedSnapshotStartHour
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2494,7 +2494,7 @@ func (in *SnapshotOptionsObservation) DeepCopyInto(out *SnapshotOptionsObservati
 	*out = *in
 	if in.AutomatedSnapshotStartHour != nil {
 		in, out := &in.AutomatedSnapshotStartHour, &out.AutomatedSnapshotStartHour
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2514,7 +2514,7 @@ func (in *SnapshotOptionsParameters) DeepCopyInto(out *SnapshotOptionsParameters
 	*out = *in
 	if in.AutomatedSnapshotStartHour != nil {
 		in, out := &in.AutomatedSnapshotStartHour, &out.AutomatedSnapshotStartHour
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2661,7 +2661,7 @@ func (in *ZoneAwarenessConfigInitParameters) DeepCopyInto(out *ZoneAwarenessConf
 	*out = *in
 	if in.AvailabilityZoneCount != nil {
 		in, out := &in.AvailabilityZoneCount, &out.AvailabilityZoneCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2681,7 +2681,7 @@ func (in *ZoneAwarenessConfigObservation) DeepCopyInto(out *ZoneAwarenessConfigO
 	*out = *in
 	if in.AvailabilityZoneCount != nil {
 		in, out := &in.AvailabilityZoneCount, &out.AvailabilityZoneCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2701,7 +2701,7 @@ func (in *ZoneAwarenessConfigParameters) DeepCopyInto(out *ZoneAwarenessConfigPa
 	*out = *in
 	if in.AvailabilityZoneCount != nil {
 		in, out := &in.AvailabilityZoneCount, &out.AvailabilityZoneCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

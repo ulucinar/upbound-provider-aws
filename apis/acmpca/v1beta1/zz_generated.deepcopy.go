@@ -361,7 +361,7 @@ func (in *CertificateAuthorityInitParameters) DeepCopyInto(out *CertificateAutho
 	}
 	if in.PermanentDeletionTimeInDays != nil {
 		in, out := &in.PermanentDeletionTimeInDays, &out.PermanentDeletionTimeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RevocationConfiguration != nil {
@@ -497,7 +497,7 @@ func (in *CertificateAuthorityObservation) DeepCopyInto(out *CertificateAuthorit
 	}
 	if in.PermanentDeletionTimeInDays != nil {
 		in, out := &in.PermanentDeletionTimeInDays, &out.PermanentDeletionTimeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RevocationConfiguration != nil {
@@ -591,7 +591,7 @@ func (in *CertificateAuthorityParameters) DeepCopyInto(out *CertificateAuthority
 	}
 	if in.PermanentDeletionTimeInDays != nil {
 		in, out := &in.PermanentDeletionTimeInDays, &out.PermanentDeletionTimeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -917,7 +917,7 @@ func (in *CrlConfigurationInitParameters) DeepCopyInto(out *CrlConfigurationInit
 	}
 	if in.ExpirationInDays != nil {
 		in, out := &in.ExpirationInDays, &out.ExpirationInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.S3BucketName != nil {
@@ -957,7 +957,7 @@ func (in *CrlConfigurationObservation) DeepCopyInto(out *CrlConfigurationObserva
 	}
 	if in.ExpirationInDays != nil {
 		in, out := &in.ExpirationInDays, &out.ExpirationInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.S3BucketName != nil {
@@ -997,7 +997,7 @@ func (in *CrlConfigurationParameters) DeepCopyInto(out *CrlConfigurationParamete
 	}
 	if in.ExpirationInDays != nil {
 		in, out := &in.ExpirationInDays, &out.ExpirationInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.S3BucketName != nil {
