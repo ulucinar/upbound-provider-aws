@@ -344,7 +344,7 @@ type DynamicPartitioningConfigurationInitParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 }
 
 type DynamicPartitioningConfigurationObservation struct {
@@ -353,7 +353,7 @@ type DynamicPartitioningConfigurationObservation struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 }
 
 type DynamicPartitioningConfigurationParameters struct {
@@ -364,16 +364,16 @@ type DynamicPartitioningConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 }
 
 type ElasticsearchConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []CloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -391,7 +391,7 @@ type ElasticsearchConfigurationInitParameters struct {
 	ProcessingConfiguration []ProcessingConfigurationInitParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode,omitempty"`
@@ -406,10 +406,10 @@ type ElasticsearchConfigurationInitParameters struct {
 type ElasticsearchConfigurationObservation struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []CloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -430,7 +430,7 @@ type ElasticsearchConfigurationObservation struct {
 	ProcessingConfiguration []ProcessingConfigurationObservation `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn,omitempty"`
@@ -449,11 +449,11 @@ type ElasticsearchConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	// +kubebuilder:validation:Optional
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	// +kubebuilder:validation:Optional
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -491,7 +491,7 @@ type ElasticsearchConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/iam/v1beta1.Role
@@ -562,11 +562,11 @@ type ExtendedS3ConfigurationCloudwatchLoggingOptionsParameters struct {
 type ExtendedS3ConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []ExtendedS3ConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -606,11 +606,11 @@ type ExtendedS3ConfigurationObservation struct {
 	BucketArn *string `json:"bucketArn,omitempty" tf:"bucket_arn,omitempty"`
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []ExtendedS3ConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -665,12 +665,12 @@ type ExtendedS3ConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	// +kubebuilder:validation:Optional
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	// +kubebuilder:validation:Optional
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -799,10 +799,10 @@ type HTTPEndpointConfigurationCloudwatchLoggingOptionsParameters struct {
 type HTTPEndpointConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []HTTPEndpointConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -817,7 +817,7 @@ type HTTPEndpointConfigurationInitParameters struct {
 	RequestConfiguration []RequestConfigurationInitParameters `json:"requestConfiguration,omitempty" tf:"request_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode,omitempty"`
@@ -829,10 +829,10 @@ type HTTPEndpointConfigurationInitParameters struct {
 type HTTPEndpointConfigurationObservation struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []HTTPEndpointConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -847,7 +847,7 @@ type HTTPEndpointConfigurationObservation struct {
 	RequestConfiguration []RequestConfigurationObservation `json:"requestConfiguration,omitempty" tf:"request_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn,omitempty"`
@@ -867,11 +867,11 @@ type HTTPEndpointConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	// +kubebuilder:validation:Optional
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	// +kubebuilder:validation:Optional
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -891,7 +891,7 @@ type HTTPEndpointConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/iam/v1beta1.Role
@@ -1122,10 +1122,10 @@ type OpensearchConfigurationCloudwatchLoggingOptionsParameters struct {
 type OpensearchConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []OpensearchConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -1143,7 +1143,7 @@ type OpensearchConfigurationInitParameters struct {
 	ProcessingConfiguration []OpensearchConfigurationProcessingConfigurationInitParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode,omitempty"`
@@ -1158,10 +1158,10 @@ type OpensearchConfigurationInitParameters struct {
 type OpensearchConfigurationObservation struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []OpensearchConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -1182,7 +1182,7 @@ type OpensearchConfigurationObservation struct {
 	ProcessingConfiguration []OpensearchConfigurationProcessingConfigurationObservation `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn,omitempty"`
@@ -1201,11 +1201,11 @@ type OpensearchConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	// +kubebuilder:validation:Optional
-	BufferingInterval *float64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
+	BufferingInterval *int64 `json:"bufferingInterval,omitempty" tf:"buffering_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	// +kubebuilder:validation:Optional
-	BufferingSize *float64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
+	BufferingSize *int64 `json:"bufferingSize,omitempty" tf:"buffering_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -1243,7 +1243,7 @@ type OpensearchConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/iam/v1beta1.Role
@@ -1410,7 +1410,7 @@ type OpensearchConfigurationVPCConfigParameters struct {
 type OrcSerDeInitParameters struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
 	BloomFilterColumns []*string `json:"bloomFilterColumns,omitempty" tf:"bloom_filter_columns,omitempty"`
@@ -1434,16 +1434,16 @@ type OrcSerDeInitParameters struct {
 	PaddingTolerance *float64 `json:"paddingTolerance,omitempty" tf:"padding_tolerance,omitempty"`
 
 	// The number of rows between index entries. The default is 10000 and the minimum is 1000.
-	RowIndexStride *float64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
+	RowIndexStride *int64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
 
 	// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-	StripeSizeBytes *float64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
+	StripeSizeBytes *int64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
 }
 
 type OrcSerDeObservation struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
 	BloomFilterColumns []*string `json:"bloomFilterColumns,omitempty" tf:"bloom_filter_columns,omitempty"`
@@ -1467,17 +1467,17 @@ type OrcSerDeObservation struct {
 	PaddingTolerance *float64 `json:"paddingTolerance,omitempty" tf:"padding_tolerance,omitempty"`
 
 	// The number of rows between index entries. The default is 10000 and the minimum is 1000.
-	RowIndexStride *float64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
+	RowIndexStride *int64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
 
 	// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-	StripeSizeBytes *float64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
+	StripeSizeBytes *int64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
 }
 
 type OrcSerDeParameters struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	// +kubebuilder:validation:Optional
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
 	// +kubebuilder:validation:Optional
@@ -1509,11 +1509,11 @@ type OrcSerDeParameters struct {
 
 	// The number of rows between index entries. The default is 10000 and the minimum is 1000.
 	// +kubebuilder:validation:Optional
-	RowIndexStride *float64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
+	RowIndexStride *int64 `json:"rowIndexStride,omitempty" tf:"row_index_stride,omitempty"`
 
 	// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
 	// +kubebuilder:validation:Optional
-	StripeSizeBytes *float64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
+	StripeSizeBytes *int64 `json:"stripeSizeBytes,omitempty" tf:"stripe_size_bytes,omitempty"`
 }
 
 type OutputFormatConfigurationInitParameters struct {
@@ -1567,7 +1567,7 @@ type ParametersParameters struct {
 type ParquetSerDeInitParameters struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// The compression code to use over data blocks. The possible values are UNCOMPRESSED, SNAPPY, and GZIP, with the default being SNAPPY. Use SNAPPY for higher decompression speed. Use GZIP if the compression ratio is more important than speed.
 	Compression *string `json:"compression,omitempty" tf:"compression,omitempty"`
@@ -1576,10 +1576,10 @@ type ParquetSerDeInitParameters struct {
 	EnableDictionaryCompression *bool `json:"enableDictionaryCompression,omitempty" tf:"enable_dictionary_compression,omitempty"`
 
 	// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
-	MaxPaddingBytes *float64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
+	MaxPaddingBytes *int64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
 
 	// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-	PageSizeBytes *float64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
+	PageSizeBytes *int64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
 
 	// Indicates the version of row format to output. The possible values are V1 and V2. The default is V1.
 	WriterVersion *string `json:"writerVersion,omitempty" tf:"writer_version,omitempty"`
@@ -1588,7 +1588,7 @@ type ParquetSerDeInitParameters struct {
 type ParquetSerDeObservation struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// The compression code to use over data blocks. The possible values are UNCOMPRESSED, SNAPPY, and GZIP, with the default being SNAPPY. Use SNAPPY for higher decompression speed. Use GZIP if the compression ratio is more important than speed.
 	Compression *string `json:"compression,omitempty" tf:"compression,omitempty"`
@@ -1597,10 +1597,10 @@ type ParquetSerDeObservation struct {
 	EnableDictionaryCompression *bool `json:"enableDictionaryCompression,omitempty" tf:"enable_dictionary_compression,omitempty"`
 
 	// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
-	MaxPaddingBytes *float64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
+	MaxPaddingBytes *int64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
 
 	// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-	PageSizeBytes *float64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
+	PageSizeBytes *int64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
 
 	// Indicates the version of row format to output. The possible values are V1 and V2. The default is V1.
 	WriterVersion *string `json:"writerVersion,omitempty" tf:"writer_version,omitempty"`
@@ -1610,7 +1610,7 @@ type ParquetSerDeParameters struct {
 
 	// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 	// +kubebuilder:validation:Optional
-	BlockSizeBytes *float64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
+	BlockSizeBytes *int64 `json:"blockSizeBytes,omitempty" tf:"block_size_bytes,omitempty"`
 
 	// The compression code to use over data blocks. The possible values are UNCOMPRESSED, SNAPPY, and GZIP, with the default being SNAPPY. Use SNAPPY for higher decompression speed. Use GZIP if the compression ratio is more important than speed.
 	// +kubebuilder:validation:Optional
@@ -1622,11 +1622,11 @@ type ParquetSerDeParameters struct {
 
 	// The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
 	// +kubebuilder:validation:Optional
-	MaxPaddingBytes *float64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
+	MaxPaddingBytes *int64 `json:"maxPaddingBytes,omitempty" tf:"max_padding_bytes,omitempty"`
 
 	// The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
 	// +kubebuilder:validation:Optional
-	PageSizeBytes *float64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
+	PageSizeBytes *int64 `json:"pageSizeBytes,omitempty" tf:"page_size_bytes,omitempty"`
 
 	// Indicates the version of row format to output. The possible values are V1 and V2. The default is V1.
 	// +kubebuilder:validation:Optional
@@ -1838,7 +1838,7 @@ type RedshiftConfigurationInitParameters struct {
 	ProcessingConfiguration []RedshiftConfigurationProcessingConfigurationInitParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The configuration for backup in Amazon S3. Required if s3_backup_mode is Enabled. Supports the same fields as s3_configuration object.
 	S3BackupConfiguration []RedshiftConfigurationS3BackupConfigurationInitParameters `json:"s3BackupConfiguration,omitempty" tf:"s3_backup_configuration,omitempty"`
@@ -1871,7 +1871,7 @@ type RedshiftConfigurationObservation struct {
 	ProcessingConfiguration []RedshiftConfigurationProcessingConfigurationObservation `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	RoleArn *string `json:"roleArn,omitempty" tf:"role_arn,omitempty"`
@@ -1918,7 +1918,7 @@ type RedshiftConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The ARN of the AWS credentials.
 	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/iam/v1beta1.Role
@@ -2076,11 +2076,11 @@ type RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsParameter
 type RedshiftConfigurationS3BackupConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2105,11 +2105,11 @@ type RedshiftConfigurationS3BackupConfigurationObservation struct {
 	BucketArn *string `json:"bucketArn,omitempty" tf:"bucket_arn,omitempty"`
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []RedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2149,12 +2149,12 @@ type RedshiftConfigurationS3BackupConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	// +kubebuilder:validation:Optional
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	// +kubebuilder:validation:Optional
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -2266,11 +2266,11 @@ type S3BackupConfigurationInitParameters struct {
 	BucketArn *string `json:"bucketArn,omitempty" tf:"bucket_arn,omitempty"`
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []S3BackupConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2298,11 +2298,11 @@ type S3BackupConfigurationObservation struct {
 	BucketArn *string `json:"bucketArn,omitempty" tf:"bucket_arn,omitempty"`
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []S3BackupConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2332,12 +2332,12 @@ type S3BackupConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	// +kubebuilder:validation:Optional
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	// +kubebuilder:validation:Optional
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -2407,11 +2407,11 @@ type S3ConfigurationCloudwatchLoggingOptionsParameters struct {
 type S3ConfigurationInitParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []S3ConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2436,11 +2436,11 @@ type S3ConfigurationObservation struct {
 	BucketArn *string `json:"bucketArn,omitempty" tf:"bucket_arn,omitempty"`
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions []S3ConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
@@ -2480,12 +2480,12 @@ type S3ConfigurationParameters struct {
 
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
 	// +kubebuilder:validation:Optional
-	BufferInterval *float64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
+	BufferInterval *int64 `json:"bufferInterval,omitempty" tf:"buffer_interval,omitempty"`
 
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	// +kubebuilder:validation:Optional
-	BufferSize *float64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
+	BufferSize *int64 `json:"bufferSize,omitempty" tf:"buffer_size,omitempty"`
 
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	// +kubebuilder:validation:Optional
@@ -2715,7 +2715,7 @@ type SplunkConfigurationInitParameters struct {
 	CloudwatchLoggingOptions []SplunkConfigurationCloudwatchLoggingOptionsInitParameters `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
 
 	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-	HecAcknowledgmentTimeout *float64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
+	HecAcknowledgmentTimeout *int64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
 
 	// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 	HecEndpoint *string `json:"hecEndpoint,omitempty" tf:"hec_endpoint,omitempty"`
@@ -2727,7 +2727,7 @@ type SplunkConfigurationInitParameters struct {
 	ProcessingConfiguration []SplunkConfigurationProcessingConfigurationInitParameters `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode,omitempty"`
@@ -2739,7 +2739,7 @@ type SplunkConfigurationObservation struct {
 	CloudwatchLoggingOptions []SplunkConfigurationCloudwatchLoggingOptionsObservation `json:"cloudwatchLoggingOptions,omitempty" tf:"cloudwatch_logging_options,omitempty"`
 
 	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-	HecAcknowledgmentTimeout *float64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
+	HecAcknowledgmentTimeout *int64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
 
 	// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 	HecEndpoint *string `json:"hecEndpoint,omitempty" tf:"hec_endpoint,omitempty"`
@@ -2751,7 +2751,7 @@ type SplunkConfigurationObservation struct {
 	ProcessingConfiguration []SplunkConfigurationProcessingConfigurationObservation `json:"processingConfiguration,omitempty" tf:"processing_configuration,omitempty"`
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	S3BackupMode *string `json:"s3BackupMode,omitempty" tf:"s3_backup_mode,omitempty"`
@@ -2765,7 +2765,7 @@ type SplunkConfigurationParameters struct {
 
 	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 	// +kubebuilder:validation:Optional
-	HecAcknowledgmentTimeout *float64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
+	HecAcknowledgmentTimeout *int64 `json:"hecAcknowledgmentTimeout,omitempty" tf:"hec_acknowledgment_timeout,omitempty"`
 
 	// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
 	// +kubebuilder:validation:Optional
@@ -2785,7 +2785,7 @@ type SplunkConfigurationParameters struct {
 
 	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
 	// +kubebuilder:validation:Optional
-	RetryDuration *float64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
+	RetryDuration *int64 `json:"retryDuration,omitempty" tf:"retry_duration,omitempty"`
 
 	// The Amazon S3 backup mode.  Valid values are Disabled and Enabled.  Default value is Disabled.
 	// +kubebuilder:validation:Optional

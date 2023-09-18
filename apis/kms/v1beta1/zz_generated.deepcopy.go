@@ -585,7 +585,7 @@ func (in *ExternalKeyInitParameters) DeepCopyInto(out *ExternalKeyInitParameters
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -687,7 +687,7 @@ func (in *ExternalKeyObservation) DeepCopyInto(out *ExternalKeyObservation) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -787,7 +787,7 @@ func (in *ExternalKeyParameters) DeepCopyInto(out *ExternalKeyParameters) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1265,7 +1265,7 @@ func (in *KeyInitParameters) DeepCopyInto(out *KeyInitParameters) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1382,7 +1382,7 @@ func (in *KeyObservation) DeepCopyInto(out *KeyObservation) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1487,7 +1487,7 @@ func (in *KeyParameters) DeepCopyInto(out *KeyParameters) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1624,7 +1624,7 @@ func (in *ReplicaExternalKeyInitParameters) DeepCopyInto(out *ReplicaExternalKey
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1721,7 +1721,7 @@ func (in *ReplicaExternalKeyObservation) DeepCopyInto(out *ReplicaExternalKeyObs
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1826,7 +1826,7 @@ func (in *ReplicaExternalKeyParameters) DeepCopyInto(out *ReplicaExternalKeyPara
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -1973,7 +1973,7 @@ func (in *ReplicaKeyInitParameters) DeepCopyInto(out *ReplicaKeyInitParameters) 
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -2065,7 +2065,7 @@ func (in *ReplicaKeyObservation) DeepCopyInto(out *ReplicaKeyObservation) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -2165,7 +2165,7 @@ func (in *ReplicaKeyParameters) DeepCopyInto(out *ReplicaKeyParameters) {
 	}
 	if in.DeletionWindowInDays != nil {
 		in, out := &in.DeletionWindowInDays, &out.DeletionWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {

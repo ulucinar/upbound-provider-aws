@@ -573,12 +573,12 @@ func (in *AppversionLifecycleInitParameters) DeepCopyInto(out *AppversionLifecyc
 	}
 	if in.MaxAgeInDays != nil {
 		in, out := &in.MaxAgeInDays, &out.MaxAgeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxCount != nil {
 		in, out := &in.MaxCount, &out.MaxCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -603,12 +603,12 @@ func (in *AppversionLifecycleObservation) DeepCopyInto(out *AppversionLifecycleO
 	}
 	if in.MaxAgeInDays != nil {
 		in, out := &in.MaxAgeInDays, &out.MaxAgeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxCount != nil {
 		in, out := &in.MaxCount, &out.MaxCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ServiceRole != nil {
@@ -638,12 +638,12 @@ func (in *AppversionLifecycleParameters) DeepCopyInto(out *AppversionLifecyclePa
 	}
 	if in.MaxAgeInDays != nil {
 		in, out := &in.MaxAgeInDays, &out.MaxAgeInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxCount != nil {
 		in, out := &in.MaxCount, &out.MaxCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ServiceRole != nil {

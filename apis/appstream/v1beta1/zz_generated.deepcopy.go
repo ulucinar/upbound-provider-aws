@@ -244,7 +244,7 @@ func (in *ComputeCapacityInitParameters) DeepCopyInto(out *ComputeCapacityInitPa
 	*out = *in
 	if in.DesiredInstances != nil {
 		in, out := &in.DesiredInstances, &out.DesiredInstances
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -264,22 +264,22 @@ func (in *ComputeCapacityObservation) DeepCopyInto(out *ComputeCapacityObservati
 	*out = *in
 	if in.Available != nil {
 		in, out := &in.Available, &out.Available
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DesiredInstances != nil {
 		in, out := &in.DesiredInstances, &out.DesiredInstances
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.InUse != nil {
 		in, out := &in.InUse, &out.InUse
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Running != nil {
 		in, out := &in.Running, &out.Running
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -299,7 +299,7 @@ func (in *ComputeCapacityParameters) DeepCopyInto(out *ComputeCapacityParameters
 	*out = *in
 	if in.DesiredInstances != nil {
 		in, out := &in.DesiredInstances, &out.DesiredInstances
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -656,7 +656,7 @@ func (in *FleetInitParameters) DeepCopyInto(out *FleetInitParameters) {
 	}
 	if in.DisconnectTimeoutInSeconds != nil {
 		in, out := &in.DisconnectTimeoutInSeconds, &out.DisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DisplayName != nil {
@@ -683,7 +683,7 @@ func (in *FleetInitParameters) DeepCopyInto(out *FleetInitParameters) {
 	}
 	if in.IdleDisconnectTimeoutInSeconds != nil {
 		in, out := &in.IdleDisconnectTimeoutInSeconds, &out.IdleDisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ImageArn != nil {
@@ -703,7 +703,7 @@ func (in *FleetInitParameters) DeepCopyInto(out *FleetInitParameters) {
 	}
 	if in.MaxUserDurationInSeconds != nil {
 		in, out := &in.MaxUserDurationInSeconds, &out.MaxUserDurationInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -809,7 +809,7 @@ func (in *FleetObservation) DeepCopyInto(out *FleetObservation) {
 	}
 	if in.DisconnectTimeoutInSeconds != nil {
 		in, out := &in.DisconnectTimeoutInSeconds, &out.DisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DisplayName != nil {
@@ -846,7 +846,7 @@ func (in *FleetObservation) DeepCopyInto(out *FleetObservation) {
 	}
 	if in.IdleDisconnectTimeoutInSeconds != nil {
 		in, out := &in.IdleDisconnectTimeoutInSeconds, &out.IdleDisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ImageArn != nil {
@@ -866,7 +866,7 @@ func (in *FleetObservation) DeepCopyInto(out *FleetObservation) {
 	}
 	if in.MaxUserDurationInSeconds != nil {
 		in, out := &in.MaxUserDurationInSeconds, &out.MaxUserDurationInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -950,7 +950,7 @@ func (in *FleetParameters) DeepCopyInto(out *FleetParameters) {
 	}
 	if in.DisconnectTimeoutInSeconds != nil {
 		in, out := &in.DisconnectTimeoutInSeconds, &out.DisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DisplayName != nil {
@@ -992,7 +992,7 @@ func (in *FleetParameters) DeepCopyInto(out *FleetParameters) {
 	}
 	if in.IdleDisconnectTimeoutInSeconds != nil {
 		in, out := &in.IdleDisconnectTimeoutInSeconds, &out.IdleDisconnectTimeoutInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ImageArn != nil {
@@ -1012,7 +1012,7 @@ func (in *FleetParameters) DeepCopyInto(out *FleetParameters) {
 	}
 	if in.MaxUserDurationInSeconds != nil {
 		in, out := &in.MaxUserDurationInSeconds, &out.MaxUserDurationInSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {

@@ -985,12 +985,12 @@ func (in *LifecycleInitParameters) DeepCopyInto(out *LifecycleInitParameters) {
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1010,12 +1010,12 @@ func (in *LifecycleObservation) DeepCopyInto(out *LifecycleObservation) {
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1035,12 +1035,12 @@ func (in *LifecycleParameters) DeepCopyInto(out *LifecycleParameters) {
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2001,7 +2001,7 @@ func (in *ReportSettingInitParameters) DeepCopyInto(out *ReportSettingInitParame
 	}
 	if in.NumberOfFrameworks != nil {
 		in, out := &in.NumberOfFrameworks, &out.NumberOfFrameworks
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OrganizationUnits != nil {
@@ -2070,7 +2070,7 @@ func (in *ReportSettingObservation) DeepCopyInto(out *ReportSettingObservation) 
 	}
 	if in.NumberOfFrameworks != nil {
 		in, out := &in.NumberOfFrameworks, &out.NumberOfFrameworks
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OrganizationUnits != nil {
@@ -2139,7 +2139,7 @@ func (in *ReportSettingParameters) DeepCopyInto(out *ReportSettingParameters) {
 	}
 	if in.NumberOfFrameworks != nil {
 		in, out := &in.NumberOfFrameworks, &out.NumberOfFrameworks
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.OrganizationUnits != nil {
@@ -2186,7 +2186,7 @@ func (in *RuleInitParameters) DeepCopyInto(out *RuleInitParameters) {
 	*out = *in
 	if in.CompletionWindow != nil {
 		in, out := &in.CompletionWindow, &out.CompletionWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CopyAction != nil {
@@ -2235,7 +2235,7 @@ func (in *RuleInitParameters) DeepCopyInto(out *RuleInitParameters) {
 	}
 	if in.StartWindow != nil {
 		in, out := &in.StartWindow, &out.StartWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2255,12 +2255,12 @@ func (in *RuleLifecycleInitParameters) DeepCopyInto(out *RuleLifecycleInitParame
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2280,12 +2280,12 @@ func (in *RuleLifecycleObservation) DeepCopyInto(out *RuleLifecycleObservation) 
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2305,12 +2305,12 @@ func (in *RuleLifecycleParameters) DeepCopyInto(out *RuleLifecycleParameters) {
 	*out = *in
 	if in.ColdStorageAfter != nil {
 		in, out := &in.ColdStorageAfter, &out.ColdStorageAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.DeleteAfter != nil {
 		in, out := &in.DeleteAfter, &out.DeleteAfter
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2330,7 +2330,7 @@ func (in *RuleObservation) DeepCopyInto(out *RuleObservation) {
 	*out = *in
 	if in.CompletionWindow != nil {
 		in, out := &in.CompletionWindow, &out.CompletionWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CopyAction != nil {
@@ -2379,7 +2379,7 @@ func (in *RuleObservation) DeepCopyInto(out *RuleObservation) {
 	}
 	if in.StartWindow != nil {
 		in, out := &in.StartWindow, &out.StartWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetVaultName != nil {
@@ -2404,7 +2404,7 @@ func (in *RuleParameters) DeepCopyInto(out *RuleParameters) {
 	*out = *in
 	if in.CompletionWindow != nil {
 		in, out := &in.CompletionWindow, &out.CompletionWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CopyAction != nil {
@@ -2453,7 +2453,7 @@ func (in *RuleParameters) DeepCopyInto(out *RuleParameters) {
 	}
 	if in.StartWindow != nil {
 		in, out := &in.StartWindow, &out.StartWindow
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TargetVaultName != nil {
@@ -3467,17 +3467,17 @@ func (in *VaultLockConfigurationInitParameters) DeepCopyInto(out *VaultLockConfi
 	*out = *in
 	if in.ChangeableForDays != nil {
 		in, out := &in.ChangeableForDays, &out.ChangeableForDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxRetentionDays != nil {
 		in, out := &in.MaxRetentionDays, &out.MaxRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinRetentionDays != nil {
 		in, out := &in.MinRetentionDays, &out.MinRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3539,7 +3539,7 @@ func (in *VaultLockConfigurationObservation) DeepCopyInto(out *VaultLockConfigur
 	}
 	if in.ChangeableForDays != nil {
 		in, out := &in.ChangeableForDays, &out.ChangeableForDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -3549,12 +3549,12 @@ func (in *VaultLockConfigurationObservation) DeepCopyInto(out *VaultLockConfigur
 	}
 	if in.MaxRetentionDays != nil {
 		in, out := &in.MaxRetentionDays, &out.MaxRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinRetentionDays != nil {
 		in, out := &in.MinRetentionDays, &out.MinRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3589,17 +3589,17 @@ func (in *VaultLockConfigurationParameters) DeepCopyInto(out *VaultLockConfigura
 	}
 	if in.ChangeableForDays != nil {
 		in, out := &in.ChangeableForDays, &out.ChangeableForDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MaxRetentionDays != nil {
 		in, out := &in.MaxRetentionDays, &out.MaxRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MinRetentionDays != nil {
 		in, out := &in.MinRetentionDays, &out.MinRetentionDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -3906,7 +3906,7 @@ func (in *VaultObservation) DeepCopyInto(out *VaultObservation) {
 	}
 	if in.RecoveryPoints != nil {
 		in, out := &in.RecoveryPoints, &out.RecoveryPoints
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {

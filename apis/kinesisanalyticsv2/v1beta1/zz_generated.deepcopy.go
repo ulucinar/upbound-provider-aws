@@ -507,7 +507,7 @@ func (in *ApplicationObservation) DeepCopyInto(out *ApplicationObservation) {
 	}
 	if in.VersionID != nil {
 		in, out := &in.VersionID, &out.VersionID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -825,7 +825,7 @@ func (in *ApplicationSnapshotObservation) DeepCopyInto(out *ApplicationSnapshotO
 	}
 	if in.ApplicationVersionID != nil {
 		in, out := &in.ApplicationVersionID, &out.ApplicationVersionID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -960,7 +960,7 @@ func (in *CheckpointConfigurationInitParameters) DeepCopyInto(out *CheckpointCon
 	*out = *in
 	if in.CheckpointInterval != nil {
 		in, out := &in.CheckpointInterval, &out.CheckpointInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CheckpointingEnabled != nil {
@@ -975,7 +975,7 @@ func (in *CheckpointConfigurationInitParameters) DeepCopyInto(out *CheckpointCon
 	}
 	if in.MinPauseBetweenCheckpoints != nil {
 		in, out := &in.MinPauseBetweenCheckpoints, &out.MinPauseBetweenCheckpoints
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -995,7 +995,7 @@ func (in *CheckpointConfigurationObservation) DeepCopyInto(out *CheckpointConfig
 	*out = *in
 	if in.CheckpointInterval != nil {
 		in, out := &in.CheckpointInterval, &out.CheckpointInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CheckpointingEnabled != nil {
@@ -1010,7 +1010,7 @@ func (in *CheckpointConfigurationObservation) DeepCopyInto(out *CheckpointConfig
 	}
 	if in.MinPauseBetweenCheckpoints != nil {
 		in, out := &in.MinPauseBetweenCheckpoints, &out.MinPauseBetweenCheckpoints
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1030,7 +1030,7 @@ func (in *CheckpointConfigurationParameters) DeepCopyInto(out *CheckpointConfigu
 	*out = *in
 	if in.CheckpointInterval != nil {
 		in, out := &in.CheckpointInterval, &out.CheckpointInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.CheckpointingEnabled != nil {
@@ -1045,7 +1045,7 @@ func (in *CheckpointConfigurationParameters) DeepCopyInto(out *CheckpointConfigu
 	}
 	if in.MinPauseBetweenCheckpoints != nil {
 		in, out := &in.MinPauseBetweenCheckpoints, &out.MinPauseBetweenCheckpoints
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1783,7 +1783,7 @@ func (in *InputParallelismInitParameters) DeepCopyInto(out *InputParallelismInit
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1803,7 +1803,7 @@ func (in *InputParallelismObservation) DeepCopyInto(out *InputParallelismObserva
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1823,7 +1823,7 @@ func (in *InputParallelismParameters) DeepCopyInto(out *InputParallelismParamete
 	*out = *in
 	if in.Count != nil {
 		in, out := &in.Count, &out.Count
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2975,12 +2975,12 @@ func (in *ParallelismConfigurationInitParameters) DeepCopyInto(out *ParallelismC
 	}
 	if in.Parallelism != nil {
 		in, out := &in.Parallelism, &out.Parallelism
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ParallelismPerKpu != nil {
 		in, out := &in.ParallelismPerKpu, &out.ParallelismPerKpu
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3010,12 +3010,12 @@ func (in *ParallelismConfigurationObservation) DeepCopyInto(out *ParallelismConf
 	}
 	if in.Parallelism != nil {
 		in, out := &in.Parallelism, &out.Parallelism
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ParallelismPerKpu != nil {
 		in, out := &in.ParallelismPerKpu, &out.ParallelismPerKpu
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3045,12 +3045,12 @@ func (in *ParallelismConfigurationParameters) DeepCopyInto(out *ParallelismConfi
 	}
 	if in.Parallelism != nil {
 		in, out := &in.Parallelism, &out.Parallelism
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ParallelismPerKpu != nil {
 		in, out := &in.ParallelismPerKpu, &out.ParallelismPerKpu
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

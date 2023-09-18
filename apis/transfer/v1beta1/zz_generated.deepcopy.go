@@ -382,7 +382,7 @@ func (in *CustomStepDetailsInitParameters) DeepCopyInto(out *CustomStepDetailsIn
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -417,7 +417,7 @@ func (in *CustomStepDetailsObservation) DeepCopyInto(out *CustomStepDetailsObser
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -452,7 +452,7 @@ func (in *CustomStepDetailsParameters) DeepCopyInto(out *CustomStepDetailsParame
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1791,23 +1791,23 @@ func (in *PosixProfileInitParameters) DeepCopyInto(out *PosixProfileInitParamete
 	*out = *in
 	if in.GID != nil {
 		in, out := &in.GID, &out.GID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SecondaryGids != nil {
 		in, out := &in.SecondaryGids, &out.SecondaryGids
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
 	}
 	if in.UID != nil {
 		in, out := &in.UID, &out.UID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1827,23 +1827,23 @@ func (in *PosixProfileObservation) DeepCopyInto(out *PosixProfileObservation) {
 	*out = *in
 	if in.GID != nil {
 		in, out := &in.GID, &out.GID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SecondaryGids != nil {
 		in, out := &in.SecondaryGids, &out.SecondaryGids
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
 	}
 	if in.UID != nil {
 		in, out := &in.UID, &out.UID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1863,23 +1863,23 @@ func (in *PosixProfileParameters) DeepCopyInto(out *PosixProfileParameters) {
 	*out = *in
 	if in.GID != nil {
 		in, out := &in.GID, &out.GID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.SecondaryGids != nil {
 		in, out := &in.SecondaryGids, &out.SecondaryGids
-		*out = make([]*float64, len(*in))
+		*out = make([]*int64, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {
 				in, out := &(*in)[i], &(*out)[i]
-				*out = new(float64)
+				*out = new(int64)
 				**out = **in
 			}
 		}
 	}
 	if in.UID != nil {
 		in, out := &in.UID, &out.UID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2932,7 +2932,7 @@ func (in *StepsCustomStepDetailsInitParameters) DeepCopyInto(out *StepsCustomSte
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2967,7 +2967,7 @@ func (in *StepsCustomStepDetailsObservation) DeepCopyInto(out *StepsCustomStepDe
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -3012,7 +3012,7 @@ func (in *StepsCustomStepDetailsParameters) DeepCopyInto(out *StepsCustomStepDet
 	}
 	if in.TimeoutSeconds != nil {
 		in, out := &in.TimeoutSeconds, &out.TimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

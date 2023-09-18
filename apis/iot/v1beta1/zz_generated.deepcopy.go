@@ -4387,7 +4387,7 @@ func (in *ProvisioningTemplateObservation) DeepCopyInto(out *ProvisioningTemplat
 	}
 	if in.DefaultVersionID != nil {
 		in, out := &in.DefaultVersionID, &out.DefaultVersionID
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Description != nil {
@@ -4636,7 +4636,7 @@ func (in *RepublishInitParameters) DeepCopyInto(out *RepublishInitParameters) {
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {
@@ -4666,7 +4666,7 @@ func (in *RepublishObservation) DeepCopyInto(out *RepublishObservation) {
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {
@@ -4696,7 +4696,7 @@ func (in *RepublishParameters) DeepCopyInto(out *RepublishParameters) {
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {
@@ -4758,7 +4758,7 @@ func (in *RoleAliasInitParameters) DeepCopyInto(out *RoleAliasInitParameters) {
 	}
 	if in.CredentialDuration != nil {
 		in, out := &in.CredentialDuration, &out.CredentialDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -4820,7 +4820,7 @@ func (in *RoleAliasObservation) DeepCopyInto(out *RoleAliasObservation) {
 	}
 	if in.CredentialDuration != nil {
 		in, out := &in.CredentialDuration, &out.CredentialDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ID != nil {
@@ -4855,7 +4855,7 @@ func (in *RoleAliasParameters) DeepCopyInto(out *RoleAliasParameters) {
 	}
 	if in.CredentialDuration != nil {
 		in, out := &in.CredentialDuration, &out.CredentialDuration
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -5848,7 +5848,7 @@ func (in *ThingGroupObservation) DeepCopyInto(out *ThingGroupObservation) {
 	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -6359,7 +6359,7 @@ func (in *ThingObservation) DeepCopyInto(out *ThingObservation) {
 	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -8713,7 +8713,7 @@ func (in *TopicRuleRepublishInitParameters) DeepCopyInto(out *TopicRuleRepublish
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {
@@ -8743,7 +8743,7 @@ func (in *TopicRuleRepublishObservation) DeepCopyInto(out *TopicRuleRepublishObs
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {
@@ -8773,7 +8773,7 @@ func (in *TopicRuleRepublishParameters) DeepCopyInto(out *TopicRuleRepublishPara
 	*out = *in
 	if in.Qos != nil {
 		in, out := &in.Qos, &out.Qos
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RoleArn != nil {

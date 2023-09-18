@@ -52,7 +52,7 @@ type AssociationInitParameters struct {
 	Targets []TargetsInitParameters `json:"targets,omitempty" tf:"targets,omitempty"`
 
 	// The number of seconds to wait for the association status to be Success. If Success status is not reached within the given time, create opration will fail.
-	WaitForSuccessTimeoutSeconds *float64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
+	WaitForSuccessTimeoutSeconds *int64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
 }
 
 type AssociationObservation struct {
@@ -105,7 +105,7 @@ type AssociationObservation struct {
 	Targets []TargetsObservation `json:"targets,omitempty" tf:"targets,omitempty"`
 
 	// The number of seconds to wait for the association status to be Success. If Success status is not reached within the given time, create opration will fail.
-	WaitForSuccessTimeoutSeconds *float64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
+	WaitForSuccessTimeoutSeconds *int64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
 }
 
 type AssociationParameters struct {
@@ -178,7 +178,7 @@ type AssociationParameters struct {
 
 	// The number of seconds to wait for the association status to be Success. If Success status is not reached within the given time, create opration will fail.
 	// +kubebuilder:validation:Optional
-	WaitForSuccessTimeoutSeconds *float64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
+	WaitForSuccessTimeoutSeconds *int64 `json:"waitForSuccessTimeoutSeconds,omitempty" tf:"wait_for_success_timeout_seconds,omitempty"`
 }
 
 type OutputLocationInitParameters struct {

@@ -104,7 +104,8 @@ spec:
                         port:
                           description: The Port number when connecting to the Option
                             (e.g., 11211).
-                          type: number
+                          format: int64
+                          type: integer
                         version:
                           description: The version of the option (e.g., 13.1.0.0).
                           type: string
@@ -181,7 +182,8 @@ spec:
                         port:
                           description: The Port number when connecting to the Option
                             (e.g., 11211).
-                          type: number
+                          format: int64
+                          type: integer
                         version:
                           description: The version of the option (e.g., 13.1.0.0).
                           type: string
@@ -456,7 +458,8 @@ spec:
                         port:
                           description: The Port number when connecting to the Option
                             (e.g., 11211).
-                          type: number
+                          format: int64
+                          type: integer
                         version:
                           description: The version of the option (e.g., 13.1.0.0).
                           type: string

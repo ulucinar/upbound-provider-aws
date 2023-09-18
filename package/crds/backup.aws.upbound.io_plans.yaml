@@ -102,7 +102,8 @@ spec:
                         completionWindow:
                           description: The amount of time in minutes AWS Backup attempts
                             a backup before canceling the job and returning an error.
-                          type: number
+                          format: int64
+                          type: integer
                         copyAction:
                           description: Configuration block(s) with copy operation
                             settings. Detailed below.
@@ -123,12 +124,14 @@ spec:
                                       description: Specifies the number of days after
                                         creation that a recovery point is moved to
                                         cold storage.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     deleteAfter:
                                       description: Specifies the number of days after
                                         creation that a recovery point is deleted.
                                         Must be 90 days greater than cold_storage_after.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -145,12 +148,14 @@ spec:
                               coldStorageAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is moved to cold storage.
-                                type: number
+                                format: int64
+                                type: integer
                               deleteAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is deleted. Must be 90 days
                                   greater than cold_storage_after.
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         recoveryPointTags:
@@ -169,7 +174,8 @@ spec:
                         startWindow:
                           description: The amount of time in minutes before beginning
                             a backup.
-                          type: number
+                          format: int64
+                          type: integer
                         targetVaultName:
                           description: The name of a logical container where backups
                             are stored.
@@ -306,7 +312,8 @@ spec:
                         completionWindow:
                           description: The amount of time in minutes AWS Backup attempts
                             a backup before canceling the job and returning an error.
-                          type: number
+                          format: int64
+                          type: integer
                         copyAction:
                           description: Configuration block(s) with copy operation
                             settings. Detailed below.
@@ -327,12 +334,14 @@ spec:
                                       description: Specifies the number of days after
                                         creation that a recovery point is moved to
                                         cold storage.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     deleteAfter:
                                       description: Specifies the number of days after
                                         creation that a recovery point is deleted.
                                         Must be 90 days greater than cold_storage_after.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -349,12 +358,14 @@ spec:
                               coldStorageAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is moved to cold storage.
-                                type: number
+                                format: int64
+                                type: integer
                               deleteAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is deleted. Must be 90 days
                                   greater than cold_storage_after.
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         recoveryPointTags:
@@ -373,7 +384,8 @@ spec:
                         startWindow:
                           description: The amount of time in minutes before beginning
                             a backup.
-                          type: number
+                          format: int64
+                          type: integer
                       type: object
                     type: array
                   tags:
@@ -630,7 +642,8 @@ spec:
                         completionWindow:
                           description: The amount of time in minutes AWS Backup attempts
                             a backup before canceling the job and returning an error.
-                          type: number
+                          format: int64
+                          type: integer
                         copyAction:
                           description: Configuration block(s) with copy operation
                             settings. Detailed below.
@@ -651,12 +664,14 @@ spec:
                                       description: Specifies the number of days after
                                         creation that a recovery point is moved to
                                         cold storage.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     deleteAfter:
                                       description: Specifies the number of days after
                                         creation that a recovery point is deleted.
                                         Must be 90 days greater than cold_storage_after.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                   type: object
                                 type: array
                             type: object
@@ -673,12 +688,14 @@ spec:
                               coldStorageAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is moved to cold storage.
-                                type: number
+                                format: int64
+                                type: integer
                               deleteAfter:
                                 description: Specifies the number of days after creation
                                   that a recovery point is deleted. Must be 90 days
                                   greater than cold_storage_after.
-                                type: number
+                                format: int64
+                                type: integer
                             type: object
                           type: array
                         recoveryPointTags:
@@ -697,7 +714,8 @@ spec:
                         startWindow:
                           description: The amount of time in minutes before beginning
                             a backup.
-                          type: number
+                          format: int64
+                          type: integer
                         targetVaultName:
                           description: The name of a logical container where backups
                             are stored.

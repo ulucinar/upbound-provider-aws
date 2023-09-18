@@ -66,7 +66,7 @@ type RestAPIInitParameters struct {
 	FailOnWarnings *bool `json:"failOnWarnings,omitempty" tf:"fail_on_warnings,omitempty"`
 
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default). If importing an OpenAPI specification via the body argument, this corresponds to the x-amazon-apigateway-minimum-compression-size extension. If the argument value (except -1) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
+	MinimumCompressionSize *int64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
 
 	// Name of the REST API. If importing an OpenAPI specification via the body argument, this corresponds to the info.title field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -119,7 +119,7 @@ type RestAPIObservation struct {
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default). If importing an OpenAPI specification via the body argument, this corresponds to the x-amazon-apigateway-minimum-compression-size extension. If the argument value (except -1) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
+	MinimumCompressionSize *int64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
 
 	// Name of the REST API. If importing an OpenAPI specification via the body argument, this corresponds to the info.title field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -175,7 +175,7 @@ type RestAPIParameters struct {
 
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default). If importing an OpenAPI specification via the body argument, this corresponds to the x-amazon-apigateway-minimum-compression-size extension. If the argument value (except -1) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	// +kubebuilder:validation:Optional
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
+	MinimumCompressionSize *int64 `json:"minimumCompressionSize,omitempty" tf:"minimum_compression_size,omitempty"`
 
 	// Name of the REST API. If importing an OpenAPI specification via the body argument, this corresponds to the info.title field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	// +kubebuilder:validation:Optional

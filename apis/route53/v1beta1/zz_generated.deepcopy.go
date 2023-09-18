@@ -541,7 +541,7 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	*out = *in
 	if in.ChildHealthThreshold != nil {
 		in, out := &in.ChildHealthThreshold, &out.ChildHealthThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ChildHealthchecks != nil {
@@ -572,7 +572,7 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	}
 	if in.FailureThreshold != nil {
 		in, out := &in.FailureThreshold, &out.FailureThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Fqdn != nil {
@@ -602,7 +602,7 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReferenceName != nil {
@@ -623,7 +623,7 @@ func (in *HealthCheckInitParameters) DeepCopyInto(out *HealthCheckInitParameters
 	}
 	if in.RequestInterval != nil {
 		in, out := &in.RequestInterval, &out.RequestInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ResourcePath != nil {
@@ -715,7 +715,7 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.ChildHealthThreshold != nil {
 		in, out := &in.ChildHealthThreshold, &out.ChildHealthThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ChildHealthchecks != nil {
@@ -751,7 +751,7 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.FailureThreshold != nil {
 		in, out := &in.FailureThreshold, &out.FailureThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Fqdn != nil {
@@ -786,7 +786,7 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReferenceName != nil {
@@ -807,7 +807,7 @@ func (in *HealthCheckObservation) DeepCopyInto(out *HealthCheckObservation) {
 	}
 	if in.RequestInterval != nil {
 		in, out := &in.RequestInterval, &out.RequestInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ResourcePath != nil {
@@ -877,7 +877,7 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	*out = *in
 	if in.ChildHealthThreshold != nil {
 		in, out := &in.ChildHealthThreshold, &out.ChildHealthThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ChildHealthchecks != nil {
@@ -923,7 +923,7 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	}
 	if in.FailureThreshold != nil {
 		in, out := &in.FailureThreshold, &out.FailureThreshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Fqdn != nil {
@@ -953,7 +953,7 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	}
 	if in.Port != nil {
 		in, out := &in.Port, &out.Port
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ReferenceName != nil {
@@ -979,7 +979,7 @@ func (in *HealthCheckParameters) DeepCopyInto(out *HealthCheckParameters) {
 	}
 	if in.RequestInterval != nil {
 		in, out := &in.RequestInterval, &out.RequestInterval
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.ResourcePath != nil {
@@ -1399,7 +1399,7 @@ func (in *RecordInitParameters) DeepCopyInto(out *RecordInitParameters) {
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -1544,7 +1544,7 @@ func (in *RecordObservation) DeepCopyInto(out *RecordObservation) {
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -1667,7 +1667,7 @@ func (in *RecordParameters) DeepCopyInto(out *RecordParameters) {
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -2027,12 +2027,12 @@ func (in *TrafficPolicyInstanceInitParameters) DeepCopyInto(out *TrafficPolicyIn
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficPolicyVersion != nil {
 		in, out := &in.TrafficPolicyVersion, &out.TrafficPolicyVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2099,7 +2099,7 @@ func (in *TrafficPolicyInstanceObservation) DeepCopyInto(out *TrafficPolicyInsta
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficPolicyID != nil {
@@ -2109,7 +2109,7 @@ func (in *TrafficPolicyInstanceObservation) DeepCopyInto(out *TrafficPolicyInsta
 	}
 	if in.TrafficPolicyVersion != nil {
 		in, out := &in.TrafficPolicyVersion, &out.TrafficPolicyVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2154,7 +2154,7 @@ func (in *TrafficPolicyInstanceParameters) DeepCopyInto(out *TrafficPolicyInstan
 	}
 	if in.TTL != nil {
 		in, out := &in.TTL, &out.TTL
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TrafficPolicyID != nil {
@@ -2174,7 +2174,7 @@ func (in *TrafficPolicyInstanceParameters) DeepCopyInto(out *TrafficPolicyInstan
 	}
 	if in.TrafficPolicyVersion != nil {
 		in, out := &in.TrafficPolicyVersion, &out.TrafficPolicyVersion
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2286,7 +2286,7 @@ func (in *TrafficPolicyObservation) DeepCopyInto(out *TrafficPolicyObservation) 
 	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2660,7 +2660,7 @@ func (in *WeightedRoutingPolicyInitParameters) DeepCopyInto(out *WeightedRouting
 	*out = *in
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2680,7 +2680,7 @@ func (in *WeightedRoutingPolicyObservation) DeepCopyInto(out *WeightedRoutingPol
 	*out = *in
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -2700,7 +2700,7 @@ func (in *WeightedRoutingPolicyParameters) DeepCopyInto(out *WeightedRoutingPoli
 	*out = *in
 	if in.Weight != nil {
 		in, out := &in.Weight, &out.Weight
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

@@ -98,7 +98,7 @@ func (in *AttachmentAccepterObservation) DeepCopyInto(out *AttachmentAccepterObs
 	}
 	if in.AttachmentPolicyRuleNumber != nil {
 		in, out := &in.AttachmentPolicyRuleNumber, &out.AttachmentPolicyRuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AttachmentType != nil {
@@ -323,12 +323,12 @@ func (in *BandwidthInitParameters) DeepCopyInto(out *BandwidthInitParameters) {
 	*out = *in
 	if in.DownloadSpeed != nil {
 		in, out := &in.DownloadSpeed, &out.DownloadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UploadSpeed != nil {
 		in, out := &in.UploadSpeed, &out.UploadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -348,12 +348,12 @@ func (in *BandwidthObservation) DeepCopyInto(out *BandwidthObservation) {
 	*out = *in
 	if in.DownloadSpeed != nil {
 		in, out := &in.DownloadSpeed, &out.DownloadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UploadSpeed != nil {
 		in, out := &in.UploadSpeed, &out.UploadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -373,12 +373,12 @@ func (in *BandwidthParameters) DeepCopyInto(out *BandwidthParameters) {
 	*out = *in
 	if in.DownloadSpeed != nil {
 		in, out := &in.DownloadSpeed, &out.DownloadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.UploadSpeed != nil {
 		in, out := &in.UploadSpeed, &out.UploadSpeed
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -504,7 +504,7 @@ func (in *ConnectAttachmentObservation) DeepCopyInto(out *ConnectAttachmentObser
 	}
 	if in.AttachmentPolicyRuleNumber != nil {
 		in, out := &in.AttachmentPolicyRuleNumber, &out.AttachmentPolicyRuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AttachmentType != nil {
@@ -2013,7 +2013,7 @@ func (in *EdgesObservation) DeepCopyInto(out *EdgesObservation) {
 	*out = *in
 	if in.Asn != nil {
 		in, out := &in.Asn, &out.Asn
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EdgeLocation != nil {
@@ -3918,7 +3918,7 @@ func (in *VPCAttachmentObservation) DeepCopyInto(out *VPCAttachmentObservation) 
 	}
 	if in.AttachmentPolicyRuleNumber != nil {
 		in, out := &in.AttachmentPolicyRuleNumber, &out.AttachmentPolicyRuleNumber
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.AttachmentType != nil {

@@ -1325,7 +1325,7 @@ func (in *RateBasedRuleInitParameters) DeepCopyInto(out *RateBasedRuleInitParame
 	}
 	if in.RateLimit != nil {
 		in, out := &in.RateLimit, &out.RateLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -1424,7 +1424,7 @@ func (in *RateBasedRuleObservation) DeepCopyInto(out *RateBasedRuleObservation) 
 	}
 	if in.RateLimit != nil {
 		in, out := &in.RateLimit, &out.RateLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Tags != nil {
@@ -1496,7 +1496,7 @@ func (in *RateBasedRuleParameters) DeepCopyInto(out *RateBasedRuleParameters) {
 	}
 	if in.RateLimit != nil {
 		in, out := &in.RateLimit, &out.RateLimit
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -3248,7 +3248,7 @@ func (in *SizeConstraintsInitParameters) DeepCopyInto(out *SizeConstraintsInitPa
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TextTransformation != nil {
@@ -3285,7 +3285,7 @@ func (in *SizeConstraintsObservation) DeepCopyInto(out *SizeConstraintsObservati
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TextTransformation != nil {
@@ -3322,7 +3322,7 @@ func (in *SizeConstraintsParameters) DeepCopyInto(out *SizeConstraintsParameters
 	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.TextTransformation != nil {
@@ -3633,7 +3633,7 @@ func (in *WebACLRuleInitParameters) DeepCopyInto(out *WebACLRuleInitParameters) 
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -3672,7 +3672,7 @@ func (in *WebACLRuleObservation) DeepCopyInto(out *WebACLRuleObservation) {
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RuleID != nil {
@@ -3716,7 +3716,7 @@ func (in *WebACLRuleParameters) DeepCopyInto(out *WebACLRuleParameters) {
 	}
 	if in.Priority != nil {
 		in, out := &in.Priority, &out.Priority
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RuleID != nil {

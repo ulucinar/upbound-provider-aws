@@ -56,7 +56,7 @@ func (in *QueueInitParameters) DeepCopyInto(out *QueueInitParameters) {
 	}
 	if in.DelaySeconds != nil {
 		in, out := &in.DelaySeconds, &out.DelaySeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.FifoQueue != nil {
@@ -71,7 +71,7 @@ func (in *QueueInitParameters) DeepCopyInto(out *QueueInitParameters) {
 	}
 	if in.KMSDataKeyReusePeriodSeconds != nil {
 		in, out := &in.KMSDataKeyReusePeriodSeconds, &out.KMSDataKeyReusePeriodSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSMasterKeyID != nil {
@@ -81,12 +81,12 @@ func (in *QueueInitParameters) DeepCopyInto(out *QueueInitParameters) {
 	}
 	if in.MaxMessageSize != nil {
 		in, out := &in.MaxMessageSize, &out.MaxMessageSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MessageRetentionSeconds != nil {
 		in, out := &in.MessageRetentionSeconds, &out.MessageRetentionSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -101,7 +101,7 @@ func (in *QueueInitParameters) DeepCopyInto(out *QueueInitParameters) {
 	}
 	if in.ReceiveWaitTimeSeconds != nil {
 		in, out := &in.ReceiveWaitTimeSeconds, &out.ReceiveWaitTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RedriveAllowPolicy != nil {
@@ -136,7 +136,7 @@ func (in *QueueInitParameters) DeepCopyInto(out *QueueInitParameters) {
 	}
 	if in.VisibilityTimeoutSeconds != nil {
 		in, out := &in.VisibilityTimeoutSeconds, &out.VisibilityTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -203,7 +203,7 @@ func (in *QueueObservation) DeepCopyInto(out *QueueObservation) {
 	}
 	if in.DelaySeconds != nil {
 		in, out := &in.DelaySeconds, &out.DelaySeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.FifoQueue != nil {
@@ -223,7 +223,7 @@ func (in *QueueObservation) DeepCopyInto(out *QueueObservation) {
 	}
 	if in.KMSDataKeyReusePeriodSeconds != nil {
 		in, out := &in.KMSDataKeyReusePeriodSeconds, &out.KMSDataKeyReusePeriodSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSMasterKeyID != nil {
@@ -233,12 +233,12 @@ func (in *QueueObservation) DeepCopyInto(out *QueueObservation) {
 	}
 	if in.MaxMessageSize != nil {
 		in, out := &in.MaxMessageSize, &out.MaxMessageSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MessageRetentionSeconds != nil {
 		in, out := &in.MessageRetentionSeconds, &out.MessageRetentionSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -253,7 +253,7 @@ func (in *QueueObservation) DeepCopyInto(out *QueueObservation) {
 	}
 	if in.ReceiveWaitTimeSeconds != nil {
 		in, out := &in.ReceiveWaitTimeSeconds, &out.ReceiveWaitTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RedriveAllowPolicy != nil {
@@ -308,7 +308,7 @@ func (in *QueueObservation) DeepCopyInto(out *QueueObservation) {
 	}
 	if in.VisibilityTimeoutSeconds != nil {
 		in, out := &in.VisibilityTimeoutSeconds, &out.VisibilityTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -338,7 +338,7 @@ func (in *QueueParameters) DeepCopyInto(out *QueueParameters) {
 	}
 	if in.DelaySeconds != nil {
 		in, out := &in.DelaySeconds, &out.DelaySeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.FifoQueue != nil {
@@ -353,7 +353,7 @@ func (in *QueueParameters) DeepCopyInto(out *QueueParameters) {
 	}
 	if in.KMSDataKeyReusePeriodSeconds != nil {
 		in, out := &in.KMSDataKeyReusePeriodSeconds, &out.KMSDataKeyReusePeriodSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.KMSMasterKeyID != nil {
@@ -363,12 +363,12 @@ func (in *QueueParameters) DeepCopyInto(out *QueueParameters) {
 	}
 	if in.MaxMessageSize != nil {
 		in, out := &in.MaxMessageSize, &out.MaxMessageSize
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.MessageRetentionSeconds != nil {
 		in, out := &in.MessageRetentionSeconds, &out.MessageRetentionSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Name != nil {
@@ -383,7 +383,7 @@ func (in *QueueParameters) DeepCopyInto(out *QueueParameters) {
 	}
 	if in.ReceiveWaitTimeSeconds != nil {
 		in, out := &in.ReceiveWaitTimeSeconds, &out.ReceiveWaitTimeSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.RedriveAllowPolicy != nil {
@@ -423,7 +423,7 @@ func (in *QueueParameters) DeepCopyInto(out *QueueParameters) {
 	}
 	if in.VisibilityTimeoutSeconds != nil {
 		in, out := &in.VisibilityTimeoutSeconds, &out.VisibilityTimeoutSeconds
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

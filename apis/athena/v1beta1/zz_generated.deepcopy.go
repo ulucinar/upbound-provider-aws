@@ -79,7 +79,7 @@ func (in *ConfigurationInitParameters) DeepCopyInto(out *ConfigurationInitParame
 	*out = *in
 	if in.BytesScannedCutoffPerQuery != nil {
 		in, out := &in.BytesScannedCutoffPerQuery, &out.BytesScannedCutoffPerQuery
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnforceWorkgroupConfiguration != nil {
@@ -133,7 +133,7 @@ func (in *ConfigurationObservation) DeepCopyInto(out *ConfigurationObservation) 
 	*out = *in
 	if in.BytesScannedCutoffPerQuery != nil {
 		in, out := &in.BytesScannedCutoffPerQuery, &out.BytesScannedCutoffPerQuery
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnforceWorkgroupConfiguration != nil {
@@ -187,7 +187,7 @@ func (in *ConfigurationParameters) DeepCopyInto(out *ConfigurationParameters) {
 	*out = *in
 	if in.BytesScannedCutoffPerQuery != nil {
 		in, out := &in.BytesScannedCutoffPerQuery, &out.BytesScannedCutoffPerQuery
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.EnforceWorkgroupConfiguration != nil {

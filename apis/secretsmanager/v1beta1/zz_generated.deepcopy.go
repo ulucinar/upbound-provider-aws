@@ -119,7 +119,7 @@ func (in *RotationRulesObservation) DeepCopyInto(out *RotationRulesObservation) 
 	*out = *in
 	if in.AutomaticallyAfterDays != nil {
 		in, out := &in.AutomaticallyAfterDays, &out.AutomaticallyAfterDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Duration != nil {
@@ -206,7 +206,7 @@ func (in *SecretInitParameters) DeepCopyInto(out *SecretInitParameters) {
 	}
 	if in.RecoveryWindowInDays != nil {
 		in, out := &in.RecoveryWindowInDays, &out.RecoveryWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Replica != nil {
@@ -315,7 +315,7 @@ func (in *SecretObservation) DeepCopyInto(out *SecretObservation) {
 	}
 	if in.RecoveryWindowInDays != nil {
 		in, out := &in.RecoveryWindowInDays, &out.RecoveryWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Replica != nil {
@@ -419,7 +419,7 @@ func (in *SecretParameters) DeepCopyInto(out *SecretParameters) {
 	}
 	if in.RecoveryWindowInDays != nil {
 		in, out := &in.RecoveryWindowInDays, &out.RecoveryWindowInDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Region != nil {
@@ -845,7 +845,7 @@ func (in *SecretRotationRotationRulesInitParameters) DeepCopyInto(out *SecretRot
 	*out = *in
 	if in.AutomaticallyAfterDays != nil {
 		in, out := &in.AutomaticallyAfterDays, &out.AutomaticallyAfterDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Duration != nil {
@@ -875,7 +875,7 @@ func (in *SecretRotationRotationRulesObservation) DeepCopyInto(out *SecretRotati
 	*out = *in
 	if in.AutomaticallyAfterDays != nil {
 		in, out := &in.AutomaticallyAfterDays, &out.AutomaticallyAfterDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Duration != nil {
@@ -905,7 +905,7 @@ func (in *SecretRotationRotationRulesParameters) DeepCopyInto(out *SecretRotatio
 	*out = *in
 	if in.AutomaticallyAfterDays != nil {
 		in, out := &in.AutomaticallyAfterDays, &out.AutomaticallyAfterDays
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Duration != nil {

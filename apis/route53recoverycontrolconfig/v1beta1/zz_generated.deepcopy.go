@@ -359,7 +359,7 @@ func (in *ControlPanelObservation) DeepCopyInto(out *ControlPanelObservation) {
 	}
 	if in.RoutingControlCount != nil {
 		in, out := &in.RoutingControlCount, &out.RoutingControlCount
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Status != nil {
@@ -678,7 +678,7 @@ func (in *RuleConfigInitParameters) DeepCopyInto(out *RuleConfigInitParameters) 
 	}
 	if in.Threshold != nil {
 		in, out := &in.Threshold, &out.Threshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -708,7 +708,7 @@ func (in *RuleConfigObservation) DeepCopyInto(out *RuleConfigObservation) {
 	}
 	if in.Threshold != nil {
 		in, out := &in.Threshold, &out.Threshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -738,7 +738,7 @@ func (in *RuleConfigParameters) DeepCopyInto(out *RuleConfigParameters) {
 	}
 	if in.Threshold != nil {
 		in, out := &in.Threshold, &out.Threshold
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 	if in.Type != nil {
@@ -824,7 +824,7 @@ func (in *SafetyRuleInitParameters) DeepCopyInto(out *SafetyRuleInitParameters) 
 	}
 	if in.WaitPeriodMs != nil {
 		in, out := &in.WaitPeriodMs, &out.WaitPeriodMs
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -941,7 +941,7 @@ func (in *SafetyRuleObservation) DeepCopyInto(out *SafetyRuleObservation) {
 	}
 	if in.WaitPeriodMs != nil {
 		in, out := &in.WaitPeriodMs, &out.WaitPeriodMs
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }
@@ -1038,7 +1038,7 @@ func (in *SafetyRuleParameters) DeepCopyInto(out *SafetyRuleParameters) {
 	}
 	if in.WaitPeriodMs != nil {
 		in, out := &in.WaitPeriodMs, &out.WaitPeriodMs
-		*out = new(float64)
+		*out = new(int64)
 		**out = **in
 	}
 }

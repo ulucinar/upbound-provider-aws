@@ -200,7 +200,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -337,7 +338,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -478,7 +480,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -505,7 +508,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -530,12 +534,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -559,12 +565,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -586,12 +594,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -615,7 +625,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -738,7 +749,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -875,7 +887,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -926,7 +939,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -953,7 +967,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -978,12 +993,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1007,12 +1024,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1034,12 +1053,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1063,7 +1084,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1388,7 +1410,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -1525,7 +1548,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1582,7 +1606,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -1609,7 +1634,8 @@ spec:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
                                               or 24 are valid values.
-                                            type: number
+                                            format: int64
+                                            type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
@@ -1634,12 +1660,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1663,12 +1691,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1690,12 +1720,14 @@ spec:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
                                         1 and 1000.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
@@ -1719,7 +1751,8 @@ spec:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
                                         are valid values.
-                                      type: number
+                                      format: int64
+                                      type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
