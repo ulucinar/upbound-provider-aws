@@ -24,6 +24,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/tools/leaderelection/resourcelock"
 	ctrl "sigs.k8s.io/controller-runtime"
+	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	"github.com/upbound/provider-aws/apis"
@@ -73,9 +74,11 @@ func main() {
 	kingpin.FatalIfError(err, "Cannot get API server rest config")
 
 	mgr, err := ctrl.NewManager(ratelimiter.LimitRESTConfig(cfg, *maxReconcileRate), ctrl.Options{
-		LeaderElection:             *leaderElection,
-		LeaderElectionID:           "crossplane-leader-election-provider-aws-rum",
-		SyncPeriod:                 syncInterval,
+		LeaderElection:   *leaderElection,
+		LeaderElectionID: "crossplane-leader-election-provider-aws-rum",
+		Cache: cache.Options{
+			SyncPeriod: syncInterval,
+		},
 		LeaderElectionResourceLock: resourcelock.LeasesResourceLock,
 		LeaseDuration:              func() *time.Duration { d := 60 * time.Second; return &d }(),
 		RenewDeadline:              func() *time.Duration { d := 50 * time.Second; return &d }(),
