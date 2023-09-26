@@ -199,14 +199,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -332,19 +336,23 @@ spec:
                                     cronExpression:
                                       description: The schedule, as a Cron expression.
                                         The schedule interval must be between 1 hour
-                                        and 1 year.
+                                        and 1 year. Conflicts with interval, interval_unit,
+                                        and times.
                                       type: string
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                     location:
                                       description: Specifies the destination for snapshots
@@ -365,7 +373,9 @@ spec:
                                     times:
                                       description: A list of times in 24 hour clock
                                         format that sets when the lifecycle policy
-                                        should be evaluated. Max of 1.
+                                        should be evaluated. Max of 1. Conflicts with
+                                        cron_expression. Must be set if interval is
+                                        set.
                                       items:
                                         type: string
                                       type: array
@@ -479,14 +489,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -507,14 +521,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -533,20 +551,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -564,20 +585,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -593,20 +617,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -624,14 +651,17 @@ spec:
                                     unshareInterval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -748,14 +778,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -881,19 +915,23 @@ spec:
                                     cronExpression:
                                       description: The schedule, as a Cron expression.
                                         The schedule interval must be between 1 hour
-                                        and 1 year.
+                                        and 1 year. Conflicts with interval, interval_unit,
+                                        and times.
                                       type: string
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                     location:
                                       description: Specifies the destination for snapshots
@@ -914,7 +952,9 @@ spec:
                                     times:
                                       description: A list of times in 24 hour clock
                                         format that sets when the lifecycle policy
-                                        should be evaluated. Max of 1.
+                                        should be evaluated. Max of 1. Conflicts with
+                                        cron_expression. Must be set if interval is
+                                        set.
                                       items:
                                         type: string
                                       type: array
@@ -938,14 +978,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -966,14 +1010,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -992,20 +1040,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1023,20 +1074,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1052,20 +1106,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1083,14 +1140,17 @@ spec:
                                     unshareInterval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1372,14 +1432,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -1505,19 +1569,23 @@ spec:
                                     cronExpression:
                                       description: The schedule, as a Cron expression.
                                         The schedule interval must be between 1 hour
-                                        and 1 year.
+                                        and 1 year. Conflicts with interval, interval_unit,
+                                        and times.
                                       type: string
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                     location:
                                       description: Specifies the destination for snapshots
@@ -1538,7 +1606,9 @@ spec:
                                     times:
                                       description: A list of times in 24 hour clock
                                         format that sets when the lifecycle policy
-                                        should be evaluated. Max of 1.
+                                        should be evaluated. Max of 1. Conflicts with
+                                        cron_expression. Must be set if interval is
+                                        set.
                                       items:
                                         type: string
                                       type: array
@@ -1568,14 +1638,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -1596,14 +1670,18 @@ spec:
                                           interval:
                                             description: How often this lifecycle
                                               policy should be evaluated. 1, 2,3,4,6,8,12
-                                              or 24 are valid values.
+                                              or 24 are valid values. Conflicts with
+                                              cron_expression. If set, interval_unit
+                                              and times must also be set.
                                             format: int64
                                             type: integer
                                           intervalUnit:
                                             description: The unit for how often the
                                               lifecycle policy should be evaluated.
                                               HOURS is currently the only allowed
-                                              value and also the default value.
+                                              value and also the default value. Conflicts
+                                              with cron_expression. Must be set if
+                                              interval is set.
                                             type: string
                                         type: object
                                       type: array
@@ -1622,20 +1700,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1653,20 +1734,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1682,20 +1766,23 @@ spec:
                                     count:
                                       description: Specifies the number of oldest
                                         AMIs to deprecate. Must be an integer between
-                                        1 and 1000.
+                                        1 and 1000. Conflicts with interval and interval_unit.
                                       format: int64
                                       type: integer
                                     interval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     intervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array
@@ -1713,14 +1800,17 @@ spec:
                                     unshareInterval:
                                       description: How often this lifecycle policy
                                         should be evaluated. 1, 2,3,4,6,8,12 or 24
-                                        are valid values.
+                                        are valid values. Conflicts with cron_expression.
+                                        If set, interval_unit and times must also
+                                        be set.
                                       format: int64
                                       type: integer
                                     unshareIntervalUnit:
                                       description: The unit for how often the lifecycle
                                         policy should be evaluated. HOURS is currently
                                         the only allowed value and also the default
-                                        value.
+                                        value. Conflicts with cron_expression. Must
+                                        be set if interval is set.
                                       type: string
                                   type: object
                                 type: array

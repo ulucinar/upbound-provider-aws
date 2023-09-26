@@ -243,6 +243,8 @@ spec:
                       properties:
                         httpEndpoint:
                           type: string
+                        httpProtocolIpv6:
+                          type: string
                         httpPutResponseHopLimit:
                           format: int64
                           type: integer
@@ -720,6 +722,8 @@ spec:
                       properties:
                         httpEndpoint:
                           type: string
+                        httpProtocolIpv6:
+                          type: string
                         httpPutResponseHopLimit:
                           format: int64
                           type: integer
@@ -1195,6 +1199,8 @@ spec:
                     items:
                       properties:
                         httpEndpoint:
+                          type: string
+                        httpProtocolIpv6:
                           type: string
                         httpPutResponseHopLimit:
                           format: int64

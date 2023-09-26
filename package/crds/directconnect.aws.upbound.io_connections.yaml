@@ -419,7 +419,8 @@ spec:
                     type: object
                   vlanId:
                     description: The VLAN ID.
-                    type: string
+                    format: int64
+                    type: integer
                 type: object
               conditions:
                 description: Conditions of the resource.
