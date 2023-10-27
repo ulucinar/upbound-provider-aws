@@ -17,6 +17,14 @@ spec:
     plural: replicationgroups
     singular: replicationgroup
   scope: Cluster
+  conversion:
+    strategy: Webhook
+    webhook:
+      conversionReviewVersions:
+      - v1
+      clientConfig:
+        service:
+          path: /convert
   versions:
   - additionalPrinterColumns:
     - jsonPath: .status.conditions[?(@.type=='Ready')].status
