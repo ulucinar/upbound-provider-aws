@@ -23,7 +23,7 @@ import (
 	"github.com/crossplane/upjet/pkg/metrics"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	v1beta1 "github.com/upbound/provider-aws/apis/elasticache/v1beta1"
+	v1beta1 "github.com/upbound/provider-aws/apis/elasticache/v1"
 	features "github.com/upbound/provider-aws/internal/features"
 )
 
