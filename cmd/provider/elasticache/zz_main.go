@@ -27,8 +27,10 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
+	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
 	"github.com/upbound/provider-aws/apis"
+	v1 "github.com/upbound/provider-aws/apis/elasticache/v1"
 	"github.com/upbound/provider-aws/apis/v1alpha1"
 	"github.com/upbound/provider-aws/config"
 	"github.com/upbound/provider-aws/internal/clients"
@@ -85,6 +87,9 @@ func main() {
 		LeaderElectionResourceLock: resourcelock.LeasesResourceLock,
 		LeaseDuration:              func() *time.Duration { d := 60 * time.Second; return &d }(),
 		RenewDeadline:              func() *time.Duration { d := 50 * time.Second; return &d }(),
+		WebhookServer: webhook.NewServer(webhook.Options{
+			CertDir: filepath.Join("/", "webhook", "tls"),
+		}),
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add AWS APIs to scheme")
@@ -155,6 +160,9 @@ func main() {
 			Status: v1alpha1.StoreConfigStatus{},
 		})), "cannot create default store config")
 	}
+
+	// one GVK is enough to get all conversions, if the object types implement the right interfaces.
+	kingpin.FatalIfError(ctrl.NewWebhookManagedBy(mgr).For(&v1.ReplicationGroup{}).Complete(), "Cannot create accessanalyzer webhook")
 
 	rand.Seed(time.Now().UnixNano())
 	kingpin.FatalIfError(controller.Setup_elasticache(mgr, o), "Cannot setup AWS controllers")
