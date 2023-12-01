@@ -30,6 +30,18 @@ func Configure(p *config.Provider) {
 			},
 		}
 		r.UseAsync = true
+		// Server Side Apply object list merge strategy configuration for spec.forProvider.vpcConfig
+		r.ServerSideApplyMergeStrategies["vpc_config"] = config.MergeStrategy{
+			ListMergeStrategy: config.ListMergeStrategy{
+				MergeStrategy: config.ListTypeMap,
+				ListMapKeys: config.ListMapKeys{
+					InjectedKey: config.InjectedKey{
+						Key:          "index",
+						DefaultValue: `"0"`,
+					},
+				},
+			},
+		}
 	})
 	p.AddResourceConfigurator("aws_eks_node_group", func(r *config.Resource) {
 		r.References["cluster_name"] = config.Reference{

@@ -3490,6 +3490,11 @@ func (in *VPCConfigInitParameters) DeepCopyInto(out *VPCConfigInitParameters) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.Index != nil {
+		in, out := &in.Index, &out.Index
+		*out = new(string)
+		**out = **in
+	}
 	if in.PublicAccessCidrs != nil {
 		in, out := &in.PublicAccessCidrs, &out.PublicAccessCidrs
 		*out = make([]*string, len(*in))
@@ -3529,6 +3534,11 @@ func (in *VPCConfigObservation) DeepCopyInto(out *VPCConfigObservation) {
 	if in.EndpointPublicAccess != nil {
 		in, out := &in.EndpointPublicAccess, &out.EndpointPublicAccess
 		*out = new(bool)
+		**out = **in
+	}
+	if in.Index != nil {
+		in, out := &in.Index, &out.Index
+		*out = new(string)
 		**out = **in
 	}
 	if in.PublicAccessCidrs != nil {
@@ -3592,6 +3602,11 @@ func (in *VPCConfigParameters) DeepCopyInto(out *VPCConfigParameters) {
 	if in.EndpointPublicAccess != nil {
 		in, out := &in.EndpointPublicAccess, &out.EndpointPublicAccess
 		*out = new(bool)
+		**out = **in
+	}
+	if in.Index != nil {
+		in, out := &in.Index, &out.Index
+		*out = new(string)
 		**out = **in
 	}
 	if in.PublicAccessCidrs != nil {

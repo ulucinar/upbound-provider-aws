@@ -72,6 +72,7 @@ spec:
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   encryptionConfig:
                     description: Configuration block with encryption configuration
                       for the cluster. Only available on Kubernetes 1.13 and above
@@ -100,6 +101,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   kubernetesNetworkConfig:
@@ -166,6 +168,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   region:
@@ -259,6 +262,7 @@ spec:
                       type: string
                     description: Key-value map of resource tags.
                     type: object
+                    x-kubernetes-map-type: granular
                   version:
                     description: –  Desired Kubernetes master version. If you do not
                       specify a value, the latest available version at resource creation
@@ -284,6 +288,11 @@ spec:
                           description: Whether the Amazon EKS public API server endpoint
                             is enabled. Default is true.
                           type: boolean
+                        index:
+                          default: "0"
+                          description: This is an injected field with a default value
+                            for being able to merge items of the parent object list.
+                          type: string
                         publicAccessCidrs:
                           description: List of CIDR blocks. Indicates which CIDR blocks
                             can access the Amazon EKS public API server endpoint when
@@ -291,6 +300,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                         securityGroupIdRefs:
                           description: References to SecurityGroup in ec2 to populate
                             securityGroupIds.
@@ -380,6 +390,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                         subnetIdRefs:
                           description: References to Subnet in ec2 to populate subnetIds.
                           items:
@@ -468,8 +479,12 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
+                    x-kubernetes-list-map-keys:
+                    - index
+                    x-kubernetes-list-type: map
                 required:
                 - region
                 type: object
@@ -491,6 +506,7 @@ spec:
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   encryptionConfig:
                     description: Configuration block with encryption configuration
                       for the cluster. Only available on Kubernetes 1.13 and above
@@ -519,6 +535,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   kubernetesNetworkConfig:
@@ -585,6 +602,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   tags:
@@ -592,6 +610,7 @@ spec:
                       type: string
                     description: Key-value map of resource tags.
                     type: object
+                    x-kubernetes-map-type: granular
                   version:
                     description: –  Desired Kubernetes master version. If you do not
                       specify a value, the latest available version at resource creation
@@ -617,6 +636,11 @@ spec:
                           description: Whether the Amazon EKS public API server endpoint
                             is enabled. Default is true.
                           type: boolean
+                        index:
+                          default: "0"
+                          description: This is an injected field with a default value
+                            for being able to merge items of the parent object list.
+                          type: string
                         publicAccessCidrs:
                           description: List of CIDR blocks. Indicates which CIDR blocks
                             can access the Amazon EKS public API server endpoint when
@@ -624,8 +648,12 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
+                    x-kubernetes-list-map-keys:
+                    - index
+                    x-kubernetes-list-type: map
                 type: object
               managementPolicies:
                 default:
@@ -827,6 +855,7 @@ spec:
                     items:
                       type: string
                     type: array
+                    x-kubernetes-list-type: set
                   encryptionConfig:
                     description: Configuration block with encryption configuration
                       for the cluster. Only available on Kubernetes 1.13 and above
@@ -855,6 +884,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   endpoint:
@@ -955,6 +985,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                       type: object
                     type: array
                   platformVersion:
@@ -978,12 +1009,14 @@ spec:
                       type: string
                     description: Key-value map of resource tags.
                     type: object
+                    x-kubernetes-map-type: granular
                   tagsAll:
                     additionalProperties:
                       type: string
                     description: Map of tags assigned to the resource, including those
                       inherited from the provider default_tags configuration block.
                     type: object
+                    x-kubernetes-map-type: granular
                   version:
                     description: –  Desired Kubernetes master version. If you do not
                       specify a value, the latest available version at resource creation
@@ -1014,6 +1047,11 @@ spec:
                           description: Whether the Amazon EKS public API server endpoint
                             is enabled. Default is true.
                           type: boolean
+                        index:
+                          default: "0"
+                          description: This is an injected field with a default value
+                            for being able to merge items of the parent object list.
+                          type: string
                         publicAccessCidrs:
                           description: List of CIDR blocks. Indicates which CIDR blocks
                             can access the Amazon EKS public API server endpoint when
@@ -1021,6 +1059,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                         securityGroupIds:
                           description: account elastic network interfaces that Amazon
                             EKS creates to use to allow communication between your
@@ -1028,6 +1067,7 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                         subnetIds:
                           description: account elastic network interfaces in these
                             subnets to allow communication between your worker nodes
@@ -1035,11 +1075,15 @@ spec:
                           items:
                             type: string
                           type: array
+                          x-kubernetes-list-type: set
                         vpcId:
                           description: ID of the VPC associated with your cluster.
                           type: string
                       type: object
                     type: array
+                    x-kubernetes-list-map-keys:
+                    - index
+                    x-kubernetes-list-type: map
                 type: object
               conditions:
                 description: Conditions of the resource.
