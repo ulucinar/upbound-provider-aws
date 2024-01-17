@@ -9,13 +9,16 @@ import (
 	"go/parser"
 	"go/token"
 	"os"
+	"path/filepath"
 	"strings"
+
+	"golang.org/x/tools/go/packages"
 
 	"github.com/pkg/errors"
 )
 
 func main() {
-	/*// File path to your Go source file
+	// File path to your Go source file
 	pattern := "./apis/..."
 
 	pkgs, err := packages.Load(&packages.Config{
@@ -35,15 +38,15 @@ func main() {
 			}
 			processFile(p.Fset, p.Syntax[i], f)
 		}
-	}*/
+	}
 
-	file := "/Users/alper/github/upbound/provider-aws/apis/workspaces/v1beta1/zz_generated.resolvers.go"
+	/*file := "/Users/alper/github/upbound/provider-aws/apis/workspaces/v1beta1/zz_generated.resolvers.go"
 	fset := token.NewFileSet()
 	f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 	if err != nil {
 		panic(err)
 	}
-	processFile(fset, f, file)
+	processFile(fset, f, file)*/
 }
 
 type importUsage struct {
