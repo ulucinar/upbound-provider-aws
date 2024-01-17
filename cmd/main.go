@@ -157,13 +157,18 @@ func processFile(fset *token.FileSet, node *ast.File, filePath string) {
 					if err != nil {
 						panic(err)
 					}
+					found := false
 					if block != nil {
 						for i, s := range block.List {
 							if s == assign {
 								block.List = append(block.List[:i], append(stmts, block.List[i:]...)...)
+								found = true
 								break
 							}
 						}
+					}
+					if !found {
+						panic("MR statements not injected")
 					}
 					for k, v := range mrImports {
 						importMap[k] = v
