@@ -157,17 +157,7 @@ func processFile(fset *token.FileSet, node *ast.File, filePath string) {
 					if err != nil {
 						panic(err)
 					}
-					found := false
-					if block != nil {
-						for i, s := range block.List {
-							if s == assign {
-								block.List = append(block.List[:i], append(stmts, block.List[i:]...)...)
-								found = true
-								break
-							}
-						}
-					}
-					if !found {
+					if !insertStatements(stmts, block, assign) {
 						panic("MR statements not injected")
 					}
 					for k, v := range mrImports {
@@ -223,6 +213,27 @@ func processFile(fset *token.FileSet, node *ast.File, filePath string) {
 	if err := format.Node(outFile, fset, node); err != nil {
 		panic(err)
 	}
+}
+
+func insertStatements(stmts []ast.Stmt, block *ast.BlockStmt, assign *ast.AssignStmt) bool {
+	if block == nil {
+		return false
+	}
+
+	for i, s := range block.List {
+		if forStmt, ok := s.(*ast.ForStmt); ok {
+			if insertStatements(stmts, forStmt.Body, assign) {
+				return true
+			}
+			continue
+		}
+
+		if s == assign {
+			block.List = append(block.List[:i], append(stmts, block.List[i:]...)...)
+			return true
+		}
+	}
+	return false
 }
 
 func addMRVariableDeclarations(f *ast.File) (map[string]string, error) {
