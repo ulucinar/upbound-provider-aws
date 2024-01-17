@@ -7,10 +7,15 @@ package v1beta1
 
 import (
 	"context"
+
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
-	v1beta1 "github.com/upbound/provider-aws/apis/s3/v1beta1"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
+
+	v1beta1 "github.com/upbound/provider-aws/apis/s3/v1beta1"
+	"github.com/upbound/provider-aws/internal/apis"
 )
 
 // ResolveReferences of this ReportDefinition.
@@ -20,14 +25,22 @@ func (mg *ReportDefinition) ResolveReferences(ctx context.Context, c client.Read
 	var rsp reference.ResolutionResponse
 	var err error
 
+	var m xpresource.Managed
+	var l xpresource.ManagedList
+
+	m, l, err = apis.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
+	if err != nil {
+		return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+	}
+
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Bucket),
 		Extract:      reference.ExternalName(),
 		Reference:    mg.Spec.ForProvider.S3BucketRef,
 		Selector:     mg.Spec.ForProvider.S3BucketSelector,
 		To: reference.To{
-			List:    &v1beta1.BucketList{},
-			Managed: &v1beta1.Bucket{},
+			List:    l,
+			Managed: m,
 		},
 	})
 	if err != nil {
@@ -35,6 +48,11 @@ func (mg *ReportDefinition) ResolveReferences(ctx context.Context, c client.Read
 	}
 	mg.Spec.ForProvider.S3Bucket = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.S3BucketRef = rsp.ResolvedReference
+
+	m, l, err = apis.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
+	if err != nil {
+		return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+	}
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.S3Bucket),
