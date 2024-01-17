@@ -37,7 +37,7 @@ func main() {
 		}
 	}*/
 
-	file := "/Users/alper/github/upbound/provider-aws/apis/apigatewayv2/v1beta1/zz_generated.resolvers.go"
+	file := "/Users/alper/github/upbound/provider-aws/apis/workspaces/v1beta1/zz_generated.resolvers.go"
 	fset := token.NewFileSet()
 	f, err := parser.ParseFile(fset, file, nil, parser.ParseComments)
 	if err != nil {
