@@ -22,7 +22,6 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -33,15 +32,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Bucket", "BucketList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation[i6].BucketArn),
 							Extract:      common.ARNExtractor(),
@@ -65,15 +59,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Object", "ObjectList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Object", "ObjectList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation[i6].FileKey),
 							Extract:      resource.ExtractParamPath("key", false),
@@ -97,14 +86,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input[i5].KinesisStreamsInput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-							"v1beta1", "Stream", "StreamList")
+						m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input[i5].KinesisStreamsInput[i6].ResourceArn),
 							Extract:      common.TerraformID(),
@@ -128,13 +113,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].KinesisFirehoseOutput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io",
-
-							"v1beta1", "DeliveryStream", "DeliveryStreamList")
+						m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io", "v1beta1", "DeliveryStream", "DeliveryStreamList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].KinesisFirehoseOutput[i6].ResourceArn),
 							Extract:      resource.ExtractParamPath("arn", false),
@@ -158,14 +140,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].LambdaOutput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-							"v1beta1", "Function", "FunctionList")
+						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].LambdaOutput[i6].ResourceArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -189,15 +167,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource[i5].S3ReferenceDataSource); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Bucket", "BucketList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource[i5].S3ReferenceDataSource[i6].BucketArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -218,13 +191,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-				"v1beta1", "Stream", "StreamList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.CloudwatchLoggingOptions[i3].LogStreamArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -241,15 +211,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ServiceExecutionRole),
 			Extract:      common.ARNExtractor(),
@@ -269,15 +234,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Bucket", "BucketList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation[i6].BucketArn),
 							Extract:      common.ARNExtractor(),
@@ -301,15 +261,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Object", "ObjectList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Object", "ObjectList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].ApplicationCodeConfiguration[i4].CodeContent[i5].S3ContentLocation[i6].FileKey),
 							Extract:      resource.ExtractParamPath("key", false),
@@ -333,14 +288,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input[i5].KinesisStreamsInput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-							"v1beta1", "Stream", "StreamList")
+						m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Input[i5].KinesisStreamsInput[i6].ResourceArn),
 							Extract:      common.TerraformID(),
@@ -364,13 +315,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].KinesisFirehoseOutput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io",
-
-							"v1beta1", "DeliveryStream", "DeliveryStreamList")
+						m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io", "v1beta1", "DeliveryStream", "DeliveryStreamList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].KinesisFirehoseOutput[i6].ResourceArn),
 							Extract:      resource.ExtractParamPath("arn", false),
@@ -394,14 +342,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].LambdaOutput); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-							"v1beta1", "Function", "FunctionList")
+						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].Output[i5].LambdaOutput[i6].ResourceArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -425,15 +369,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource[i5].S3ReferenceDataSource); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-							"v1beta1", "Bucket", "BucketList")
+						m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 						if err != nil {
-							return errors.Wrap(
-								err, "failed to get the reference target managed resource and its list for reference resolution",
-							)
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ApplicationConfiguration[i3].SQLApplicationConfiguration[i4].ReferenceDataSource[i5].S3ReferenceDataSource[i6].BucketArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -454,13 +393,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-				"v1beta1", "Stream", "StreamList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.CloudwatchLoggingOptions[i3].LogStreamArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -477,15 +413,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ServiceExecutionRole),
 			Extract:      common.ARNExtractor(),
@@ -507,15 +438,12 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 func (mg *ApplicationSnapshot) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kinesisanalyticsv2.aws.upbound.io",
-
-			"v1beta1", "Application", "ApplicationList")
+		m, l, err = apisresolver.GetManagedResource("kinesisanalyticsv2.aws.upbound.io", "v1beta1", "Application", "ApplicationList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -534,9 +462,7 @@ func (mg *ApplicationSnapshot) ResolveReferences(ctx context.Context, c client.R
 	mg.Spec.ForProvider.ApplicationName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ApplicationNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kinesisanalyticsv2.aws.upbound.io",
-
-			"v1beta1", "Application", "ApplicationList")
+		m, l, err = apisresolver.GetManagedResource("kinesisanalyticsv2.aws.upbound.io", "v1beta1", "Application", "ApplicationList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

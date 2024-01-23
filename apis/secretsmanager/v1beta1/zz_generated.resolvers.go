@@ -22,19 +22,14 @@ import (
 func (mg *Secret) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -51,13 +46,9 @@ func (mg *Secret) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -81,15 +72,12 @@ func (mg *Secret) ResolveReferences(ctx context.Context, c client.Reader) error 
 func (mg *SecretPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -108,9 +96,7 @@ func (mg *SecretPolicy) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.SecretArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SecretArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -136,18 +122,14 @@ func (mg *SecretPolicy) ResolveReferences(ctx context.Context, c client.Reader) 
 func (mg *SecretRotation) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-			"v1beta1", "Function", "FunctionList")
+		m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -164,9 +146,7 @@ func (mg *SecretRotation) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.RotationLambdaArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RotationLambdaArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -185,12 +165,9 @@ func (mg *SecretRotation) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.SecretID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SecretIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-			"v1beta1", "Function", "FunctionList")
+		m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -207,9 +184,7 @@ func (mg *SecretRotation) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.InitProvider.RotationLambdaArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.RotationLambdaArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -235,15 +210,12 @@ func (mg *SecretRotation) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *SecretVersion) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -262,9 +234,7 @@ func (mg *SecretVersion) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.SecretID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SecretIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-			"v1beta1", "Secret", "SecretList")
+		m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

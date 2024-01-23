@@ -22,7 +22,6 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -30,13 +29,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.DataLocation); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("lakeformation.aws.upbound.io",
-
-				"v1beta1", "Resource", "ResourceList")
+			m, l, err = apisresolver.GetManagedResource("lakeformation.aws.upbound.io", "v1beta1", "Resource", "ResourceList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DataLocation[i3].Arn),
 				Extract:      resource.ExtractParamPath("arn", false),
@@ -54,13 +50,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Database); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Database[i3].Name),
 				Extract:      reference.ExternalName(),
@@ -78,13 +71,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.TableWithColumns); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogTable", "CatalogTableList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogTable", "CatalogTableList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TableWithColumns[i3].Name),
 				Extract:      reference.ExternalName(),
@@ -102,13 +92,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.DataLocation); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("lakeformation.aws.upbound.io",
-
-				"v1beta1", "Resource", "ResourceList")
+			m, l, err = apisresolver.GetManagedResource("lakeformation.aws.upbound.io", "v1beta1", "Resource", "ResourceList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DataLocation[i3].Arn),
 				Extract:      resource.ExtractParamPath("arn", false),
@@ -126,13 +113,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Database); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Database[i3].Name),
 				Extract:      reference.ExternalName(),
@@ -150,13 +134,10 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.TableWithColumns); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogTable", "CatalogTableList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogTable", "CatalogTableList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.TableWithColumns[i3].Name),
 				Extract:      reference.ExternalName(),
@@ -180,19 +161,14 @@ func (mg *Permissions) ResolveReferences( // ResolveReferences of this Permissio
 func (mg *Resource) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -209,13 +185,9 @@ func (mg *Resource) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

@@ -22,15 +22,12 @@ func (mg *CatalogTable) ResolveReferences( // ResolveReferences of this CatalogT
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -56,7 +53,6 @@ func (mg *CatalogTable) ResolveReferences( // ResolveReferences of this CatalogT
 func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -64,13 +60,10 @@ func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.PhysicalConnectionRequirements); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PhysicalConnectionRequirements[i3].AvailabilityZone),
 				Extract:      resource.ExtractParamPath("availability_zone", false),
@@ -88,13 +81,10 @@ func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) er
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.PhysicalConnectionRequirements); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PhysicalConnectionRequirements[i3].SubnetID),
 				Extract:      resource.ExtractResourceID(),
@@ -112,13 +102,10 @@ func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) er
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.PhysicalConnectionRequirements); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.PhysicalConnectionRequirements[i3].AvailabilityZone),
 				Extract:      resource.ExtractParamPath("availability_zone", false),
@@ -136,13 +123,10 @@ func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) er
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.PhysicalConnectionRequirements); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.PhysicalConnectionRequirements[i3].SubnetID),
 				Extract:      resource.ExtractResourceID(),
@@ -166,7 +150,6 @@ func (mg *Connection) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -174,13 +157,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.CatalogTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.CatalogTarget[i3].DatabaseName),
 				Extract:      reference.ExternalName(),
@@ -197,13 +177,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DatabaseName),
 			Extract:      reference.ExternalName(),
@@ -220,14 +197,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.JdbcTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Connection", "ConnectionList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.JdbcTarget[i3].ConnectionName),
 				Extract:      reference.ExternalName(),
@@ -245,14 +218,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.MongodbTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Connection", "ConnectionList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.MongodbTarget[i3].ConnectionName),
 				Extract:      reference.ExternalName(),
@@ -269,15 +238,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Role),
 			Extract:      common.ARNExtractor(),
@@ -294,13 +258,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.CatalogTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.CatalogTarget[i3].DatabaseName),
 				Extract:      reference.ExternalName(),
@@ -317,13 +278,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DatabaseName),
 			Extract:      reference.ExternalName(),
@@ -340,14 +298,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.JdbcTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Connection", "ConnectionList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.JdbcTarget[i3].ConnectionName),
 				Extract:      reference.ExternalName(),
@@ -365,14 +319,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.MongodbTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Connection", "ConnectionList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.MongodbTarget[i3].ConnectionName),
 				Extract:      reference.ExternalName(),
@@ -389,15 +339,10 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Role),
 			Extract:      common.ARNExtractor(),
@@ -419,7 +364,6 @@ func (mg *Crawler) ResolveReferences(ctx context.Context, c client.Reader) error
 func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -428,15 +372,10 @@ func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.DataCatalogEncryptionSettings); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.DataCatalogEncryptionSettings[i3].ConnectionPasswordEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DataCatalogEncryptionSettings[i3].ConnectionPasswordEncryption[i4].AwsKMSKeyID),
 					Extract:      common.ARNExtractor(),
@@ -456,15 +395,10 @@ func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.DataCatalogEncryptionSettings); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.DataCatalogEncryptionSettings[i3].EncryptionAtRest); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DataCatalogEncryptionSettings[i3].EncryptionAtRest[i4].SseAwsKMSKeyID),
 					Extract:      common.ARNExtractor(),
@@ -484,15 +418,10 @@ func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.DataCatalogEncryptionSettings); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.DataCatalogEncryptionSettings[i3].ConnectionPasswordEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DataCatalogEncryptionSettings[i3].ConnectionPasswordEncryption[i4].AwsKMSKeyID),
 					Extract:      common.ARNExtractor(),
@@ -512,15 +441,10 @@ func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.DataCatalogEncryptionSettings); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.DataCatalogEncryptionSettings[i3].EncryptionAtRest); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DataCatalogEncryptionSettings[i3].EncryptionAtRest[i4].SseAwsKMSKeyID),
 					Extract:      common.ARNExtractor(),
@@ -545,19 +469,14 @@ func (mg *DataCatalogEncryptionSettings) ResolveReferences(ctx context.Context, 
 func (mg *Job) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -574,13 +493,9 @@ func (mg *Job) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -604,18 +519,14 @@ func (mg *Job) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *Schema) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "Registry", "RegistryList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Registry", "RegistryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -632,12 +543,9 @@ func (mg *Schema) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.RegistryArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RegistryArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "Registry", "RegistryList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Registry", "RegistryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -661,7 +569,6 @@ func (mg *Schema) ResolveReferences(ctx context.Context, c client.Reader) error 
 func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -670,15 +577,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.EncryptionConfiguration[i3].CloudwatchEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionConfiguration[i3].CloudwatchEncryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -698,15 +600,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.EncryptionConfiguration[i3].JobBookmarksEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionConfiguration[i3].JobBookmarksEncryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -726,15 +623,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.EncryptionConfiguration[i3].S3Encryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionConfiguration[i3].S3Encryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -754,15 +646,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.EncryptionConfiguration[i3].CloudwatchEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EncryptionConfiguration[i3].CloudwatchEncryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -782,15 +669,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.EncryptionConfiguration[i3].JobBookmarksEncryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EncryptionConfiguration[i3].JobBookmarksEncryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -810,15 +692,10 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EncryptionConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.EncryptionConfiguration[i3].S3Encryption); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-					"v1beta1", "Key", "KeyList")
+				m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EncryptionConfiguration[i3].S3Encryption[i4].KMSKeyArn),
 					Extract:      common.ARNExtractor(),
@@ -843,7 +720,6 @@ func (mg *SecurityConfiguration) ResolveReferences(ctx context.Context, c client
 func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -851,13 +727,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Actions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Crawler", "CrawlerList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Crawler", "CrawlerList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Actions[i3].CrawlerName),
 				Extract:      reference.ExternalName(),
@@ -875,15 +748,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Actions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Job", "JobList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Job", "JobList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Actions[i3].JobName),
 				Extract:      reference.ExternalName(),
@@ -902,13 +770,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Predicate); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Predicate[i3].Conditions); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-					"v1beta1", "Crawler", "CrawlerList")
+				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Crawler", "CrawlerList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Predicate[i3].Conditions[i4].CrawlerName),
 					Extract:      reference.ExternalName(),
@@ -928,15 +793,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Predicate); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Predicate[i3].Conditions); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-					"v1beta1", "Job", "JobList")
+				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Job", "JobList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Predicate[i3].Conditions[i4].JobName),
 					Extract:      reference.ExternalName(),
@@ -955,13 +815,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Actions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Crawler", "CrawlerList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Crawler", "CrawlerList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Actions[i3].CrawlerName),
 				Extract:      reference.ExternalName(),
@@ -979,15 +836,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Actions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-				"v1beta1", "Job", "JobList")
+			m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Job", "JobList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Actions[i3].JobName),
 				Extract:      reference.ExternalName(),
@@ -1006,13 +858,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Predicate); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Predicate[i3].Conditions); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-					"v1beta1", "Crawler", "CrawlerList")
+				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Crawler", "CrawlerList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Predicate[i3].Conditions[i4].CrawlerName),
 					Extract:      reference.ExternalName(),
@@ -1032,15 +881,10 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Predicate); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Predicate[i3].Conditions); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-					"v1beta1", "Job", "JobList")
+				m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "Job", "JobList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Predicate[i3].Conditions[i4].JobName),
 					Extract:      reference.ExternalName(),
@@ -1065,15 +909,12 @@ func (mg *Trigger) ResolveReferences(ctx context.Context, c client.Reader) error
 func (mg *UserDefinedFunction) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-			"v1beta1", "CatalogDatabase", "CatalogDatabaseList")
+		m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogDatabase", "CatalogDatabaseList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

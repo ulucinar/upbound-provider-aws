@@ -22,19 +22,14 @@ import (
 func (mg *Profile) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
@@ -51,13 +46,9 @@ func (mg *Profile) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.RoleArns = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.RoleArnsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{

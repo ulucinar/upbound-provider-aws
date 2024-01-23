@@ -21,18 +21,14 @@ func (mg *Discoverer) ResolveReferences( // ResolveReferences of this Discoverer
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -49,12 +45,9 @@ func (mg *Discoverer) ResolveReferences( // ResolveReferences of this Discoverer
 	mg.Spec.ForProvider.SourceArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SourceArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -78,18 +71,14 @@ func (mg *Discoverer) ResolveReferences( // ResolveReferences of this Discoverer
 func (mg *Schema) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("schemas.aws.upbound.io",
-
-			"v1beta1", "Registry", "RegistryList")
+		m, l, err = apisresolver.GetManagedResource("schemas.aws.upbound.io", "v1beta1", "Registry", "RegistryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -106,12 +95,9 @@ func (mg *Schema) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.RegistryName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RegistryNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("schemas.aws.upbound.io",
-
-			"v1beta1", "Registry", "RegistryList")
+		m, l, err = apisresolver.GetManagedResource("schemas.aws.upbound.io", "v1beta1", "Registry", "RegistryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

@@ -22,15 +22,12 @@ func (mg *APIDestination) ResolveReferences( // ResolveReferences of this APIDes
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Connection", "ConnectionList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -49,9 +46,7 @@ func (mg *APIDestination) ResolveReferences( // ResolveReferences of this APIDes
 	mg.Spec.ForProvider.ConnectionArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ConnectionArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Connection", "ConnectionList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Connection", "ConnectionList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -77,18 +72,14 @@ func (mg *APIDestination) ResolveReferences( // ResolveReferences of this APIDes
 func (mg *Archive) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -105,12 +96,9 @@ func (mg *Archive) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.EventSourceArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.EventSourceArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -134,18 +122,14 @@ func (mg *Archive) ResolveReferences(ctx context.Context, c client.Reader) error
 func (mg *BusPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -162,12 +146,9 @@ func (mg *BusPolicy) ResolveReferences(ctx context.Context, c client.Reader) err
 	mg.Spec.ForProvider.EventBusName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.EventBusNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -191,7 +172,6 @@ func (mg *BusPolicy) ResolveReferences(ctx context.Context, c client.Reader) err
 func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -199,13 +179,10 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Condition); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("organizations.aws.upbound.io",
-
-				"v1beta1", "Organization", "OrganizationList")
+			m, l, err = apisresolver.GetManagedResource("organizations.aws.upbound.io", "v1beta1", "Organization", "OrganizationList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Condition[i3].Value),
 				Extract:      resource.ExtractResourceID(),
@@ -222,14 +199,10 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EventBusName),
 			Extract:      reference.ExternalName(),
@@ -246,13 +219,10 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Condition); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("organizations.aws.upbound.io",
-
-				"v1beta1", "Organization", "OrganizationList")
+			m, l, err = apisresolver.GetManagedResource("organizations.aws.upbound.io", "v1beta1", "Organization", "OrganizationList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Condition[i3].Value),
 				Extract:      resource.ExtractResourceID(),
@@ -269,14 +239,10 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EventBusName),
 			Extract:      reference.ExternalName(),
@@ -298,18 +264,14 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *Rule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -326,13 +288,9 @@ func (mg *Rule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.EventBusName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.EventBusNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -349,12 +307,9 @@ func (mg *Rule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -371,13 +326,9 @@ func (mg *Rule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.EventBusName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.EventBusNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -401,7 +352,6 @@ func (mg *Rule) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -409,13 +359,10 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EcsTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "TaskDefinition", "TaskDefinitionList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "TaskDefinition", "TaskDefinitionList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EcsTarget[i3].TaskDefinitionArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -432,14 +379,10 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EventBusName),
 			Extract:      reference.ExternalName(),
@@ -454,13 +397,9 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.EventBusName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.EventBusNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -477,12 +416,9 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Rule", "RuleList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Rule", "RuleList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -501,13 +437,10 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EcsTarget); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "TaskDefinition", "TaskDefinitionList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "TaskDefinition", "TaskDefinitionList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EcsTarget[i3].TaskDefinitionArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -524,14 +457,10 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Bus", "BusList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Bus", "BusList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EventBusName),
 			Extract:      reference.ExternalName(),
@@ -546,13 +475,9 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.InitProvider.EventBusName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.EventBusNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -569,12 +494,9 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.InitProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io",
-
-			"v1beta1", "Rule", "RuleList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchevents.aws.upbound.io", "v1beta1", "Rule", "RuleList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

@@ -12,17 +12,16 @@ import (
 	resource "github.com/crossplane/upjet/pkg/resource"
 	errors "github.com/pkg/errors"
 
-	apisresolver "github.com/upbound/provider-aws/internal/apis"
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 
 	// ResolveReferences of this LB.
-	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	apisresolver "github.com/upbound/provider-aws/internal/apis"
 )
 
 func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -31,15 +30,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.AccessLogs); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AccessLogs[i3].Bucket),
 				Extract:      reference.ExternalName(),
@@ -56,13 +50,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.SecurityGroups),
 			Extract:       reference.ExternalName(),
@@ -79,13 +70,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SubnetMapping); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SubnetMapping[i3].SubnetID),
 				Extract:      reference.ExternalName(),
@@ -102,13 +90,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.Subnets),
 			Extract:       reference.ExternalName(),
@@ -125,15 +110,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.AccessLogs); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.AccessLogs[i3].Bucket),
 				Extract:      reference.ExternalName(),
@@ -150,13 +130,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.SecurityGroups),
 			Extract:       reference.ExternalName(),
@@ -173,13 +150,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SubnetMapping); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SubnetMapping[i3].SubnetID),
 				Extract:      reference.ExternalName(),
@@ -196,13 +170,10 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 			CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.Subnets),
 			Extract:       reference.ExternalName(),
@@ -224,7 +195,6 @@ func (mg *LB) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -234,13 +204,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.DefaultAction[i3].Forward); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.DefaultAction[i3].Forward[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DefaultAction[i3].Forward[i4].TargetGroup[i5].Arn),
 						Extract:      reference.ExternalName(),
@@ -260,13 +227,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.DefaultAction); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-				"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DefaultAction[i3].TargetGroupArn),
 				Extract:      reference.ExternalName(),
@@ -283,15 +247,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LB", "LBList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LB", "LBList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.LoadBalancerArn),
 			Extract:      reference.ExternalName(),
@@ -310,13 +269,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.DefaultAction[i3].Forward); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.DefaultAction[i3].Forward[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DefaultAction[i3].Forward[i4].TargetGroup[i5].Arn),
 						Extract:      reference.ExternalName(),
@@ -336,13 +292,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.DefaultAction); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-				"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DefaultAction[i3].TargetGroupArn),
 				Extract:      reference.ExternalName(),
@@ -359,15 +312,10 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LB", "LBList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LB", "LBList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.LoadBalancerArn),
 			Extract:      reference.ExternalName(),
@@ -389,18 +337,14 @@ func (mg *LBListener) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io",
-
-			"v1beta1", "Certificate", "CertificateList")
+		m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io", "v1beta1", "Certificate", "CertificateList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -417,12 +361,9 @@ func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client
 	mg.Spec.ForProvider.CertificateArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.CertificateArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBListener", "LBListenerList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBListener", "LBListenerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -439,12 +380,9 @@ func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client
 	mg.Spec.ForProvider.ListenerArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ListenerArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io",
-
-			"v1beta1", "Certificate", "CertificateList")
+		m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io", "v1beta1", "Certificate", "CertificateList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -461,12 +399,9 @@ func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client
 	mg.Spec.InitProvider.CertificateArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.CertificateArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBListener", "LBListenerList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBListener", "LBListenerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -490,7 +425,6 @@ func (mg *LBListenerCertificate) ResolveReferences(ctx context.Context, c client
 func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -499,13 +433,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPool", "UserPoolList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPool", "UserPoolList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].AuthenticateCognito[i4].UserPoolArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -525,13 +456,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPoolClient", "UserPoolClientList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPoolClient", "UserPoolClientList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].AuthenticateCognito[i4].UserPoolClientID),
 					Extract:      resource.ExtractResourceID(),
@@ -551,13 +479,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPoolDomain", "UserPoolDomainList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPoolDomain", "UserPoolDomainList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].AuthenticateCognito[i4].UserPoolDomain),
 					Extract:      resource.ExtractParamPath("domain", false),
@@ -578,13 +503,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Action[i3].Forward); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Action[i3].Forward[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].Forward[i4].TargetGroup[i5].Arn),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -604,13 +526,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Action); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-				"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Action[i3].TargetGroupArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -627,14 +546,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBListener", "LBListenerList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBListener", "LBListenerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ListenerArn),
 			Extract:      resource.ExtractParamPath("arn", true),
@@ -652,13 +567,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPool", "UserPoolList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPool", "UserPoolList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Action[i3].AuthenticateCognito[i4].UserPoolArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -678,13 +590,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPoolClient", "UserPoolClientList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPoolClient", "UserPoolClientList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Action[i3].AuthenticateCognito[i4].UserPoolClientID),
 					Extract:      resource.ExtractResourceID(),
@@ -704,13 +613,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Action); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Action[i3].AuthenticateCognito); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io",
-
-					"v1beta1", "UserPoolDomain", "UserPoolDomainList")
+				m, l, err = apisresolver.GetManagedResource("cognitoidp.aws.upbound.io", "v1beta1", "UserPoolDomain", "UserPoolDomainList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Action[i3].AuthenticateCognito[i4].UserPoolDomain),
 					Extract:      resource.ExtractParamPath("domain", false),
@@ -731,13 +637,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Action[i3].Forward); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Action[i3].Forward[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Action[i3].Forward[i4].TargetGroup[i5].Arn),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -757,13 +660,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Action); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-				"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+			m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Action[i3].TargetGroupArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -780,14 +680,10 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBListener", "LBListenerList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBListener", "LBListenerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ListenerArn),
 			Extract:      resource.ExtractParamPath("arn", true),
@@ -809,19 +705,14 @@ func (mg *LBListenerRule) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *LBTargetGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "VPC", "VPCList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -838,13 +729,9 @@ func (mg *LBTargetGroup) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "VPC", "VPCList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -868,15 +755,12 @@ func (mg *LBTargetGroup) ResolveReferences(ctx context.Context, c client.Reader)
 func (mg *LBTargetGroupAttachment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -895,9 +779,7 @@ func (mg *LBTargetGroupAttachment) ResolveReferences(ctx context.Context, c clie
 	mg.Spec.ForProvider.TargetGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TargetGroupArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-			"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+		m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

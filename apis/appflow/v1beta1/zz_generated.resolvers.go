@@ -22,7 +22,6 @@ import (
 func (mg *Flow) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -32,13 +31,10 @@ func (mg *Flow) ResolveReferences(ctx context.Context, c client.Reader) error {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.DestinationFlowConfig[i3].DestinationConnectorProperties); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.DestinationFlowConfig[i3].DestinationConnectorProperties[i4].S3); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "BucketPolicy", "BucketPolicyList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "BucketPolicy", "BucketPolicyList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.DestinationFlowConfig[i3].DestinationConnectorProperties[i4].S3[i5].BucketName),
 						Extract:      resource.ExtractParamPath("bucket", false),
@@ -60,13 +56,10 @@ func (mg *Flow) ResolveReferences(ctx context.Context, c client.Reader) error {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.SourceFlowConfig[i3].SourceConnectorProperties); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.SourceFlowConfig[i3].SourceConnectorProperties[i4].S3); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "BucketPolicy", "BucketPolicyList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "BucketPolicy", "BucketPolicyList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SourceFlowConfig[i3].SourceConnectorProperties[i4].S3[i5].BucketName),
 						Extract:      resource.ExtractParamPath("bucket", false),
@@ -88,13 +81,10 @@ func (mg *Flow) ResolveReferences(ctx context.Context, c client.Reader) error {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.DestinationFlowConfig[i3].DestinationConnectorProperties); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.DestinationFlowConfig[i3].DestinationConnectorProperties[i4].S3); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "BucketPolicy", "BucketPolicyList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "BucketPolicy", "BucketPolicyList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DestinationFlowConfig[i3].DestinationConnectorProperties[i4].S3[i5].BucketName),
 						Extract:      resource.ExtractParamPath("bucket", false),
@@ -116,13 +106,10 @@ func (mg *Flow) ResolveReferences(ctx context.Context, c client.Reader) error {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.SourceFlowConfig[i3].SourceConnectorProperties); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.SourceFlowConfig[i3].SourceConnectorProperties[i4].S3); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "BucketPolicy", "BucketPolicyList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "BucketPolicy", "BucketPolicyList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SourceFlowConfig[i3].SourceConnectorProperties[i4].S3[i5].BucketName),
 						Extract:      resource.ExtractParamPath("bucket", false),

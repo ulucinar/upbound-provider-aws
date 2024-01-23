@@ -21,7 +21,6 @@ func (mg *LanguageModel) ResolveReferences( // ResolveReferences of this Languag
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -29,15 +28,10 @@ func (mg *LanguageModel) ResolveReferences( // ResolveReferences of this Languag
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.InputDataConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.InputDataConfig[i3].DataAccessRoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -55,15 +49,10 @@ func (mg *LanguageModel) ResolveReferences( // ResolveReferences of this Languag
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.InputDataConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.InputDataConfig[i3].DataAccessRoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),

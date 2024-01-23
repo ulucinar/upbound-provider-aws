@@ -22,15 +22,12 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -49,9 +46,7 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -77,16 +72,13 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 func (mg *CustomLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -105,9 +97,7 @@ func (mg *CustomLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -126,9 +116,7 @@ func (mg *CustomLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -147,9 +135,7 @@ func (mg *CustomLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -175,16 +161,13 @@ func (mg *CustomLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -203,9 +186,7 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -224,9 +205,7 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.EcsClusterArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.EcsClusterArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -245,9 +224,7 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -266,9 +243,7 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -287,9 +262,7 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.EcsClusterArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.EcsClusterArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -315,16 +288,13 @@ func (mg *EcsClusterLayer) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *GangliaLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -343,9 +313,7 @@ func (mg *GangliaLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -364,9 +332,7 @@ func (mg *GangliaLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -385,9 +351,7 @@ func (mg *GangliaLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -413,16 +377,13 @@ func (mg *GangliaLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 func (mg *HAProxyLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -441,9 +402,7 @@ func (mg *HAProxyLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -462,9 +421,7 @@ func (mg *HAProxyLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -483,9 +440,7 @@ func (mg *HAProxyLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -511,16 +466,13 @@ func (mg *HAProxyLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "CustomLayer", "CustomLayerList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "CustomLayer", "CustomLayerList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -539,9 +491,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.LayerIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.LayerIdsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -560,9 +510,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.SecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.SecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -581,9 +529,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -602,9 +548,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "CustomLayer", "CustomLayerList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "CustomLayer", "CustomLayerList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -623,9 +567,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.InitProvider.LayerIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.LayerIdsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -644,9 +586,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.InitProvider.SecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.SecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -665,9 +605,7 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.InitProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -693,16 +631,13 @@ func (mg *Instance) ResolveReferences(ctx context.Context, c client.Reader) erro
 func (mg *JavaAppLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -721,9 +656,7 @@ func (mg *JavaAppLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -742,9 +675,7 @@ func (mg *JavaAppLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -763,9 +694,7 @@ func (mg *JavaAppLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -791,16 +720,13 @@ func (mg *JavaAppLayer) ResolveReferences(ctx context.Context, c client.Reader) 
 func (mg *MemcachedLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -819,9 +745,7 @@ func (mg *MemcachedLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -840,9 +764,7 @@ func (mg *MemcachedLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -861,9 +783,7 @@ func (mg *MemcachedLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -889,16 +809,13 @@ func (mg *MemcachedLayer) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *MySQLLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -917,9 +834,7 @@ func (mg *MySQLLayer) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -938,9 +853,7 @@ func (mg *MySQLLayer) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -959,9 +872,7 @@ func (mg *MySQLLayer) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -987,16 +898,13 @@ func (mg *MySQLLayer) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *NodeJSAppLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1015,9 +923,7 @@ func (mg *NodeJSAppLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1036,9 +942,7 @@ func (mg *NodeJSAppLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1057,9 +961,7 @@ func (mg *NodeJSAppLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1085,16 +987,13 @@ func (mg *NodeJSAppLayer) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *PHPAppLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1113,9 +1012,7 @@ func (mg *PHPAppLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1134,9 +1031,7 @@ func (mg *PHPAppLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1155,9 +1050,7 @@ func (mg *PHPAppLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1183,15 +1076,12 @@ func (mg *PHPAppLayer) ResolveReferences(ctx context.Context, c client.Reader) e
 func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1210,13 +1100,9 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1233,9 +1119,7 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.UserArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.UserArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1254,13 +1138,9 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.InitProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1284,18 +1164,14 @@ func (mg *Permission) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *RDSDBInstance) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("rds.aws.upbound.io",
-
-			"v1beta1", "Instance", "InstanceList")
+		m, l, err = apisresolver.GetManagedResource("rds.aws.upbound.io", "v1beta1", "Instance", "InstanceList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1312,9 +1188,7 @@ func (mg *RDSDBInstance) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.RDSDBInstanceArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RDSDBInstanceArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1333,12 +1207,9 @@ func (mg *RDSDBInstance) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("rds.aws.upbound.io",
-
-			"v1beta1", "Instance", "InstanceList")
+		m, l, err = apisresolver.GetManagedResource("rds.aws.upbound.io", "v1beta1", "Instance", "InstanceList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1355,9 +1226,7 @@ func (mg *RDSDBInstance) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.InitProvider.RDSDBInstanceArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.RDSDBInstanceArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1383,16 +1252,13 @@ func (mg *RDSDBInstance) ResolveReferences(ctx context.Context, c client.Reader)
 func (mg *RailsAppLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1411,9 +1277,7 @@ func (mg *RailsAppLayer) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1432,9 +1296,7 @@ func (mg *RailsAppLayer) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1453,9 +1315,7 @@ func (mg *RailsAppLayer) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1481,15 +1341,12 @@ func (mg *RailsAppLayer) ResolveReferences(ctx context.Context, c client.Reader)
 func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "InstanceProfile", "InstanceProfileList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "InstanceProfile", "InstanceProfileList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1508,9 +1365,7 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.DefaultInstanceProfileArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DefaultInstanceProfileArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1529,13 +1384,9 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.DefaultSubnetID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DefaultSubnetIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1552,13 +1403,9 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.ServiceRoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ServiceRoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "VPC", "VPCList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1575,9 +1422,7 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.VPCID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.VPCIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "InstanceProfile", "InstanceProfileList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "InstanceProfile", "InstanceProfileList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1596,9 +1441,7 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.DefaultInstanceProfileArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.DefaultInstanceProfileArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1617,13 +1460,9 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.DefaultSubnetID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.DefaultSubnetIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1640,13 +1479,9 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.ServiceRoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ServiceRoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "VPC", "VPCList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1670,16 +1505,13 @@ func (mg *Stack) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *StaticWebLayer) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1698,9 +1530,7 @@ func (mg *StaticWebLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1719,9 +1549,7 @@ func (mg *StaticWebLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.StackID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.StackIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1740,9 +1568,7 @@ func (mg *StaticWebLayer) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.InitProvider.CustomSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.CustomSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io",
-
-			"v1beta1", "Stack", "StackList")
+		m, l, err = apisresolver.GetManagedResource("opsworks.aws.upbound.io", "v1beta1", "Stack", "StackList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -1768,19 +1594,14 @@ func (mg *StaticWebLayer) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *UserProfile) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -1797,13 +1618,9 @@ func (mg *UserProfile) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.UserArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.UserArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

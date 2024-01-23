@@ -19,15 +19,12 @@ func (mg *RepositoryPolicy) ResolveReferences( // ResolveReferences of this Repo
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ecrpublic.aws.upbound.io",
-
-			"v1beta1", "Repository", "RepositoryList")
+		m, l, err = apisresolver.GetManagedResource("ecrpublic.aws.upbound.io", "v1beta1", "Repository", "RepositoryList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -46,9 +43,7 @@ func (mg *RepositoryPolicy) ResolveReferences( // ResolveReferences of this Repo
 	mg.Spec.ForProvider.RepositoryName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RepositoryNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ecrpublic.aws.upbound.io",
-
-			"v1beta1", "Repository", "RepositoryList")
+		m, l, err = apisresolver.GetManagedResource("ecrpublic.aws.upbound.io", "v1beta1", "Repository", "RepositoryList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

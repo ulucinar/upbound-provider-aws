@@ -21,18 +21,14 @@ func (mg *MetricsDestination) ResolveReferences( // ResolveReferences of this Me
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("rum.aws.upbound.io",
-
-			"v1beta1", "AppMonitor", "AppMonitorList")
+		m, l, err = apisresolver.GetManagedResource("rum.aws.upbound.io", "v1beta1", "AppMonitor", "AppMonitorList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -49,13 +45,9 @@ func (mg *MetricsDestination) ResolveReferences( // ResolveReferences of this Me
 	mg.Spec.ForProvider.AppMonitorName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.AppMonitorNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -72,12 +64,9 @@ func (mg *MetricsDestination) ResolveReferences( // ResolveReferences of this Me
 	mg.Spec.ForProvider.IAMRoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IAMRoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("rum.aws.upbound.io",
-
-			"v1beta1", "AppMonitor", "AppMonitorList")
+		m, l, err = apisresolver.GetManagedResource("rum.aws.upbound.io", "v1beta1", "AppMonitor", "AppMonitorList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -94,13 +83,9 @@ func (mg *MetricsDestination) ResolveReferences( // ResolveReferences of this Me
 	mg.Spec.InitProvider.AppMonitorName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.AppMonitorNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

@@ -22,7 +22,6 @@ import (
 func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -30,15 +29,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ContentConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ContentConfig[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -55,15 +49,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.InputBucket),
 			Extract:      resource.ExtractResourceID(),
@@ -78,13 +67,9 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.InputBucket = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.InputBucketRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -103,15 +88,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ThumbnailConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ThumbnailConfig[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -129,15 +109,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ContentConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ContentConfig[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -154,15 +129,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.InputBucket),
 			Extract:      resource.ExtractResourceID(),
@@ -177,13 +147,9 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.InitProvider.InputBucket = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.InputBucketRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -202,15 +168,10 @@ func (mg *Pipeline) ResolveReferences(ctx context.Context, c client.Reader) erro
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ThumbnailConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ThumbnailConfig[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),

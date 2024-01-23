@@ -23,15 +23,12 @@ import (
 func (mg *Policy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -50,9 +47,7 @@ func (mg *Policy) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.ResourceID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ResourceIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -71,9 +66,7 @@ func (mg *Policy) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.ScalableDimension = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ScalableDimensionRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -99,15 +92,12 @@ func (mg *Policy) ResolveReferences(ctx context.Context, c client.Reader) error 
 func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -126,9 +116,7 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ResourceID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ResourceIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -147,9 +135,7 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ScalableDimension = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ScalableDimensionRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -168,9 +154,7 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ServiceNamespace = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ServiceNamespaceRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -189,9 +173,7 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.ResourceID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ResourceIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -210,9 +192,7 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.ScalableDimension = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ScalableDimensionRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io",
-
-			"v1beta1", "Target", "TargetList")
+		m, l, err = apisresolver.GetManagedResource("appautoscaling.aws.upbound.io", "v1beta1", "Target", "TargetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -238,19 +218,14 @@ func (mg *ScheduledAction) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -267,13 +242,9 @@ func (mg *Target) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

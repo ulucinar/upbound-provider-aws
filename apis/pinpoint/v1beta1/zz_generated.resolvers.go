@@ -20,19 +20,14 @@ func (mg *SMSChannel) ResolveReferences( // ResolveReferences of this SMSChannel
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("pinpoint.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("pinpoint.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -49,13 +44,9 @@ func (mg *SMSChannel) ResolveReferences( // ResolveReferences of this SMSChannel
 	mg.Spec.ForProvider.ApplicationID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ApplicationIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("pinpoint.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("pinpoint.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

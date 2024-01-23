@@ -21,19 +21,15 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io",
-
-			"v1beta1", "Directory", "DirectoryList")
+		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io", "v1beta1", "Directory", "DirectoryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -50,9 +46,7 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 	mg.Spec.ForProvider.DirectoryID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DirectoryIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -73,13 +67,10 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.WorkspaceCreationProperties); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "SecurityGroup", "SecurityGroupList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.WorkspaceCreationProperties[i3].CustomSecurityGroupID),
 				Extract:      resource.ExtractResourceID(),
@@ -96,14 +87,10 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io",
-
-			"v1beta1", "Directory", "DirectoryList")
+		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io", "v1beta1", "Directory", "DirectoryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.DirectoryID),
 			Extract:      resource.ExtractResourceID(),
@@ -118,9 +105,7 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 	mg.Spec.InitProvider.DirectoryID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.DirectoryIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -141,13 +126,10 @@ func (mg *Directory) ResolveReferences( // ResolveReferences of this Directory.
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.WorkspaceCreationProperties); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "SecurityGroup", "SecurityGroupList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.WorkspaceCreationProperties[i3].CustomSecurityGroupID),
 				Extract:      resource.ExtractResourceID(),

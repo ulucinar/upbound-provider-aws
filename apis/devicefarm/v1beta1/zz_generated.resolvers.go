@@ -21,18 +21,14 @@ func (mg *DevicePool) ResolveReferences( // ResolveReferences of this DevicePool
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -49,12 +45,9 @@ func (mg *DevicePool) ResolveReferences( // ResolveReferences of this DevicePool
 	mg.Spec.ForProvider.ProjectArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ProjectArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -78,18 +71,14 @@ func (mg *DevicePool) ResolveReferences( // ResolveReferences of this DevicePool
 func (mg *NetworkProfile) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -106,12 +95,9 @@ func (mg *NetworkProfile) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.ProjectArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ProjectArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -135,7 +121,6 @@ func (mg *NetworkProfile) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -144,13 +129,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "SecurityGroup", "SecurityGroupList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCConfig[i3].SecurityGroupIds),
 				Extract:       reference.ExternalName(),
@@ -168,13 +150,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCConfig[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -192,15 +171,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCConfig[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -218,13 +192,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "SecurityGroup", "SecurityGroupList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.VPCConfig[i3].SecurityGroupIds),
 				Extract:       reference.ExternalName(),
@@ -242,13 +213,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.VPCConfig[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -266,15 +234,10 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCConfig); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VPCConfig[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -298,18 +261,14 @@ func (mg *TestGridProject) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *Upload) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -326,12 +285,9 @@ func (mg *Upload) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.ProjectArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ProjectArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io",
-
-			"v1beta1", "Project", "ProjectList")
+		m, l, err = apisresolver.GetManagedResource("devicefarm.aws.upbound.io", "v1beta1", "Project", "ProjectList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

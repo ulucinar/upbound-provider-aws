@@ -22,7 +22,6 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -30,13 +29,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-				"v1beta1", "Stream", "StreamList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.CloudwatchLoggingOptions[i3].LogStreamArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -54,15 +50,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.CloudwatchLoggingOptions[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -81,14 +72,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Inputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Inputs[i3].KinesisStream); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-					"v1beta1", "Stream", "StreamList")
+				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Inputs[i3].KinesisStream[i4].ResourceArn),
 					Extract:      common.TerraformID(),
@@ -108,15 +95,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Inputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Inputs[i3].KinesisStream); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Inputs[i3].KinesisStream[i4].RoleArn),
 					Extract:      common.ARNExtractor(),
@@ -136,13 +118,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Outputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Outputs[i3].KinesisFirehose); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io",
-
-					"v1beta1", "DeliveryStream", "DeliveryStreamList")
+				m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io", "v1beta1", "DeliveryStream", "DeliveryStreamList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Outputs[i3].KinesisFirehose[i4].ResourceArn),
 					Extract:      resource.ExtractParamPath("arn", false),
@@ -162,15 +141,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Outputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Outputs[i3].KinesisFirehose); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Outputs[i3].KinesisFirehose[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -189,13 +163,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-				"v1beta1", "Stream", "StreamList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.CloudwatchLoggingOptions[i3].LogStreamArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -213,15 +184,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.CloudwatchLoggingOptions); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.CloudwatchLoggingOptions[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -240,14 +206,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Inputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Inputs[i3].KinesisStream); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-					"v1beta1", "Stream", "StreamList")
+				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Inputs[i3].KinesisStream[i4].ResourceArn),
 					Extract:      common.TerraformID(),
@@ -267,15 +229,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Inputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Inputs[i3].KinesisStream); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Inputs[i3].KinesisStream[i4].RoleArn),
 					Extract:      common.ARNExtractor(),
@@ -295,13 +252,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Outputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Outputs[i3].KinesisFirehose); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io",
-
-					"v1beta1", "DeliveryStream", "DeliveryStreamList")
+				m, l, err = apisresolver.GetManagedResource("firehose.aws.upbound.io", "v1beta1", "DeliveryStream", "DeliveryStreamList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Outputs[i3].KinesisFirehose[i4].ResourceArn),
 					Extract:      resource.ExtractParamPath("arn", false),
@@ -321,15 +275,10 @@ func (mg *Application) ResolveReferences( // ResolveReferences of this Applicati
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Outputs); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Outputs[i3].KinesisFirehose); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Outputs[i3].KinesisFirehose[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),

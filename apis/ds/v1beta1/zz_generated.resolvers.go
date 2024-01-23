@@ -21,18 +21,14 @@ func (mg *ConditionalForwarder) ResolveReferences( // ResolveReferences of this 
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io",
-
-			"v1beta1", "Directory", "DirectoryList")
+		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io", "v1beta1", "Directory", "DirectoryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -56,7 +52,6 @@ func (mg *ConditionalForwarder) ResolveReferences( // ResolveReferences of this 
 func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -65,13 +60,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ConnectSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.ConnectSettings[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -89,15 +81,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ConnectSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConnectSettings[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -115,13 +102,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.VPCSettings[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -139,15 +123,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCSettings[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -165,13 +144,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ConnectSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.ConnectSettings[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -189,15 +165,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ConnectSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConnectSettings[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -215,13 +186,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "Subnet", "SubnetList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 				CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.VPCSettings[i3].SubnetIds),
 				Extract:       reference.ExternalName(),
@@ -239,15 +207,10 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCSettings); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VPCSettings[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -271,18 +234,14 @@ func (mg *Directory) ResolveReferences(ctx context.Context, c client.Reader) err
 func (mg *SharedDirectory) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io",
-
-			"v1beta1", "Directory", "DirectoryList")
+		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io", "v1beta1", "Directory", "DirectoryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -299,12 +258,9 @@ func (mg *SharedDirectory) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.DirectoryID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DirectoryIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io",
-
-			"v1beta1", "Directory", "DirectoryList")
+		m, l, err = apisresolver.GetManagedResource("ds.aws.upbound.io", "v1beta1", "Directory", "DirectoryList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

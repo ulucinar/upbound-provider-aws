@@ -22,7 +22,6 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -31,15 +30,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Configuration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Configuration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Configuration[i3].S3Configuration[i4].BucketName),
 					Extract:      resource.ExtractResourceID(),
@@ -61,13 +55,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration[i5].BasicAuthentication); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-							"v1beta1", "Secret", "SecretList")
+						m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration[i5].BasicAuthentication[i6].Credentials),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -90,13 +81,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration[i4].ProxyConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-						"v1beta1", "Secret", "SecretList")
+					m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Configuration[i3].WebCrawlerConfiguration[i4].ProxyConfiguration[i5].Credentials),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -115,13 +103,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.IndexID),
 			Extract:      resource.ExtractResourceID(),
@@ -136,13 +121,9 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 	mg.Spec.ForProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -162,15 +143,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Configuration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Configuration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Configuration[i3].S3Configuration[i4].BucketName),
 					Extract:      resource.ExtractResourceID(),
@@ -192,13 +168,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration[i5].BasicAuthentication); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-							"v1beta1", "Secret", "SecretList")
+						m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration[i4].AuthenticationConfiguration[i5].BasicAuthentication[i6].Credentials),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -221,13 +194,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration[i4].ProxyConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io",
-
-						"v1beta1", "Secret", "SecretList")
+					m, l, err = apisresolver.GetManagedResource("secretsmanager.aws.upbound.io", "v1beta1", "Secret", "SecretList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Configuration[i3].WebCrawlerConfiguration[i4].ProxyConfiguration[i5].Credentials),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -246,13 +216,10 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.IndexID),
 			Extract:      resource.ExtractResourceID(),
@@ -267,13 +234,9 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 	mg.Spec.InitProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -297,15 +260,12 @@ func (mg *DataSource) ResolveReferences( // ResolveReferences of this DataSource
 func (mg *Experience) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -324,13 +284,9 @@ func (mg *Experience) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -347,9 +303,7 @@ func (mg *Experience) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -368,13 +322,9 @@ func (mg *Experience) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.InitProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -398,19 +348,14 @@ func (mg *Experience) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *Index) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -427,13 +372,9 @@ func (mg *Index) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.RoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.RoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -457,15 +398,12 @@ func (mg *Index) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -484,13 +422,9 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 	mg.Spec.ForProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -509,15 +443,10 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SourceS3Path[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -534,13 +463,10 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.IndexID),
 			Extract:      resource.ExtractResourceID(),
@@ -555,13 +481,9 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 	mg.Spec.InitProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -580,15 +502,10 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SourceS3Path[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -612,15 +529,12 @@ func (mg *QuerySuggestionsBlockList) ResolveReferences(ctx context.Context, c cl
 func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -639,13 +553,9 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 	mg.Spec.ForProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -664,15 +574,10 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SourceS3Path[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -690,15 +595,10 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Object", "ObjectList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Object", "ObjectList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SourceS3Path[i3].Key),
 				Extract:      resource.ExtractParamPath("key", false),
@@ -715,13 +615,10 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io",
-
-			"v1beta1", "Index", "IndexList")
+		m, l, err = apisresolver.GetManagedResource("kendra.aws.upbound.io", "v1beta1", "Index", "IndexList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.IndexID),
 			Extract:      resource.ExtractResourceID(),
@@ -736,13 +633,9 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 	mg.Spec.InitProvider.IndexID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.IndexIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -761,15 +654,10 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SourceS3Path[i3].Bucket),
 				Extract:      resource.ExtractResourceID(),
@@ -787,15 +675,10 @@ func (mg *Thesaurus) ResolveReferences(ctx context.Context, c client.Reader) err
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SourceS3Path); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Object", "ObjectList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Object", "ObjectList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SourceS3Path[i3].Key),
 				Extract:      resource.ExtractParamPath("key", false),

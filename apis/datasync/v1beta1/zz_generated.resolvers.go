@@ -22,19 +22,14 @@ func (mg *LocationS3) ResolveReferences( // ResolveReferences of this LocationS3
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -53,15 +48,10 @@ func (mg *LocationS3) ResolveReferences( // ResolveReferences of this LocationS3
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.S3Config); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.S3Config[i3].BucketAccessRoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -78,15 +68,10 @@ func (mg *LocationS3) ResolveReferences( // ResolveReferences of this LocationS3
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.S3BucketArn),
 			Extract:      resource.ExtractParamPath("arn", true),
@@ -103,15 +88,10 @@ func (mg *LocationS3) ResolveReferences( // ResolveReferences of this LocationS3
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.S3Config); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.S3Config[i3].BucketAccessRoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -135,18 +115,14 @@ func (mg *LocationS3) ResolveReferences( // ResolveReferences of this LocationS3
 func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-			"v1beta1", "Group", "GroupList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Group", "GroupList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -163,9 +139,7 @@ func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.CloudwatchLogGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.CloudwatchLogGroupArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io",
-
-			"v1beta1", "LocationS3", "LocationS3List")
+		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io", "v1beta1", "LocationS3", "LocationS3List")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -184,9 +158,7 @@ func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.DestinationLocationArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DestinationLocationArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io",
-
-			"v1beta1", "LocationS3", "LocationS3List")
+		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io", "v1beta1", "LocationS3", "LocationS3List")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -205,12 +177,9 @@ func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.SourceLocationArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SourceLocationArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io",
-
-			"v1beta1", "Group", "GroupList")
+		m, l, err = apisresolver.GetManagedResource("cloudwatchlogs.aws.upbound.io", "v1beta1", "Group", "GroupList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -227,9 +196,7 @@ func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.CloudwatchLogGroupArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.CloudwatchLogGroupArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io",
-
-			"v1beta1", "LocationS3", "LocationS3List")
+		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io", "v1beta1", "LocationS3", "LocationS3List")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -248,9 +215,7 @@ func (mg *Task) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.InitProvider.DestinationLocationArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.DestinationLocationArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io",
-
-			"v1beta1", "LocationS3", "LocationS3List")
+		m, l, err = apisresolver.GetManagedResource("datasync.aws.upbound.io", "v1beta1", "LocationS3", "LocationS3List")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

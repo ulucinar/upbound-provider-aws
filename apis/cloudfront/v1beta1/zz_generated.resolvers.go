@@ -22,7 +22,6 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -31,13 +30,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OrderedCacheBehavior); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OrderedCacheBehavior[i3].FunctionAssociation); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "Function", "FunctionList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OrderedCacheBehavior[i3].FunctionAssociation[i4].FunctionArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -57,14 +53,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OrderedCacheBehavior); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OrderedCacheBehavior[i3].LambdaFunctionAssociation); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-					"v1beta1", "Function", "FunctionList")
+				m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OrderedCacheBehavior[i3].LambdaFunctionAssociation[i4].LambdaArn),
 					Extract:      resource.ExtractParamPath("qualified_arn", true),
@@ -83,13 +75,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Origin); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-				"v1beta1", "OriginAccessControl", "OriginAccessControlList")
+			m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "OriginAccessControl", "OriginAccessControlList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Origin[i3].OriginAccessControlID),
 				Extract:      resource.ExtractResourceID(),
@@ -108,13 +97,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Origin); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Origin[i3].S3OriginConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "OriginAccessIdentity", "OriginAccessIdentityList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "OriginAccessIdentity", "OriginAccessIdentityList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Origin[i3].S3OriginConfig[i4].OriginAccessIdentity),
 					Extract:      resource.ExtractParamPath("cloudfront_access_identity_path", true),
@@ -134,13 +120,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OrderedCacheBehavior); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OrderedCacheBehavior[i3].FunctionAssociation); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "Function", "FunctionList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OrderedCacheBehavior[i3].FunctionAssociation[i4].FunctionArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -160,14 +143,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OrderedCacheBehavior); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OrderedCacheBehavior[i3].LambdaFunctionAssociation); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-					"v1beta1", "Function", "FunctionList")
+				m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OrderedCacheBehavior[i3].LambdaFunctionAssociation[i4].LambdaArn),
 					Extract:      resource.ExtractParamPath("qualified_arn", true),
@@ -186,13 +165,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Origin); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-				"v1beta1", "OriginAccessControl", "OriginAccessControlList")
+			m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "OriginAccessControl", "OriginAccessControlList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Origin[i3].OriginAccessControlID),
 				Extract:      resource.ExtractResourceID(),
@@ -211,13 +187,10 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Origin); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Origin[i3].S3OriginConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "OriginAccessIdentity", "OriginAccessIdentityList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "OriginAccessIdentity", "OriginAccessIdentityList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Origin[i3].S3OriginConfig[i4].OriginAccessIdentity),
 					Extract:      resource.ExtractParamPath("cloudfront_access_identity_path", true),
@@ -242,7 +215,6 @@ func (mg *Distribution) ResolveReferences( // ResolveReferences of this Distribu
 func (mg *FieldLevelEncryptionConfig) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -252,14 +224,10 @@ func (mg *FieldLevelEncryptionConfig) ResolveReferences(ctx context.Context, c c
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.QueryArgProfileConfig[i3].QueryArgProfiles); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.QueryArgProfileConfig[i3].QueryArgProfiles[i4].Items); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-						"v1beta1", "FieldLevelEncryptionProfile", "FieldLevelEncryptionProfileList",
-					)
+					m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "FieldLevelEncryptionProfile", "FieldLevelEncryptionProfileList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.QueryArgProfileConfig[i3].QueryArgProfiles[i4].Items[i5].ProfileID),
 						Extract:      resource.ExtractResourceID(),
@@ -281,14 +249,10 @@ func (mg *FieldLevelEncryptionConfig) ResolveReferences(ctx context.Context, c c
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.QueryArgProfileConfig[i3].QueryArgProfiles); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.QueryArgProfileConfig[i3].QueryArgProfiles[i4].Items); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-						"v1beta1", "FieldLevelEncryptionProfile", "FieldLevelEncryptionProfileList",
-					)
+					m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "FieldLevelEncryptionProfile", "FieldLevelEncryptionProfileList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.QueryArgProfileConfig[i3].QueryArgProfiles[i4].Items[i5].ProfileID),
 						Extract:      resource.ExtractResourceID(),
@@ -314,7 +278,6 @@ func (mg *FieldLevelEncryptionConfig) ResolveReferences(ctx context.Context, c c
 func (mg *FieldLevelEncryptionProfile) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -323,13 +286,10 @@ func (mg *FieldLevelEncryptionProfile) ResolveReferences(ctx context.Context, c 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EncryptionEntities); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.EncryptionEntities[i3].Items); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "PublicKey", "PublicKeyList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "PublicKey", "PublicKeyList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionEntities[i3].Items[i4].PublicKeyID),
 					Extract:      resource.ExtractResourceID(),
@@ -349,13 +309,10 @@ func (mg *FieldLevelEncryptionProfile) ResolveReferences(ctx context.Context, c 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EncryptionEntities); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.EncryptionEntities[i3].Items); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-					"v1beta1", "PublicKey", "PublicKeyList")
+				m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "PublicKey", "PublicKeyList")
 				if err != nil {
 					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EncryptionEntities[i3].Items[i4].PublicKeyID),
 					Extract:      resource.ExtractResourceID(),
@@ -380,15 +337,12 @@ func (mg *FieldLevelEncryptionProfile) ResolveReferences(ctx context.Context, c 
 func (mg *KeyGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-			"v1beta1", "PublicKey", "PublicKeyList")
+		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "PublicKey", "PublicKeyList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -407,9 +361,7 @@ func (mg *KeyGroup) ResolveReferences(ctx context.Context, c client.Reader) erro
 	mg.Spec.ForProvider.Items = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.ItemRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-			"v1beta1", "PublicKey", "PublicKeyList")
+		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "PublicKey", "PublicKeyList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -435,15 +387,12 @@ func (mg *KeyGroup) ResolveReferences(ctx context.Context, c client.Reader) erro
 func (mg *MonitoringSubscription) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-			"v1beta1", "Distribution", "DistributionList")
+		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "Distribution", "DistributionList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -462,9 +411,7 @@ func (mg *MonitoringSubscription) ResolveReferences(ctx context.Context, c clien
 	mg.Spec.ForProvider.DistributionID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DistributionIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io",
-
-			"v1beta1", "Distribution", "DistributionList")
+		m, l, err = apisresolver.GetManagedResource("cloudfront.aws.upbound.io", "v1beta1", "Distribution", "DistributionList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -490,7 +437,6 @@ func (mg *MonitoringSubscription) ResolveReferences(ctx context.Context, c clien
 func (mg *RealtimeLogConfig) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -499,15 +445,10 @@ func (mg *RealtimeLogConfig) ResolveReferences(ctx context.Context, c client.Rea
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Endpoint); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Endpoint[i3].KinesisStreamConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Endpoint[i3].KinesisStreamConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -527,14 +468,10 @@ func (mg *RealtimeLogConfig) ResolveReferences(ctx context.Context, c client.Rea
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Endpoint); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Endpoint[i3].KinesisStreamConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-					"v1beta1", "Stream", "StreamList")
+				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Endpoint[i3].KinesisStreamConfig[i4].StreamArn),
 					Extract:      common.TerraformID(),
@@ -554,15 +491,10 @@ func (mg *RealtimeLogConfig) ResolveReferences(ctx context.Context, c client.Rea
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Endpoint); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Endpoint[i3].KinesisStreamConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Endpoint[i3].KinesisStreamConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -582,14 +514,10 @@ func (mg *RealtimeLogConfig) ResolveReferences(ctx context.Context, c client.Rea
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Endpoint); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Endpoint[i3].KinesisStreamConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io",
-
-					"v1beta1", "Stream", "StreamList")
+				m, l, err = apisresolver.GetManagedResource("kinesis.aws.upbound.io", "v1beta1", "Stream", "StreamList")
 				if err != nil {
-					return errors.
-						Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Endpoint[i3].KinesisStreamConfig[i4].StreamArn),
 					Extract:      common.TerraformID(),

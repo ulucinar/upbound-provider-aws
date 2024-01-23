@@ -22,18 +22,14 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -50,12 +46,9 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 	mg.Spec.ForProvider.FileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.FileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -79,18 +72,14 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 func (mg *BackupPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -107,12 +96,9 @@ func (mg *BackupPolicy) ResolveReferences(ctx context.Context, c client.Reader) 
 	mg.Spec.ForProvider.FileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.FileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -136,19 +122,14 @@ func (mg *BackupPolicy) ResolveReferences(ctx context.Context, c client.Reader) 
 func (mg *FileSystem) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -165,13 +146,9 @@ func (mg *FileSystem) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -195,18 +172,14 @@ func (mg *FileSystem) ResolveReferences(ctx context.Context, c client.Reader) er
 func (mg *FileSystemPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -223,12 +196,9 @@ func (mg *FileSystemPolicy) ResolveReferences(ctx context.Context, c client.Read
 	mg.Spec.ForProvider.FileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.FileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -252,19 +222,15 @@ func (mg *FileSystemPolicy) ResolveReferences(ctx context.Context, c client.Read
 func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -281,9 +247,7 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.FileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.FileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -302,9 +266,7 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.SecurityGroupsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -323,12 +285,9 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.SubnetID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SubnetIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -345,9 +304,7 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.InitProvider.FileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.FileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -366,9 +323,7 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.InitProvider.SecurityGroups = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.SecurityGroupsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -394,18 +349,14 @@ func (mg *MountTarget) ResolveReferences(ctx context.Context, c client.Reader) e
 func (mg *ReplicationConfiguration) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -422,12 +373,9 @@ func (mg *ReplicationConfiguration) ResolveReferences(ctx context.Context, c cli
 	mg.Spec.ForProvider.SourceFileSystemID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SourceFileSystemIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io",
-
-			"v1beta1", "FileSystem", "FileSystemList")
+		m, l, err = apisresolver.GetManagedResource("efs.aws.upbound.io", "v1beta1", "FileSystem", "FileSystemList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

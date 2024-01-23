@@ -20,18 +20,14 @@ func (mg *InvitationAccepter) ResolveReferences( // ResolveReferences of this In
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io",
-
-			"v1beta1", "Graph", "GraphList")
+		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io", "v1beta1", "Graph", "GraphList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -48,12 +44,9 @@ func (mg *InvitationAccepter) ResolveReferences( // ResolveReferences of this In
 	mg.Spec.ForProvider.GraphArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.GraphArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io",
-
-			"v1beta1", "Graph", "GraphList")
+		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io", "v1beta1", "Graph", "GraphList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -77,18 +70,14 @@ func (mg *InvitationAccepter) ResolveReferences( // ResolveReferences of this In
 func (mg *Member) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io",
-
-			"v1beta1", "Graph", "GraphList")
+		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io", "v1beta1", "Graph", "GraphList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -105,12 +94,9 @@ func (mg *Member) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.GraphArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.GraphArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io",
-
-			"v1beta1", "Graph", "GraphList")
+		m, l, err = apisresolver.GetManagedResource("detective.aws.upbound.io", "v1beta1", "Graph", "GraphList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

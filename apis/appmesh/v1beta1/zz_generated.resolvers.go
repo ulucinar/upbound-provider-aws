@@ -21,7 +21,6 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -33,13 +32,10 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target); i6++ {
 					for i7 := 0; i7 < len(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target[i6].VirtualService); i7++ {
 						{
-							m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-								"v1beta1", "VirtualService", "VirtualServiceList")
+							m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualService", "VirtualServiceList")
 							if err != nil {
 								return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 							}
-
 							rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 								CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target[i6].VirtualService[i7].VirtualServiceName),
 								Extract:      resource.ExtractParamPath("name", false),
@@ -60,13 +56,10 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "VirtualGateway", "VirtualGatewayList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualGateway", "VirtualGatewayList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VirtualGatewayName),
 			Extract:      resource.ExtractParamPath("name", false),
@@ -87,13 +80,10 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target); i6++ {
 					for i7 := 0; i7 < len(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target[i6].VirtualService); i7++ {
 						{
-							m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-								"v1beta1", "VirtualService", "VirtualServiceList")
+							m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualService", "VirtualServiceList")
 							if err != nil {
 								return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 							}
-
 							rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 								CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action[i5].Target[i6].VirtualService[i7].VirtualServiceName),
 								Extract:      resource.ExtractParamPath("name", false),
@@ -114,13 +104,10 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "VirtualGateway", "VirtualGatewayList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualGateway", "VirtualGatewayList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VirtualGatewayName),
 			Extract:      resource.ExtractParamPath("name", false),
@@ -142,15 +129,12 @@ func (mg *GatewayRoute) ResolveReferences( // ResolveReferences of this GatewayR
 func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -174,13 +158,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action[i5].WeightedTarget); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-							"v1beta1", "VirtualNode", "VirtualNodeList")
+						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].HTTPRoute[i4].Action[i5].WeightedTarget[i6].VirtualNode),
 							Extract:      resource.ExtractParamPath("name", false),
@@ -204,13 +185,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Spec[i3].TCPRoute[i4].Action); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Spec[i3].TCPRoute[i4].Action[i5].WeightedTarget); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-							"v1beta1", "VirtualNode", "VirtualNodeList")
+						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].TCPRoute[i4].Action[i5].WeightedTarget[i6].VirtualNode),
 							Extract:      resource.ExtractParamPath("name", false),
@@ -230,13 +208,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "VirtualRouter", "VirtualRouterList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualRouter", "VirtualRouterList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VirtualRouterName),
 			Extract:      resource.ExtractParamPath("name", false),
@@ -251,9 +226,7 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.VirtualRouterName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.VirtualRouterNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -277,13 +250,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action[i5].WeightedTarget); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-							"v1beta1", "VirtualNode", "VirtualNodeList")
+						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].HTTPRoute[i4].Action[i5].WeightedTarget[i6].VirtualNode),
 							Extract:      resource.ExtractParamPath("name", false),
@@ -307,13 +277,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Spec[i3].TCPRoute[i4].Action); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Spec[i3].TCPRoute[i4].Action[i5].WeightedTarget); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-							"v1beta1", "VirtualNode", "VirtualNodeList")
+						m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 						if err != nil {
 							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].TCPRoute[i4].Action[i5].WeightedTarget[i6].VirtualNode),
 							Extract:      resource.ExtractParamPath("name", false),
@@ -333,13 +300,10 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "VirtualRouter", "VirtualRouterList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualRouter", "VirtualRouterList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VirtualRouterName),
 			Extract:      resource.ExtractParamPath("name", false),
@@ -361,7 +325,6 @@ func (mg *Route) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *VirtualGateway) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -373,14 +336,10 @@ func (mg *VirtualGateway) ResolveReferences(ctx context.Context, c client.Reader
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Spec[i3].Listener[i4].TLS[i5].Certificate); i6++ {
 					for i7 := 0; i7 < len(mg.Spec.ForProvider.Spec[i3].Listener[i4].TLS[i5].Certificate[i6].Acm); i7++ {
 						{
-							m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io",
-
-								"v1beta1", "Certificate", "CertificateList")
+							m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io", "v1beta1", "Certificate", "CertificateList")
 							if err != nil {
-								return errors.
-									Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+								return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 							}
-
 							rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 								CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].Listener[i4].TLS[i5].Certificate[i6].Acm[i7].CertificateArn),
 								Extract:      resource.ExtractParamPath("arn", true),
@@ -406,14 +365,10 @@ func (mg *VirtualGateway) ResolveReferences(ctx context.Context, c client.Reader
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Spec[i3].Listener[i4].TLS[i5].Certificate); i6++ {
 					for i7 := 0; i7 < len(mg.Spec.InitProvider.Spec[i3].Listener[i4].TLS[i5].Certificate[i6].Acm); i7++ {
 						{
-							m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io",
-
-								"v1beta1", "Certificate", "CertificateList")
+							m, l, err = apisresolver.GetManagedResource("acm.aws.upbound.io", "v1beta1", "Certificate", "CertificateList")
 							if err != nil {
-								return errors.
-									Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+								return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 							}
-
 							rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 								CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].Listener[i4].TLS[i5].Certificate[i6].Acm[i7].CertificateArn),
 								Extract:      resource.ExtractParamPath("arn", true),
@@ -441,15 +396,12 @@ func (mg *VirtualGateway) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *VirtualNode) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -472,14 +424,10 @@ func (mg *VirtualNode) ResolveReferences(ctx context.Context, c client.Reader) e
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Spec[i3].ServiceDiscovery); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Spec[i3].ServiceDiscovery[i4].AwsCloudMap); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("servicediscovery.aws.upbound.io",
-
-						"v1beta1", "HTTPNamespace", "HTTPNamespaceList")
-					if err !=
-						nil {
+					m, l, err = apisresolver.GetManagedResource("servicediscovery.aws.upbound.io", "v1beta1", "HTTPNamespace", "HTTPNamespaceList")
+					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].ServiceDiscovery[i4].AwsCloudMap[i5].NamespaceName),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -498,13 +446,10 @@ func (mg *VirtualNode) ResolveReferences(ctx context.Context, c client.Reader) e
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.MeshName),
 			Extract:      resource.ExtractResourceID(),
@@ -523,14 +468,10 @@ func (mg *VirtualNode) ResolveReferences(ctx context.Context, c client.Reader) e
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Spec[i3].ServiceDiscovery); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Spec[i3].ServiceDiscovery[i4].AwsCloudMap); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("servicediscovery.aws.upbound.io",
-
-						"v1beta1", "HTTPNamespace", "HTTPNamespaceList")
-					if err !=
-						nil {
+					m, l, err = apisresolver.GetManagedResource("servicediscovery.aws.upbound.io", "v1beta1", "HTTPNamespace", "HTTPNamespaceList")
+					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].ServiceDiscovery[i4].AwsCloudMap[i5].NamespaceName),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -556,15 +497,12 @@ func (mg *VirtualNode) ResolveReferences(ctx context.Context, c client.Reader) e
 func (mg *VirtualRouter) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -583,9 +521,7 @@ func (mg *VirtualRouter) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.MeshName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.MeshNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -611,15 +547,12 @@ func (mg *VirtualRouter) ResolveReferences(ctx context.Context, c client.Reader)
 func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -642,13 +575,10 @@ func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Spec[i3].Provider); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Spec[i3].Provider[i4].VirtualNode); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-						"v1beta1", "VirtualNode", "VirtualNodeList")
+					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].Provider[i4].VirtualNode[i5].VirtualNodeName),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -670,13 +600,10 @@ func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Spec[i3].Provider); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Spec[i3].Provider[i4].VirtualRouter); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-						"v1beta1", "VirtualRouter", "VirtualRouterList")
+					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualRouter", "VirtualRouterList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Spec[i3].Provider[i4].VirtualRouter[i5].VirtualRouterName),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -695,13 +622,10 @@ func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-			"v1beta1", "Mesh", "MeshList")
+		m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "Mesh", "MeshList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.MeshName),
 			Extract:      resource.ExtractResourceID(),
@@ -720,13 +644,10 @@ func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Spec[i3].Provider); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Spec[i3].Provider[i4].VirtualNode); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-						"v1beta1", "VirtualNode", "VirtualNodeList")
+					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualNode", "VirtualNodeList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].Provider[i4].VirtualNode[i5].VirtualNodeName),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -748,13 +669,10 @@ func (mg *VirtualService) ResolveReferences(ctx context.Context, c client.Reader
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.Spec[i3].Provider); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Spec[i3].Provider[i4].VirtualRouter); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io",
-
-						"v1beta1", "VirtualRouter", "VirtualRouterList")
+					m, l, err = apisresolver.GetManagedResource("appmesh.aws.upbound.io", "v1beta1", "VirtualRouter", "VirtualRouterList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Spec[i3].Provider[i4].VirtualRouter[i5].VirtualRouterName),
 						Extract:      resource.ExtractParamPath("name", false),

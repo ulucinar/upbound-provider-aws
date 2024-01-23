@@ -23,19 +23,14 @@ import (
 func (mg *App) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -52,13 +47,9 @@ func (mg *App) ResolveReferences(ctx context.Context, c client.Reader) error {
 	mg.Spec.ForProvider.IAMServiceRoleArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.IAMServiceRoleArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -82,19 +73,14 @@ func (mg *App) ResolveReferences(ctx context.Context, c client.Reader) error {
 func (mg *BackendEnvironment) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -118,19 +104,14 @@ func (mg *BackendEnvironment) ResolveReferences(ctx context.Context, c client.Re
 func (mg *Branch) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -154,19 +135,14 @@ func (mg *Branch) ResolveReferences(ctx context.Context, c client.Reader) error 
 func (mg *Webhook) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -183,12 +159,9 @@ func (mg *Webhook) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.AppID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.AppIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "Branch", "BranchList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "Branch", "BranchList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -205,13 +178,9 @@ func (mg *Webhook) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.BranchName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.BranchNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -228,12 +197,9 @@ func (mg *Webhook) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.AppID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.AppIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io",
-
-			"v1beta1", "Branch", "BranchList")
+		m, l, err = apisresolver.GetManagedResource("amplify.aws.upbound.io", "v1beta1", "Branch", "BranchList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

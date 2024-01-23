@@ -22,19 +22,14 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("deploy.aws.upbound.io",
-
-			"v1beta1", "App", "AppList")
+		m, l, err = apisresolver.GetManagedResource("deploy.aws.upbound.io", "v1beta1", "App", "AppList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -53,13 +48,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EcsService); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "Cluster", "ClusterList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EcsService[i3].ClusterName),
 				Extract:      reference.ExternalName(),
@@ -77,13 +69,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.EcsService); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "Service", "ServiceList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Service", "ServiceList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EcsService[i3].ServiceName),
 				Extract:      reference.ExternalName(),
@@ -102,15 +91,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.LoadBalancerInfo); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.LoadBalancerInfo[i3].ELBInfo); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("elb.aws.upbound.io",
-
-					"v1beta1", "ELB", "ELBList")
+				m, l, err = apisresolver.GetManagedResource("elb.aws.upbound.io", "v1beta1", "ELB", "ELBList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.LoadBalancerInfo[i3].ELBInfo[i4].Name),
 					Extract:      reference.ExternalName(),
@@ -131,13 +115,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.LoadBalancerInfo[i3].TargetGroupPairInfo); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.LoadBalancerInfo[i3].TargetGroupPairInfo[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.LoadBalancerInfo[i3].TargetGroupPairInfo[i4].TargetGroup[i5].Name),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -156,15 +137,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ServiceRoleArn),
 			Extract:      common.ARNExtractor(),
@@ -181,15 +157,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.TriggerConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io",
-
-				"v1beta1", "Topic", "TopicList")
+			m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io", "v1beta1", "Topic", "TopicList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TriggerConfiguration[i3].TriggerTargetArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -207,13 +178,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EcsService); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "Cluster", "ClusterList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EcsService[i3].ClusterName),
 				Extract:      reference.ExternalName(),
@@ -231,13 +199,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.EcsService); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io",
-
-				"v1beta1", "Service", "ServiceList")
+			m, l, err = apisresolver.GetManagedResource("ecs.aws.upbound.io", "v1beta1", "Service", "ServiceList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EcsService[i3].ServiceName),
 				Extract:      reference.ExternalName(),
@@ -256,15 +221,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.LoadBalancerInfo); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.LoadBalancerInfo[i3].ELBInfo); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("elb.aws.upbound.io",
-
-					"v1beta1", "ELB", "ELBList")
+				m, l, err = apisresolver.GetManagedResource("elb.aws.upbound.io", "v1beta1", "ELB", "ELBList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.LoadBalancerInfo[i3].ELBInfo[i4].Name),
 					Extract:      reference.ExternalName(),
@@ -285,13 +245,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.LoadBalancerInfo[i3].TargetGroupPairInfo); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.LoadBalancerInfo[i3].TargetGroupPairInfo[i4].TargetGroup); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io",
-
-						"v1beta1", "LBTargetGroup", "LBTargetGroupList")
+					m, l, err = apisresolver.GetManagedResource("elbv2.aws.upbound.io", "v1beta1", "LBTargetGroup", "LBTargetGroupList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.LoadBalancerInfo[i3].TargetGroupPairInfo[i4].TargetGroup[i5].Name),
 						Extract:      resource.ExtractParamPath("name", false),
@@ -310,15 +267,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 		}
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ServiceRoleArn),
 			Extract:      common.ARNExtractor(),
@@ -335,15 +287,10 @@ func (mg *DeploymentGroup) ResolveReferences( // ResolveReferences of this Deplo
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.TriggerConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io",
-
-				"v1beta1", "Topic", "TopicList")
+			m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io", "v1beta1", "Topic", "TopicList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.TriggerConfiguration[i3].TriggerTargetArn),
 				Extract:      resource.ExtractParamPath("arn", true),

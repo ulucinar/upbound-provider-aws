@@ -20,17 +20,13 @@ func (mg *ControlPanel) ResolveReferences( // ResolveReferences of this ControlP
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -48,11 +44,8 @@ func (mg *ControlPanel) ResolveReferences( // ResolveReferences of this ControlP
 	mg.Spec.ForProvider.ClusterArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ClusterArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -77,17 +70,13 @@ func (mg *ControlPanel) ResolveReferences( // ResolveReferences of this ControlP
 func (mg *RoutingControl) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -105,9 +94,7 @@ func (mg *RoutingControl) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.ClusterArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ClusterArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "ControlPanel", "ControlPanelList")
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "ControlPanel", "ControlPanelList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -126,11 +113,8 @@ func (mg *RoutingControl) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.ForProvider.ControlPanelArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ControlPanelArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -148,9 +132,7 @@ func (mg *RoutingControl) ResolveReferences(ctx context.Context, c client.Reader
 	mg.Spec.InitProvider.ClusterArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ClusterArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "ControlPanel", "ControlPanelList")
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "ControlPanel", "ControlPanelList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -176,17 +158,13 @@ func (mg *RoutingControl) ResolveReferences(ctx context.Context, c client.Reader
 func (mg *SafetyRule) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "RoutingControl", "RoutingControlList",
-		)
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "RoutingControl", "RoutingControlList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -205,9 +183,7 @@ func (mg *SafetyRule) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.AssertedControls = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.AssertedControlsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "ControlPanel", "ControlPanelList")
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "ControlPanel", "ControlPanelList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -226,10 +202,7 @@ func (mg *SafetyRule) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.ForProvider.ControlPanelArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ControlPanelArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "RoutingControl", "RoutingControlList",
-		)
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "RoutingControl", "RoutingControlList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -248,9 +221,7 @@ func (mg *SafetyRule) ResolveReferences(ctx context.Context, c client.Reader) er
 	mg.Spec.InitProvider.AssertedControls = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.AssertedControlsRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io",
-
-			"v1beta1", "ControlPanel", "ControlPanelList")
+		m, l, err = apisresolver.GetManagedResource("route53recoverycontrolconfig.aws.upbound.io", "v1beta1", "ControlPanel", "ControlPanelList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

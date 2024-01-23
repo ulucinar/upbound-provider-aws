@@ -21,19 +21,14 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -52,15 +47,10 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.VPCConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCConfiguration[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -77,15 +67,10 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 
 	}
 	{
-		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-			"v1beta1", "Bucket", "BucketList")
+		m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 		if err != nil {
-			return errors.Wrap(
-				err, "failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
-
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 			CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Bucket),
 			Extract:      resource.ExtractResourceID(),
@@ -102,15 +87,10 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.VPCConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-				"v1beta1", "VPC", "VPCList")
+			m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "VPC", "VPCList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VPCConfiguration[i3].VPCID),
 				Extract:      resource.ExtractResourceID(),
@@ -134,15 +114,12 @@ func (mg *AccessPoint) ResolveReferences( // ResolveReferences of this AccessPoi
 func (mg *AccessPointPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-			"v1beta1", "AccessPoint", "AccessPointList")
+		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "AccessPoint", "AccessPointList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -161,9 +138,7 @@ func (mg *AccessPointPolicy) ResolveReferences(ctx context.Context, c client.Rea
 	mg.Spec.ForProvider.AccessPointArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.AccessPointArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-			"v1beta1", "AccessPoint", "AccessPointList")
+		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "AccessPoint", "AccessPointList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -189,7 +164,6 @@ func (mg *AccessPointPolicy) ResolveReferences(ctx context.Context, c client.Rea
 func (mg *MultiRegionAccessPoint) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -198,15 +172,10 @@ func (mg *MultiRegionAccessPoint) ResolveReferences(ctx context.Context, c clien
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Details); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.Details[i3].Region); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Details[i3].Region[i4].Bucket),
 					Extract:      resource.ExtractResourceID(),
@@ -231,7 +200,6 @@ func (mg *MultiRegionAccessPoint) ResolveReferences(ctx context.Context, c clien
 func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -239,13 +207,10 @@ func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c clie
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-				"v1beta1", "AccessPoint", "AccessPointList")
+			m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "AccessPoint", "AccessPointList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Configuration[i3].SupportingAccessPoint),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -266,14 +231,10 @@ func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c clie
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.ForProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation[i5].AwsLambda); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-							"v1beta1", "Function", "FunctionList")
+						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation[i5].AwsLambda[i6].FunctionArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -294,13 +255,10 @@ func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c clie
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-				"v1beta1", "AccessPoint", "AccessPointList")
+			m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "AccessPoint", "AccessPointList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Configuration[i3].SupportingAccessPoint),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -321,14 +279,10 @@ func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c clie
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation); i5++ {
 				for i6 := 0; i6 < len(mg.Spec.InitProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation[i5].AwsLambda); i6++ {
 					{
-						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io",
-
-							"v1beta1", "Function", "FunctionList")
+						m, l, err = apisresolver.GetManagedResource("lambda.aws.upbound.io", "v1beta1", "Function", "FunctionList")
 						if err != nil {
-							return errors.
-								Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+							return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 						}
-
 						rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 							CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Configuration[i3].TransformationConfiguration[i4].ContentTransformation[i5].AwsLambda[i6].FunctionArn),
 							Extract:      resource.ExtractParamPath("arn", true),
@@ -355,16 +309,12 @@ func (mg *ObjectLambdaAccessPoint) ResolveReferences(ctx context.Context, c clie
 func (mg *ObjectLambdaAccessPointPolicy) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-			"v1beta1", "ObjectLambdaAccessPoint", "ObjectLambdaAccessPointList",
-		)
+		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "ObjectLambdaAccessPoint", "ObjectLambdaAccessPointList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -383,10 +333,7 @@ func (mg *ObjectLambdaAccessPointPolicy) ResolveReferences(ctx context.Context, 
 	mg.Spec.ForProvider.Name = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io",
-
-			"v1beta1", "ObjectLambdaAccessPoint", "ObjectLambdaAccessPointList",
-		)
+		m, l, err = apisresolver.GetManagedResource("s3control.aws.upbound.io", "v1beta1", "ObjectLambdaAccessPoint", "ObjectLambdaAccessPointList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -412,7 +359,6 @@ func (mg *ObjectLambdaAccessPointPolicy) ResolveReferences(ctx context.Context, 
 func (mg *StorageLensConfiguration) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -422,15 +368,10 @@ func (mg *StorageLensConfiguration) ResolveReferences(ctx context.Context, c cli
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.StorageLensConfiguration[i3].DataExport); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.StorageLensConfiguration[i3].DataExport[i4].S3BucketDestination); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "Bucket", "BucketList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 					if err != nil {
-						return errors.Wrap(
-							err, "failed to get the reference target managed resource and its list for reference resolution",
-						)
+						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.StorageLensConfiguration[i3].DataExport[i4].S3BucketDestination[i5].Arn),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -452,15 +393,10 @@ func (mg *StorageLensConfiguration) ResolveReferences(ctx context.Context, c cli
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.StorageLensConfiguration[i3].DataExport); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.StorageLensConfiguration[i3].DataExport[i4].S3BucketDestination); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-						"v1beta1", "Bucket", "BucketList")
+					m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 					if err != nil {
-						return errors.Wrap(
-							err, "failed to get the reference target managed resource and its list for reference resolution",
-						)
+						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.StorageLensConfiguration[i3].DataExport[i4].S3BucketDestination[i5].Arn),
 						Extract:      resource.ExtractParamPath("arn", true),

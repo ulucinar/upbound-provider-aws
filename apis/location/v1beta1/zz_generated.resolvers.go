@@ -21,19 +21,14 @@ func (mg *GeofenceCollection) ResolveReferences( // ResolveReferences of this Ge
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -50,13 +45,9 @@ func (mg *GeofenceCollection) ResolveReferences( // ResolveReferences of this Ge
 	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -80,19 +71,14 @@ func (mg *GeofenceCollection) ResolveReferences( // ResolveReferences of this Ge
 func (mg *Tracker) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -109,13 +95,9 @@ func (mg *Tracker) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.KMSKeyID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -139,17 +121,13 @@ func (mg *Tracker) ResolveReferences(ctx context.Context, c client.Reader) error
 func (mg *TrackerAssociation) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io",
-
-			"v1beta1", "GeofenceCollection", "GeofenceCollectionList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io", "v1beta1", "GeofenceCollection", "GeofenceCollectionList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -167,12 +145,9 @@ func (mg *TrackerAssociation) ResolveReferences(ctx context.Context, c client.Re
 	mg.Spec.ForProvider.ConsumerArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ConsumerArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io",
-
-			"v1beta1", "Tracker", "TrackerList")
+		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io", "v1beta1", "Tracker", "TrackerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -189,11 +164,8 @@ func (mg *TrackerAssociation) ResolveReferences(ctx context.Context, c client.Re
 	mg.Spec.ForProvider.TrackerName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.TrackerNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io",
-
-			"v1beta1", "GeofenceCollection", "GeofenceCollectionList")
-		if err !=
-			nil {
+		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io", "v1beta1", "GeofenceCollection", "GeofenceCollectionList")
+		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
@@ -211,12 +183,9 @@ func (mg *TrackerAssociation) ResolveReferences(ctx context.Context, c client.Re
 	mg.Spec.InitProvider.ConsumerArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ConsumerArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io",
-
-			"v1beta1", "Tracker", "TrackerList")
+		m, l, err = apisresolver.GetManagedResource("location.aws.upbound.io", "v1beta1", "Tracker", "TrackerList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

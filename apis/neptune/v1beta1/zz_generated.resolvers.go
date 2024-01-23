@@ -22,20 +22,15 @@ import (
 func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
@@ -52,13 +47,9 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.IAMRoles = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.IAMRoleRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -75,9 +66,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.KMSKeyArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.KMSKeyArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ClusterParameterGroup", "ClusterParameterGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ClusterParameterGroup", "ClusterParameterGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -96,9 +85,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.NeptuneClusterParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NeptuneClusterParameterGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "SubnetGroup", "SubnetGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "SubnetGroup", "SubnetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -117,12 +104,9 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.NeptuneSubnetGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NeptuneSubnetGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -139,9 +123,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.ReplicationSourceIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ReplicationSourceIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ClusterSnapshot", "ClusterSnapshotList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ClusterSnapshot", "ClusterSnapshotList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -160,9 +142,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.SnapshotIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SnapshotIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -181,13 +161,9 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.ForProvider.VPCSecurityGroupIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.VPCSecurityGroupIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-			"v1beta1", "Role", "RoleList")
+		m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
@@ -204,13 +180,9 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.IAMRoles = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.IAMRoleRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io",
-
-			"v1beta1", "Key", "KeyList")
+		m, l, err = apisresolver.GetManagedResource("kms.aws.upbound.io", "v1beta1", "Key", "KeyList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -227,9 +199,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.KMSKeyArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.KMSKeyArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ClusterParameterGroup", "ClusterParameterGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ClusterParameterGroup", "ClusterParameterGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -248,9 +218,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.NeptuneClusterParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.NeptuneClusterParameterGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "SubnetGroup", "SubnetGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "SubnetGroup", "SubnetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -269,12 +237,9 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.NeptuneSubnetGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.NeptuneSubnetGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -291,9 +256,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.ReplicationSourceIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ReplicationSourceIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ClusterSnapshot", "ClusterSnapshotList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ClusterSnapshot", "ClusterSnapshotList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -312,9 +275,7 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 	mg.Spec.InitProvider.SnapshotIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.SnapshotIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "SecurityGroup", "SecurityGroupList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "SecurityGroup", "SecurityGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -340,18 +301,14 @@ func (mg *Cluster) ResolveReferences(ctx context.Context, c client.Reader) error
 func (mg *ClusterEndpoint) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -368,12 +325,9 @@ func (mg *ClusterEndpoint) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ClusterIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -397,18 +351,14 @@ func (mg *ClusterEndpoint) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -425,9 +375,7 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.ClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.ClusterIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ParameterGroup", "ParameterGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ParameterGroup", "ParameterGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -446,9 +394,7 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.NeptuneParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NeptuneParameterGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "SubnetGroup", "SubnetGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "SubnetGroup", "SubnetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -467,12 +413,9 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.NeptuneSubnetGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.NeptuneSubnetGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -489,9 +432,7 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.ClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.ClusterIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "ParameterGroup", "ParameterGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "ParameterGroup", "ParameterGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -510,9 +451,7 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.InitProvider.NeptuneParameterGroupName = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.NeptuneParameterGroupNameRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "SubnetGroup", "SubnetGroupList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "SubnetGroup", "SubnetGroupList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -538,18 +477,14 @@ func (mg *ClusterInstance) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *ClusterSnapshot) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -566,12 +501,9 @@ func (mg *ClusterSnapshot) ResolveReferences(ctx context.Context, c client.Reade
 	mg.Spec.ForProvider.DBClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.DBClusterIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -595,19 +527,14 @@ func (mg *ClusterSnapshot) ResolveReferences(ctx context.Context, c client.Reade
 func (mg *EventSubscription) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io",
-
-			"v1beta1", "Topic", "TopicList")
+		m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io", "v1beta1", "Topic", "TopicList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -624,13 +551,9 @@ func (mg *EventSubscription) ResolveReferences(ctx context.Context, c client.Rea
 	mg.Spec.ForProvider.SnsTopicArn = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SnsTopicArnRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io",
-
-			"v1beta1", "Topic", "TopicList")
+		m, l, err = apisresolver.GetManagedResource("sns.aws.upbound.io", "v1beta1", "Topic", "TopicList")
 		if err != nil {
-			return errors.Wrap(err,
-				"failed to get the reference target managed resource and its list for reference resolution",
-			)
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -654,18 +577,14 @@ func (mg *EventSubscription) ResolveReferences(ctx context.Context, c client.Rea
 func (mg *GlobalCluster) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -682,12 +601,9 @@ func (mg *GlobalCluster) ResolveReferences(ctx context.Context, c client.Reader)
 	mg.Spec.ForProvider.SourceDBClusterIdentifier = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.SourceDBClusterIdentifierRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io",
-
-			"v1beta1", "Cluster", "ClusterList")
+		m, l, err = apisresolver.GetManagedResource("neptune.aws.upbound.io", "v1beta1", "Cluster", "ClusterList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -711,15 +627,12 @@ func (mg *GlobalCluster) ResolveReferences(ctx context.Context, c client.Reader)
 func (mg *SubnetGroup) ResolveReferences(ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var mrsp reference.MultiResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
@@ -738,9 +651,7 @@ func (mg *SubnetGroup) ResolveReferences(ctx context.Context, c client.Reader) e
 	mg.Spec.ForProvider.SubnetIds = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.ForProvider.SubnetIDRefs = mrsp.ResolvedReferences
 	{
-		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io",
-
-			"v1beta1", "Subnet", "SubnetList")
+		m, l, err = apisresolver.GetManagedResource("ec2.aws.upbound.io", "v1beta1", "Subnet", "SubnetList")
 		if err != nil {
 			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}

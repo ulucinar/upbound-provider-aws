@@ -22,7 +22,6 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -30,14 +29,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ElasticsearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elasticsearch.aws.upbound.io",
-
-				"v1beta1", "Domain", "DomainList")
+			m, l, err = apisresolver.GetManagedResource("elasticsearch.aws.upbound.io", "v1beta1", "Domain", "DomainList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].DomainArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -55,15 +50,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ElasticsearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -82,15 +72,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -110,15 +95,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -138,15 +118,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].VPCConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ElasticsearchConfiguration[i3].VPCConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -165,15 +140,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ExtendedS3Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ExtendedS3Configuration[i3].BucketArn),
 				Extract:      common.ARNExtractor(),
@@ -193,15 +163,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-						"v1beta1", "Role", "RoleList")
+					m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 					if err != nil {
-						return errors.Wrap(err,
-							"failed to get the reference target managed resource and its list for reference resolution",
-						)
+						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration[i5].RoleArn),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -223,13 +188,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-						"v1beta1", "CatalogTable", "CatalogTableList")
+					m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogTable", "CatalogTableList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration[i5].TableName),
 						Extract:      reference.ExternalName(),
@@ -249,15 +211,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.ExtendedS3Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ExtendedS3Configuration[i3].RoleArn),
 				Extract:      common.ARNExtractor(),
@@ -275,15 +232,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.HTTPEndpointConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.HTTPEndpointConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -302,15 +254,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.HTTPEndpointConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.HTTPEndpointConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.HTTPEndpointConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -330,15 +277,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.HTTPEndpointConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.HTTPEndpointConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.HTTPEndpointConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -357,14 +299,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("opensearch.aws.upbound.io",
-
-				"v1beta1", "Domain", "DomainList")
+			m, l, err = apisresolver.GetManagedResource("opensearch.aws.upbound.io", "v1beta1", "Domain", "DomainList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchConfiguration[i3].DomainArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -382,15 +320,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -409,15 +342,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OpensearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -437,15 +365,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OpensearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -465,15 +388,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OpensearchConfiguration[i3].VPCConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchConfiguration[i3].VPCConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -492,15 +410,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchserverlessConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchserverlessConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -519,15 +432,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchserverlessConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OpensearchserverlessConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchserverlessConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -547,15 +455,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.OpensearchserverlessConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.OpensearchserverlessConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.OpensearchserverlessConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -574,15 +477,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RedshiftConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RedshiftConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -601,15 +499,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3BackupConfiguration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3BackupConfiguration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -629,15 +522,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3BackupConfiguration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3BackupConfiguration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -657,15 +545,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -685,15 +568,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RedshiftConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -713,15 +591,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SplunkConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.SplunkConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SplunkConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -741,15 +614,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.SplunkConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.ForProvider.SplunkConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SplunkConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -768,14 +636,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ElasticsearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("elasticsearch.aws.upbound.io",
-
-				"v1beta1", "Domain", "DomainList")
+			m, l, err = apisresolver.GetManagedResource("elasticsearch.aws.upbound.io", "v1beta1", "Domain", "DomainList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].DomainArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -793,15 +657,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ElasticsearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -820,15 +679,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -848,15 +702,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -876,15 +725,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ElasticsearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].VPCConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ElasticsearchConfiguration[i3].VPCConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -903,15 +747,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ExtendedS3Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-				"v1beta1", "Bucket", "BucketList")
+			m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 			if err != nil {
-				return errors.Wrap(
-					err, "failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ExtendedS3Configuration[i3].BucketArn),
 				Extract:      common.ARNExtractor(),
@@ -931,15 +770,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-						"v1beta1", "Role", "RoleList")
+					m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 					if err != nil {
-						return errors.Wrap(err,
-							"failed to get the reference target managed resource and its list for reference resolution",
-						)
+						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration[i5].RoleArn),
 						Extract:      resource.ExtractParamPath("arn", true),
@@ -961,13 +795,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration); i4++ {
 			for i5 := 0; i5 < len(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration); i5++ {
 				{
-					m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io",
-
-						"v1beta1", "CatalogTable", "CatalogTableList")
+					m, l, err = apisresolver.GetManagedResource("glue.aws.upbound.io", "v1beta1", "CatalogTable", "CatalogTableList")
 					if err != nil {
 						return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 					}
-
 					rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 						CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ExtendedS3Configuration[i3].DataFormatConversionConfiguration[i4].SchemaConfiguration[i5].TableName),
 						Extract:      reference.ExternalName(),
@@ -987,15 +818,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.ExtendedS3Configuration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ExtendedS3Configuration[i3].RoleArn),
 				Extract:      common.ARNExtractor(),
@@ -1013,15 +839,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.HTTPEndpointConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.HTTPEndpointConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -1040,15 +861,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.HTTPEndpointConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.HTTPEndpointConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.HTTPEndpointConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1068,15 +884,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.HTTPEndpointConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.HTTPEndpointConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.HTTPEndpointConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1095,14 +906,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("opensearch.aws.upbound.io",
-
-				"v1beta1", "Domain", "DomainList")
+			m, l, err = apisresolver.GetManagedResource("opensearch.aws.upbound.io", "v1beta1", "Domain", "DomainList")
 			if err != nil {
-				return errors.
-					Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchConfiguration[i3].DomainArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -1120,15 +927,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -1147,15 +949,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OpensearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1175,15 +972,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OpensearchConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1203,15 +995,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OpensearchConfiguration[i3].VPCConfig); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchConfiguration[i3].VPCConfig[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1230,15 +1017,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchserverlessConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchserverlessConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -1257,15 +1039,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchserverlessConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OpensearchserverlessConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchserverlessConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1285,15 +1062,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.OpensearchserverlessConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.OpensearchserverlessConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.OpensearchserverlessConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1312,15 +1084,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.RedshiftConfiguration); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-				"v1beta1", "Role", "RoleList")
+			m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 			if err != nil {
-				return errors.Wrap(err,
-					"failed to get the reference target managed resource and its list for reference resolution",
-				)
+				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RedshiftConfiguration[i3].RoleArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -1339,15 +1106,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3BackupConfiguration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3BackupConfiguration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1367,15 +1129,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3BackupConfiguration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3BackupConfiguration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1395,15 +1152,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1423,15 +1175,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.RedshiftConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RedshiftConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1451,15 +1198,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SplunkConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.SplunkConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io",
-
-					"v1beta1", "Bucket", "BucketList")
+				m, l, err = apisresolver.GetManagedResource("s3.aws.upbound.io", "v1beta1", "Bucket", "BucketList")
 				if err != nil {
-					return errors.Wrap(
-						err, "failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SplunkConfiguration[i3].S3Configuration[i4].BucketArn),
 					Extract:      resource.ExtractParamPath("arn", true),
@@ -1479,15 +1221,10 @@ func (mg *DeliveryStream) ResolveReferences( // ResolveReferences of this Delive
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.SplunkConfiguration); i3++ {
 		for i4 := 0; i4 < len(mg.Spec.InitProvider.SplunkConfiguration[i3].S3Configuration); i4++ {
 			{
-				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io",
-
-					"v1beta1", "Role", "RoleList")
+				m, l, err = apisresolver.GetManagedResource("iam.aws.upbound.io", "v1beta1", "Role", "RoleList")
 				if err != nil {
-					return errors.Wrap(err,
-						"failed to get the reference target managed resource and its list for reference resolution",
-					)
+					return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 				}
-
 				rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 					CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SplunkConfiguration[i3].S3Configuration[i4].RoleArn),
 					Extract:      resource.ExtractParamPath("arn", true),

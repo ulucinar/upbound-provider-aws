@@ -20,18 +20,14 @@ func (mg *GroupMembership) ResolveReferences( // ResolveReferences of this Group
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
 	var err error
 	{
-		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io",
-
-			"v1beta1", "Group", "GroupList")
+		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io", "v1beta1", "Group", "GroupList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -48,12 +44,9 @@ func (mg *GroupMembership) ResolveReferences( // ResolveReferences of this Group
 	mg.Spec.ForProvider.GroupID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.GroupIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -70,12 +63,9 @@ func (mg *GroupMembership) ResolveReferences( // ResolveReferences of this Group
 	mg.Spec.ForProvider.MemberID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.MemberIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io",
-
-			"v1beta1", "Group", "GroupList")
+		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io", "v1beta1", "Group", "GroupList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -92,12 +82,9 @@ func (mg *GroupMembership) ResolveReferences( // ResolveReferences of this Group
 	mg.Spec.InitProvider.GroupID = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.GroupIDRef = rsp.ResolvedReference
 	{
-		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io",
-
-			"v1beta1", "User", "UserList")
+		m, l, err = apisresolver.GetManagedResource("identitystore.aws.upbound.io", "v1beta1", "User", "UserList")
 		if err != nil {
-			return errors.
-				Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
+			return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 		}
 
 		rsp, err = r.Resolve(ctx, reference.ResolutionRequest{

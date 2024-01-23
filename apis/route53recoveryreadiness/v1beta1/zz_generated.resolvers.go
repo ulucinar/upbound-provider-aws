@@ -21,7 +21,6 @@ func (mg *ResourceSet) ResolveReferences( // ResolveReferences of this ResourceS
 	ctx context.Context, c client.Reader) error {
 	var m xpresource.Managed
 	var l xpresource.ManagedList
-
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
@@ -29,13 +28,10 @@ func (mg *ResourceSet) ResolveReferences( // ResolveReferences of this ResourceS
 
 	for i3 := 0; i3 < len(mg.Spec.ForProvider.Resources); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatch.aws.upbound.io",
-
-				"v1beta1", "MetricAlarm", "MetricAlarmList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatch.aws.upbound.io", "v1beta1", "MetricAlarm", "MetricAlarmList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Resources[i3].ResourceArn),
 				Extract:      resource.ExtractParamPath("arn", true),
@@ -53,13 +49,10 @@ func (mg *ResourceSet) ResolveReferences( // ResolveReferences of this ResourceS
 	}
 	for i3 := 0; i3 < len(mg.Spec.InitProvider.Resources); i3++ {
 		{
-			m, l, err = apisresolver.GetManagedResource("cloudwatch.aws.upbound.io",
-
-				"v1beta1", "MetricAlarm", "MetricAlarmList")
+			m, l, err = apisresolver.GetManagedResource("cloudwatch.aws.upbound.io", "v1beta1", "MetricAlarm", "MetricAlarmList")
 			if err != nil {
 				return errors.Wrap(err, "failed to get the reference target managed resource and its list for reference resolution")
 			}
-
 			rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 				CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Resources[i3].ResourceArn),
 				Extract:      resource.ExtractParamPath("arn", true),
