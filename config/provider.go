@@ -112,6 +112,9 @@ var (
 
 	//go:embed provider-metadata.yaml
 	providerMetadata []byte
+
+	//go:embed field-rename.yaml
+	fieldRename []byte
 )
 
 var skipList = []string{
@@ -204,6 +207,7 @@ func GetProvider(ctx context.Context, generationProvider bool) (*config.Provider
 			ResourceConfigurator(),
 			NamePrefixRemoval(),
 			DocumentationForTags(),
+			injectFieldRenamingConversionFunctions(),
 		),
 	)
 	pc.BasePackages.ControllerMap["internal/controller/eks/clusterauth"] = "eks"

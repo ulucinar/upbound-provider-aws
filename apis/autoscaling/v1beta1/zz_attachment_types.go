@@ -19,6 +19,19 @@ import (
 
 type AttachmentInitParameters struct {
 
+	// ARN of an ALB Target Group.
+	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/elbv2/v1beta1.LBTargetGroup
+	// +crossplane:generate:reference:extractor=github.com/upbound/provider-aws/config/common.ARNExtractor()
+	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
+
+	// Reference to a LBTargetGroup in elbv2 to populate albTargetGroupArn.
+	// +kubebuilder:validation:Optional
+	ALBTargetGroupArnRef *v1.Reference `json:"albTargetGroupArnRef,omitempty" tf:"-"`
+
+	// Selector for a LBTargetGroup in elbv2 to populate albTargetGroupArn.
+	// +kubebuilder:validation:Optional
+	ALBTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
+
 	// Name of ASG to associate with the ELB.
 	// +crossplane:generate:reference:type=AutoscalingGroup
 	AutoscalingGroupName *string `json:"autoscalingGroupName,omitempty" tf:"autoscaling_group_name,omitempty"`
@@ -60,6 +73,9 @@ type AttachmentInitParameters struct {
 
 type AttachmentObservation struct {
 
+	// ARN of an ALB Target Group.
+	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
+
 	// Name of ASG to associate with the ELB.
 	AutoscalingGroupName *string `json:"autoscalingGroupName,omitempty" tf:"autoscaling_group_name,omitempty"`
 
@@ -73,6 +89,20 @@ type AttachmentObservation struct {
 }
 
 type AttachmentParameters struct {
+
+	// ARN of an ALB Target Group.
+	// +crossplane:generate:reference:type=github.com/upbound/provider-aws/apis/elbv2/v1beta1.LBTargetGroup
+	// +crossplane:generate:reference:extractor=github.com/upbound/provider-aws/config/common.ARNExtractor()
+	// +kubebuilder:validation:Optional
+	ALBTargetGroupArn *string `json:"albTargetGroupArn,omitempty" tf:"alb_target_group_arn,omitempty"`
+
+	// Reference to a LBTargetGroup in elbv2 to populate albTargetGroupArn.
+	// +kubebuilder:validation:Optional
+	ALBTargetGroupArnRef *v1.Reference `json:"albTargetGroupArnRef,omitempty" tf:"-"`
+
+	// Selector for a LBTargetGroup in elbv2 to populate albTargetGroupArn.
+	// +kubebuilder:validation:Optional
+	ALBTargetGroupArnSelector *v1.Selector `json:"albTargetGroupArnSelector,omitempty" tf:"-"`
 
 	// Name of ASG to associate with the ELB.
 	// +crossplane:generate:reference:type=AutoscalingGroup
@@ -145,14 +175,13 @@ type AttachmentStatus struct {
 }
 
 // +kubebuilder:object:root=true
-// +kubebuilder:subresource:status
-// +kubebuilder:storageversion
 
-// Attachment is the Schema for the Attachments API.
+// Attachment is the Schema for the Attachments API. Provides an AutoScaling Group Attachment resource.
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
+// +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster,categories={crossplane,managed,aws}
 type Attachment struct {
 	metav1.TypeMeta   `json:",inline"`
