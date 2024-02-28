@@ -30,6 +30,7 @@ import (
 	"github.com/upbound/provider-aws/config"
 )
 
+// modification 1
 func main() {
 	var (
 		app                   = kingpin.New("generator", "Run Upjet code generation pipelines for provider-aws").DefaultEnvars()
