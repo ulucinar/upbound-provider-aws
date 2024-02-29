@@ -1,3 +1,5 @@
+//go:build eks || all
+
 /*
 Copyright 2022 Upbound Inc.
 */

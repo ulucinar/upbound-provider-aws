@@ -1,3 +1,5 @@
+//go:build register || config || all
+
 /*
 Copyright 2021 Upbound Inc.
 */
@@ -21,91 +23,6 @@ import (
 	"github.com/hashicorp/terraform-provider-aws/xpprovider"
 	"github.com/pkg/errors"
 
-	"github.com/upbound/provider-aws/config/acm"
-	"github.com/upbound/provider-aws/config/acmpca"
-	"github.com/upbound/provider-aws/config/apigateway"
-	"github.com/upbound/provider-aws/config/apigatewayv2"
-	"github.com/upbound/provider-aws/config/apprunner"
-	"github.com/upbound/provider-aws/config/appstream"
-	"github.com/upbound/provider-aws/config/athena"
-	"github.com/upbound/provider-aws/config/autoscaling"
-	"github.com/upbound/provider-aws/config/backup"
-	"github.com/upbound/provider-aws/config/budgets"
-	"github.com/upbound/provider-aws/config/cloudformation"
-	"github.com/upbound/provider-aws/config/cloudfront"
-	"github.com/upbound/provider-aws/config/cloudsearch"
-	"github.com/upbound/provider-aws/config/cloudwatch"
-	"github.com/upbound/provider-aws/config/cloudwatchevents"
-	"github.com/upbound/provider-aws/config/cloudwatchlogs"
-	"github.com/upbound/provider-aws/config/cognitoidentity"
-	"github.com/upbound/provider-aws/config/cognitoidp"
-	"github.com/upbound/provider-aws/config/connect"
-	"github.com/upbound/provider-aws/config/cur"
-	"github.com/upbound/provider-aws/config/datasync"
-	"github.com/upbound/provider-aws/config/dax"
-	"github.com/upbound/provider-aws/config/devicefarm"
-	"github.com/upbound/provider-aws/config/directconnect"
-	"github.com/upbound/provider-aws/config/dms"
-	"github.com/upbound/provider-aws/config/docdb"
-	"github.com/upbound/provider-aws/config/ds"
-	"github.com/upbound/provider-aws/config/dynamodb"
-	"github.com/upbound/provider-aws/config/ebs"
-	"github.com/upbound/provider-aws/config/ec2"
-	"github.com/upbound/provider-aws/config/ecr"
-	"github.com/upbound/provider-aws/config/ecrpublic"
-	"github.com/upbound/provider-aws/config/ecs"
-	"github.com/upbound/provider-aws/config/efs"
-	"github.com/upbound/provider-aws/config/eks"
-	"github.com/upbound/provider-aws/config/elasticache"
-	"github.com/upbound/provider-aws/config/elb"
-	"github.com/upbound/provider-aws/config/elbv2"
-	"github.com/upbound/provider-aws/config/firehose"
-	"github.com/upbound/provider-aws/config/fsx"
-	"github.com/upbound/provider-aws/config/gamelift"
-	"github.com/upbound/provider-aws/config/globalaccelerator"
-	"github.com/upbound/provider-aws/config/glue"
-	"github.com/upbound/provider-aws/config/grafana"
-	"github.com/upbound/provider-aws/config/iam"
-	"github.com/upbound/provider-aws/config/identitystore"
-	"github.com/upbound/provider-aws/config/iot"
-	"github.com/upbound/provider-aws/config/kafka"
-	"github.com/upbound/provider-aws/config/kendra"
-	"github.com/upbound/provider-aws/config/kinesis"
-	"github.com/upbound/provider-aws/config/kinesisanalytics"
-	kinesisanalytics2 "github.com/upbound/provider-aws/config/kinesisanalyticsv2"
-	"github.com/upbound/provider-aws/config/kms"
-	"github.com/upbound/provider-aws/config/lakeformation"
-	"github.com/upbound/provider-aws/config/lambda"
-	"github.com/upbound/provider-aws/config/licensemanager"
-	"github.com/upbound/provider-aws/config/medialive"
-	"github.com/upbound/provider-aws/config/memorydb"
-	"github.com/upbound/provider-aws/config/mq"
-	"github.com/upbound/provider-aws/config/neptune"
-	"github.com/upbound/provider-aws/config/networkfirewall"
-	"github.com/upbound/provider-aws/config/networkmanager"
-	"github.com/upbound/provider-aws/config/opensearch"
-	"github.com/upbound/provider-aws/config/opensearchserverless"
-	"github.com/upbound/provider-aws/config/opsworks"
-	"github.com/upbound/provider-aws/config/organization"
-	"github.com/upbound/provider-aws/config/qldb"
-	"github.com/upbound/provider-aws/config/ram"
-	"github.com/upbound/provider-aws/config/rds"
-	"github.com/upbound/provider-aws/config/redshift"
-	"github.com/upbound/provider-aws/config/redshiftserverless"
-	"github.com/upbound/provider-aws/config/rolesanywhere"
-	"github.com/upbound/provider-aws/config/route53"
-	"github.com/upbound/provider-aws/config/route53recoverycontrolconfig"
-	"github.com/upbound/provider-aws/config/route53resolver"
-	"github.com/upbound/provider-aws/config/s3"
-	"github.com/upbound/provider-aws/config/sagemaker"
-	"github.com/upbound/provider-aws/config/secretsmanager"
-	"github.com/upbound/provider-aws/config/servicecatalog"
-	"github.com/upbound/provider-aws/config/servicediscovery"
-	"github.com/upbound/provider-aws/config/sfn"
-	"github.com/upbound/provider-aws/config/sns"
-	"github.com/upbound/provider-aws/config/sqs"
-	"github.com/upbound/provider-aws/config/ssoadmin"
-	"github.com/upbound/provider-aws/config/transfer"
 	"github.com/upbound/provider-aws/hack"
 )
 
@@ -220,93 +137,7 @@ func GetProvider(ctx context.Context, generationProvider bool) (*config.Provider
 	p.SetMeta(nil)
 	pc.BasePackages.ControllerMap["internal/controller/eks/clusterauth"] = "eks"
 
-	for _, configure := range []func(provider *config.Provider){
-		acm.Configure,
-		acmpca.Configure,
-		apigateway.Configure,
-		apigatewayv2.Configure,
-		apprunner.Configure,
-		appstream.Configure,
-		athena.Configure,
-		autoscaling.Configure,
-		backup.Configure,
-		cloudfront.Configure,
-		cloudsearch.Configure,
-		cloudwatch.Configure,
-		cloudwatchlogs.Configure,
-		cognitoidentity.Configure,
-		cognitoidp.Configure,
-		connect.Configure,
-		cur.Configure,
-		datasync.Configure,
-		dax.Configure,
-		devicefarm.Configure,
-		dms.Configure,
-		docdb.Configure,
-		dynamodb.Configure,
-		ebs.Configure,
-		ec2.Configure,
-		ecr.Configure,
-		ecrpublic.Configure,
-		ecs.Configure,
-		efs.Configure,
-		eks.Configure,
-		elasticache.Configure,
-		elb.Configure,
-		elbv2.Configure,
-		firehose.Configure,
-		gamelift.Configure,
-		globalaccelerator.Configure,
-		glue.Configure,
-		grafana.Configure,
-		iam.Configure,
-		kafka.Configure,
-		kinesis.Configure,
-		kinesisanalytics.Configure,
-		kinesisanalytics2.Configure,
-		kms.Configure,
-		lakeformation.Configure,
-		lambda.Configure,
-		licensemanager.Configure,
-		memorydb.Configure,
-		mq.Configure,
-		neptune.Configure,
-		networkfirewall.Configure,
-		opensearch.Configure,
-		opensearchserverless.Configure,
-		ram.Configure,
-		rds.Configure,
-		redshift.Configure,
-		rolesanywhere.Configure,
-		route53.Configure,
-		route53resolver.Configure,
-		route53recoverycontrolconfig.Configure,
-		s3.Configure,
-		secretsmanager.Configure,
-		servicecatalog.Configure,
-		organization.Configure,
-		cloudwatchevents.Configure,
-		budgets.Configure,
-		servicediscovery.Configure,
-		sfn.Configure,
-		sns.Configure,
-		sqs.Configure,
-		transfer.Configure,
-		directconnect.Configure,
-		ds.Configure,
-		qldb.Configure,
-		fsx.Configure,
-		networkmanager.Configure,
-		opsworks.Configure,
-		sagemaker.Configure,
-		redshiftserverless.Configure,
-		kendra.Configure,
-		medialive.Configure,
-		ssoadmin.Configure,
-		identitystore.Configure,
-		iot.Configure,
-		cloudformation.Configure,
-	} {
+	for _, configure := range ProviderConfiguration.configs {
 		configure(pc)
 	}
 

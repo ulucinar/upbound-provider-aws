@@ -1,3 +1,5 @@
+//go:build config || lambda || all
+
 /*
 Copyright 2022 Upbound Inc.
 */

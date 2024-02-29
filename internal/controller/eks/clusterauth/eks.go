@@ -27,11 +27,6 @@ const (
 	errProduceKubeconfig           = "cannot produce kubeconfig"
 )
 
-func newPresignClient(cfg aws.Config, optFns ...func(*sts.Options)) *sts.PresignClient {
-	cl := sts.NewFromConfig(cfg, optFns...)
-	return sts.NewPresignClient(cl)
-}
-
 // GetConnectionDetails extracts managed.ConnectionDetails out of ekstypes.Cluster.
 func GetConnectionDetails(ctx context.Context, stsClient *sts.PresignClient, cluster *ekstypes.Cluster, expiration time.Duration) (managed.ConnectionDetails, error) {
 	getCallerIdentity, err := stsClient.PresignGetCallerIdentity(ctx, &sts.GetCallerIdentityInput{},

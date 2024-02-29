@@ -1,3 +1,5 @@
+//go:build register || config || all
+
 /*
 Copyright 2021 Upbound Inc.
 */
