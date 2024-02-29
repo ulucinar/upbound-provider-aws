@@ -327,4 +327,7 @@ kustomize-crds: output.init $(KUSTOMIZE) $(YQ)
 checkout-to-old-api:
 	CHECKOUT_RELEASE_VERSION=$(CHECKOUT_RELEASE_VERSION) hack/check-duplicate.sh
 
-.PHONY: kustomize-crds
+lint: $(GOLANGCILINT)
+	$(GOLANGCILINT) run --build-tags ec2,register -v
+
+.PHONY: kustomize-crds lint
