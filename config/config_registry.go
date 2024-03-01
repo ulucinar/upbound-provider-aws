@@ -1,4 +1,4 @@
-//go:build register || config || all
+//go:build configregistry || register || config || all
 
 /*
 Copyright 2021 Upbound Inc.

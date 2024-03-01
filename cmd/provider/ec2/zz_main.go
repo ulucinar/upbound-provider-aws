@@ -32,6 +32,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
 	"github.com/upbound/provider-aws/apis"
+	"github.com/upbound/provider-aws/apis/ec2/v1beta1"
 	"github.com/upbound/provider-aws/apis/v1alpha1"
 	"github.com/upbound/provider-aws/config"
 	resolverapis "github.com/upbound/provider-aws/internal/apis"
@@ -202,4 +203,8 @@ func main() {
 	kingpin.FatalIfError(conversion.RegisterConversions(o.Provider), "Cannot initialize the webhook conversion registry")
 	kingpin.FatalIfError(controller.Setup_ec2(mgr, o), "Cannot setup AWS controllers")
 	kingpin.FatalIfError(mgr.Start(ctrl.SetupSignalHandler()), "Cannot start controller manager")
+}
+
+func init() {
+	apis.AddToSchemes = append(apis.AddToSchemes, v1beta1.SchemeBuilder.AddToScheme)
 }
