@@ -1,5 +1,5 @@
 run:
-  timeout: 30m
+  timeout: 120m
   show-stats: true
 
 output:
