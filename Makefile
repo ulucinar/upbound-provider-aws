@@ -328,6 +328,10 @@ checkout-to-old-api:
 	CHECKOUT_RELEASE_VERSION=$(CHECKOUT_RELEASE_VERSION) hack/check-duplicate.sh
 
 lint: $(GOLANGCILINT)
-	$(GOLANGCILINT) run --build-tags ec2,register -v --concurrency 1
+	date && \
+	$(GOLANGCILINT) run --build-tags ec2,register -v --concurrency 1 && \
+	echo HO. && \
+	date && \
+	$(GOLANGCILINT) run --build-tags acm,register -v
 
 .PHONY: kustomize-crds lint
