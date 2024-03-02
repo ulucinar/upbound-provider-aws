@@ -327,4 +327,7 @@ kustomize-crds: output.init $(KUSTOMIZE) $(YQ)
 checkout-to-old-api:
 	CHECKOUT_RELEASE_VERSION=$(CHECKOUT_RELEASE_VERSION) hack/check-duplicate.sh
 
-.PHONY: kustomize-crds
+lint: $(GOLANGCILINT)
+	$(GOLANGCILINT) run -v --concurrency 1
+
+.PHONY: kustomize-crds lint
