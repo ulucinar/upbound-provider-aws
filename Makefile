@@ -330,6 +330,6 @@ checkout-to-old-api:
 lint: $(GOLANGCILINT)
 	$(GOLANGCILINT) run --build-tags ec2,configregistry,configprovider,apiregister -v --concurrency 1 && \
 	echo HO. && \
-	$(GOLANGCILINT) run --build-tags acm,configregistry,configprovider,apiregister -v
+	$(GOLANGCILINT) run --build-tags all -v
 
 .PHONY: kustomize-crds lint
