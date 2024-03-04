@@ -35,3 +35,5 @@ DELETE_TAGS=""
 "${TAGGER}" --parent-dir "${REPO_ROOT}"/config/provider.go --tag-format "configprovider || register || config || all" --mode file ${DELETE_TAGS}
 # internal/controller/eks/clusterauth/controller.go -> eks || all
 "${TAGGER}" --parent-dir "${REPO_ROOT}"/internal/controller/eks/clusterauth/controller.go --tag-format "eks || all" --mode file ${DELETE_TAGS}
+# internal/controller/eks/clusterauth/eks.go -> eks || all
+"${TAGGER}" --parent-dir "${REPO_ROOT}"/internal/controller/eks/clusterauth/eks.go --tag-format "eks || all" --mode file ${DELETE_TAGS}
