@@ -328,7 +328,7 @@ checkout-to-old-api:
 	CHECKOUT_RELEASE_VERSION=$(CHECKOUT_RELEASE_VERSION) hack/check-duplicate.sh
 
 lint: $(GOLANGCILINT)
-	$(GOLANGCILINT) run --build-tags ec2,configregistry,configprovider,apiregister -v --concurrency 1 && \
+	$(GOLANGCILINT) run --build-tags ec2,configregistry,configprovider,linter_run -v --concurrency 1 && \
 	echo HO. && \
 	$(GOLANGCILINT) run --build-tags all -v
 
