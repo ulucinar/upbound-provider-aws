@@ -109,7 +109,8 @@ func main() {
 
 	for i, re := range exArr {
 		pc.Resources[resourceName].MetaResource.Examples[0] = re
-		gen := examples.NewGenerator(filepath.Join(*output, strconv.FormatInt(int64(i), 10)), pc.ModulePath, pc.ShortName, pc.Resources)
+		gen := examples.NewGenerator(filepath.Join(*output, strconv.FormatInt(int64(i), 10)), pc.ModulePath, pc.ShortName, pc.Resources,
+			examples.WithAddExampleMetadata(false), examples.WithGenerateReferences(false))
 		if err := gen.Generate(group, version, pc.Resources[resourceName]); err != nil {
 			panic(err)
 		}
