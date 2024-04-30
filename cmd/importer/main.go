@@ -130,8 +130,10 @@ func main() {
 			panic(err)
 		}
 
-		if err := pm.Paved.SetValue("spec.forProvider.region", *region); err != nil {
-			panic(err)
+		if config.HasRegion(pc.Resources[resourceName].ShortGroup) {
+			if err := pm.Paved.SetValue("spec.forProvider.region", *region); err != nil {
+				panic(err)
+			}
 		}
 
 		if err := gen.StoreExamples(); err != nil {
