@@ -15,6 +15,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/upjet/pkg/examples"
 	"github.com/crossplane/upjet/pkg/registry"
+	"github.com/crossplane/upjet/pkg/registry/reference"
 	"github.com/hashicorp/hcl/v2/hclparse"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -104,24 +105,23 @@ func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, 
 		return nil
 	}
 
-	group := fmt.Sprintf("%s.%s", pc.Resources[resourceName].ShortGroup, pc.RootGroup)
-	version := pc.Resources[resourceName].Version
+	group := fmt.Sprintf("%s.%s", cfg.ShortGroup, pc.RootGroup)
+	version := cfg.Version
 
-	pc.Resources[resourceName].MetaResource.Examples = nil
+	cfg.MetaResource.Examples = nil
 	body.Blocks = trimmed
-	if err := pc.Resources[resourceName].MetaResource.FindExampleBlock(f, body.Blocks, &resourceName, true); err != nil {
+	if err := cfg.MetaResource.FindExampleBlock(f, body.Blocks, &resourceName, true); err != nil {
 		return errors.Wrapf(err, "failed to find a resource configuration block for resource %q", resourceName)
 	}
-	pc.Resources[resourceName].MetaResource.Name = resourceName
+	cfg.MetaResource.Name = resourceName
 
-	exArr := make([]registry.ResourceExample, 0, len(pc.Resources[resourceName].MetaResource.Examples))
-
-	for _, re := range pc.Resources[resourceName].MetaResource.Examples {
+	exArr := make([]registry.ResourceExample, 0, len(cfg.MetaResource.Examples))
+	for _, re := range cfg.MetaResource.Examples {
 		if err := re.Paved.UnmarshalJSON([]byte(re.Manifest)); err != nil {
 			return errors.Wrap(err, "failed to unmarshal the JSON manifest")
 		}
 
-		schemaBlock := pc.Resources[resourceName].TerraformResource.CoreConfigSchema()
+		schemaBlock := cfg.TerraformResource.CoreConfigSchema()
 		rawConfig, err := schema.JSONMapToStateValue(re.Paved.UnstructuredContent(), schemaBlock)
 		if err != nil {
 			return errors.Wrap(err, "failed to convert the JSON map into a Terraform state value")
@@ -143,38 +143,44 @@ func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, 
 	}
 
 	for _, re := range exArr {
-		pc.Resources[resourceName].MetaResource.Examples[0] = re
+		cfg.MetaResource.Examples[0] = re
 		manifestPath := filepath.Join(output, filepath.Base(hclPath)+".yaml")
 		gen := examples.NewGenerator(output, pc.ModulePath, pc.ShortName, pc.Resources,
 			examples.WithAddExampleMetadata(false), examples.WithGenerateReferences(false), examples.WithAppendFile(true), examples.WithManifestPath(manifestPath))
-		if err := gen.Generate(group, version, pc.Resources[resourceName]); err != nil {
+		if err := gen.Generate(group, version, cfg); err != nil {
 			return errors.Wrap(err, "failed to convert the HCL configuration to an MR manifest")
 		}
 
 		pm := gen.GetPavedWithManifest(fmt.Sprintf("%s.*", resourceName))
-
-		if err := pm.Paved.SetValue("metadata.annotations", map[string]string{
-			"crossplane.io/external-name": extNames[fmt.Sprintf("%s.%s", resourceName, re.Name)],
-		}); err != nil {
-			return errors.Wrap(err, "failed to set the external-name annotation on the MR")
-		}
-
-		if err := pm.Paved.SetValue("spec.managementPolicies", []string{"Observe"}); err != nil {
-			return errors.Wrap(err, `failed to set the spec.managementPolicies to "Observe" on the MR`)
-		}
-
-		if err := pm.Paved.SetValue("spec.deletionPolicy", "Orphan"); err != nil {
-			return errors.Wrap(err, `failed to set the spec.deletionPolicy to "Orphan" on the MR`)
-		}
-
-		if config.HasRegion(pc.Resources[resourceName].ShortGroup) {
-			if err := pm.Paved.SetValue("spec.forProvider.region", region); err != nil {
-				return errors.Wrapf(err, "failed to set the spec.forProvider.region to %q on the MR", region)
-			}
+		if err := finalizeManifest(pm, extNames[fmt.Sprintf("%s.%s", resourceName, re.Name)], cfg.ShortGroup, region); err != nil {
+			return err
 		}
 
 		if err := gen.StoreExamples(); err != nil {
 			return errors.Wrapf(err, "failed to store the converted MR manifest to path %s", manifestPath)
+		}
+	}
+	return nil
+}
+
+func finalizeManifest(pm *reference.PavedWithManifest, extName, shortGroup, region string) error {
+	if err := pm.Paved.SetValue("metadata.annotations", map[string]string{
+		"crossplane.io/external-name": extName,
+	}); err != nil {
+		return errors.Wrap(err, "failed to set the external-name annotation on the MR")
+	}
+
+	if err := pm.Paved.SetValue("spec.managementPolicies", []string{"Observe"}); err != nil {
+		return errors.Wrap(err, `failed to set the spec.managementPolicies to "Observe" on the MR`)
+	}
+
+	if err := pm.Paved.SetValue("spec.deletionPolicy", "Orphan"); err != nil {
+		return errors.Wrap(err, `failed to set the spec.deletionPolicy to "Orphan" on the MR`)
+	}
+
+	if config.HasRegion(shortGroup) {
+		if err := pm.Paved.SetValue("spec.forProvider.region", region); err != nil {
+			return errors.Wrapf(err, "failed to set the spec.forProvider.region to %q on the MR", region)
 		}
 	}
 	return nil
