@@ -7,11 +7,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
-	"strconv"
 
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
+	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/upjet/pkg/examples"
 	"github.com/crossplane/upjet/pkg/registry"
 	"github.com/hashicorp/hcl/v2/hclparse"
@@ -19,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pkg/errors"
 	"gopkg.in/alecthomas/kingpin.v2"
+	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	"github.com/upbound/provider-aws/config"
 )
@@ -26,6 +28,7 @@ import (
 const (
 	blockResource = "resource"
 	tfStateFile   = "terraform.tfstate"
+	tfExt         = ".tf"
 )
 
 func main() {
@@ -37,28 +40,47 @@ func main() {
 	)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
-	hclPath := filepath.Join(*workspace, "vpc.tf")
-	tfState := filepath.Join(*workspace, tfStateFile)
+	zl := zap.New(zap.UseDevMode(false))
+	logr := logging.NewLogrLogger(zl.WithName("importer-aws"))
+
 	ctx := context.Background()
+	kingpin.FatalIfError(filepath.WalkDir(*workspace, func(path string, d fs.DirEntry, err error) error {
+		if d.IsDir() {
+			if path == *workspace {
+				return nil
+			}
+			// only configurations in the root directory are considered
+			return fs.SkipDir
+		}
+		if filepath.Ext(path) != tfExt {
+			return nil
+		}
+		kingpin.FatalIfError(convertHCLConfiguration(ctx, logr, path, *output, *region), "Failed to convert the HCL configuration at path %s", path)
+		return nil
+	}), "Failed to discover the HCL configurations in the Terraform workspace %s", *workspace)
+}
+
+func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, output, region string) error {
+	workspace := filepath.Dir(hclPath)
 	pc, err := config.GetProvider(ctx, true)
 	if err != nil {
-		panic(err)
+		return errors.Wrap(err, "failed to get the provider's configuration")
 	}
 
 	buff, err := os.ReadFile(hclPath)
 	if err != nil {
-		panic(err)
+		return errors.Wrapf(err, "failed to read the HCL configuration")
 	}
 
 	parser := hclparse.NewParser()
 	f, diag := parser.ParseHCL(buff, hclPath)
 	if diag != nil && diag.HasErrors() {
-		panic(errors.Wrapf(diag, "failed to parse the Terraform configuration %s. Configuration:\n%s", hclPath, string(buff)))
+		return errors.Wrap(diag, "failed to parse the Terraform configuration")
 	}
 
 	body, ok := f.Body.(*hclsyntax.Body)
 	if !ok {
-		panic(errors.Errorf("not an HCL Body: %s", string(buff)))
+		return errors.New("not an HCL Body")
 	}
 	trimmed := make(hclsyntax.Blocks, 0, len(body.Blocks))
 	resourceName := ""
@@ -70,13 +92,25 @@ func main() {
 		}
 	}
 
+	if resourceName == "" {
+		// HCL configuration does not contain a resource block
+		logr.Info("Skipping non-resource configuration file", "file", hclPath)
+		return nil
+	}
+
+	cfg := pc.Resources[resourceName]
+	if cfg == nil {
+		logr.Info("Skipping resource because no configuration was found for it", "file", hclPath, "resource", resourceName)
+		return nil
+	}
+
 	group := fmt.Sprintf("%s.%s", pc.Resources[resourceName].ShortGroup, pc.RootGroup)
 	version := pc.Resources[resourceName].Version
 
 	pc.Resources[resourceName].MetaResource.Examples = nil
 	body.Blocks = trimmed
 	if err := pc.Resources[resourceName].MetaResource.FindExampleBlock(f, body.Blocks, &resourceName, true); err != nil {
-		panic(err)
+		return errors.Wrapf(err, "failed to find a resource configuration block for resource %q", resourceName)
 	}
 	pc.Resources[resourceName].MetaResource.Name = resourceName
 
@@ -84,17 +118,17 @@ func main() {
 
 	for _, re := range pc.Resources[resourceName].MetaResource.Examples {
 		if err := re.Paved.UnmarshalJSON([]byte(re.Manifest)); err != nil {
-			panic(err)
+			return errors.Wrap(err, "failed to unmarshal the JSON manifest")
 		}
 
 		schemaBlock := pc.Resources[resourceName].TerraformResource.CoreConfigSchema()
 		rawConfig, err := schema.JSONMapToStateValue(re.Paved.UnstructuredContent(), schemaBlock)
 		if err != nil {
-			panic(err)
+			return errors.Wrap(err, "failed to convert the JSON map into a Terraform state value")
 		}
 		converted, err := schema.StateValueToJSONMap(rawConfig, schemaBlock.ImpliedType())
 		if err != nil {
-			panic(err)
+			return errors.Wrap(err, "failed to convert the Terraform state value to JSON map")
 		}
 
 		removeNullValues(converted)
@@ -102,45 +136,48 @@ func main() {
 		exArr = append(exArr, re)
 	}
 
+	tfState := filepath.Join(workspace, tfStateFile)
 	extNames, err := ExtractExternalNames(ctx, tfState)
 	if err != nil {
-		panic(err)
+		return errors.Wrapf(err, "failed to extract external names from the Terraform state %s", tfState)
 	}
 
-	for i, re := range exArr {
+	for _, re := range exArr {
 		pc.Resources[resourceName].MetaResource.Examples[0] = re
-		gen := examples.NewGenerator(filepath.Join(*output, strconv.FormatInt(int64(i), 10)), pc.ModulePath, pc.ShortName, pc.Resources,
-			examples.WithAddExampleMetadata(false), examples.WithGenerateReferences(false))
+		manifestPath := filepath.Join(output, filepath.Base(hclPath)+".yaml")
+		gen := examples.NewGenerator(output, pc.ModulePath, pc.ShortName, pc.Resources,
+			examples.WithAddExampleMetadata(false), examples.WithGenerateReferences(false), examples.WithAppendFile(true), examples.WithManifestPath(manifestPath))
 		if err := gen.Generate(group, version, pc.Resources[resourceName]); err != nil {
-			panic(err)
+			return errors.Wrap(err, "failed to convert the HCL configuration to an MR manifest")
 		}
 
 		pm := gen.GetPavedWithManifest(fmt.Sprintf("%s.*", resourceName))
 
 		if err := pm.Paved.SetValue("metadata.annotations", map[string]string{
-			"crossplane.io/external-name": extNames[re.Name],
+			"crossplane.io/external-name": extNames[fmt.Sprintf("%s.%s", resourceName, re.Name)],
 		}); err != nil {
-			panic(err)
+			return errors.Wrap(err, "failed to set the external-name annotation on the MR")
 		}
 
 		if err := pm.Paved.SetValue("spec.managementPolicies", []string{"Observe"}); err != nil {
-			panic(err)
+			return errors.Wrap(err, `failed to set the spec.managementPolicies to "Observe" on the MR`)
 		}
 
 		if err := pm.Paved.SetValue("spec.deletionPolicy", "Orphan"); err != nil {
-			panic(err)
+			return errors.Wrap(err, `failed to set the spec.deletionPolicy to "Orphan" on the MR`)
 		}
 
 		if config.HasRegion(pc.Resources[resourceName].ShortGroup) {
-			if err := pm.Paved.SetValue("spec.forProvider.region", *region); err != nil {
-				panic(err)
+			if err := pm.Paved.SetValue("spec.forProvider.region", region); err != nil {
+				return errors.Wrapf(err, "failed to set the spec.forProvider.region to %q on the MR", region)
 			}
 		}
 
 		if err := gen.StoreExamples(); err != nil {
-			panic(err)
+			return errors.Wrapf(err, "failed to store the converted MR manifest to path %s", manifestPath)
 		}
 	}
+	return nil
 }
 
 func removeNullValues(m map[string]any) {

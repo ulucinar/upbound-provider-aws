@@ -9,7 +9,6 @@ import (
 	"encoding/json"
 	"io"
 	"os"
-	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
@@ -76,12 +75,7 @@ func ExtractExternalNames(ctx context.Context, tfStatePath string) (map[string]s
 		if err != nil {
 			return nil, errors.Wrapf(err, "cannot get external name for %s", resEntryKey)
 		}
-
-		_, resourceTFName, found := strings.Cut(resEntryKey, ".")
-		if !found {
-			return nil, errors.Wrapf(err, "unexpected resource entry name format: %s ", resEntryKey)
-		}
-		results[resourceTFName] = externalName
+		results[resEntryKey] = externalName
 	}
 
 	return results, nil
