@@ -20,11 +20,13 @@ import (
 	"github.com/upbound/provider-aws/config/common"
 )
 
+var shortGroupsWithoutRegion = []string{"iam", "opsworks"}
+
 // RegionAddition adds region to the spec of all resources except iam group which
 // does not have a region notion.
 func RegionAddition() config.ResourceOption { //nolint:gocyclo
 	return func(r *config.Resource) {
-		if r.ShortGroup == "iam" || r.ShortGroup == "opsworks" {
+		if !HasRegion(r.ShortGroup) {
 			return
 		}
 		c := "Region is the region you'd like your resource to be created in.\n"
@@ -62,6 +64,16 @@ func RegionAddition() config.ResourceOption { //nolint:gocyclo
 			}
 		}
 	}
+}
+
+// HasRegion checks whether the shortGroup has field region.
+func HasRegion(shortGroup string) bool {
+	for _, sg := range shortGroupsWithoutRegion {
+		if sg == shortGroup {
+			return false
+		}
+	}
+	return true
 }
 
 // TagsAllRemoval removes the tags_all field that is used only in tfstate to
