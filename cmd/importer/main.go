@@ -97,15 +97,7 @@ func main() {
 			panic(err)
 		}
 
-		deleted := make([]string, 0)
-		for k, v := range converted {
-			if v == nil {
-				deleted = append(deleted, k)
-			}
-		}
-		for _, k := range deleted {
-			delete(converted, k)
-		}
+		removeNullValues(converted)
 		re.Paved = *fieldpath.Pave(converted)
 		exArr = append(exArr, re)
 	}
@@ -145,5 +137,17 @@ func main() {
 		if err := gen.StoreExamples(); err != nil {
 			panic(err)
 		}
+	}
+}
+
+func removeNullValues(m map[string]any) {
+	deleted := make([]string, 0)
+	for k, v := range m {
+		if v == nil {
+			deleted = append(deleted, k)
+		}
+	}
+	for _, k := range deleted {
+		delete(m, k)
 	}
 }
