@@ -143,13 +143,52 @@ func main() {
 }
 
 func removeNullValues(m map[string]any) {
-	deleted := make([]string, 0)
 	for k, v := range m {
-		if v == nil {
-			deleted = append(deleted, k)
+		switch val := v.(type) {
+		case nil:
+			// Remove nil values directly
+			delete(m, k)
+		case map[string]any:
+			// Recursive call if the value is another map
+			removeNullValues(val)
+			if len(val) == 0 { // Check if nested map is now empty
+				delete(m, k)
+			}
+		case []interface{}:
+			// Handle slices of interfaces, which might contain maps or other slices
+			updatedSlice := removeNilFromSlice(val)
+			if len(updatedSlice) == 0 { // Check if slice is now empty
+				delete(m, k)
+			} else {
+				m[k] = updatedSlice // Update the map with the modified slice
+			}
 		}
 	}
-	for _, k := range deleted {
-		delete(m, k)
+}
+
+func removeNilFromSlice(slice []interface{}) []interface{} {
+	result := make([]interface{}, 0, len(slice))
+	for _, elem := range slice {
+		switch e := elem.(type) {
+		case nil:
+			// Skip nil elements
+			continue
+		case map[string]any:
+			// Recursive removal for maps within the slice
+			removeNullValues(e)
+			if len(e) != 0 {
+				result = append(result, e)
+			}
+		case []interface{}:
+			// Recursively handle nested slices
+			nestedSlice := removeNilFromSlice(e)
+			if len(nestedSlice) != 0 {
+				result = append(result, nestedSlice)
+			}
+		default:
+			// Append non-nil, non-map elements directly
+			result = append(result, elem)
+		}
 	}
+	return result
 }
