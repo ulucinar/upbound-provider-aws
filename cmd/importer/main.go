@@ -33,6 +33,7 @@ func main() {
 		app       = kingpin.New("importer", "Imports a set of resources from the specified Terraform workspace.").DefaultEnvars()
 		workspace = app.Flag("workspace", "The path of the Terraform workspace.").Short('w').Default(".").ExistingDir()
 		output    = app.Flag("output", "Output directory where the generated MR manifests will be dumped.").Short('o').String()
+		region    = app.Flag("region", "Region of the generated MR manifests.").Short('r').Required().String()
 	)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
@@ -134,6 +135,10 @@ func main() {
 		}
 
 		if err := pm.Paved.SetValue("spec.deletionPolicy", "Orphan"); err != nil {
+			panic(err)
+		}
+
+		if err := pm.Paved.SetValue("spec.forProvider.region", *region); err != nil {
 			panic(err)
 		}
 
