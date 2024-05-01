@@ -17,6 +17,11 @@ import (
 	"github.com/upbound/provider-aws/config"
 )
 
+type parsedState struct {
+	externalNames   map[string]string
+	outputVariables map[string]any
+}
+
 func readInstanceStateFromFile(tfStateFilePath string) (*terraform.State, error) {
 	tfStateFile, err := os.Open(tfStateFilePath)
 	if err != nil {
@@ -39,7 +44,8 @@ func readInstanceStateFromFile(tfStateFilePath string) (*terraform.State, error)
 	return &tfState, nil
 }
 
-func ExtractExternalNames(ctx context.Context, tfStatePath string) (map[string]string, error) {
+func extractExternalNames(ctx context.Context, tfStatePath string) (*parsedState, error) {
+	parsed := &parsedState{}
 	provider, err := config.GetProvider(ctx, true)
 	if err != nil {
 		return nil, err
@@ -51,14 +57,14 @@ func ExtractExternalNames(ctx context.Context, tfStatePath string) (map[string]s
 	}
 
 	if tfState.Empty() {
-		return map[string]string{}, nil
+		return parsed, nil
 	}
 
 	if len(tfState.Modules) == 0 {
-		return map[string]string{}, nil
+		return parsed, nil
 	}
 
-	results := make(map[string]string, len(tfState.Modules[0].Resources))
+	parsed.externalNames = make(map[string]string, len(tfState.Modules[0].Resources))
 	for resEntryKey, tfRes := range tfState.Modules[0].Resources {
 		resType := tfRes.Type
 		ujResourse, ok := provider.Resources[resType]
@@ -75,10 +81,14 @@ func ExtractExternalNames(ctx context.Context, tfStatePath string) (map[string]s
 		if err != nil {
 			return nil, errors.Wrapf(err, "cannot get external name for %s", resEntryKey)
 		}
-		results[resEntryKey] = externalName
+		parsed.externalNames[resEntryKey] = externalName
 	}
 
-	return results, nil
+	parsed.outputVariables = make(map[string]any, len(tfState.Modules[0].Outputs))
+	for k, s := range tfState.Modules[0].Outputs {
+		parsed.outputVariables[k] = s.Value
+	}
+	return parsed, nil
 }
 
 func fromInstanceStateToJSONMap(tfRes *schema.Resource, newState *terraform.InstanceState) (map[string]interface{}, error) {

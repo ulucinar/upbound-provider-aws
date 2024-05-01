@@ -10,6 +10,8 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
+	"strings"
 
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
@@ -32,6 +34,10 @@ const (
 	blockResource = "resource"
 	tfStateFile   = "terraform.tfstate"
 	tfExt         = ".tf"
+)
+
+var (
+	reTFReference = regexp.MustCompile(`^\$\{([^{}]+)}$`)
 )
 
 func main() {
@@ -133,6 +139,12 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 	}
 	cfg.MetaResource.Name = resourceName
 
+	tfState := filepath.Join(workspace, tfStateFile)
+	pState, err := extractExternalNames(ctx, tfState)
+	if err != nil {
+		return errors.Wrapf(err, "failed to extract external names from the Terraform state %s", tfState)
+	}
+
 	exArr := make([]registry.ResourceExample, 0, len(cfg.MetaResource.Examples))
 	for _, re := range cfg.MetaResource.Examples {
 		if err := re.Paved.UnmarshalJSON([]byte(re.Manifest)); err != nil {
@@ -149,15 +161,9 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 			return errors.Wrap(err, "failed to convert the Terraform state value to JSON map")
 		}
 
-		removeNullValues(converted)
+		processValues(converted, pState.outputVariables)
 		re.Paved = *fieldpath.Pave(converted)
 		exArr = append(exArr, re)
-	}
-
-	tfState := filepath.Join(workspace, tfStateFile)
-	extNames, err := ExtractExternalNames(ctx, tfState)
-	if err != nil {
-		return errors.Wrapf(err, "failed to extract external names from the Terraform state %s", tfState)
 	}
 
 	for _, re := range exArr {
@@ -170,7 +176,7 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 		}
 
 		pm := gen.GetPavedWithManifest(fmt.Sprintf("%s.*", resourceName))
-		if err := finalizeManifest(pm, extNames[fmt.Sprintf("%s.%s", resourceName, re.Name)], cfg.ShortGroup, region); err != nil {
+		if err := finalizeManifest(pm, pState.externalNames[fmt.Sprintf("%s.%s", resourceName, re.Name)], cfg.ShortGroup, region); err != nil {
 			return err
 		}
 
@@ -204,7 +210,9 @@ func finalizeManifest(pm *reference.PavedWithManifest, extName, shortGroup, regi
 	return nil
 }
 
-func removeNullValues(m map[string]any) {
+// processValues removes the null values from the map[string]any representation
+// and resolves the values for the output variables.
+func processValues(m map[string]any, outputVars map[string]any) {
 	for k, v := range m {
 		switch val := v.(type) {
 		case nil:
@@ -212,23 +220,25 @@ func removeNullValues(m map[string]any) {
 			delete(m, k)
 		case map[string]any:
 			// Recursive call if the value is another map
-			removeNullValues(val)
+			processValues(val, outputVars)
 			if len(val) == 0 { // Check if nested map is now empty
 				delete(m, k)
 			}
 		case []interface{}:
 			// Handle slices of interfaces, which might contain maps or other slices
-			updatedSlice := removeNilFromSlice(val)
+			updatedSlice := processSlice(val, outputVars)
 			if len(updatedSlice) == 0 { // Check if slice is now empty
 				delete(m, k)
 			} else {
 				m[k] = updatedSlice // Update the map with the modified slice
 			}
+		case string:
+			m[k] = resolveOutputVar(val, outputVars)
 		}
 	}
 }
 
-func removeNilFromSlice(slice []interface{}) []interface{} {
+func processSlice(slice []interface{}, outputVars map[string]any) []interface{} {
 	result := make([]interface{}, 0, len(slice))
 	for _, elem := range slice {
 		switch e := elem.(type) {
@@ -237,20 +247,36 @@ func removeNilFromSlice(slice []interface{}) []interface{} {
 			continue
 		case map[string]any:
 			// Recursive removal for maps within the slice
-			removeNullValues(e)
+			processValues(e, outputVars)
 			if len(e) != 0 {
 				result = append(result, e)
 			}
 		case []interface{}:
 			// Recursively handle nested slices
-			nestedSlice := removeNilFromSlice(e)
+			nestedSlice := processSlice(e, outputVars)
 			if len(nestedSlice) != 0 {
 				result = append(result, nestedSlice)
 			}
+		case string:
+			result = append(result, resolveOutputVar(e, outputVars))
 		default:
 			// Append non-nil, non-map elements directly
 			result = append(result, elem)
 		}
+	}
+	return result
+}
+
+func resolveOutputVar(v string, outputVars map[string]any) any {
+	g := reTFReference.FindStringSubmatch(v)
+	if len(g) < 2 {
+		return v // not a reference to an output variable
+	}
+	parts := strings.Split(g[1], ".")
+	k := parts[len(parts)-1]
+	result := outputVars[k]
+	if result == "" {
+		return v
 	}
 	return result
 }
