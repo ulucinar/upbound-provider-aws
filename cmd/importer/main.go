@@ -11,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"strings"
 
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
@@ -42,10 +41,10 @@ var (
 
 func main() {
 	var (
-		app       = kingpin.New("importer", "Imports a set of resources from the specified Terraform workspace.").DefaultEnvars()
-		workspace = app.Flag("workspace", "The path of the Terraform workspace.").Short('w').Default(".").ExistingDir()
-		output    = app.Flag("output", "Output directory where the generated MR manifests will be dumped.").Short('o').String()
-		region    = app.Flag("region", "Region of the generated MR manifests.").Short('r').Required().String()
+		app     = kingpin.New("importer", "Imports a set of resources from the specified Terraform workspace.").DefaultEnvars()
+		rootDir = app.Flag("root-dir", "The path of the root directory of the Terraform workspaces.").Short('d').Default(".").ExistingDir()
+		output  = app.Flag("output", "Output directory where the generated MR manifests will be dumped.").Short('o').String()
+		region  = app.Flag("region", "Region of the generated MR manifests.").Short('r').Required().String()
 	)
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
@@ -53,24 +52,26 @@ func main() {
 	logr := logging.NewLogrLogger(zl.WithName("importer-aws"))
 
 	ctx := context.Background()
-	kingpin.FatalIfError(filepath.WalkDir(*workspace, func(path string, d fs.DirEntry, err error) error {
-		if d.IsDir() {
-			if path == *workspace {
-				return nil
-			}
-			// only configurations in the root directory are considered
-			return fs.SkipDir
-		}
-		if filepath.Ext(path) != tfExt {
+	ps := &parsedState{}
+	// load all the available Terraform state
+	kingpin.FatalIfError(filepath.WalkDir(*rootDir, func(path string, d fs.DirEntry, err error) error {
+		if d.IsDir() || filepath.Base(path) != tfStateFile {
 			return nil
 		}
-		kingpin.FatalIfError(convertHCLConfiguration(ctx, logr, path, *output, *region), "Failed to convert the HCL configuration at path %s", path)
+		kingpin.FatalIfError(ps.addStateFrom(ctx, path), "Failed to load the Terraform state from path %s", path)
 		return nil
-	}), "Failed to discover the HCL configurations in the Terraform workspace %s", *workspace)
+	}), "Failed to discover all the Terraform states from the root directory %s", *rootDir)
+
+	kingpin.FatalIfError(filepath.WalkDir(*rootDir, func(path string, d fs.DirEntry, err error) error {
+		if d.IsDir() || filepath.Ext(path) != tfExt {
+			return nil
+		}
+		kingpin.FatalIfError(convertHCLConfiguration(ctx, logr, ps, path, *output, *region), "Failed to convert the HCL configuration at path %s", path)
+		return nil
+	}), "Failed to discover the HCL configurations in the Terraform workspace %s", *rootDir)
 }
 
-func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, output, region string) error {
-	workspace := filepath.Dir(hclPath)
+func convertHCLConfiguration(ctx context.Context, logr logging.Logger, pState *parsedState, hclPath, output, region string) error {
 	pc, err := config.GetProvider(ctx, true)
 	if err != nil {
 		return errors.Wrap(err, "failed to get the provider's configuration")
@@ -100,7 +101,7 @@ func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, 
 				continue
 			}
 			processedTypes[resourceName] = struct{}{}
-			if err := convertType(ctx, logr, pc, workspace, hclPath, resourceName, output, region, f, getResourceBlocks(body.Blocks, resourceName)); err != nil {
+			if err := convertType(logr, pc, pState, hclPath, resourceName, output, region, f, getResourceBlocks(body.Blocks, resourceName)); err != nil {
 				return err
 			}
 		}
@@ -123,7 +124,7 @@ func getResourceBlocks(blocks hclsyntax.Blocks, resourceName string) hclsyntax.B
 	return trimmed
 }
 
-func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider, workspace, hclPath, resourceName, output, region string, f *hcl.File, blocks hclsyntax.Blocks) error {
+func convertType(logr logging.Logger, pc *ujconfig.Provider, pState *parsedState, hclPath, resourceName, output, region string, f *hcl.File, blocks hclsyntax.Blocks) error {
 	cfg := pc.Resources[resourceName]
 	if cfg == nil {
 		logr.Info("Skipping resource because no configuration was found for it", "file", hclPath, "resource", resourceName)
@@ -139,12 +140,10 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 	}
 	cfg.MetaResource.Name = resourceName
 
-	tfState := filepath.Join(workspace, tfStateFile)
-	pState, err := extractExternalNames(ctx, tfState)
+	tfStatePath, err := getStateFilePath(hclPath)
 	if err != nil {
-		return errors.Wrapf(err, "failed to extract external names from the Terraform state %s", tfState)
+		return err
 	}
-
 	exArr := make([]registry.ResourceExample, 0, len(cfg.MetaResource.Examples))
 	for _, re := range cfg.MetaResource.Examples {
 		if err := re.Paved.UnmarshalJSON([]byte(re.Manifest)); err != nil {
@@ -161,7 +160,7 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 			return errors.Wrap(err, "failed to convert the Terraform state value to JSON map")
 		}
 
-		processValues(converted, pState.outputVariables)
+		processValues(tfStatePath, converted, pState)
 		re.Paved = *fieldpath.Pave(converted)
 		exArr = append(exArr, re)
 	}
@@ -175,8 +174,9 @@ func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider
 			return errors.Wrap(err, "failed to convert the HCL configuration to an MR manifest")
 		}
 
+		extName := pState.getExtName(tfStatePath, fmt.Sprintf("%s.%s", resourceName, re.Name))
 		pm := gen.GetPavedWithManifest(fmt.Sprintf("%s.*", resourceName))
-		if err := finalizeManifest(pm, pState.externalNames[fmt.Sprintf("%s.%s", resourceName, re.Name)], cfg.ShortGroup, region); err != nil {
+		if err := finalizeManifest(pm, extName, cfg.ShortGroup, region); err != nil {
 			return err
 		}
 
@@ -212,7 +212,7 @@ func finalizeManifest(pm *reference.PavedWithManifest, extName, shortGroup, regi
 
 // processValues removes the null values from the map[string]any representation
 // and resolves the values for the output variables.
-func processValues(m map[string]any, outputVars map[string]any) {
+func processValues(tfStatePath string, m map[string]any, pState *parsedState) {
 	for k, v := range m {
 		switch val := v.(type) {
 		case nil:
@@ -220,25 +220,25 @@ func processValues(m map[string]any, outputVars map[string]any) {
 			delete(m, k)
 		case map[string]any:
 			// Recursive call if the value is another map
-			processValues(val, outputVars)
+			processValues(tfStatePath, val, pState)
 			if len(val) == 0 { // Check if nested map is now empty
 				delete(m, k)
 			}
 		case []interface{}:
 			// Handle slices of interfaces, which might contain maps or other slices
-			updatedSlice := processSlice(val, outputVars)
+			updatedSlice := processSlice(tfStatePath, val, pState)
 			if len(updatedSlice) == 0 { // Check if slice is now empty
 				delete(m, k)
 			} else {
 				m[k] = updatedSlice // Update the map with the modified slice
 			}
 		case string:
-			m[k] = resolveOutputVar(val, outputVars)
+			m[k] = resolveHCLRef(tfStatePath, val, pState)
 		}
 	}
 }
 
-func processSlice(slice []interface{}, outputVars map[string]any) []interface{} {
+func processSlice(tfStatePath string, slice []interface{}, pState *parsedState) []interface{} {
 	result := make([]interface{}, 0, len(slice))
 	for _, elem := range slice {
 		switch e := elem.(type) {
@@ -247,18 +247,18 @@ func processSlice(slice []interface{}, outputVars map[string]any) []interface{} 
 			continue
 		case map[string]any:
 			// Recursive removal for maps within the slice
-			processValues(e, outputVars)
+			processValues(tfStatePath, e, pState)
 			if len(e) != 0 {
 				result = append(result, e)
 			}
 		case []interface{}:
 			// Recursively handle nested slices
-			nestedSlice := processSlice(e, outputVars)
+			nestedSlice := processSlice(tfStatePath, e, pState)
 			if len(nestedSlice) != 0 {
 				result = append(result, nestedSlice)
 			}
 		case string:
-			result = append(result, resolveOutputVar(e, outputVars))
+			result = append(result, resolveHCLRef(tfStatePath, e, pState))
 		default:
 			// Append non-nil, non-map elements directly
 			result = append(result, elem)
@@ -267,16 +267,10 @@ func processSlice(slice []interface{}, outputVars map[string]any) []interface{} 
 	return result
 }
 
-func resolveOutputVar(v string, outputVars map[string]any) any {
+func resolveHCLRef(tfStatePath, v string, pState *parsedState) any {
 	g := reTFReference.FindStringSubmatch(v)
 	if len(g) < 2 {
 		return v // not a reference to an output variable
 	}
-	parts := strings.Split(g[1], ".")
-	k := parts[len(parts)-1]
-	result := outputVars[k]
-	if result == "" {
-		return v
-	}
-	return result
+	return pState.resolveRef(tfStatePath, g[1])
 }
