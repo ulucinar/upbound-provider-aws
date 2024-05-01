@@ -13,9 +13,11 @@ import (
 
 	"github.com/crossplane/crossplane-runtime/pkg/fieldpath"
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
+	ujconfig "github.com/crossplane/upjet/pkg/config"
 	"github.com/crossplane/upjet/pkg/examples"
 	"github.com/crossplane/upjet/pkg/registry"
 	"github.com/crossplane/upjet/pkg/registry/reference"
+	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclparse"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -83,22 +85,39 @@ func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, 
 	if !ok {
 		return errors.New("not an HCL Body")
 	}
-	trimmed := make(hclsyntax.Blocks, 0, len(body.Blocks))
 	resourceName := ""
+	processedTypes := make(map[string]struct{})
 	for _, b := range body.Blocks {
 		if b.Type == blockResource {
-			trimmed = append(trimmed, b)
-			// TODO: we need to handle multiple resource types in a single HCL
 			resourceName = b.Labels[0]
+			if _, ok := processedTypes[resourceName]; ok {
+				continue
+			}
+			processedTypes[resourceName] = struct{}{}
+			if err := convertType(ctx, logr, pc, workspace, hclPath, resourceName, output, region, f, getResourceBlocks(body.Blocks, resourceName)); err != nil {
+				return err
+			}
 		}
 	}
 
 	if resourceName == "" {
 		// HCL configuration does not contain a resource block
 		logr.Info("Skipping non-resource configuration file", "file", hclPath)
-		return nil
 	}
+	return nil
+}
 
+func getResourceBlocks(blocks hclsyntax.Blocks, resourceName string) hclsyntax.Blocks {
+	trimmed := make(hclsyntax.Blocks, 0, len(blocks))
+	for _, b := range blocks {
+		if b.Type == blockResource && b.Labels[0] == resourceName {
+			trimmed = append(trimmed, b)
+		}
+	}
+	return trimmed
+}
+
+func convertType(ctx context.Context, logr logging.Logger, pc *ujconfig.Provider, workspace, hclPath, resourceName, output, region string, f *hcl.File, blocks hclsyntax.Blocks) error {
 	cfg := pc.Resources[resourceName]
 	if cfg == nil {
 		logr.Info("Skipping resource because no configuration was found for it", "file", hclPath, "resource", resourceName)
@@ -109,8 +128,7 @@ func convertHCLConfiguration(ctx context.Context, logr logging.Logger, hclPath, 
 	version := cfg.Version
 
 	cfg.MetaResource.Examples = nil
-	body.Blocks = trimmed
-	if err := cfg.MetaResource.FindExampleBlock(f, body.Blocks, &resourceName, true); err != nil {
+	if err := cfg.MetaResource.FindExampleBlock(f, blocks, &resourceName, true); err != nil {
 		return errors.Wrapf(err, "failed to find a resource configuration block for resource %q", resourceName)
 	}
 	cfg.MetaResource.Name = resourceName
