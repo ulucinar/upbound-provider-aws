@@ -40,6 +40,7 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 		r.UseAsync = true
 
 		r.Version = "v1beta2"
+		r.PreviousVersions = []string{"v1beta1"}
 		r.Conversions = append(r.Conversions,
 			conversion.NewCustomConverter("v1beta1", "v1beta2", func(src, target xpresource.Managed) error {
 				srcTyped := src.(*v1beta1.Cluster)
@@ -244,14 +245,6 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 			TerraformName:     "aws_subnet",
 			RefFieldName:      "SubnetIDRefs",
 			SelectorFieldName: "SubnetIDSelector",
-		}
-		r.OverrideFieldNames = map[string]string{
-			"ClientAuthenticationParameters":     "ServerlessClusterClientAuthenticationParameters",
-			"ClientAuthenticationInitParameters": "ServerlessClusterClientAuthenticationInitParameters",
-			"ClientAuthenticationObservation":    "ServerlessClusterClientAuthenticationObservation",
-			"SaslParameters":                     "ClientAuthenticationSaslParameters",
-			"SaslInitParameters":                 "ClientAuthenticationSaslInitParameters",
-			"SaslObservation":                    "ClientAuthenticationSaslObservation",
 		}
 	})
 }

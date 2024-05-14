@@ -35,6 +35,7 @@ func Configure(p *config.Provider) {
 		r.UseAsync = true
 
 		r.Version = "v1beta2"
+		r.PreviousVersions = []string{"v1beta1"}
 		r.Conversions = append(r.Conversions,
 			conversion.NewCustomConverter("v1beta1", "v1beta2", autoScalingGroupConverterFromv1beta1Tov1beta2),
 			conversion.NewCustomConverter("v1beta2", "v1beta1", autoScalingGroupConverterFromv1beta2Tov1beta1),
@@ -52,11 +53,6 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("aws_autoscaling_group_tag", func(r *config.Resource) {
 		r.References["autoscaling_group_name"] = config.Reference{
 			Type: "github.com/upbound/provider-aws/apis/autoscaling/v1beta1.AutoscalingGroup",
-		}
-		r.OverrideFieldNames = map[string]string{
-			"TagParameters":     "GroupTagTagParameters",
-			"TagObservation":    "GroupTagTagObservation",
-			"TagInitParameters": "GroupTagTagInitParameters",
 		}
 	})
 }

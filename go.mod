@@ -289,3 +289,5 @@ replace (
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.2.10 => github.com/aws/aws-sdk-go-v2/internal/configsources v1.2.9
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.10 => github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.9
 )
+
+replace github.com/crossplane/upjet => github.com/ulucinar/upbound-upjet v0.0.0-20240514111512-b5622a10e14d
