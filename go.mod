@@ -109,6 +109,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/medialive v1.43.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/mediapackage v1.28.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/mediapackagev2 v1.7.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/mq v1.20.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/oam v1.7.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.9.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/osis v1.6.5 // indirect
@@ -279,7 +280,9 @@ require (
 
 replace golang.org/x/exp => golang.org/x/exp v0.0.0-20231006140011-7918f672742d
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/upbound/terraform-provider-aws v0.0.0-20240328111213-f2f0fdd63866
+// replace github.com/hashicorp/terraform-provider-aws => github.com/upbound/terraform-provider-aws v0.0.0-20240328111213-f2f0fdd63866
+
+replace github.com/hashicorp/terraform-provider-aws => github.com/mergenci/upbound-terraform-provider-aws v0.0.0-20240514084246-ff919c11b08e
 
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 

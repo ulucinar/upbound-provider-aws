@@ -166,6 +166,8 @@ github.com/aws/aws-sdk-go-v2/service/mediapackage v1.28.5 h1:z+b1lClMC3rSxlUQqRb
 github.com/aws/aws-sdk-go-v2/service/mediapackage v1.28.5/go.mod h1:wGaElJ8kmGJ08nnirzZ/6iWKqBPErlHqtpkbx9go82Q=
 github.com/aws/aws-sdk-go-v2/service/mediapackagev2 v1.7.5 h1:tkFfqFu8yx0AmRZAlwcF6hdDf7E7J+0P4tRAtfVB2bA=
 github.com/aws/aws-sdk-go-v2/service/mediapackagev2 v1.7.5/go.mod h1:pPsl4jKNPkhp2unuSQ3upeQ+9U8onSOPA2B++m5bD8o=
+github.com/aws/aws-sdk-go-v2/service/mq v1.20.7 h1:d4hynfHB+JsY5zcek4ITxVnVEkkxa7ZZDJW6OOPwEeQ=
+github.com/aws/aws-sdk-go-v2/service/mq v1.20.7/go.mod h1:PHzqJZbmPmkFXCZiaOdEY9KoGFYWD2lVO2Rv8Om1hSg=
 github.com/aws/aws-sdk-go-v2/service/oam v1.7.5 h1:Z5qjasrNlticGJVwZahvPiv7cnGeuEFGQ5AdCeTgf/0=
 github.com/aws/aws-sdk-go-v2/service/oam v1.7.5/go.mod h1:qwJgNmAMUGFkLgAgTtkZZpGf9Qe1L0PwMD4oXMeS9Ic=
 github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.9.5 h1:V+zBQiUAATdwx3rLbc4Em+G0IeqPtY1281lHMrTvIK4=
@@ -470,6 +472,8 @@ github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWE
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/matttproud/golang_protobuf_extensions/v2 v2.0.0 h1:jWpvCLoY8Z/e3VKvlsiIGKtc+UG6U5vzxaoagmhXfyg=
 github.com/matttproud/golang_protobuf_extensions/v2 v2.0.0/go.mod h1:QUyp042oQthUoa9bqDv0ER0wrtXnBruoNd7aNjkbP+k=
+github.com/mergenci/upbound-terraform-provider-aws v0.0.0-20240514084246-ff919c11b08e h1:c6ITCgnJrBmSln+eSdpvZMClNptPo8o4SkhbUhDlTio=
+github.com/mergenci/upbound-terraform-provider-aws v0.0.0-20240514084246-ff919c11b08e/go.mod h1:3Wg6PEZCkiheBr2AS3uizrIXG8hbDh4DxhctoktbV84=
 github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
@@ -556,8 +560,6 @@ github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcU
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/tmccombs/hcl2json v0.3.3 h1:+DLNYqpWE0CsOQiEZu+OZm5ZBImake3wtITYxQ8uLFQ=
 github.com/tmccombs/hcl2json v0.3.3/go.mod h1:Y2chtz2x9bAeRTvSibVRVgbLJhLJXKlUeIvjeVdnm4w=
-github.com/upbound/terraform-provider-aws v0.0.0-20240328111213-f2f0fdd63866 h1:pBLZE97vtQmP21UGdr+CCWuNilZZYDidbGdBauve6tM=
-github.com/upbound/terraform-provider-aws v0.0.0-20240328111213-f2f0fdd63866/go.mod h1:iJUX0JshS3o+xF8KZs+dcnR93xkK5dHr/FHh9jskl4Y=
 github.com/vmihailenco/msgpack v3.3.3+incompatible/go.mod h1:fy3FlTQTDXWkZ7Bh6AcGMlsjHatGryHQYUTf1ShIgkk=
 github.com/vmihailenco/msgpack v4.0.4+incompatible h1:dSLoQfGFAo3F6OoNhwUmLwVgaUXK79GlxNBwueZn0xI=
 github.com/vmihailenco/msgpack v4.0.4+incompatible/go.mod h1:fy3FlTQTDXWkZ7Bh6AcGMlsjHatGryHQYUTf1ShIgkk=
