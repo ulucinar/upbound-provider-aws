@@ -2,47 +2,22 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-apiVersion: mq.aws.upbound.io/v1alpha1
-kind: User
+apiVersion: mq.aws.upbound.io/v1beta2
+kind: Broker
 metadata:
   annotations:
-    meta.upbound.io/example-id: mq/v1alpha1/user
+    meta.upbound.io/example-id: mq/v1beta2/broker
   labels:
     testing.upbound.io/example-name: example
   name: example
 spec:
   forProvider:
-    brokerIdSelector:
-      matchLabels:
-        testing.upbound.io/example-name: example-user
-    # setting consoleAccess will result in an update loop till the broker is
-    # restarted...
-    # consoleAccess: true
-    passwordSecretRef:
-      key: password
-      name: mq-secret
-      namespace: upbound-system
-    username: test-user
-    region: us-west-1
-
----
-
-apiVersion: mq.aws.upbound.io/v1beta2
-kind: Broker
-metadata:
-  annotations:
-    meta.upbound.io/example-id: mq/v1alpha1/user
-  labels:
-    testing.upbound.io/example-name: example-user
-  name: user-example-broker
-spec:
-  forProvider:
     # Due to an existing Terrajet limitation, we cannot use "metadata.name" for "brokerName"
     # Details can be found in https://github.com/crossplane/terrajet/issues/280
-    brokerName: user-example-broker
+    brokerName: example-broker
     region: us-west-1
     securityGroupRefs:
-      - name: example
+    - name: example
     engineType: ActiveMQ
     engineVersion: 5.17.6
     hostInstanceType: mq.t2.micro
@@ -59,7 +34,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   annotations:
-    meta.upbound.io/example-id: mq/v1alpha1/user
+    meta.upbound.io/example-id: mq/v1beta2/broker
     uptest.upbound.io/pre-delete-hook: testhooks/delete-broker.sh
   labels:
     testing.upbound.io/example-name: mq-secret
@@ -75,7 +50,7 @@ apiVersion: ec2.aws.upbound.io/v1beta1
 kind: SecurityGroup
 metadata:
   annotations:
-    meta.upbound.io/example-id: mq/v1alpha1/user
+    meta.upbound.io/example-id: mq/v1beta2/broker
   labels:
     testing.upbound.io/example-name: example
   name: example
@@ -83,6 +58,6 @@ spec:
   forProvider:
     region: us-west-1
     description: Allow TLS inbound traffic
-    name: mq_broker
+    name: allow_tls
     tags:
-      Name: mq_broker
+      Name: allow_tls

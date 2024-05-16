@@ -5,9 +5,27 @@
 package mq
 
 import (
+	"encoding/json"
 	"fmt"
+	"strings"
+
+	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+
+	"github.com/pkg/errors"
+
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	"github.com/crossplane/upjet/pkg/config/conversion"
+
+	"github.com/upbound/provider-aws/apis/mq/v1beta2"
 
 	"github.com/crossplane/upjet/pkg/config"
+)
+
+const (
+	annotBrokerBootstrapUsers = "conversion.upjet.crossplane.io/spec.forProvider.bootstrapUsers"
+
+	argBrokerBootstrapUsers = "bootstrap_users"
+	argBrokerUser           = "user"
 )
 
 // Configure adds configurations for the mq group.
@@ -49,6 +67,78 @@ func Configure(p *config.Provider) {
 			}
 			return conn, nil
 		}
+
+		r.TerraformResource.Schema[argBrokerBootstrapUsers] = r.TerraformResource.Schema[argBrokerUser]
+		r.TerraformResource.Schema[argBrokerUser].Required = false
+		r.TerraformResource.Schema[argBrokerUser].Optional = true
+		r.TerraformResource.Schema[argBrokerBootstrapUsers].Required = false
+		r.TerraformResource.Schema[argBrokerBootstrapUsers].Optional = true
+		r.Version = "v1beta2"
+		r.PreviousVersions = []string{"v1beta1"}
+		r.SetCRDStorageVersion("v1beta1")
+		r.Conversions = append(r.Conversions, conversion.NewCustomConverter("v1beta2", "v1beta1", func(src, target xpresource.Managed) error {
+			sBroker := src.(*v1beta2.Broker)
+			if sBroker.Spec.ForProvider.BootstrapUsers == nil {
+				return nil
+			}
+
+			buff, err := json.Marshal(sBroker.Spec.ForProvider.BootstrapUsers)
+			if err != nil {
+				return errors.Wrap(err, "failed to marshal spec.forProvider.boostrapUsers into JSON")
+			}
+			an := target.GetAnnotations()
+			if an == nil {
+				an = make(map[string]string)
+			}
+			an[annotBrokerBootstrapUsers] = string(buff)
+			target.SetAnnotations(an)
+			return nil
+		}),
+			conversion.NewCustomConverter("v1beta1", "v1beta2", func(src, target xpresource.Managed) error {
+				an := src.GetAnnotations()
+				if an == nil || an[annotBrokerBootstrapUsers] == "" {
+					return nil
+				}
+				return errors.Wrapf(json.Unmarshal([]byte(an[annotBrokerBootstrapUsers]), &target.(*v1beta2.Broker).Spec.ForProvider.BootstrapUsers), "failed to unmarshal the %s annotations value as JSON: %s", annotBrokerBootstrapUsers, an[annotBrokerBootstrapUsers])
+			}))
+		r.TerraformConversions = []config.TerraformConversion{&brokerBootstrapUserConversion{}}
+		r.TerraformCustomDiff = func(diff *terraform.InstanceDiff, state *terraform.InstanceState, config *terraform.ResourceConfig) (*terraform.InstanceDiff, error) {
+			if state == nil || state.ID == "" {
+				return diff, nil
+			}
+			if diff == nil || config == nil || config.Raw == nil || config.Raw[argBrokerBootstrapUsers] == nil || config.Raw[argBrokerUser] == nil {
+				return diff, nil
+			}
+
+			userNames := make(map[string]struct{})
+			for _, v := range config.Raw[argBrokerUser].([]any) {
+				u := v.(map[string]any)
+				userNames[u["username"].(string)] = struct{}{}
+			}
+
+			var bootstrapUserNames []string
+			for _, v := range config.Raw[argBrokerBootstrapUsers].([]any) {
+				u := v.(map[string]any)
+				bootstrapUserNames = append(bootstrapUserNames, u["username"].(string))
+			}
+
+			for _, u := range bootstrapUserNames {
+				delete(userNames, u)
+			}
+			if len(userNames) == 0 {
+				// then all users are bootstrap users
+				for k := range diff.Attributes {
+					if strings.HasPrefix(k, "user.") {
+						delete(diff.Attributes, k)
+					}
+				}
+			}
+			return diff, nil
+		}
+
+		r.LateInitializer = config.LateInitializer{
+			IgnoredFields: []string{argBrokerUser},
+		}
 	})
 
 	p.AddResourceConfigurator("aws_mq_user", func(r *config.Resource) {
@@ -57,4 +147,19 @@ func Configure(p *config.Provider) {
 		}
 		r.Version = "v1alpha1"
 	})
+}
+
+type brokerBootstrapUserConversion struct{}
+
+func (b *brokerBootstrapUserConversion) Convert(params map[string]any, r *config.Resource, mode config.Mode) (map[string]any, error) {
+	if mode != config.ToTerraform {
+		return params, nil
+	}
+
+	bUsers, ok := params[argBrokerBootstrapUsers]
+	if !ok {
+		return params, nil
+	}
+	params[argBrokerUser] = bUsers
+	return params, nil
 }

@@ -13,8 +13,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/conversion"
 )
 
-// ConvertTo converts this ReplicationGroup to the hub type.
-func (tr *ReplicationGroup) ConvertTo(dstRaw conversion.Hub) error {
+// ConvertTo converts this Broker to the hub type.
+func (tr *Broker) ConvertTo(dstRaw conversion.Hub) error {
 	spokeVersion := tr.GetObjectKind().GroupVersionKind().Version
 	hubVersion := dstRaw.GetObjectKind().GroupVersionKind().Version
 	if err := ujconversion.RoundTrip(dstRaw.(resource.Terraformed), tr); err != nil {
@@ -23,8 +23,8 @@ func (tr *ReplicationGroup) ConvertTo(dstRaw conversion.Hub) error {
 	return nil
 }
 
-// ConvertFrom converts from the hub type to the ReplicationGroup type.
-func (tr *ReplicationGroup) ConvertFrom(srcRaw conversion.Hub) error {
+// ConvertFrom converts from the hub type to the Broker type.
+func (tr *Broker) ConvertFrom(srcRaw conversion.Hub) error {
 	spokeVersion := tr.GetObjectKind().GroupVersionKind().Version
 	hubVersion := srcRaw.GetObjectKind().GroupVersionKind().Version
 	if err := ujconversion.RoundTrip(tr, srcRaw.(resource.Terraformed)); err != nil {

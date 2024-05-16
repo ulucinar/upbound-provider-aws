@@ -125,6 +125,7 @@ import (
 	v1beta1memorydb "github.com/upbound/provider-aws/apis/memorydb/v1beta1"
 	v1alpha1 "github.com/upbound/provider-aws/apis/mq/v1alpha1"
 	v1beta1mq "github.com/upbound/provider-aws/apis/mq/v1beta1"
+	v1beta2mq "github.com/upbound/provider-aws/apis/mq/v1beta2"
 	v1beta1neptune "github.com/upbound/provider-aws/apis/neptune/v1beta1"
 	v1beta1networkfirewall "github.com/upbound/provider-aws/apis/networkfirewall/v1beta1"
 	v1beta1networkmanager "github.com/upbound/provider-aws/apis/networkmanager/v1beta1"
@@ -203,8 +204,6 @@ func init() {
 		v1beta1appsync.SchemeBuilder.AddToScheme,
 		v1beta1athena.SchemeBuilder.AddToScheme,
 		v1beta1autoscaling.SchemeBuilder.AddToScheme,
-		v1beta1autoscaling.SchemeBuilder.AddToScheme,
-		v1beta1autoscaling.SchemeBuilder.AddToScheme,
 		v1beta2.SchemeBuilder.AddToScheme,
 		v1beta1autoscalingplans.SchemeBuilder.AddToScheme,
 		v1beta1backup.SchemeBuilder.AddToScheme,
@@ -229,9 +228,6 @@ func init() {
 		v1beta1cognitoidp.SchemeBuilder.AddToScheme,
 		v1beta1configservice.SchemeBuilder.AddToScheme,
 		v1beta1connect.SchemeBuilder.AddToScheme,
-		v1beta1connect.SchemeBuilder.AddToScheme,
-		v1beta1connect.SchemeBuilder.AddToScheme,
-		v1beta1connect.SchemeBuilder.AddToScheme,
 		v1beta2connect.SchemeBuilder.AddToScheme,
 		v1beta1cur.SchemeBuilder.AddToScheme,
 		v1beta1dataexchange.SchemeBuilder.AddToScheme,
@@ -248,14 +244,12 @@ func init() {
 		v1beta1ds.SchemeBuilder.AddToScheme,
 		v1beta1dynamodb.SchemeBuilder.AddToScheme,
 		v1beta1ec2.SchemeBuilder.AddToScheme,
-		v1beta1ec2.SchemeBuilder.AddToScheme,
 		v1beta2ec2.SchemeBuilder.AddToScheme,
 		v1beta1ecr.SchemeBuilder.AddToScheme,
 		v1beta1ecrpublic.SchemeBuilder.AddToScheme,
 		v1beta1ecs.SchemeBuilder.AddToScheme,
 		v1beta1efs.SchemeBuilder.AddToScheme,
 		v1beta1eks.SchemeBuilder.AddToScheme,
-		v1beta1elasticache.SchemeBuilder.AddToScheme,
 		v1beta1elasticache.SchemeBuilder.AddToScheme,
 		v1beta2elasticache.SchemeBuilder.AddToScheme,
 		v1beta1elasticbeanstalk.SchemeBuilder.AddToScheme,
@@ -283,7 +277,6 @@ func init() {
 		v1beta1iot.SchemeBuilder.AddToScheme,
 		v1beta1ivs.SchemeBuilder.AddToScheme,
 		v1beta1kafka.SchemeBuilder.AddToScheme,
-		v1beta1kafka.SchemeBuilder.AddToScheme,
 		v1beta2kafka.SchemeBuilder.AddToScheme,
 		v1beta1kafkaconnect.SchemeBuilder.AddToScheme,
 		v1beta1kendra.SchemeBuilder.AddToScheme,
@@ -307,6 +300,7 @@ func init() {
 		v1beta1memorydb.SchemeBuilder.AddToScheme,
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1beta1mq.SchemeBuilder.AddToScheme,
+		v1beta2mq.SchemeBuilder.AddToScheme,
 		v1beta1neptune.SchemeBuilder.AddToScheme,
 		v1beta1networkfirewall.SchemeBuilder.AddToScheme,
 		v1beta1networkmanager.SchemeBuilder.AddToScheme,
@@ -318,7 +312,6 @@ func init() {
 		v1beta1qldb.SchemeBuilder.AddToScheme,
 		v1beta1quicksight.SchemeBuilder.AddToScheme,
 		v1beta1ram.SchemeBuilder.AddToScheme,
-		v1beta1rds.SchemeBuilder.AddToScheme,
 		v1beta1rds.SchemeBuilder.AddToScheme,
 		v1beta2rds.SchemeBuilder.AddToScheme,
 		v1beta1redshift.SchemeBuilder.AddToScheme,
