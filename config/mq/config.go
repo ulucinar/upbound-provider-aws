@@ -9,16 +9,13 @@ import (
 	"fmt"
 	"strings"
 
+	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
+	"github.com/crossplane/upjet/pkg/config"
+	"github.com/crossplane/upjet/pkg/config/conversion"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-
 	"github.com/pkg/errors"
 
-	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
-	"github.com/crossplane/upjet/pkg/config/conversion"
-
 	"github.com/upbound/provider-aws/apis/mq/v1beta2"
-
-	"github.com/crossplane/upjet/pkg/config"
 )
 
 const (
@@ -76,37 +73,52 @@ func Configure(p *config.Provider) {
 		r.Version = "v1beta2"
 		r.PreviousVersions = []string{"v1beta1"}
 		r.SetCRDStorageVersion("v1beta1")
-		r.Conversions = append(r.Conversions, conversion.NewCustomConverter("v1beta2", "v1beta1", func(src, target xpresource.Managed) error {
-			sBroker := src.(*v1beta2.Broker)
-			if sBroker.Spec.ForProvider.BootstrapUsers == nil {
-				return nil
-			}
+		r.Conversions = append(r.Conversions,
+			conversion.NewCustomConverter("v1beta2", "v1beta1", func(src, target xpresource.Managed) error {
+				sBroker := src.(*v1beta2.Broker)
+				an := target.GetAnnotations()
+				if an == nil {
+					an = make(map[string]string)
+				}
 
-			buff, err := json.Marshal(sBroker.Spec.ForProvider.BootstrapUsers)
-			if err != nil {
-				return errors.Wrap(err, "failed to marshal spec.forProvider.boostrapUsers into JSON")
-			}
-			an := target.GetAnnotations()
-			if an == nil {
-				an = make(map[string]string)
-			}
-			an[annotBrokerBootstrapUsers] = string(buff)
-			target.SetAnnotations(an)
-			return nil
-		}),
+				if sBroker.Spec.ForProvider.BootstrapUsers == nil {
+					if an[annotBrokerBootstrapUsers] == "" {
+						return nil
+					}
+					delete(an, annotBrokerBootstrapUsers)
+				} else {
+					buff, err := json.Marshal(sBroker.Spec.ForProvider.BootstrapUsers)
+					if err != nil {
+						return errors.Wrap(err, "failed to marshal spec.forProvider.boostrapUsers into JSON")
+					}
+					an[annotBrokerBootstrapUsers] = string(buff)
+				}
+				target.SetAnnotations(an)
+				return nil
+			}),
 			conversion.NewCustomConverter("v1beta1", "v1beta2", func(src, target xpresource.Managed) error {
 				an := src.GetAnnotations()
-				if an == nil || an[annotBrokerBootstrapUsers] == "" {
-					return nil
+				if an == nil {
+					an = make(map[string]string)
+				}
+
+				if an[annotBrokerBootstrapUsers] == "" {
+					an[annotBrokerBootstrapUsers] = "[]"
 				}
 				return errors.Wrapf(json.Unmarshal([]byte(an[annotBrokerBootstrapUsers]), &target.(*v1beta2.Broker).Spec.ForProvider.BootstrapUsers), "failed to unmarshal the %s annotations value as JSON: %s", annotBrokerBootstrapUsers, an[annotBrokerBootstrapUsers])
 			}))
 		r.TerraformConversions = []config.TerraformConversion{&brokerBootstrapUserConversion{}}
 		r.TerraformCustomDiff = func(diff *terraform.InstanceDiff, state *terraform.InstanceState, config *terraform.ResourceConfig) (*terraform.InstanceDiff, error) {
-			if state == nil || state.ID == "" {
+			if diff == nil {
 				return diff, nil
 			}
-			if diff == nil || config == nil || config.Raw == nil || config.Raw[argBrokerBootstrapUsers] == nil || config.Raw[argBrokerUser] == nil {
+			for k := range diff.Attributes {
+				if strings.HasPrefix(k, fmt.Sprintf("%s.", argBrokerBootstrapUsers)) {
+					delete(diff.Attributes, k)
+				}
+			}
+
+			if state == nil || state.ID == "" || config == nil || config.Raw == nil || config.Raw[argBrokerBootstrapUsers] == nil || config.Raw[argBrokerUser] == nil {
 				return diff, nil
 			}
 
@@ -151,7 +163,7 @@ func Configure(p *config.Provider) {
 
 type brokerBootstrapUserConversion struct{}
 
-func (b *brokerBootstrapUserConversion) Convert(params map[string]any, r *config.Resource, mode config.Mode) (map[string]any, error) {
+func (b *brokerBootstrapUserConversion) Convert(params map[string]any, _ *config.Resource, mode config.Mode) (map[string]any, error) {
 	if mode != config.ToTerraform {
 		return params, nil
 	}
