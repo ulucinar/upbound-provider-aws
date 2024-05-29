@@ -6,11 +6,11 @@ apiVersion: elasticache.aws.upbound.io/v1beta2
 kind: ReplicationGroup
 metadata:
   annotations:
-    meta.upbound.io/example-id: elasticache/v1beta1/replicationgroup
+    meta.upbound.io/example-id: elasticache/v1beta2/replicationgroup
     uptest.upbound.io/timeout: "3600"
   labels:
     testing.upbound.io/example-name: example
-  name: example
+  name: example-${Rand.RFC1123Subdomain}
 spec:
   forProvider:
     automaticFailoverEnabled: true
