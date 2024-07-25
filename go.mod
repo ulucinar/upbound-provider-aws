@@ -439,3 +439,5 @@ require (
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
 replace github.com/hashicorp/terraform-provider-aws => github.com/upbound/terraform-provider-aws v0.0.0-20241030110634-947d82e10dea
+
+replace github.com/crossplane/upjet => github.com/ulucinar/upbound-upjet v0.0.0-20241104205001-a08ecd7fe3d7
