@@ -6,7 +6,7 @@
 // The maximum number of PRs to be created in parallel
   "prConcurrentLimit": 5,
 // The branches renovate should target
-  "baseBranches": ["main"],
+  "baseBranches": ["release-1.18"],
   "ignorePaths": ["design/**"],
   "postUpdateOptions": ["gomodTidy"],
 // By default renovate will auto detect whether semantic commits have been used
@@ -19,6 +19,16 @@
     "enabled": true
   },
   "packageRules": [
+    {
+      description: 'Enable only security vulnerability updates on release branches',
+      matchBaseBranches: [
+        '/^release-.*/',
+      ],
+      matchUpdateTypes: [
+        "vulnerability"
+      ],
+      enabled: true
+    },
     {
 // We need to ignore k8s.io/client-go older versions as they switched to
 // semantic version and old tags are still available in the repo.
