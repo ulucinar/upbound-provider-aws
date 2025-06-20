@@ -4,7 +4,7 @@
 
 module github.com/upbound/provider-aws
 
-go 1.23.8
+go 1.23.10
 
 require (
 	dario.cat/mergo v1.0.1
@@ -307,7 +307,7 @@ require (
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/cedar-policy/cedar-go v0.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/cloudflare/circl v1.5.0 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/dave/jennifer v1.4.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.11.0 // indirect
