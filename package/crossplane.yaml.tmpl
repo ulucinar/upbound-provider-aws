@@ -36,7 +36,9 @@ metadata:
     meta.upbound.io/support: {{ .Support }}
     meta.upbound.io/verification: {{ .Verification }}
     meta.upbound.io/host: |
-      {{ if eq .BuildTag "oss" }}- XP{{ end -}}
+    {{- if eq .BuildTag "oss" }}
+      - XP
+    {{- end }}
       - UXP
       - Spaces
     {{- if ne .BuildTag "oss" }}
