@@ -9,17 +9,18 @@ metadata:
     meta.upbound.io/example-id: route53/v1beta1/record
   labels:
     testing.upbound.io/example-name: example
-  name: example
+  name: example-with-dot
 spec:
   forProvider:
     region: us-west-1
-    name: www
+    name: www.mycompany.test.
     records:
     - "dev.upbound.io"
     ttl: 5
     type: CNAME
-    zoneIdRef:
-      name: example
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
 ---
 apiVersion: route53.aws.upbound.io/v1beta1
 kind: Zone
@@ -28,7 +29,7 @@ metadata:
     meta.upbound.io/example-id: route53/v1beta1/record
   labels:
     testing.upbound.io/example-name: example
-  name: example
+  name: example-with-dot
 spec:
   forProvider:
     region: us-west-1
