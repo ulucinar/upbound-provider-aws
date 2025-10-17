@@ -57,6 +57,7 @@ endif
 BUILD_ONLY ?= false
 STORE_PACKAGES ?= ""
 XPKG_CLEANUP_EXAMPLES_VERSION ?= v0.12.1
+BUILD_TAG ?= oss
 batch-process: $(CROSSPLANE_CLI)
 	@rm -rf $(WORK_DIR)/xpkg-cleaned-examples
 	@GOOS=$(HOSTOS) GOARCH=$(TARGETARCH) go run github.com/upbound/uptest/cmd/cleanupexamples@$(XPKG_CLEANUP_EXAMPLES_VERSION) $(ROOT_DIR)/examples $(WORK_DIR)/xpkg-cleaned-examples || $(FAIL)
@@ -79,6 +80,7 @@ batch-process: $(CROSSPLANE_CLI)
 		--crd-group-override monolith=* --crd-group-override config=$(CONFIG_CRD_GROUP) \
 		--package-metadata-template $(XPKG_DIR)/crossplane.yaml.tmpl \
 		--template-var XpkgRegOrg=$(CONFIG_DEPENDENCY_REG_ORG) --template-var DepConstraint="$(DEP_CONSTRAINT)" --template-var ProviderName=$(PROVIDER_NAME) --template-var ProviderAuthGroup=$(PROVIDER_AUTH_GROUP) \
+		--template-var Support=Upbound --template-var Verification=Official --template-var BuildTag=$(BUILD_TAG) \
 		--concurrency $(CONCURRENCY) \
 		--push-retry 10 || $(FAIL)
 	@$(OK) Done processing smaller provider packages for: "$(SUBPACKAGES)"
