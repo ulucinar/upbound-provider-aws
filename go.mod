@@ -4,6 +4,8 @@
 
 module github.com/upbound/provider-aws
 
+tool golang.org/x/tools/cmd/goimports
+
 go 1.24.10
 
 require (
@@ -420,6 +422,7 @@ require (
 	golang.org/x/oauth2 v0.28.0 // indirect
 	golang.org/x/sync v0.18.0 // indirect
 	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/telemetry v0.0.0-20251008203120-078029d740a8 // indirect
 	golang.org/x/term v0.37.0 // indirect
 	golang.org/x/text v0.31.0 // indirect
 	golang.org/x/time v0.7.0 // indirect
