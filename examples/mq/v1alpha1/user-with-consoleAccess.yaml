@@ -16,6 +16,7 @@ spec:
     brokerIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example-user
+    consoleAccess: true
     passwordSecretRef:
       key: password
       name: mq-secret
@@ -57,11 +58,11 @@ spec:
   # this situation.
   initProvider:
     user:
-    - passwordSecretRef:
-        key: password
-        name: mq-secret
-        namespace: upbound-system
-      username: admin
+      - passwordSecretRef:
+          key: password
+          name: mq-secret
+          namespace: upbound-system
+        username: admin
 
 ---
 
