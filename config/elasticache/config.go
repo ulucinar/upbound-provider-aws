@@ -100,6 +100,7 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 			Optional:    true,
 			Description: desc.String(),
 		}
+		r.TerraformResource.Schema["at_rest_encryption_enabled"].Type = schema.TypeBool
 		r.InitializerFns = append(r.InitializerFns,
 			common.PasswordGenerator(
 				"spec.forProvider.authTokenSecretRef",

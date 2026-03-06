@@ -82,7 +82,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenSecretRef:
                     description: Password used to access a password protected server.
                       Can be specified only if transit_encryption_enabled = true.
@@ -692,7 +692,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenSecretRef:
                     description: |-
                       Password used to access a password protected server. Can be specified only if transit_encryption_enabled = true.
@@ -1454,7 +1454,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenUpdateStrategy:
                     description: Strategy to use when updating the auth_token. Valid
                       values are SET, ROTATE, and DELETE. Defaults to ROTATE.
@@ -1873,7 +1873,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenSecretRef:
                     description: |-
                       Password used to access a password protected server. Can be specified only if transit_encryption_enabled = true.
@@ -2462,7 +2462,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenSecretRef:
                     description: |-
                       Password used to access a password protected server. Can be specified only if transit_encryption_enabled = true.
@@ -3207,7 +3207,7 @@ spec:
                       Whether to enable encryption at rest.
                       When engine is redis, default is false.
                       When engine is valkey, default is true.
-                    type: string
+                    type: boolean
                   authTokenUpdateStrategy:
                     description: Strategy to use when updating the auth_token. Valid
                       values are SET, ROTATE, and DELETE. Defaults to ROTATE.
