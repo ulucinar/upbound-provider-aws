@@ -6,7 +6,7 @@ module github.com/upbound/provider-aws
 
 tool golang.org/x/tools/cmd/goimports
 
-go 1.24.11
+go 1.25.8
 
 require (
 	dario.cat/mergo v1.0.1
@@ -313,7 +313,7 @@ require (
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/cedar-policy/cedar-go v0.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/cloudflare/circl v1.6.1 // indirect
+	github.com/cloudflare/circl v1.6.3 // indirect
 	github.com/dave/jennifer v1.4.1 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/emicklei/go-restful/v3 v3.12.1 // indirect
