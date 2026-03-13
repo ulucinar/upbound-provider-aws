@@ -6,6 +6,7 @@ package elasticache
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
@@ -100,7 +101,11 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 			Optional:    true,
 			Description: desc.String(),
 		}
-		r.TerraformResource.Schema["at_rest_encryption_enabled"].Type = schema.TypeBool
+
+		// The type change must only be effective during generation, not runtime.
+		// r.TerraformResource.Schema["at_rest_encryption_enabled"].Type = schema.TypeBool
+		r.TerraformConversions = append(r.TerraformConversions, &boolToStringTerraformConverter{})
+
 		r.InitializerFns = append(r.InitializerFns,
 			common.PasswordGenerator(
 				"spec.forProvider.authTokenSecretRef",
@@ -225,4 +230,29 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 			SelectorFieldName: "UserIDSelector",
 		}
 	})
+}
+
+type boolToStringTerraformConverter struct {}
+
+func (c *boolToStringTerraformConverter) Convert(params map[string]any, _ *config.Resource, mode config.Mode) (map[string]any, error) {
+	switch mode {
+	case config.ToTerraform:
+		if v, ok := params["at_rest_encryption_enabled"]; ok {
+				if vb, ok := v.(bool); ok {
+					params["at_rest_encryption_enabled"] = strconv.FormatBool(vb)
+				}
+			}
+
+	case config.FromTerraform:
+		if v, ok := params["at_rest_encryption_enabled"]; ok {
+			if vs, ok := v.(string); ok && vs != "" {
+				vb, err := strconv.ParseBool(vs)
+				if err != nil {
+					return nil, errors.Wrapf(err, "failed to parse the value %q of the Terraform attribute 'at_rest_encryption_enabled'", vs)
+				}
+				params["at_rest_encryption_enabled"] = vb
+			}
+		}
+	}
+	return params, nil
 }
