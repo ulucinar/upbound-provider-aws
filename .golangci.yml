@@ -8,7 +8,10 @@ run:
   timeout: 90m
 
 output:
-  format: colored-line-number
+  formats:
+    text:
+      colors: true
+      print-linter-name: true
   show-stats: true
 
 formatters:
@@ -19,7 +22,8 @@ formatters:
     gofmt:
       simplify: true
     goimports:
-      local-prefixes: github.com/upbound/provider-aws
+      local-prefixes:
+        - github.com/upbound/provider-aws
 
 linters:
   default: none
@@ -111,10 +115,6 @@ linters:
       - text: "QF1008:"
         linters:
           - staticcheck
-
-      - text: "k8s.io/api/core/v1"
-        linters:
-          - goimports
 
       - text: "G101:"
         linters:
