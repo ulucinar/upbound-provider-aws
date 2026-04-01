@@ -7,11 +7,48 @@
 package v1beta1
 
 import (
+	"encoding/json"
+	"fmt"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
 	v1 "github.com/crossplane/crossplane-runtime/apis/common/v1"
 )
+
+// BoolOrStringString is stored canonically as a string, but can decode
+// from either:
+//   - true / false
+//   - "true" / "false"
+//   - any other JSON string
+type BoolOrStringString string
+
+func (b *BoolOrStringString) UnmarshalJSON(data []byte) error {
+	// First try string.
+	var s string
+	if err := json.Unmarshal(data, &s); err == nil {
+		*b = BoolOrStringString(s)
+		return nil
+	}
+
+	// Then try bool.
+	var v bool
+	if err := json.Unmarshal(data, &v); err == nil {
+		if v {
+			*b = BoolOrStringString("true")
+		} else {
+			*b = BoolOrStringString("false")
+		}
+		return nil
+	}
+
+	return fmt.Errorf("atRestEncryptionEnabled must be string or bool, got: %s", string(data))
+}
+
+func (b BoolOrStringString) MarshalJSON() ([]byte, error) {
+	// Always write back as string in the new canonical format.
+	return json.Marshal(string(b))
+}
 
 type ClusterModeInitParameters struct {
 
@@ -466,7 +503,7 @@ type ReplicationGroupParameters struct {
 	// When engine is redis, default is false.
 	// When engine is valkey, default is true.
 	// +kubebuilder:validation:Optional
-	AtRestEncryptionEnabled *string `json:"atRestEncryptionEnabled,omitempty" tf:"at_rest_encryption_enabled,omitempty"`
+	AtRestEncryptionEnabled *BoolOrStringString `json:"atRestEncryptionEnabled,omitempty" tf:"at_rest_encryption_enabled,omitempty"`
 
 	// Password used to access a password protected server. Can be specified only if transit_encryption_enabled = true.
 	// +kubebuilder:validation:Optional

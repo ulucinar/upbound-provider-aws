@@ -867,7 +867,7 @@ func (in *ReplicationGroupParameters) DeepCopyInto(out *ReplicationGroupParamete
 	}
 	if in.AtRestEncryptionEnabled != nil {
 		in, out := &in.AtRestEncryptionEnabled, &out.AtRestEncryptionEnabled
-		*out = new(string)
+		*out = new(BoolOrStringString)
 		**out = **in
 	}
 	if in.AuthTokenSecretRef != nil {
