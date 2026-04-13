@@ -78,8 +78,6 @@ export SUBPACKAGES := $(SUBPACKAGES)
 # Setup Kubernetes tools
 
 KIND_VERSION = v0.27.0
-UP_VERSION = v0.39.0
-UP_CHANNEL = stable
 UPTEST_VERSION = v0.11.1
 UPTEST_LOCAL_VERSION = v0.13.0
 UPTEST_LOCAL_CHANNEL = stable
@@ -87,9 +85,9 @@ KUSTOMIZE_VERSION = v5.3.0
 YQ_VERSION = v4.40.5
 CROSSPLANE_VERSION = 1.14.6
 CRDDIFF_VERSION = v0.12.1
+CROSSPLANE_CLI_VERSION = v2.0.2
 
-export UP_VERSION := $(UP_VERSION)
-export UP_CHANNEL := $(UP_CHANNEL)
+export CROSSPLANE_CLI_VERSION := $(CROSSPLANE_CLI_VERSION)
 
 -include build/makelib/k8s_tools.mk
 
@@ -174,7 +172,7 @@ run: go.build
 
 # NOTE(hasheddan): we ensure up is installed prior to running platform-specific
 # build steps in parallel to avoid encountering an installation race condition.
-build.init: $(UP)
+build.init: $(CROSSPLANE_CLI)
 
 # ====================================================================================
 # Setup Terraform for fetching provider schema
