@@ -6,7 +6,7 @@ module github.com/upbound/provider-aws
 
 tool golang.org/x/tools/cmd/goimports
 
-go 1.25.8
+go 1.25.9
 
 require (
 	dario.cat/mergo v1.0.1
