@@ -1,0 +1,952 @@
+# Static package metadata for crank xpkg batch --template-metadata-file.
+# Cloud provider is set on the package as meta.upbound.io/cloud-service-provider (see crossplane.yaml.tmpl).
+# Categories are search facets and may be used to filter the provider package in the Upbound Marketplace.
+#
+accessanalyzer:
+  ServiceCategories:
+  - security
+  - governance
+  ServiceDescription: 'Continuously analyzes IAM and resource policies for overly permissive S3, IAM, KMS, and cross-account
+    access paths; tune findings with archive rules for least-privilege and external-access (IAM Access Analyzer) governance.'
+account:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Manages account-level contacts and communication preferences for billing, operations, and security notices,
+    and controls which AWS Regions are available for resource creation in the account.'
+acm:
+  ServiceCategories:
+  - certificates
+  - security
+  ServiceDescription: 'Requests and renews public TLS 1.2+ certificates (RSA/ECC), automates DNS-01 or email validation, and
+    attaches them to ALB/NLB, API Gateway, and CloudFront for HTTPS and mutual-TLS patterns without manual PEM handling.'
+acmpca:
+  ServiceCategories:
+  - certificates
+  - security
+  ServiceDescription: 'Runs a private certificate authority for issuing internal TLS and client certificates, defines issuance
+    policies and permissions, and automates CA hierarchy and certificate lifecycle for workloads inside your org.'
+amp:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Hosts managed Prometheus workspaces to scrape metrics, store time series, and evaluate alerting rules
+    so you can monitor Kubernetes and AWS services with familiar PromQL and Alertmanager workflows.'
+amplify:
+  ServiceCategories:
+  - frontend
+  - compute
+  ServiceDescription: 'Builds and hosts full-stack web and mobile apps from Git (React, Next.js-friendly workflows), wires
+    Cognito auth and serverless APIs, and manages preview branches and webhooks for CI/CD-style frontend delivery.'
+apigateway:
+  ServiceCategories:
+  - api-management
+  - integration
+  ServiceDescription: 'Publishes REST/OpenAPI-style APIs with custom domains, Lambda or Cognito JWT authorizers, stages, and
+    integrations to Lambda, HTTP proxies, and AWS APIs; throttles traffic and fronts legacy HTTP backends behind one edge
+    endpoint.'
+apigatewayv2:
+  ServiceCategories:
+  - api-management
+  - integration
+  ServiceDescription: 'Delivers low-latency HTTP APIs and bidirectional WebSocket APIs with routes, JWT or Lambda auth,
+    VPC links to private integrations, and custom domains for modern microservice and real-time workloads.'
+appautoscaling:
+  ServiceCategories:
+  - compute
+  - scaling
+  ServiceDescription: 'Applies target tracking, step, and scheduled scaling policies to ECS services, DynamoDB, Aurora, and
+    other application resources so capacity follows demand without per-service custom autoscaler code.'
+appconfig:
+  ServiceCategories:
+  - management-tools
+  - configuration
+  ServiceDescription: 'Rolls out feature flags and configuration to applications using environments, deployment strategies,
+    and validation so you can stage releases, run experiments, and avoid big-bang config changes.'
+appflow:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Moves data between SaaS systems (e.g. Salesforce, Zendesk) and S3, Redshift, or Snowflake-bound sinks
+    with scheduled or event-triggered flows, field mapping, and incremental CDC-style sync without custom ETL workers.'
+appintegrations:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Connects third-party SaaS products into EventBridge so external events can drive automation and routing
+    alongside native AWS event sources.'
+applicationinsights:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Observes .NET, SQL Server, and IIS stacks to surface application problems, anomalies, and dependency
+    issues with guided diagnostics and CloudWatch integration for faster MTTR on business-critical apps.'
+appmesh:
+  ServiceCategories:
+  - networking
+  - service-mesh
+  ServiceDescription: 'Runs a service mesh that routes HTTP and gRPC between microservices with virtual nodes and gateways,
+    applies retries and traffic shifting, and gives uniform observability across ECS, EKS, and EC2 backends.'
+apprunner:
+  ServiceCategories:
+  - frontend
+  - compute
+  ServiceDescription: 'Runs containerized web services and APIs from a container image or source repo with built-in load
+    balancing, TLS, autoscaling, VPC connectivity, and GitHub connections for simple production hosting without managing
+    clusters.'
+appstream:
+  ServiceCategories:
+  - end-user-computing
+  ServiceDescription: 'Streams desktop applications or full non-persistent desktops to browsers, manages fleets and images,
+    and integrates with directories so software can be delivered securely without installing clients on end-user devices.'
+appsync:
+  ServiceCategories:
+  - api-management
+  - integration
+  ServiceDescription: 'Exposes managed GraphQL (AppSync) APIs with DynamoDB/Lambda/OpenSearch resolvers, WebSocket subscriptions,
+    AppSync caching, and Cognito/IAM fine-grained auth for mobile and web clients.'
+athena:
+  ServiceCategories:
+  - analytics
+  - query
+  ServiceDescription: 'Runs serverless ANSI SQL (Presto/Trino engine) over S3 data lakes—Parquet, ORC, Iceberg, and Glue
+    Data Catalog tables—with workgroups, saved queries, and governed access without provisioning query clusters.'
+autoscaling:
+  ServiceCategories:
+  - compute
+  - scaling
+  ServiceDescription: 'Defines Auto Scaling groups with launch templates and mixed instances, attaches load balancers, implements
+    lifecycle hooks and step scaling, and combines scheduled actions with dynamic policies to keep fleet size matched to load.'
+autoscalingplans:
+  ServiceCategories:
+  - compute
+  - scaling
+  ServiceDescription: 'Builds predictive and dynamic scaling plans that coordinate capacity across EC2, ECS, DynamoDB, and
+    related resources using a single strategy for applications with tightly coupled scaling signals.'
+backup:
+  ServiceCategories:
+  - storage
+  ServiceDescription: 'Centralizes backup policies and vaults, selects resources by tag or ARN, enforces legal hold and vault
+    lock, and supports copy jobs across Regions and accounts for ransomware-aware recovery.'
+batch:
+  ServiceCategories:
+  - compute
+  ServiceDescription: 'Schedules containerized batch, ML, and HPC jobs on EC2, Fargate, and Spot compute environments with job
+    queues, fair-share scheduling, and GPU instance types for CUDA/ML training offload.'
+bedrock:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Routes LLM inference through managed profiles to Anthropic, Amazon, Cohere, and other foundation models
+    with quotas, monitoring, and failover between model variants (RAG-ready when paired with knowledge bases).'
+bedrockagent:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Orchestrates generative-AI agents with tool use (function calling), retrieval-augmented generation from
+    knowledge bases, and multi-turn chat while you control prompts, guardrails, and model selection.'
+bedrockagentcore:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Hosts agent runtimes with secure HTTPS endpoints, long-horizon memory, gateways to tools and browsers,
+    OAuth/API key credential providers, and workload identity for safe code execution and enterprise API access.'
+budgets:
+  ServiceCategories:
+  - cost-management
+  ServiceDescription: 'Sets monthly or usage budgets with alerts and automated actions such as IAM policy changes or SNS
+    notifications when spend or forecast crosses thresholds.'
+ce:
+  ServiceCategories:
+  - cost-management
+  ServiceDescription: 'Monitors Cost Explorer anomaly detection for unexpected spend patterns so finance and platform teams
+    get early warning before bills spike.'
+chime:
+  ServiceCategories:
+  - media-services
+  - communication
+  ServiceDescription: 'Terminates SIP and PSTN voice into AWS, groups voice connectors, and configures origination, termination,
+    logging, and streaming for telephony workloads that integrate with enterprise phone systems.'
+cloud9:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Provisions cloud IDE environments backed by EC2 with shared access controls so developers edit, run,
+    and pair on code entirely in the browser.'
+cloudcontrol:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Creates, updates, deletes, and reads the same resources exposed through CloudFormation across hundreds
+    of AWS resource types using a uniform API when you need programmatic control beyond a single template.'
+cloudformation:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Drives CloudFormation stacks and stack sets across accounts and Regions so large fleets of resources
+    deploy and drift-correct from templates with delegated administration and instance-level overrides.'
+cloudfront:
+  ServiceCategories:
+  - cdn
+  - networking
+  ServiceDescription: 'Accelerates HTTP/HTTPS and HTTP/2 content at the edge with signed URLs (Canned/Custom policies), OAI/OAC
+    to S3, Lambda@Edge, CloudFront Functions, WAF integration, and VPC origins for private ALBs.'
+cloudsearch:
+  ServiceCategories:
+  - search
+  - analytics
+  ServiceDescription: 'Indexes and searches structured text with managed scaling and access policies so legacy search workloads
+    stay online without running your own search cluster.'
+cloudtrail:
+  ServiceCategories:
+  - compliance-audit
+  - governance
+  ServiceDescription: 'Records CloudTrail management and data events into S3-backed trails and Lake event data stores for SOC2,
+    ISO, and FedRAMP-style audit trails with Athena/SQL-friendly querying.'
+cloudwatch:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Raises composite and threshold alarms, publishes dashboards, and streams high-cardinality metrics to
+    destinations so teams detect incidents and capacity issues early.'
+cloudwatchevents:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Routes events on EventBridge buses with content filtering, archives, API destinations, and SaaS partner
+    integrations (Salesforce, Zendesk, etc.) for event-driven, near-real-time automation.'
+cloudwatchlogs:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Retains and searches application logs in groups, ships streams to analytics destinations, turns log
+    patterns into metrics, and enforces subscription filters for centralized security monitoring.'
+codeartifact:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Hosts private Maven, npm, Python, and NuGet repositories with domain-level IAM, upstream proxies, and
+    artifact policies so build systems pull dependencies from one governed feed.'
+codebuild:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Runs managed CI builds in Docker with buildspec.yml, on-demand or webhook triggers, GitHub/CodeCommit
+    sources, JUnit test reports, and Secrets Manager credentials for private npm/Maven feeds.'
+codecommit:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Stores Git repositories with branch policies, approval rule templates, and triggers that kick off
+    pipelines when teams push or merge.'
+codeguruprofiler:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Profiles JVM and Python applications in production to find hot methods and latency outliers without
+    intrusive agents beyond a lightweight agent configuration.'
+codepipeline:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Models continuous delivery pipelines that sequence source, build, test, and deploy actions across accounts
+    with custom actions and deployment gates.'
+codestarconnections:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Links GitHub, Bitbucket, and GitLab to AWS through hosted connections so CodePipeline and other services
+    clone repos without long-lived personal tokens on build hosts.'
+codestarnotifications:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Fans out build and deploy events to Chatbot, SNS, or other targets so teams get consistent notifications
+    from CodeSuite tools.'
+cognitoidentity:
+  ServiceCategories:
+  - identity-access
+  ServiceDescription: 'Issues temporary AWS credentials to mobile and web users mapped through identity pools linked to SAML,
+    OIDC, or social providers while scoping role assumptions with tags.'
+cognitoidp:
+  ServiceCategories:
+  - application-security
+  - identity-access
+  ServiceDescription: 'Runs managed user directories with hosted UI, MFA, passwordless flows, OAuth scopes, SAML federation,
+    risk-based adaptive auth, and app clients for web and mobile sign-in.'
+config:
+  ServiceCategories:
+  - configuration
+  - identity-access
+  ServiceDescription: 'Supplies ProviderConfig and related CRDs so workload clusters authenticate to AWS APIs; pair with
+    service-scoped provider-aws-* packages and the family provider for credentials wiring.'
+configservice:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Continuously records configuration snapshots, evaluates conformance packs and custom rules, aggregates
+    multi-account views, streams findings to remediation, and proves compliance posture over time.'
+connect:
+  ServiceCategories:
+  - customer-engagement
+  ServiceDescription: 'Operates cloud contact centers with call routing, queues, flows, Lex bots, telephony numbers, agent
+    profiles, and storage hooks so you can run voice and chat support without legacy ACD hardware.'
+cur:
+  ServiceCategories:
+  - cost-management
+  ServiceDescription: 'Delivers hourly or daily cost and usage reports to S3 in Parquet or CSV for finance warehouses, chargeback,
+    and deep cost allocation analysis.'
+dataexchange:
+  ServiceCategories:
+  - analytics
+  - data-sharing
+  ServiceDescription: 'Publishes and subscribes to licensed datasets and revisions so analytics teams consume third-party data
+    products with governed entitlements.'
+datapipeline:
+  ServiceCategories:
+  - migration
+  ServiceDescription: 'Orchestrates legacy ETL workflows that move and transform data between RDS, DynamoDB, S3, and EMR on
+    a schedule when you still rely on Data Pipeline jobs.'
+datasync:
+  ServiceCategories:
+  - migration
+  - storage
+  ServiceDescription: 'Moves datasets between NFS, SMB, HDFS, S3, EFS, and FSx with bandwidth throttling and integrity checks
+    for lift-and-shift and recurring sync jobs.'
+dax:
+  ServiceCategories:
+  - database
+  - caching
+  ServiceDescription: 'Adds an in-memory cache cluster in front of DynamoDB tables to serve microsecond reads for hot keys
+    while keeping application code on the DynamoDB API.'
+deploy:
+  ServiceCategories:
+  - developer-tools
+  ServiceDescription: 'Automates blue/green and rolling deployments to EC2, Lambda, and ECS with deployment groups, traffic
+    shifting hooks, and rollback policies tied to load balancers.'
+detective:
+  ServiceCategories:
+  - security
+  - threat-detection
+  ServiceDescription: 'Builds multi-account security graphs that fuse VPC Flow Logs, CloudTrail, and GuardDuty to speed
+    incident triage with visual timelines and entity relationships.'
+devicefarm:
+  ServiceCategories:
+  - developer-tools
+  - testing
+  ServiceDescription: 'Runs automated UI and load tests on real iOS and Android devices plus Selenium grids in the cloud with
+    projects, device pools, and artifact uploads.'
+directconnect:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Brings private Layer-3 connectivity from your data center into AWS with dedicated connections, link
+    aggregation, transit VIFs to cloud routers, and hosted interfaces for partner networks.'
+dlm:
+  ServiceCategories:
+  - storage
+  - management-tools
+  ServiceDescription: 'Snapshots EBS volumes on schedules with retention and copy rules so backups stay consistent without
+    ad-hoc Lambda schedulers.'
+dms:
+  ServiceCategories:
+  - database
+  - migration
+  ServiceDescription: 'Replicates Oracle, SQL Server, PostgreSQL, MySQL, MariaDB, and other sources to S3, Aurora, or Redshift
+    with replication instances, endpoints, and tasks supporting CDC (logical replication) and one-time cutovers with encryption.'
+docdb:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Runs MongoDB 3.6–compatible document clusters (MongoDB API) with replica sets, global clusters, and
+    snapshots for JSON/document workloads without self-managed MongoDB ops.'
+ds:
+  ServiceCategories:
+  - directory
+  - identity-access
+  ServiceDescription: 'Hosts Microsoft AD or AD Connector directories in AWS, shares directories across accounts, and extends
+    DNS with conditional forwarders for hybrid identity.'
+dsql:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Provisions serverless Aurora DSQL distributed SQL clusters with peering for strongly consistent distributed
+    SQL that autoscales without capacity planning (PostgreSQL-compatible client ecosystem).'
+dynamodb:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Models key-value and document access patterns with single-table design, on-demand or RCU/WCU capacity,
+    DynamoDB Streams to Kinesis, IAM fine-grained access, and PITR for low-latency NoSQL workloads.'
+ec2:
+  ServiceCategories:
+  - compute
+  - virtual-machines
+  ServiceDescription: 'Builds the core networking and compute surface: VPCs, subnets, routing, security groups and NACLs, load
+    balancers and gateways, NAT and VPN endpoints, EC2 instances and launch templates, EBS volumes and snapshots, Elastic IPs,
+    placement groups, and connectivity to Direct Connect and Transit Gateway.'
+ecr:
+  ServiceCategories:
+  - containers
+  ServiceDescription: 'Stores private OCI/Docker images with lifecycle rules, cross-Region replication, pull-through caches
+    (Docker Hub, ECR Public), image scanning, and repository IAM for CI/CD and Kubernetes/ECS runtime pulls.'
+ecrpublic:
+  ServiceCategories:
+  - containers
+  ServiceDescription: 'Publishes publicly readable OCI artifacts for open-source projects with repository policies that control
+    anonymous pulls.'
+ecs:
+  ServiceCategories:
+  - compute
+  - containers
+  ServiceDescription: 'Runs Docker containers on AWS Fargate or EC2-backed capacity providers with task definitions, Cloud Map
+    service discovery, rolling deployments, and Application Auto Scaling—container orchestration without self-managed Kubernetes.'
+efs:
+  ServiceCategories:
+  - storage
+  ServiceDescription: 'Mounts POSIX file systems across AZs for Linux workloads with elastic throughput, replication to
+    standby Regions, access points for multi-tenant namespaces, and backup policies.'
+eks:
+  ServiceCategories:
+  - compute
+  - containers
+  ServiceDescription: 'Creates and upgrades Kubernetes control planes, registers managed node groups and Fargate profiles,
+    installs add-ons, maps IAM access entries and pod identity, and wires OIDC identity providers for cluster authentication.'
+elasticache:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Runs Redis (OSS and Redis ACLs) and Memcached with replication groups, Valkey/Redis serverless options,
+    global datastores, and subnet-isolated clusters for session stores, caching, and real-time leaderboards.'
+elasticbeanstalk:
+  ServiceCategories:
+  - compute
+  - paas
+  ServiceDescription: 'Deploys versioned Java/Tomcat, Node.js, Python, Docker, and .NET tiers from bundles with templates that
+    provision ALB/ASG, rolling updates, and health checks—PaaS without hand-writing CloudFormation each release.'
+elasticsearch:
+  ServiceCategories:
+  - analytics
+  - search
+  ServiceDescription: 'Operates legacy Elasticsearch 7.x–era managed domains (REST API) with access policies and SAML for
+    teams still on the classic Elasticsearch service API before migrating to OpenSearch.'
+elastictranscoder:
+  ServiceCategories:
+  - media-services
+  ServiceDescription: 'Transcodes uploaded media through pipelines and presets for formats and bitrates used in video-on-demand
+    workflows.'
+elb:
+  ServiceCategories:
+  - load-balancing
+  - networking
+  ServiceDescription: 'Configures Classic Load Balancers with listeners, SSL negotiation policies, stickiness, proxy protocol,
+    and instance attachments for workloads still on the EC2-Classic era pattern.'
+elbv2:
+  ServiceCategories:
+  - load-balancing
+  - networking
+  ServiceDescription: 'Manages Application and Network Load Balancers with listeners, rules, TLS certificates, target groups,
+    slow-start settings, and trust stores for modern HTTP/gRPC and TCP traffic shaping.'
+emr:
+  ServiceCategories:
+  - analytics
+  - compute
+  ServiceDescription: 'Defines encryption and security configurations for EMR on EC2 so Apache Spark, Hive, HBase, and Hadoop
+    jobs meet KMS envelope encryption and in-transit TLS requirements.'
+emrcontainers:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Submits Apache Spark jobs to EMR on Amazon EKS by registering virtual clusters that reuse your Kubernetes
+    nodes while EMR schedules Spark executors on the data plane.'
+emrserverless:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Runs Apache Spark and Hive SQL on serverless EMR with autoscaling workers and per-job billing—no YARN
+    or cluster management.'
+evidently:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Runs feature flags and A/B experiments with audience segments and metrics export to CloudWatch so
+    product teams ship controlled rollouts.'
+firehose:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Streams logs and metrics into S3 (Parquet/ORC), Redshift COPY, OpenSearch indexing, Splunk HEC, or
+    HTTP endpoints with buffering, GZIP compression, and dynamic partitioning for near-real-time analytics.'
+fis:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Defines chaos experiments that inject CPU, network, and API faults across EC2, ECS, and EKS using
+    approved templates for resilience testing.'
+fsx:
+  ServiceCategories:
+  - storage
+  ServiceDescription: 'Delivers SMB Windows File Server, NetApp ONTAP (NFS/SMB), or parallel Lustre for HPC and ML training
+    with backups, FSx for Lustre data repository links to S3, and multi-AZ options.'
+gamelift:
+  ServiceCategories:
+  - game-development
+  ServiceDescription: 'Hosts dedicated game servers with fleets, builds, matchmaking queues, and routing aliases so session-based
+    multiplayer scales with player demand.'
+glacier:
+  ServiceCategories:
+  - storage
+  ServiceDescription: 'Archives compliance and backup data in long-term vaults with write-once lock policies for legal hold
+    retention.'
+globalaccelerator:
+  ServiceCategories:
+  - edge
+  - networking
+  ServiceDescription: 'Advertises static anycast IPs that route user traffic over the AWS backbone to healthy regional endpoints
+    for multi-Region active-active designs.'
+glue:
+  ServiceCategories:
+  - analytics
+  - data-pipelines
+  ServiceDescription: 'Builds serverless Spark and Python ETL with Glue crawlers, Spark jobs, workflows, Schema Registry, and
+    the Hive-compatible Glue Data Catalog for Iceberg/Delta-style lakehouse tables on S3.'
+grafana:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Provisions Amazon Managed Grafana workspaces with SAML SSO, API keys, and data-source plugins to
+    Prometheus, Amazon Managed Prometheus, CloudWatch, Elasticsearch, and InfluxDB.'
+guardduty:
+  ServiceCategories:
+  - security
+  - threat-detection
+  ServiceDescription: 'Turns on intelligent threat detection across accounts, tunes suppression filters, and onboards member
+    accounts for organization-wide coverage of malicious activity.'
+iam:
+  ServiceCategories:
+  - identity-access
+  ServiceDescription: 'Defines users, roles, groups, instance profiles, OIDC and SAML providers, inline and managed policies,
+    access keys, and service-linked roles that gate every AWS API call.'
+identitystore:
+  ServiceCategories:
+  - identity-access
+  ServiceDescription: 'Manages users and groups inside IAM Identity Center so workforce access can be assigned to AWS accounts
+    and cloud applications from a central directory.'
+imagebuilder:
+  ServiceCategories:
+  - compute
+  ServiceDescription: 'Automates golden AMI and container image builds with recipes, pipelines, tests, and cross-Region distribution
+    for compliant baselines.'
+inspector:
+  ServiceCategories:
+  - security
+  - threat-detection
+  ServiceDescription: 'Runs the classic Inspector assessment templates against EC2 instances for network reachability and
+    CVE discovery before migrating to Inspector v2.'
+inspector2:
+  ServiceCategories:
+  - compliance
+  - security
+  ServiceDescription: 'Enables the modern Inspector service across EC2, ECR, and Lambda for continuous vulnerability and
+    network exposure scanning with a single account toggle.'
+iot:
+  ServiceCategories:
+  - iot
+  ServiceDescription: 'Onboards IoT devices with X.509 certs, MQTT topics, fleet provisioning, Thing Shadows, and IoT Rules
+    that route telemetry to Lambda, Kinesis, Timestream, and S3.'
+ivs:
+  ServiceCategories:
+  - media-services
+  - communication
+  ServiceDescription: 'Broadcasts low-latency live video with ingest channels, recording layouts, and playback integration for
+    interactive streaming apps.'
+kafka:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Operates Apache Kafka (MSK) clusters and MSK Serverless with Kafka ACLs, IAM auth, MSK replication to
+    mirror topics, and SASL/SCRAM for high-throughput event streaming.'
+kafkaconnect:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Deploys managed Kafka Connect workers with custom JAR plugins for Debezium-style CDC and S3/Sink connectors
+    between MSK and databases or data lakes without self-hosting Connect.'
+kendra:
+  ServiceCategories:
+  - machine-learning
+  - search
+  ServiceDescription: 'Indexes Confluence, SharePoint, S3, and web content with connectors and ML-powered semantic search,
+    FAQs, synonyms, and relevance tuning for enterprise Q&A portals.'
+keyspaces:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Runs Apache Cassandra–compatible tables (CQL API) with single-digit-ms reads, serverless throughput,
+    and multi-Region replication for wide-column, high-scale workloads.'
+kinesis:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Captures gigabytes per second of streaming records with sharded streams and enhanced fan-out consumers
+    for real-time analytics pipelines.'
+kinesisanalytics:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Runs legacy SQL applications over streaming data for teams still on Kinesis Analytics v1.'
+kinesisanalyticsv2:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Executes Apache Flink jobs on managed clusters with snapshots for stateful stream processing over Kinesis
+    and Kafka sources.'
+kinesisvideo:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Ingests time-encoded media from cameras and IoT devices for computer-vision and playback pipelines
+    with durable streams.'
+kms:
+  ServiceCategories:
+  - encryption
+  - security
+  ServiceDescription: 'Creates and rotates customer-managed CMKs (AES-256, RSA, ECC), aliases, multi-Region keys, grants,
+    and envelope encryption for S3, EBS, RDS, and application data at rest.'
+lakeformation:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Centralizes data lake governance with Lake Formation permissions (table/column/LF-tags) on Glue Catalog
+    tables backed by S3, Redshift Spectrum, and Athena.'
+lambda:
+  ServiceCategories:
+  - compute
+  - serverless
+  ServiceDescription: 'Deploys Node.js, Python, Java, Go, and .NET Lambda functions with layers, function URLs, SQS/SNS/Kafka
+    event source mappings, provisioned concurrency, and async invoke for event-driven serverless backends.'
+lexmodels:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Builds conversational bots with intents, slot filling, and aliases for voice and chat assistants
+    integrated with Connect, Chime, and messaging channels.'
+licensemanager:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Tracks software entitlements and enforces license rules on EC2 and RDS resources so teams stay within
+    purchased seats and vendor agreements.'
+lightsail:
+  ServiceCategories:
+  - compute
+  ServiceDescription: 'Spins up simple VMs, containers, load-balanced web apps, static IPs, DNS, and object storage with fixed
+    monthly pricing for prototypes and small production sites.'
+location:
+  ServiceCategories:
+  - frontend
+  - maps
+  ServiceDescription: 'Adds maps, geocoding, route calculation, device trackers, and geofences to applications with managed
+    map tiles and privacy-preserving location history.'
+macie2:
+  ServiceCategories:
+  - data-protection
+  - security
+  ServiceDescription: 'Discovers sensitive data in S3, runs scheduled classification jobs, tunes findings filters, and extends
+    coverage to member accounts for data-loss prevention.'
+mediaconvert:
+  ServiceCategories:
+  - media-services
+  ServiceDescription: 'Transcodes broadcast and OTT assets (H.264/HEVC/AV1) with job queues, captions/subtitles, and HDR for
+    packaging to downstream CDNs and origins.'
+medialive:
+  ServiceCategories:
+  - media-services
+  ServiceDescription: 'Encodes live channels with redundant inputs, multiplexes, and input security groups for contribution
+    feeds into the Elemental live video stack.'
+mediapackage:
+  ServiceCategories:
+  - media-services
+  ServiceDescription: 'Packages live streams into Apple HLS and MPEG-DASH endpoints with DRM (Widevine/FairPlay/PlayReady) hooks
+    for CDN origin distribution.'
+mediastore:
+  ServiceCategories:
+  - media-services
+  ServiceDescription: 'Stores low-latency media segments behind container policies optimized for live production write workloads.'
+memorydb:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Delivers Redis-compatible clusters with multi-AZ durability, snapshots, and ACL users for ultra-fast
+    in-memory workloads that need Redis APIs without self-managing nodes.'
+monolith:
+  ServiceCategories:
+  - legacy
+  ServiceDescription: 'Legacy monolithic AWS provider package (deprecated). Prefer family provider-aws-* service packages plus provider-family-aws for smaller
+    installs and supported upgrades.'
+mq:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Runs managed Apache ActiveMQ or RabbitMQ brokers (AMQP 0.9.1, MQTT, STOMP) with maintenance windows and
+    users—message-oriented middleware without operating brokers yourself.'
+mwaa:
+  ServiceCategories:
+  - analytics
+  - orchestration
+  ServiceDescription: 'Hosts managed Apache Airflow (Python DAGs) with private networking, Celery workers, and plugin support
+    for orchestrating Spark, batch, and data-quality pipelines.'
+neptune:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Hosts property graph (Gremlin, openCypher) and RDF (SPARQL) graph databases with read replicas, global
+    databases, and snapshots for identity graphs, fraud detection, and knowledge graphs.'
+networkfirewall:
+  ServiceCategories:
+  - networking
+  - security
+  ServiceDescription: 'Inserts stateful and stateless inspection between VPC subnets and the internet or Transit Gateway with
+    centralized rule groups, TLS inspection, and flow logging.'
+networkmanager:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Designs global Cloud WAN core networks with segments, attachments to VPCs and on-prem sites, and transit
+    gateway integration for enterprise-wide routing.'
+oam:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Shares CloudWatch telemetry sinks across accounts and OUs so centralized observability teams ingest
+    metrics and logs without duplicating destinations.'
+opensearch:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Operates OpenSearch (Elasticsearch-compatible REST API) clusters with fine-grained access, SAML SSO,
+    KMS encryption, and UltraWarm/cold tiers for log analytics, full-text search, and security SIEM.'
+opensearchserverless:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Runs pay-per-query search collections with data-plane isolation, network policies, and lifecycle rules
+    without managing OpenSearch clusters.'
+organizations:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Creates multi-account organizations, OUs, service control policies, and delegated admins so governance
+    and security baselines roll out org-wide.'
+osis:
+  ServiceCategories:
+  - analytics
+  ServiceDescription: 'Ingests logs and metrics into OpenSearch using open pipelines that transform and route telemetry before
+    indexing.'
+pinpoint:
+  ServiceCategories:
+  - customer-engagement
+  - messaging
+  ServiceDescription: 'Orchestrates SMS, email, push, and voice campaigns with Pinpoint projects, segments, journeys, and
+    analytics for targeted customer engagement.'
+pipes:
+  ServiceCategories:
+  - integration
+  - serverless
+  ServiceDescription: 'Connects EventBridge sources to Step Functions, Lambda, and queues with filtering, enrichment, and dead-letter
+    handling in a single managed pipe.'
+qldb:
+  ServiceCategories:
+  - blockchain
+  - database
+  ServiceDescription: 'Maintains cryptographically verifiable ledgers with journal streams for audit trails and compliance
+    records that need immutable history.'
+quicksight:
+  ServiceCategories:
+  - analytics
+  - bi
+  ServiceDescription: 'Onboards QuickSight SPICE-backed BI with authors, groups, row-level security, and embedded dashboards
+    fed from Athena, Redshift, RDS, and S3 data lakes.'
+ram:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Shares subnets, Transit Gateways, Route 53 rules, and other resources across accounts without duplicating
+    infrastructure in every workload OU.'
+rds:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Provisions Aurora PostgreSQL, Aurora MySQL, RDS for PostgreSQL, MySQL, MariaDB, Oracle, and SQL Server
+    with Multi-AZ, RDS Proxy connection pooling, automated backups, Performance Insights, and global databases for relational
+    workloads.'
+redshift:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Runs petabyte-scale columnar SQL analytics (PostgreSQL-compatible Redshift) with RA3 nodes, concurrency
+    scaling, Spectrum to S3, enhanced VPC routing, and KMS encryption for regulated warehouses.'
+redshiftserverless:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Serves on-demand Redshift SQL (serverless RPU scaling) with namespaces and workgroups, private VPC
+    endpoints, and snapshots for dev/test clones.'
+resourcegroups:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Groups resources by tag or CloudFormation stack for bulk operations, cost allocation, and Systems Manager
+    targeting.'
+rolesanywhere:
+  ServiceCategories:
+  - identity-access
+  - certificates
+  ServiceDescription: 'Lets workloads outside AWS exchange X.509 certificates for IAM role sessions so servers and IoT devices
+    obtain short-lived credentials without long-lived keys.'
+route53:
+  ServiceCategories:
+  - dns
+  - networking
+  ServiceDescription: 'Hosts public and private DNS zones, health-checked routing policies, traffic flows, query logging, DNSSEC
+    signing, and resolver hybrid settings for global traffic management.'
+route53profiles:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Applies reusable DNS profiles and associations across VPCs so teams inherit consistent resolver rules
+    and forwarding behavior.'
+route53recoverycontrolconfig:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Implements application recovery routing controls with safety rules and regional clusters so you can
+    orchestrate failover during incidents with audited guardrails.'
+route53recoveryreadiness:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Models readiness checks and recovery groups that continuously validate capacity and dependencies before
+    a disaster impacts production.'
+route53resolver:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Extends DNS resolution into VPCs with inbound and outbound endpoints, conditional forwarding rules,
+    firewall integration, and query logging for hybrid DNS.'
+rum:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Captures real user monitoring from web clients with session telemetry and metrics export to CloudWatch
+    for front-end performance analytics.'
+s3:
+  ServiceCategories:
+  - object-storage
+  - storage
+  ServiceDescription: 'Stores S3 objects with bucket policies, SSE-S3/SSE-KMS encryption, cross-Region replication, S3 Intelligent-Tiering
+    and Glacier transitions, inventory, access logs, EventBridge notifications, S3 Object Lock (WORM), and fine-grained ACLs.'
+s3control:
+  ServiceCategories:
+  - management-tools
+  - storage
+  ServiceDescription: 'Governs multi-account S3 with Object Lambda access points, multi-Region access points, org-wide block
+    public access, and Storage Lens visibility.'
+sagemaker:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Trains and deploys PyTorch, TensorFlow, XGBoost, and custom models via SageMaker Studio, notebooks,
+    real-time/batch endpoints, Feature Store, Edge Manager, and MLflow-compatible tracking for end-to-end MLOps.'
+scheduler:
+  ServiceCategories:
+  - integration
+  - serverless
+  ServiceDescription: 'Schedules one-off and recurring invocations of Lambda, ECS, and other targets with flexible windows,
+    time zones, and dead-letter handling beyond EventBridge rules.'
+schemas:
+  ServiceCategories:
+  - api-management
+  - integration
+  ServiceDescription: 'Registers versioned event schemas and discoverers so producers and consumers agree on contracts for
+    EventBridge-driven architectures.'
+secretsmanager:
+  ServiceCategories:
+  - secrets
+  - security
+  ServiceDescription: 'Stores JSON secrets and rotates RDS, Redshift, and API keys via Lambda rotation, with resource policies
+    so apps and Kubernetes workloads fetch credentials without plaintext in repos.'
+securityhub:
+  ServiceCategories:
+  - compliance
+  - security
+  ServiceDescription: 'Aggregates findings from GuardDuty, Inspector, Firewall Manager, and partners with standards subscriptions,
+    insights, and multi-account aggregation for a single security posture view.'
+serverlessrepo:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Deploys curated serverless applications from the repository as CloudFormation stacks for reusable SAM
+    patterns.'
+servicecatalog:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Publishes portfolios of approved products, constraints, and provisioning artifacts so lines of business
+    self-serve infra from governed blueprints.'
+servicediscovery:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Registers services and instances for discovery across ECS, Lambda, and hybrid workloads using HTTP,
+    private DNS, or public DNS namespaces.'
+servicequotas:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Requests and tracks raises to AWS service limits so large launches are not blocked by default quotas.'
+ses:
+  ServiceCategories:
+  - messaging
+  - email
+  ServiceDescription: 'Sends high-volume email with verified identities, DKIM, configuration sets, inbound receipt rules,
+    and suppression lists for marketing and transactional mail.'
+sesv2:
+  ServiceCategories:
+  - messaging
+  - email
+  ServiceDescription: 'Configures modern SESv2 resources such as dedicated IP pools, event destinations, and identity attributes
+    for deliverability tuning.'
+sfn:
+  ServiceCategories:
+  - integration
+  - workflow
+  ServiceDescription: 'Orchestrates workflows with Amazon States Language (JSON ASL)—parallel and map states, human approval
+    tasks, ECS/Lambda activities, and Express workflows for high-throughput event processing.'
+signer:
+  ServiceCategories:
+  - integration
+  ServiceDescription: 'Signs code artifacts and images with managed profiles and permissions for secure software distribution
+    pipelines.'
+sns:
+  ServiceCategories:
+  - integration
+  - messaging
+  ServiceDescription: 'Fan-outs events to subscribers, mobile push endpoints, SMS, and FIFO topics with encryption and delivery
+    policies for pub/sub messaging.'
+sqs:
+  ServiceCategories:
+  - integration
+  - messaging
+  ServiceDescription: 'Buffers work with standard and FIFO queues, dead-letter queues, and redrive policies for reliable async
+    processing between services.'
+ssm:
+  ServiceCategories:
+  - management-tools
+  ServiceDescription: 'Automates Patch Manager baselines, SSM Documents runbooks, Parameter Store (hierarchical config), Maintenance
+    Windows, Session Manager, and hybrid activations across EC2, on-prem, and edge fleet.'
+ssoadmin:
+  ServiceCategories:
+  - identity-access
+  ServiceDescription: 'Assigns permission sets and inline policies to IAM Identity Center accounts, wires managed policies,
+    and configures attribute mappings for workforce SSO.'
+swf:
+  ServiceCategories:
+  - integration
+  - workflow
+  ServiceDescription: 'Hosts legacy Simple Workflow domains for long-running coordinated tasks that still rely on SWF deciders
+    and activity workers.'
+timestreaminfluxdb:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Runs managed InfluxDB 3.x–compatible clusters with InfluxQL/Flux-style access patterns for high-cardinality
+    time-series telemetry and scalable storage.'
+timestreamwrite:
+  ServiceCategories:
+  - database
+  ServiceDescription: 'Creates Amazon Timestream databases and tables with SQL access, memory/magnetic retention tiers, and
+    rollups for IoT and DevOps metrics at scale.'
+transcribe:
+  ServiceCategories:
+  - machine-learning
+  ServiceDescription: 'Trains custom language models (CLM) and vocabularies for low-latency speech-to-text (batch and streaming)
+    with PII redaction for contact centers, broadcast, and compliance workflows.'
+transfer:
+  ServiceCategories:
+  - file-transfer
+  - integration
+  ServiceDescription: 'Operates SFTP, FTPS, and FTP servers backed by S3 or EFS with per-user keys, workflows, and connectors
+    for B2B file exchange without bespoke file servers.'
+verifiedaccess:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Enforces zero-trust access to private HTTP apps with OIDC/SAML identity, device-trust providers for
+    posture checks, and policy-driven identity-aware proxies and logging.'
+vpc:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Subscribes to advanced VPC network performance metrics for capacity planning on large-scale data planes.'
+vpclattice:
+  ServiceCategories:
+  - networking
+  ServiceDescription: 'Connects services across VPCs and accounts with Lattice service networks, target groups, auth policies,
+    and HTTP routing that abstracts east-west connectivity for microservices.'
+waf:
+  ServiceCategories:
+  - application-security
+  ServiceDescription: 'Defines legacy WAF Classic conditions and web ACLs for CloudFront or regional resources still on the
+    original rule model.'
+wafregional:
+  ServiceCategories:
+  - application-security
+  ServiceDescription: 'Applies regional WAF Classic protections in front of Application Load Balancers for workloads not yet
+    on WAFv2.'
+wafv2:
+  ServiceCategories:
+  - application-security
+  ServiceDescription: 'Protects HTTP/gRPC APIs and sites with AWS Managed Rules (CRS), rate-based rules, AWS Bot Control, CAPTCHA,
+    and full request logging for CloudFront, ALB/API Gateway, and App Runner.'
+workspaces:
+  ServiceCategories:
+  - end-user-computing
+  ServiceDescription: 'Prepares directories and IP allow lists for persistent Windows and Linux desktops delivered as a managed
+    DaaS experience.'
+xray:
+  ServiceCategories:
+  - observability
+  ServiceDescription: 'Collects distributed traces (OpenTelemetry-compatible SDKs) with sampling rules, service maps, and
+    encryption so teams debug latency and errors across microservices.'

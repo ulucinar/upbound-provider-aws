@@ -10,9 +10,17 @@ metadata:
     meta.crossplane.io/maintainer: Upbound <support@upbound.io>
     meta.crossplane.io/source: github.com/crossplane-contrib/provider-upjet-{{ .ProviderName }}
     meta.crossplane.io/license: Apache-2.0
+{{- if .ServiceDescription }}
     meta.crossplane.io/description: |
-      Upbound's official Crossplane provider to manage Amazon Web Services (AWS)
-      {{ .Service }} services in Kubernetes.
+      {{ .ServiceDescription }}
+{{- end }}
+    meta.upbound.io/cloud-service-provider: "aws"
+{{- if .ServiceCategories }}
+    meta.upbound.io/categories: |
+{{ range .ServiceCategories }}
+      - {{ . }}
+{{ end }}
+{{- end }}
     meta.crossplane.io/readme: |
       {{ if eq .Service "monolith" }}
       ⚠️ **Deprecation Notice:** The monolithic package is deprecated in favor of the AWS family's
