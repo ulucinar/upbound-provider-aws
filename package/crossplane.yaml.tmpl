@@ -14,7 +14,7 @@ metadata:
     meta.crossplane.io/description: |
       {{ .ServiceDescription }}
 {{- end }}
-    meta.upbound.io/cloud-service-provider: "aws"
+    meta.upbound.io/cloud_service_vendor: "aws"
 {{- if .ServiceCategories }}
     meta.upbound.io/categories: |
 {{ range .ServiceCategories }}
