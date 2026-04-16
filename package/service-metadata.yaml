@@ -1,4 +1,4 @@
-# Static package metadata for crank xpkg batch --template-metadata-file.
+# Static package metadata for crank xpkg batch --service-metadata.
 # Cloud vendor is set on the package as meta.upbound.io/cloud_service_vendor (see crossplane.yaml.tmpl).
 # Categories are search facets and may be used to filter the provider package in the Upbound Marketplace.
 #
