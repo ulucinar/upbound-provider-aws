@@ -791,6 +791,12 @@ s3control:
   - storage
   ServiceDescription: 'Governs multi-account S3 with Object Lambda access points, multi-Region access points, org-wide block
     public access, and Storage Lens visibility.'
+s3vectors:
+  ServiceCategories:
+  - storage
+  - machine-learning
+  ServiceDescription: 'Stores and queries high-dimensional vector embeddings natively in S3, enabling semantic search and similarity
+    lookups without a separate vector database.'
 sagemaker:
   ServiceCategories:
   - machine-learning
