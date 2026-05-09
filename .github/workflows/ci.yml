@@ -186,7 +186,7 @@ jobs:
         run: make -j2 test
 
   local-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ (github.repository_owner == 'crossplane-contrib' && 'oracle-vm-16cpu-64gb-x86-64' || 'Ubuntu-Jumbo-Runner') }}
     needs: detect-noop
     if: needs.detect-noop.outputs.noop != 'true'
     permissions:
@@ -217,6 +217,7 @@ jobs:
         with:
           role-to-assume: ${{ vars.GO_BUILD_CACHE_ROLE_ARN }}
           aws-region: ${{ vars.GO_BUILD_CACHE_AWS_REGION }}
+          role-duration-seconds: 14400  # extend to 4h to cover long builds (more than 2 hrs) + post-step upload
 
       - name: Restore Go Build Cache
         uses: upbound/action-go-build-cache@5f6cf0408e1c1b2e15edf1d0844ec1ef9fa56e3f
