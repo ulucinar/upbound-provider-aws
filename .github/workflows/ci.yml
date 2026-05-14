@@ -186,9 +186,12 @@ jobs:
         run: make -j2 test
 
   local-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ (github.repository_owner == 'crossplane-contrib' && 'oracle-vm-16cpu-64gb-x86-64' || 'Ubuntu-Jumbo-Runner') }}
     needs: detect-noop
     if: needs.detect-noop.outputs.noop != 'true'
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Cleanup Disk
         uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
@@ -208,6 +211,26 @@ jobs:
         uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
         with:
           go-version-file: go.mod
+
+      - name: Configure AWS Credentials for Go build cache
+        uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
+        with:
+          role-to-assume: ${{ vars.GO_BUILD_CACHE_ROLE_ARN }}
+          aws-region: ${{ vars.GO_BUILD_CACHE_AWS_REGION }}
+          role-duration-seconds: 14400  # extend to 4h to cover long builds (more than 2 hrs) + post-step upload
+
+      - name: Restore Go Build Cache
+        uses: upbound/action-go-build-cache@5f6cf0408e1c1b2e15edf1d0844ec1ef9fa56e3f
+        with:
+          repository: ${{ github.repository }}
+          # On pull_request, github.ref is refs/pull/<n>/merge so we use
+          # github.base_ref (the target branch) instead. On push/workflow_dispatch,
+          # github.base_ref is empty and github.ref_name is the short branch name.
+          branch: ${{ github.base_ref || github.ref_name }}
+          key: ${{ runner.os }}-go-build-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-go-build-
+          bucket: ${{ vars.GO_BUILD_CACHE_BUCKET }}
+          aws-region: ${{ vars.GO_BUILD_CACHE_AWS_REGION }}
 
       - name: Vendor Dependencies
         run: make vendor vendor.check
