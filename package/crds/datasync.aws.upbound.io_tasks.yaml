@@ -1837,6 +1837,10 @@ spec:
                           use for repeated executions. For more information, see Schedule
                           Expressions for Rules.
                         type: string
+                      status:
+                        description: 'Whether to enable or disable your task schedule.
+                          Valid values: ENABLED, DISABLED. Default: ENABLED.'
+                        type: string
                     type: object
                   sourceLocationArn:
                     description: Amazon Resource Name (ARN) of source DataSync Location.
@@ -2315,6 +2319,10 @@ spec:
                           use for repeated executions. For more information, see Schedule
                           Expressions for Rules.
                         type: string
+                      status:
+                        description: 'Whether to enable or disable your task schedule.
+                          Valid values: ENABLED, DISABLED. Default: ENABLED.'
+                        type: string
                     type: object
                   sourceLocationArn:
                     description: Amazon Resource Name (ARN) of source DataSync Location.
@@ -2727,6 +2735,10 @@ spec:
                         description: Specifies the schedule you want your task to
                           use for repeated executions. For more information, see Schedule
                           Expressions for Rules.
+                        type: string
+                      status:
+                        description: 'Whether to enable or disable your task schedule.
+                          Valid values: ENABLED, DISABLED. Default: ENABLED.'
                         type: string
                     type: object
                   sourceLocationArn:

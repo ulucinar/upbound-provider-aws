@@ -2290,6 +2290,9 @@ spec:
                           type: string
                       type: object
                     type: array
+                  restoreBackupArn:
+                    description: ARN of backup to restore.
+                    type: string
                   restoreDateTime:
                     description: Time of the point-in-time recovery point to restore.
                     type: string
@@ -2847,6 +2850,9 @@ spec:
                           type: string
                       type: object
                     type: array
+                  restoreBackupArn:
+                    description: ARN of backup to restore.
+                    type: string
                   restoreDateTime:
                     description: Time of the point-in-time recovery point to restore.
                     type: string
@@ -3432,6 +3438,9 @@ spec:
                           type: string
                       type: object
                     type: array
+                  restoreBackupArn:
+                    description: ARN of backup to restore.
+                    type: string
                   restoreDateTime:
                     description: Time of the point-in-time recovery point to restore.
                     type: string

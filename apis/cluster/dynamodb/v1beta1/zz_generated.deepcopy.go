@@ -2482,6 +2482,11 @@ func (in *TableItemObservation) DeepCopyInto(out *TableItemObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.HashKeyValue != nil {
+		in, out := &in.HashKeyValue, &out.HashKeyValue
+		*out = new(string)
+		**out = **in
+	}
 	if in.ID != nil {
 		in, out := &in.ID, &out.ID
 		*out = new(string)
@@ -2494,6 +2499,11 @@ func (in *TableItemObservation) DeepCopyInto(out *TableItemObservation) {
 	}
 	if in.RangeKey != nil {
 		in, out := &in.RangeKey, &out.RangeKey
+		*out = new(string)
+		**out = **in
+	}
+	if in.RangeKeyValue != nil {
+		in, out := &in.RangeKeyValue, &out.RangeKeyValue
 		*out = new(string)
 		**out = **in
 	}

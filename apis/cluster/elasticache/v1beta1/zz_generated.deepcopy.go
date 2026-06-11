@@ -3736,6 +3736,11 @@ func (in *ServerlessCacheInitParameters) DeepCopyInto(out *ServerlessCacheInitPa
 		*out = new(string)
 		**out = **in
 	}
+	if in.NetworkType != nil {
+		in, out := &in.NetworkType, &out.NetworkType
+		*out = new(string)
+		**out = **in
+	}
 	if in.SecurityGroupIDRefs != nil {
 		in, out := &in.SecurityGroupIDRefs, &out.SecurityGroupIDRefs
 		*out = make([]v1.Reference, len(*in))
@@ -3925,6 +3930,11 @@ func (in *ServerlessCacheObservation) DeepCopyInto(out *ServerlessCacheObservati
 		*out = new(string)
 		**out = **in
 	}
+	if in.NetworkType != nil {
+		in, out := &in.NetworkType, &out.NetworkType
+		*out = new(string)
+		**out = **in
+	}
 	if in.ReaderEndpoint != nil {
 		in, out := &in.ReaderEndpoint, &out.ReaderEndpoint
 		*out = make([]ReaderEndpointObservation, len(*in))
@@ -4071,6 +4081,11 @@ func (in *ServerlessCacheParameters) DeepCopyInto(out *ServerlessCacheParameters
 	}
 	if in.MajorEngineVersion != nil {
 		in, out := &in.MajorEngineVersion, &out.MajorEngineVersion
+		*out = new(string)
+		**out = **in
+	}
+	if in.NetworkType != nil {
+		in, out := &in.NetworkType, &out.NetworkType
 		*out = new(string)
 		**out = **in
 	}
