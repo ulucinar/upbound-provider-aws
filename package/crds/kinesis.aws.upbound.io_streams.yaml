@@ -210,6 +210,10 @@ spec:
                     description: Key-value map of resource tags.
                     type: object
                     x-kubernetes-map-type: granular
+                  warmThroughputMibPs:
+                    description: Target warm throughput in MB/s that the stream should
+                      be scaled to handle.
+                    type: number
                 required:
                 - region
                 type: object
@@ -355,6 +359,10 @@ spec:
                     description: Key-value map of resource tags.
                     type: object
                     x-kubernetes-map-type: granular
+                  warmThroughputMibPs:
+                    description: Target warm throughput in MB/s that the stream should
+                      be scaled to handle.
+                    type: number
                 type: object
               managementPolicies:
                 default:
@@ -522,6 +530,10 @@ spec:
                       block.
                     type: object
                     x-kubernetes-map-type: granular
+                  warmThroughputMibPs:
+                    description: Target warm throughput in MB/s that the stream should
+                      be scaled to handle.
+                    type: number
                 type: object
               conditions:
                 description: Conditions of the resource.

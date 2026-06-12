@@ -172,6 +172,11 @@ spec:
                     description: created description for the replication group. Must
                       not be empty.
                     type: string
+                  durability:
+                    description: Specifies the durability mode for the replication
+                      group. Valid values are default, async, sync, or disabled. Requires
+                      cluster mode enabled and Valkey 9.0 or higher.
+                    type: string
                   engine:
                     description: Name of the cache engine to be used for the clusters
                       in this replication group. The only valid value is redis.
@@ -830,6 +835,11 @@ spec:
                   description:
                     description: created description for the replication group. Must
                       not be empty.
+                    type: string
+                  durability:
+                    description: Specifies the durability mode for the replication
+                      group. Valid values are default, async, sync, or disabled. Requires
+                      cluster mode enabled and Valkey 9.0 or higher.
                     type: string
                   engine:
                     description: Name of the cache engine to be used for the clusters
@@ -1551,6 +1561,11 @@ spec:
                   description:
                     description: created description for the replication group. Must
                       not be empty.
+                    type: string
+                  durability:
+                    description: Specifies the durability mode for the replication
+                      group. Valid values are default, async, sync, or disabled. Requires
+                      cluster mode enabled and Valkey 9.0 or higher.
                     type: string
                   engine:
                     description: Name of the cache engine to be used for the clusters
