@@ -667,6 +667,12 @@ networkmanager:
   - networking
   ServiceDescription: 'Designs global Cloud WAN core networks with segments, attachments to VPCs and on-prem sites, and transit
     gateway integration for enterprise-wide routing.'
+networkmonitor:
+  ServiceCategories:
+  - networking
+  - observability
+  ServiceDescription: 'Actively monitors network traffic between AWS VPC subnets and on-premises destinations using monitors
+    and probes to measure packet loss and latency, and publishes metrics to CloudWatch for hybrid network visibility.'
 oam:
   ServiceCategories:
   - observability
