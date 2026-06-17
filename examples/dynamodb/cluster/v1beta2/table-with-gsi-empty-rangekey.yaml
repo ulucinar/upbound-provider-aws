@@ -1,0 +1,32 @@
+apiVersion: dynamodb.aws.upbound.io/v1beta2
+kind: Table
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dynamodb/v1beta2/table
+  name: example-table-gsi-empty-rangekey
+spec:
+  forProvider:
+    attribute:
+      - name: fooId
+        type: S
+      - name: fizz
+        type: S
+      - name: barId
+        type: S
+      - name: baz
+        type: S
+      - name: buzz
+        type: S
+    billingMode: PAY_PER_REQUEST
+    globalSecondaryIndex:
+      - hashKey: barId
+        name: barId-idx
+        projectionType: KEYS_ONLY
+      - hashKey: baz
+        name: baz-buzz-idx
+        projectionType: KEYS_ONLY
+        rangeKey: buzz
+    hashKey: fooId
+    rangeKey: fizz
+    region: us-west-2
+    tableClass: STANDARD
