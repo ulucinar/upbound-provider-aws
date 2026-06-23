@@ -25,6 +25,15 @@ import (
 	features "github.com/upbound/provider-aws/v2/internal/features"
 )
 
+// SetupWebhookWithManager registers the conversion webhook for ConnectAttachment.
+func SetupWebhookWithManager(mgr ctrl.Manager) error {
+	if err := ctrl.NewWebhookManagedBy(mgr, &v1beta1.ConnectAttachment{}).
+		Complete(); err != nil {
+		return errors.Wrap(err, "cannot register webhook for the kind v1beta1.ConnectAttachment")
+	}
+	return nil
+}
+
 // SetupGated adds a controller that reconciles ConnectAttachment managed resources.
 func SetupGated(mgr ctrl.Manager, o tjcontroller.Options) error {
 	o.Options.Gate.Register(func() {
@@ -67,15 +76,6 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	}
 	if o.MetricOptions != nil {
 		opts = append(opts, managed.WithMetricRecorder(o.MetricOptions.MRMetrics))
-	}
-
-	// register webhooks for the kind v1beta1.ConnectAttachment
-	// if they're enabled.
-	if o.StartWebhooks {
-		if err := ctrl.NewWebhookManagedBy(mgr, &v1beta1.ConnectAttachment{}).
-			Complete(); err != nil {
-			return errors.Wrap(err, "cannot register webhook for the kind v1beta1.ConnectAttachment")
-		}
 	}
 
 	if o.MetricOptions != nil && o.MetricOptions.MRStateMetrics != nil {
