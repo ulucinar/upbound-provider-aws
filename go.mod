@@ -494,3 +494,5 @@ require (
 )
 
 replace github.com/hashicorp/terraform-provider-aws => github.com/upbound/terraform-provider-aws v0.0.0-20260616111103-6a329ccb022f
+
+replace github.com/crossplane/upjet/v2 => ../upjet
