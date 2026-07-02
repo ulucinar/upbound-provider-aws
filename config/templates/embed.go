@@ -5,3 +5,9 @@
 package templates
 
 import _ "embed"
+
+// TerraformedTemplate is populated with conversion methods implementing
+// Terraformed interface on CRD structs.
+//
+//go:embed terraformed.go.tmpl
+var TerraformedTemplate string

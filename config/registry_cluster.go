@@ -116,6 +116,7 @@ func GetProvider(ctx context.Context, fwProvider fwprovider.Provider, sdkProvide
 		config.WithTerraformPluginFrameworkProvider(fwProvider),
 		config.WithSchemaTraversers(&config.SingletonListEmbedder{}),
 		config.WithDefaultResourceOptions(defaultResourceOptions...),
+		config.WithTerraformedTemplate(templates.TerraformedTemplate),
 	)
 	pc.BasePackages.ControllerMap["eks/clusterauth"] = "eks"
 
