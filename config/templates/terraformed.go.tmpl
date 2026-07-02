@@ -39,6 +39,12 @@ func (tr *{{ .CRD.Kind }}) GetObservation() (map[string]any, error) {
 
 // SetObservation for this {{ .CRD.Kind }}
 func (tr *{{ .CRD.Kind }}) SetObservation(obs map[string]any) error {
+    {{- if index .Terraform.ResourceSchema.Schema "tags" }}
+    tr.Status.AtProvider.Tags = nil
+    {{- end }}
+    {{- if index .Terraform.ResourceSchema.Schema "tags_all" }}
+    tr.Status.AtProvider.TagsAll = nil
+    {{- end }}
     p, err := json.TFParser.Marshal(obs)
     if err != nil {
         return err
@@ -140,5 +146,5 @@ func (tr *{{ .CRD.Kind }}) LateInitialize(attrs []byte) (bool, error) {
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version
 func (tr *{{ .CRD.Kind }}) GetTerraformSchemaVersion() int {
-    return {{ .Terraform.SchemaVersion }}
+    return {{ .Terraform.ResourceSchema.SchemaVersion }}
 }
