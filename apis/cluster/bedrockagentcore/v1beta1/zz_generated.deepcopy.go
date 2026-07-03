@@ -18,10 +18,8 @@ func (in *APIGatewayInitParameters) DeepCopyInto(out *APIGatewayInitParameters) 
 	*out = *in
 	if in.APIGatewayToolConfiguration != nil {
 		in, out := &in.APIGatewayToolConfiguration, &out.APIGatewayToolConfiguration
-		*out = make([]APIGatewayToolConfigurationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayToolConfigurationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.RestAPIID != nil {
 		in, out := &in.RestAPIID, &out.RestAPIID
@@ -50,10 +48,8 @@ func (in *APIGatewayObservation) DeepCopyInto(out *APIGatewayObservation) {
 	*out = *in
 	if in.APIGatewayToolConfiguration != nil {
 		in, out := &in.APIGatewayToolConfiguration, &out.APIGatewayToolConfiguration
-		*out = make([]APIGatewayToolConfigurationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayToolConfigurationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.RestAPIID != nil {
 		in, out := &in.RestAPIID, &out.RestAPIID
@@ -82,10 +78,8 @@ func (in *APIGatewayParameters) DeepCopyInto(out *APIGatewayParameters) {
 	*out = *in
 	if in.APIGatewayToolConfiguration != nil {
 		in, out := &in.APIGatewayToolConfiguration, &out.APIGatewayToolConfiguration
-		*out = make([]APIGatewayToolConfigurationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayToolConfigurationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.RestAPIID != nil {
 		in, out := &in.RestAPIID, &out.RestAPIID
@@ -2009,10 +2003,8 @@ func (in *AuthorizingClaimMatchValueInitParameters) DeepCopyInto(out *Authorizin
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]ClaimMatchValueInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ClaimMatchValueInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2036,10 +2028,8 @@ func (in *AuthorizingClaimMatchValueObservation) DeepCopyInto(out *AuthorizingCl
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]ClaimMatchValueObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ClaimMatchValueObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2063,10 +2053,8 @@ func (in *AuthorizingClaimMatchValueParameters) DeepCopyInto(out *AuthorizingCla
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]ClaimMatchValueParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ClaimMatchValueParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2112,10 +2100,8 @@ func (in *BrowserInitParameters) DeepCopyInto(out *BrowserInitParameters) {
 	*out = *in
 	if in.BrowserSigning != nil {
 		in, out := &in.BrowserSigning, &out.BrowserSigning
-		*out = make([]BrowserSigningInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(BrowserSigningInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Certificate != nil {
 		in, out := &in.Certificate, &out.Certificate
@@ -2316,10 +2302,8 @@ func (in *BrowserObservation) DeepCopyInto(out *BrowserObservation) {
 	}
 	if in.BrowserSigning != nil {
 		in, out := &in.BrowserSigning, &out.BrowserSigning
-		*out = make([]BrowserSigningObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(BrowserSigningObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Certificate != nil {
 		in, out := &in.Certificate, &out.Certificate
@@ -2419,10 +2403,8 @@ func (in *BrowserParameters) DeepCopyInto(out *BrowserParameters) {
 	*out = *in
 	if in.BrowserSigning != nil {
 		in, out := &in.BrowserSigning, &out.BrowserSigning
-		*out = make([]BrowserSigningParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(BrowserSigningParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Certificate != nil {
 		in, out := &in.Certificate, &out.Certificate
@@ -2676,10 +2658,8 @@ func (in *CertificateInitParameters) DeepCopyInto(out *CertificateInitParameters
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]LocationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2698,10 +2678,8 @@ func (in *CertificateLocationInitParameters) DeepCopyInto(out *CertificateLocati
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]LocationSecretsManagerInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationSecretsManagerInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2720,10 +2698,8 @@ func (in *CertificateLocationObservation) DeepCopyInto(out *CertificateLocationO
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]LocationSecretsManagerObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationSecretsManagerObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2742,10 +2718,8 @@ func (in *CertificateLocationParameters) DeepCopyInto(out *CertificateLocationPa
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]LocationSecretsManagerParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationSecretsManagerParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2764,10 +2738,8 @@ func (in *CertificateObservation) DeepCopyInto(out *CertificateObservation) {
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]LocationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -2786,10 +2758,8 @@ func (in *CertificateParameters) DeepCopyInto(out *CertificateParameters) {
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]LocationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -3106,10 +3076,8 @@ func (in *CodeInterpreterCertificateInitParameters) DeepCopyInto(out *CodeInterp
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]CertificateLocationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CertificateLocationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -3128,10 +3096,8 @@ func (in *CodeInterpreterCertificateObservation) DeepCopyInto(out *CodeInterpret
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]CertificateLocationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CertificateLocationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -3150,10 +3116,8 @@ func (in *CodeInterpreterCertificateParameters) DeepCopyInto(out *CodeInterprete
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]CertificateLocationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CertificateLocationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -3894,10 +3858,8 @@ func (in *CredentialProviderConfigurationInitParameters) DeepCopyInto(out *Crede
 	}
 	if in.CallerIAMCredentials != nil {
 		in, out := &in.CallerIAMCredentials, &out.CallerIAMCredentials
-		*out = make([]CallerIAMCredentialsInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CallerIAMCredentialsInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.GatewayIAMRole != nil {
 		in, out := &in.GatewayIAMRole, &out.GatewayIAMRole
@@ -3906,8 +3868,8 @@ func (in *CredentialProviderConfigurationInitParameters) DeepCopyInto(out *Crede
 	}
 	if in.JwtPassthrough != nil {
 		in, out := &in.JwtPassthrough, &out.JwtPassthrough
-		*out = make([]JwtPassthroughInitParameters, len(*in))
-		copy(*out, *in)
+		*out = new(JwtPassthroughInitParameters)
+		**out = **in
 	}
 	if in.Oauth != nil {
 		in, out := &in.Oauth, &out.Oauth
@@ -3936,10 +3898,8 @@ func (in *CredentialProviderConfigurationObservation) DeepCopyInto(out *Credenti
 	}
 	if in.CallerIAMCredentials != nil {
 		in, out := &in.CallerIAMCredentials, &out.CallerIAMCredentials
-		*out = make([]CallerIAMCredentialsObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CallerIAMCredentialsObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.GatewayIAMRole != nil {
 		in, out := &in.GatewayIAMRole, &out.GatewayIAMRole
@@ -3948,8 +3908,8 @@ func (in *CredentialProviderConfigurationObservation) DeepCopyInto(out *Credenti
 	}
 	if in.JwtPassthrough != nil {
 		in, out := &in.JwtPassthrough, &out.JwtPassthrough
-		*out = make([]JwtPassthroughParameters, len(*in))
-		copy(*out, *in)
+		*out = new(JwtPassthroughParameters)
+		**out = **in
 	}
 	if in.Oauth != nil {
 		in, out := &in.Oauth, &out.Oauth
@@ -3978,10 +3938,8 @@ func (in *CredentialProviderConfigurationParameters) DeepCopyInto(out *Credentia
 	}
 	if in.CallerIAMCredentials != nil {
 		in, out := &in.CallerIAMCredentials, &out.CallerIAMCredentials
-		*out = make([]CallerIAMCredentialsParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CallerIAMCredentialsParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.GatewayIAMRole != nil {
 		in, out := &in.GatewayIAMRole, &out.GatewayIAMRole
@@ -3990,8 +3948,8 @@ func (in *CredentialProviderConfigurationParameters) DeepCopyInto(out *Credentia
 	}
 	if in.JwtPassthrough != nil {
 		in, out := &in.JwtPassthrough, &out.JwtPassthrough
-		*out = make([]JwtPassthroughParameters, len(*in))
-		copy(*out, *in)
+		*out = new(JwtPassthroughParameters)
+		**out = **in
 	}
 	if in.Oauth != nil {
 		in, out := &in.Oauth, &out.Oauth
@@ -4020,10 +3978,8 @@ func (in *CustomClaimAuthorizingClaimMatchValueInitParameters) DeepCopyInto(out 
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueClaimMatchValueInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueClaimMatchValueInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4047,10 +4003,8 @@ func (in *CustomClaimAuthorizingClaimMatchValueObservation) DeepCopyInto(out *Cu
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueClaimMatchValueObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueClaimMatchValueObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4074,10 +4028,8 @@ func (in *CustomClaimAuthorizingClaimMatchValueParameters) DeepCopyInto(out *Cus
 	}
 	if in.ClaimMatchValue != nil {
 		in, out := &in.ClaimMatchValue, &out.ClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueClaimMatchValueParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueClaimMatchValueParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4096,10 +4048,8 @@ func (in *CustomClaimInitParameters) DeepCopyInto(out *CustomClaimInitParameters
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4128,10 +4078,8 @@ func (in *CustomClaimObservation) DeepCopyInto(out *CustomClaimObservation) {
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4160,10 +4108,8 @@ func (in *CustomClaimParameters) DeepCopyInto(out *CustomClaimParameters) {
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]AuthorizingClaimMatchValueParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AuthorizingClaimMatchValueParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4192,10 +4138,8 @@ func (in *CustomJwtAuthorizerCustomClaimInitParameters) DeepCopyInto(out *Custom
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]CustomClaimAuthorizingClaimMatchValueInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CustomClaimAuthorizingClaimMatchValueInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4224,10 +4168,8 @@ func (in *CustomJwtAuthorizerCustomClaimObservation) DeepCopyInto(out *CustomJwt
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]CustomClaimAuthorizingClaimMatchValueObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CustomClaimAuthorizingClaimMatchValueObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4256,10 +4198,8 @@ func (in *CustomJwtAuthorizerCustomClaimParameters) DeepCopyInto(out *CustomJwtA
 	*out = *in
 	if in.AuthorizingClaimMatchValue != nil {
 		in, out := &in.AuthorizingClaimMatchValue, &out.AuthorizingClaimMatchValue
-		*out = make([]CustomClaimAuthorizingClaimMatchValueParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(CustomClaimAuthorizingClaimMatchValueParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.InboundTokenClaimName != nil {
 		in, out := &in.InboundTokenClaimName, &out.InboundTokenClaimName
@@ -4658,10 +4598,8 @@ func (in *EnterprisePolicyInitParameters) DeepCopyInto(out *EnterprisePolicyInit
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]EnterprisePolicyLocationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EnterprisePolicyLocationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Type != nil {
 		in, out := &in.Type, &out.Type
@@ -4685,10 +4623,8 @@ func (in *EnterprisePolicyLocationInitParameters) DeepCopyInto(out *EnterprisePo
 	*out = *in
 	if in.S3 != nil {
 		in, out := &in.S3, &out.S3
-		*out = make([]LocationS3InitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationS3InitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4707,10 +4643,8 @@ func (in *EnterprisePolicyLocationObservation) DeepCopyInto(out *EnterprisePolic
 	*out = *in
 	if in.S3 != nil {
 		in, out := &in.S3, &out.S3
-		*out = make([]LocationS3Observation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationS3Observation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4729,10 +4663,8 @@ func (in *EnterprisePolicyLocationParameters) DeepCopyInto(out *EnterprisePolicy
 	*out = *in
 	if in.S3 != nil {
 		in, out := &in.S3, &out.S3
-		*out = make([]LocationS3Parameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(LocationS3Parameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4751,10 +4683,8 @@ func (in *EnterprisePolicyObservation) DeepCopyInto(out *EnterprisePolicyObserva
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]EnterprisePolicyLocationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EnterprisePolicyLocationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Type != nil {
 		in, out := &in.Type, &out.Type
@@ -4778,10 +4708,8 @@ func (in *EnterprisePolicyParameters) DeepCopyInto(out *EnterprisePolicyParamete
 	*out = *in
 	if in.Location != nil {
 		in, out := &in.Location, &out.Location
-		*out = make([]EnterprisePolicyLocationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EnterprisePolicyLocationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Type != nil {
 		in, out := &in.Type, &out.Type
@@ -4880,24 +4808,18 @@ func (in *FilesystemConfigurationInitParameters) DeepCopyInto(out *FilesystemCon
 	*out = *in
 	if in.EFSAccessPoint != nil {
 		in, out := &in.EFSAccessPoint, &out.EFSAccessPoint
-		*out = make([]EFSAccessPointInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EFSAccessPointInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.S3FilesAccessPoint != nil {
 		in, out := &in.S3FilesAccessPoint, &out.S3FilesAccessPoint
-		*out = make([]S3FilesAccessPointInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(S3FilesAccessPointInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SessionStorage != nil {
 		in, out := &in.SessionStorage, &out.SessionStorage
-		*out = make([]SessionStorageInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionStorageInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4916,24 +4838,18 @@ func (in *FilesystemConfigurationObservation) DeepCopyInto(out *FilesystemConfig
 	*out = *in
 	if in.EFSAccessPoint != nil {
 		in, out := &in.EFSAccessPoint, &out.EFSAccessPoint
-		*out = make([]EFSAccessPointObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EFSAccessPointObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.S3FilesAccessPoint != nil {
 		in, out := &in.S3FilesAccessPoint, &out.S3FilesAccessPoint
-		*out = make([]S3FilesAccessPointObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(S3FilesAccessPointObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SessionStorage != nil {
 		in, out := &in.SessionStorage, &out.SessionStorage
-		*out = make([]SessionStorageObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionStorageObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -4952,24 +4868,18 @@ func (in *FilesystemConfigurationParameters) DeepCopyInto(out *FilesystemConfigu
 	*out = *in
 	if in.EFSAccessPoint != nil {
 		in, out := &in.EFSAccessPoint, &out.EFSAccessPoint
-		*out = make([]EFSAccessPointParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(EFSAccessPointParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.S3FilesAccessPoint != nil {
 		in, out := &in.S3FilesAccessPoint, &out.S3FilesAccessPoint
-		*out = make([]S3FilesAccessPointParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(S3FilesAccessPointParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SessionStorage != nil {
 		in, out := &in.SessionStorage, &out.SessionStorage
-		*out = make([]SessionStorageParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionStorageParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -5192,10 +5102,8 @@ func (in *GatewayInitParameters) DeepCopyInto(out *GatewayInitParameters) {
 	}
 	if in.PolicyEngineConfiguration != nil {
 		in, out := &in.PolicyEngineConfiguration, &out.PolicyEngineConfiguration
-		*out = make([]PolicyEngineConfigurationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PolicyEngineConfigurationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.ProtocolConfiguration != nil {
 		in, out := &in.ProtocolConfiguration, &out.ProtocolConfiguration
@@ -5344,10 +5252,8 @@ func (in *GatewayObservation) DeepCopyInto(out *GatewayObservation) {
 	}
 	if in.PolicyEngineConfiguration != nil {
 		in, out := &in.PolicyEngineConfiguration, &out.PolicyEngineConfiguration
-		*out = make([]PolicyEngineConfigurationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PolicyEngineConfigurationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.ProtocolConfiguration != nil {
 		in, out := &in.ProtocolConfiguration, &out.ProtocolConfiguration
@@ -5472,10 +5378,8 @@ func (in *GatewayParameters) DeepCopyInto(out *GatewayParameters) {
 	}
 	if in.PolicyEngineConfiguration != nil {
 		in, out := &in.PolicyEngineConfiguration, &out.PolicyEngineConfiguration
-		*out = make([]PolicyEngineConfigurationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PolicyEngineConfigurationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.ProtocolConfiguration != nil {
 		in, out := &in.ProtocolConfiguration, &out.ProtocolConfiguration
@@ -5697,10 +5601,8 @@ func (in *GatewayTargetInitParameters) DeepCopyInto(out *GatewayTargetInitParame
 	}
 	if in.PrivateEndpoint != nil {
 		in, out := &in.PrivateEndpoint, &out.PrivateEndpoint
-		*out = make([]PrivateEndpointInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PrivateEndpointInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.TargetConfiguration != nil {
 		in, out := &in.TargetConfiguration, &out.TargetConfiguration
@@ -5786,10 +5688,8 @@ func (in *GatewayTargetObservation) DeepCopyInto(out *GatewayTargetObservation) 
 	}
 	if in.PrivateEndpoint != nil {
 		in, out := &in.PrivateEndpoint, &out.PrivateEndpoint
-		*out = make([]PrivateEndpointObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PrivateEndpointObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
@@ -5858,10 +5758,8 @@ func (in *GatewayTargetParameters) DeepCopyInto(out *GatewayTargetParameters) {
 	}
 	if in.PrivateEndpoint != nil {
 		in, out := &in.PrivateEndpoint, &out.PrivateEndpoint
-		*out = make([]PrivateEndpointParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(PrivateEndpointParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
@@ -6374,10 +6272,8 @@ func (in *HTTPInitParameters) DeepCopyInto(out *HTTPInitParameters) {
 	*out = *in
 	if in.AgentcoreRuntime != nil {
 		in, out := &in.AgentcoreRuntime, &out.AgentcoreRuntime
-		*out = make([]AgentcoreRuntimeInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AgentcoreRuntimeInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -6396,10 +6292,8 @@ func (in *HTTPObservation) DeepCopyInto(out *HTTPObservation) {
 	*out = *in
 	if in.AgentcoreRuntime != nil {
 		in, out := &in.AgentcoreRuntime, &out.AgentcoreRuntime
-		*out = make([]AgentcoreRuntimeObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AgentcoreRuntimeObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -6418,10 +6312,8 @@ func (in *HTTPParameters) DeepCopyInto(out *HTTPParameters) {
 	*out = *in
 	if in.AgentcoreRuntime != nil {
 		in, out := &in.AgentcoreRuntime, &out.AgentcoreRuntime
-		*out = make([]AgentcoreRuntimeParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(AgentcoreRuntimeParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -7591,10 +7483,8 @@ func (in *KinesisInitParameters) DeepCopyInto(out *KinesisInitParameters) {
 	*out = *in
 	if in.ContentConfiguration != nil {
 		in, out := &in.ContentConfiguration, &out.ContentConfiguration
-		*out = make([]ContentConfigurationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ContentConfigurationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.DataStreamArn != nil {
 		in, out := &in.DataStreamArn, &out.DataStreamArn
@@ -7618,10 +7508,8 @@ func (in *KinesisObservation) DeepCopyInto(out *KinesisObservation) {
 	*out = *in
 	if in.ContentConfiguration != nil {
 		in, out := &in.ContentConfiguration, &out.ContentConfiguration
-		*out = make([]ContentConfigurationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ContentConfigurationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.DataStreamArn != nil {
 		in, out := &in.DataStreamArn, &out.DataStreamArn
@@ -7645,10 +7533,8 @@ func (in *KinesisParameters) DeepCopyInto(out *KinesisParameters) {
 	*out = *in
 	if in.ContentConfiguration != nil {
 		in, out := &in.ContentConfiguration, &out.ContentConfiguration
-		*out = make([]ContentConfigurationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ContentConfigurationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.DataStreamArn != nil {
 		in, out := &in.DataStreamArn, &out.DataStreamArn
@@ -7827,10 +7713,8 @@ func (in *LocationInitParameters) DeepCopyInto(out *LocationInitParameters) {
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]SecretsManagerInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SecretsManagerInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -7849,10 +7733,8 @@ func (in *LocationObservation) DeepCopyInto(out *LocationObservation) {
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]SecretsManagerObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SecretsManagerObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -7871,10 +7753,8 @@ func (in *LocationParameters) DeepCopyInto(out *LocationParameters) {
 	*out = *in
 	if in.SecretsManager != nil {
 		in, out := &in.SecretsManager, &out.SecretsManager
-		*out = make([]SecretsManagerParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SecretsManagerParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -8321,17 +8201,13 @@ func (in *McpInitParameters) DeepCopyInto(out *McpInitParameters) {
 	}
 	if in.SessionConfiguration != nil {
 		in, out := &in.SessionConfiguration, &out.SessionConfiguration
-		*out = make([]SessionConfigurationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionConfigurationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.StreamingConfiguration != nil {
 		in, out := &in.StreamingConfiguration, &out.StreamingConfiguration
-		*out = make([]StreamingConfigurationInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamingConfigurationInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SupportedVersions != nil {
 		in, out := &in.SupportedVersions, &out.SupportedVersions
@@ -8466,17 +8342,13 @@ func (in *McpObservation) DeepCopyInto(out *McpObservation) {
 	}
 	if in.SessionConfiguration != nil {
 		in, out := &in.SessionConfiguration, &out.SessionConfiguration
-		*out = make([]SessionConfigurationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionConfigurationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.StreamingConfiguration != nil {
 		in, out := &in.StreamingConfiguration, &out.StreamingConfiguration
-		*out = make([]StreamingConfigurationObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamingConfigurationObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SupportedVersions != nil {
 		in, out := &in.SupportedVersions, &out.SupportedVersions
@@ -8516,17 +8388,13 @@ func (in *McpParameters) DeepCopyInto(out *McpParameters) {
 	}
 	if in.SessionConfiguration != nil {
 		in, out := &in.SessionConfiguration, &out.SessionConfiguration
-		*out = make([]SessionConfigurationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SessionConfigurationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.StreamingConfiguration != nil {
 		in, out := &in.StreamingConfiguration, &out.StreamingConfiguration
-		*out = make([]StreamingConfigurationParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamingConfigurationParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SupportedVersions != nil {
 		in, out := &in.SupportedVersions, &out.SupportedVersions
@@ -8710,10 +8578,8 @@ func (in *MemoryInitParameters) DeepCopyInto(out *MemoryInitParameters) {
 	}
 	if in.StreamDeliveryResources != nil {
 		in, out := &in.StreamDeliveryResources, &out.StreamDeliveryResources
-		*out = make([]StreamDeliveryResourcesInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamDeliveryResourcesInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -8827,10 +8693,8 @@ func (in *MemoryObservation) DeepCopyInto(out *MemoryObservation) {
 	}
 	if in.StreamDeliveryResources != nil {
 		in, out := &in.StreamDeliveryResources, &out.StreamDeliveryResources
-		*out = make([]StreamDeliveryResourcesObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamDeliveryResourcesObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -8938,10 +8802,8 @@ func (in *MemoryParameters) DeepCopyInto(out *MemoryParameters) {
 	}
 	if in.StreamDeliveryResources != nil {
 		in, out := &in.StreamDeliveryResources, &out.StreamDeliveryResources
-		*out = make([]StreamDeliveryResourcesParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(StreamDeliveryResourcesParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Tags != nil {
 		in, out := &in.Tags, &out.Tags
@@ -11965,17 +11827,13 @@ func (in *PrivateEndpointInitParameters) DeepCopyInto(out *PrivateEndpointInitPa
 	*out = *in
 	if in.ManagedVPCResource != nil {
 		in, out := &in.ManagedVPCResource, &out.ManagedVPCResource
-		*out = make([]ManagedVPCResourceInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ManagedVPCResourceInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SelfManagedLatticeResource != nil {
 		in, out := &in.SelfManagedLatticeResource, &out.SelfManagedLatticeResource
-		*out = make([]SelfManagedLatticeResourceInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SelfManagedLatticeResourceInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -11994,17 +11852,13 @@ func (in *PrivateEndpointObservation) DeepCopyInto(out *PrivateEndpointObservati
 	*out = *in
 	if in.ManagedVPCResource != nil {
 		in, out := &in.ManagedVPCResource, &out.ManagedVPCResource
-		*out = make([]ManagedVPCResourceObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ManagedVPCResourceObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SelfManagedLatticeResource != nil {
 		in, out := &in.SelfManagedLatticeResource, &out.SelfManagedLatticeResource
-		*out = make([]SelfManagedLatticeResourceObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SelfManagedLatticeResourceObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -12023,17 +11877,13 @@ func (in *PrivateEndpointParameters) DeepCopyInto(out *PrivateEndpointParameters
 	*out = *in
 	if in.ManagedVPCResource != nil {
 		in, out := &in.ManagedVPCResource, &out.ManagedVPCResource
-		*out = make([]ManagedVPCResourceParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ManagedVPCResourceParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SelfManagedLatticeResource != nil {
 		in, out := &in.SelfManagedLatticeResource, &out.SelfManagedLatticeResource
-		*out = make([]SelfManagedLatticeResourceParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(SelfManagedLatticeResourceParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -12886,10 +12736,8 @@ func (in *ResourceInitParameters) DeepCopyInto(out *ResourceInitParameters) {
 	*out = *in
 	if in.Kinesis != nil {
 		in, out := &in.Kinesis, &out.Kinesis
-		*out = make([]KinesisInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(KinesisInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -12908,10 +12756,8 @@ func (in *ResourceObservation) DeepCopyInto(out *ResourceObservation) {
 	*out = *in
 	if in.Kinesis != nil {
 		in, out := &in.Kinesis, &out.Kinesis
-		*out = make([]KinesisObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(KinesisObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -12930,10 +12776,8 @@ func (in *ResourceParameters) DeepCopyInto(out *ResourceParameters) {
 	*out = *in
 	if in.Kinesis != nil {
 		in, out := &in.Kinesis, &out.Kinesis
-		*out = make([]KinesisParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(KinesisParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -14152,10 +13996,8 @@ func (in *StreamDeliveryResourcesInitParameters) DeepCopyInto(out *StreamDeliver
 	*out = *in
 	if in.Resource != nil {
 		in, out := &in.Resource, &out.Resource
-		*out = make([]ResourceInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ResourceInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -14174,10 +14016,8 @@ func (in *StreamDeliveryResourcesObservation) DeepCopyInto(out *StreamDeliveryRe
 	*out = *in
 	if in.Resource != nil {
 		in, out := &in.Resource, &out.Resource
-		*out = make([]ResourceObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ResourceObservation)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -14196,10 +14036,8 @@ func (in *StreamDeliveryResourcesParameters) DeepCopyInto(out *StreamDeliveryRes
 	*out = *in
 	if in.Resource != nil {
 		in, out := &in.Resource, &out.Resource
-		*out = make([]ResourceParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(ResourceParameters)
+		(*in).DeepCopyInto(*out)
 	}
 }
 
@@ -14278,10 +14116,8 @@ func (in *TargetConfigurationInitParameters) DeepCopyInto(out *TargetConfigurati
 	*out = *in
 	if in.HTTP != nil {
 		in, out := &in.HTTP, &out.HTTP
-		*out = make([]HTTPInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(HTTPInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Mcp != nil {
 		in, out := &in.Mcp, &out.Mcp
@@ -14305,10 +14141,8 @@ func (in *TargetConfigurationMcpInitParameters) DeepCopyInto(out *TargetConfigur
 	*out = *in
 	if in.APIGateway != nil {
 		in, out := &in.APIGateway, &out.APIGateway
-		*out = make([]APIGatewayInitParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayInitParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Lambda != nil {
 		in, out := &in.Lambda, &out.Lambda
@@ -14347,10 +14181,8 @@ func (in *TargetConfigurationMcpObservation) DeepCopyInto(out *TargetConfigurati
 	*out = *in
 	if in.APIGateway != nil {
 		in, out := &in.APIGateway, &out.APIGateway
-		*out = make([]APIGatewayObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Lambda != nil {
 		in, out := &in.Lambda, &out.Lambda
@@ -14389,10 +14221,8 @@ func (in *TargetConfigurationMcpParameters) DeepCopyInto(out *TargetConfiguratio
 	*out = *in
 	if in.APIGateway != nil {
 		in, out := &in.APIGateway, &out.APIGateway
-		*out = make([]APIGatewayParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(APIGatewayParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Lambda != nil {
 		in, out := &in.Lambda, &out.Lambda
@@ -14431,10 +14261,8 @@ func (in *TargetConfigurationObservation) DeepCopyInto(out *TargetConfigurationO
 	*out = *in
 	if in.HTTP != nil {
 		in, out := &in.HTTP, &out.HTTP
-		*out = make([]HTTPObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(HTTPObservation)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Mcp != nil {
 		in, out := &in.Mcp, &out.Mcp
@@ -14458,10 +14286,8 @@ func (in *TargetConfigurationParameters) DeepCopyInto(out *TargetConfigurationPa
 	*out = *in
 	if in.HTTP != nil {
 		in, out := &in.HTTP, &out.HTTP
-		*out = make([]HTTPParameters, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
+		*out = new(HTTPParameters)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.Mcp != nil {
 		in, out := &in.Mcp, &out.Mcp

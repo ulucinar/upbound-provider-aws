@@ -250,7 +250,7 @@ type AuthorizingClaimMatchValueInitParameters struct {
 	ClaimMatchOperator *string `json:"claimMatchOperator,omitempty" tf:"claim_match_operator,omitempty"`
 
 	// Value or values to match for. See claim_match_value below.
-	ClaimMatchValue []ClaimMatchValueInitParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *ClaimMatchValueInitParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type AuthorizingClaimMatchValueObservation struct {
@@ -259,7 +259,7 @@ type AuthorizingClaimMatchValueObservation struct {
 	ClaimMatchOperator *string `json:"claimMatchOperator,omitempty" tf:"claim_match_operator,omitempty"`
 
 	// Value or values to match for. See claim_match_value below.
-	ClaimMatchValue []ClaimMatchValueObservation `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *ClaimMatchValueObservation `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type AuthorizingClaimMatchValueParameters struct {
@@ -270,7 +270,7 @@ type AuthorizingClaimMatchValueParameters struct {
 
 	// Value or values to match for. See claim_match_value below.
 	// +kubebuilder:validation:Optional
-	ClaimMatchValue []ClaimMatchValueParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *ClaimMatchValueParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type ClaimMatchValueInitParameters struct {
@@ -385,7 +385,7 @@ type ContainerConfigurationParameters struct {
 type CustomClaimInitParameters struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
-	AuthorizingClaimMatchValue []AuthorizingClaimMatchValueInitParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *AuthorizingClaimMatchValueInitParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	InboundTokenClaimName *string `json:"inboundTokenClaimName,omitempty" tf:"inbound_token_claim_name,omitempty"`
@@ -397,7 +397,7 @@ type CustomClaimInitParameters struct {
 type CustomClaimObservation struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
-	AuthorizingClaimMatchValue []AuthorizingClaimMatchValueObservation `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *AuthorizingClaimMatchValueObservation `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	InboundTokenClaimName *string `json:"inboundTokenClaimName,omitempty" tf:"inbound_token_claim_name,omitempty"`
@@ -410,7 +410,7 @@ type CustomClaimParameters struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
 	// +kubebuilder:validation:Optional
-	AuthorizingClaimMatchValue []AuthorizingClaimMatchValueParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *AuthorizingClaimMatchValueParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	// +kubebuilder:validation:Optional
@@ -521,40 +521,40 @@ type EFSAccessPointParameters struct {
 type FilesystemConfigurationInitParameters struct {
 
 	// Amazon EFS access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See efs_access_point below.
-	EFSAccessPoint []EFSAccessPointInitParameters `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
+	EFSAccessPoint *EFSAccessPointInitParameters `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
 
 	// Amazon S3 Files access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See s3_files_access_point below.
-	S3FilesAccessPoint []S3FilesAccessPointInitParameters `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
+	S3FilesAccessPoint *S3FilesAccessPointInitParameters `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
 
 	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See session_storage below.
-	SessionStorage []SessionStorageInitParameters `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
+	SessionStorage *SessionStorageInitParameters `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
 }
 
 type FilesystemConfigurationObservation struct {
 
 	// Amazon EFS access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See efs_access_point below.
-	EFSAccessPoint []EFSAccessPointObservation `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
+	EFSAccessPoint *EFSAccessPointObservation `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
 
 	// Amazon S3 Files access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See s3_files_access_point below.
-	S3FilesAccessPoint []S3FilesAccessPointObservation `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
+	S3FilesAccessPoint *S3FilesAccessPointObservation `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
 
 	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See session_storage below.
-	SessionStorage []SessionStorageObservation `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
+	SessionStorage *SessionStorageObservation `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
 }
 
 type FilesystemConfigurationParameters struct {
 
 	// Amazon EFS access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See efs_access_point below.
 	// +kubebuilder:validation:Optional
-	EFSAccessPoint []EFSAccessPointParameters `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
+	EFSAccessPoint *EFSAccessPointParameters `json:"efsAccessPoint,omitempty" tf:"efs_access_point,omitempty"`
 
 	// Amazon S3 Files access point to mount as shared file storage. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See s3_files_access_point below.
 	// +kubebuilder:validation:Optional
-	S3FilesAccessPoint []S3FilesAccessPointParameters `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
+	S3FilesAccessPoint *S3FilesAccessPointParameters `json:"s3FilesAccessPoint,omitempty" tf:"s3_files_access_point,omitempty"`
 
 	// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of session_storage, s3_files_access_point, or efs_access_point must be specified. See session_storage below.
 	// +kubebuilder:validation:Optional
-	SessionStorage []SessionStorageParameters `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
+	SessionStorage *SessionStorageParameters `json:"sessionStorage,omitempty" tf:"session_storage,omitempty"`
 }
 
 type LifecycleConfigurationInitParameters struct {

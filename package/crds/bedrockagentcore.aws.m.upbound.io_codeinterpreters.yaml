@@ -67,21 +67,17 @@ spec:
                         location:
                           description: Location from which to retrieve the certificate.
                             See certificates.location below.
-                          items:
-                            properties:
-                              secretsManager:
-                                description: AWS Secrets Manager location of the certificate.
-                                  See secrets_manager below.
-                                items:
-                                  properties:
-                                    secretArn:
-                                      description: ARN of the AWS Secrets Manager
-                                        secret containing the certificate.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
+                          properties:
+                            secretsManager:
+                              description: AWS Secrets Manager location of the certificate.
+                                See secrets_manager below.
+                              properties:
+                                secretArn:
+                                  description: ARN of the AWS Secrets Manager secret
+                                    containing the certificate.
+                                  type: string
+                              type: object
+                          type: object
                       type: object
                     type: array
                   description:
@@ -234,21 +230,17 @@ spec:
                         location:
                           description: Location from which to retrieve the certificate.
                             See certificates.location below.
-                          items:
-                            properties:
-                              secretsManager:
-                                description: AWS Secrets Manager location of the certificate.
-                                  See secrets_manager below.
-                                items:
-                                  properties:
-                                    secretArn:
-                                      description: ARN of the AWS Secrets Manager
-                                        secret containing the certificate.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
+                          properties:
+                            secretsManager:
+                              description: AWS Secrets Manager location of the certificate.
+                                See secrets_manager below.
+                              properties:
+                                secretArn:
+                                  description: ARN of the AWS Secrets Manager secret
+                                    containing the certificate.
+                                  type: string
+                              type: object
+                          type: object
                       type: object
                     type: array
                   description:
@@ -449,21 +441,17 @@ spec:
                         location:
                           description: Location from which to retrieve the certificate.
                             See certificates.location below.
-                          items:
-                            properties:
-                              secretsManager:
-                                description: AWS Secrets Manager location of the certificate.
-                                  See secrets_manager below.
-                                items:
-                                  properties:
-                                    secretArn:
-                                      description: ARN of the AWS Secrets Manager
-                                        secret containing the certificate.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
+                          properties:
+                            secretsManager:
+                              description: AWS Secrets Manager location of the certificate.
+                                See secrets_manager below.
+                              properties:
+                                secretArn:
+                                  description: ARN of the AWS Secrets Manager secret
+                                    containing the certificate.
+                                  type: string
+                              type: object
+                          type: object
                       type: object
                     type: array
                   codeInterpreterArn:

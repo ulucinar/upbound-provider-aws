@@ -120,7 +120,7 @@ type CustomClaimAuthorizingClaimMatchValueInitParameters struct {
 	ClaimMatchOperator *string `json:"claimMatchOperator,omitempty" tf:"claim_match_operator,omitempty"`
 
 	// Value or values to match for. See claim_match_value below.
-	ClaimMatchValue []AuthorizingClaimMatchValueClaimMatchValueInitParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *AuthorizingClaimMatchValueClaimMatchValueInitParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type CustomClaimAuthorizingClaimMatchValueObservation struct {
@@ -129,7 +129,7 @@ type CustomClaimAuthorizingClaimMatchValueObservation struct {
 	ClaimMatchOperator *string `json:"claimMatchOperator,omitempty" tf:"claim_match_operator,omitempty"`
 
 	// Value or values to match for. See claim_match_value below.
-	ClaimMatchValue []AuthorizingClaimMatchValueClaimMatchValueObservation `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *AuthorizingClaimMatchValueClaimMatchValueObservation `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type CustomClaimAuthorizingClaimMatchValueParameters struct {
@@ -140,13 +140,13 @@ type CustomClaimAuthorizingClaimMatchValueParameters struct {
 
 	// Value or values to match for. See claim_match_value below.
 	// +kubebuilder:validation:Optional
-	ClaimMatchValue []AuthorizingClaimMatchValueClaimMatchValueParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
+	ClaimMatchValue *AuthorizingClaimMatchValueClaimMatchValueParameters `json:"claimMatchValue,omitempty" tf:"claim_match_value,omitempty"`
 }
 
 type CustomJwtAuthorizerCustomClaimInitParameters struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
-	AuthorizingClaimMatchValue []CustomClaimAuthorizingClaimMatchValueInitParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *CustomClaimAuthorizingClaimMatchValueInitParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	InboundTokenClaimName *string `json:"inboundTokenClaimName,omitempty" tf:"inbound_token_claim_name,omitempty"`
@@ -158,7 +158,7 @@ type CustomJwtAuthorizerCustomClaimInitParameters struct {
 type CustomJwtAuthorizerCustomClaimObservation struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
-	AuthorizingClaimMatchValue []CustomClaimAuthorizingClaimMatchValueObservation `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *CustomClaimAuthorizingClaimMatchValueObservation `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	InboundTokenClaimName *string `json:"inboundTokenClaimName,omitempty" tf:"inbound_token_claim_name,omitempty"`
@@ -171,7 +171,7 @@ type CustomJwtAuthorizerCustomClaimParameters struct {
 
 	// Configuration block to define the value or values to match for and the relationship of the match. See authorizing_claim_match_value below.
 	// +kubebuilder:validation:Optional
-	AuthorizingClaimMatchValue []CustomClaimAuthorizingClaimMatchValueParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
+	AuthorizingClaimMatchValue *CustomClaimAuthorizingClaimMatchValueParameters `json:"authorizingClaimMatchValue,omitempty" tf:"authorizing_claim_match_value,omitempty"`
 
 	// Name of the custom claim field to check.
 	// +kubebuilder:validation:Optional
@@ -234,7 +234,7 @@ type GatewayInitParameters struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See policy_engine_configuration below.
-	PolicyEngineConfiguration []PolicyEngineConfigurationInitParameters `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
+	PolicyEngineConfiguration *PolicyEngineConfigurationInitParameters `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
 
 	// Protocol-specific configuration for the gateway. See protocol_configuration below.
 	ProtocolConfiguration *GatewayProtocolConfigurationInitParameters `json:"protocolConfiguration,omitempty" tf:"protocol_configuration,omitempty"`
@@ -295,7 +295,7 @@ type GatewayObservation struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See policy_engine_configuration below.
-	PolicyEngineConfiguration []PolicyEngineConfigurationObservation `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
+	PolicyEngineConfiguration *PolicyEngineConfigurationObservation `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
 
 	// Protocol-specific configuration for the gateway. See protocol_configuration below.
 	ProtocolConfiguration *GatewayProtocolConfigurationObservation `json:"protocolConfiguration,omitempty" tf:"protocol_configuration,omitempty"`
@@ -363,7 +363,7 @@ type GatewayParameters struct {
 
 	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See policy_engine_configuration below.
 	// +kubebuilder:validation:Optional
-	PolicyEngineConfiguration []PolicyEngineConfigurationParameters `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
+	PolicyEngineConfiguration *PolicyEngineConfigurationParameters `json:"policyEngineConfiguration,omitempty" tf:"policy_engine_configuration,omitempty"`
 
 	// Protocol-specific configuration for the gateway. See protocol_configuration below.
 	// +kubebuilder:validation:Optional
@@ -557,10 +557,10 @@ type McpInitParameters struct {
 	SearchType *string `json:"searchType,omitempty" tf:"search_type,omitempty"`
 
 	// Configuration block for session settings of the MCP gateway. See session_configuration below.
-	SessionConfiguration []SessionConfigurationInitParameters `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
+	SessionConfiguration *SessionConfigurationInitParameters `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
 
 	// Configuration block for streaming settings of the MCP gateway. See streaming_configuration below.
-	StreamingConfiguration []StreamingConfigurationInitParameters `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
+	StreamingConfiguration *StreamingConfigurationInitParameters `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
 
 	// Set of supported MCP protocol versions.
 	// +listType=set
@@ -576,10 +576,10 @@ type McpObservation struct {
 	SearchType *string `json:"searchType,omitempty" tf:"search_type,omitempty"`
 
 	// Configuration block for session settings of the MCP gateway. See session_configuration below.
-	SessionConfiguration []SessionConfigurationObservation `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
+	SessionConfiguration *SessionConfigurationObservation `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
 
 	// Configuration block for streaming settings of the MCP gateway. See streaming_configuration below.
-	StreamingConfiguration []StreamingConfigurationObservation `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
+	StreamingConfiguration *StreamingConfigurationObservation `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
 
 	// Set of supported MCP protocol versions.
 	// +listType=set
@@ -598,11 +598,11 @@ type McpParameters struct {
 
 	// Configuration block for session settings of the MCP gateway. See session_configuration below.
 	// +kubebuilder:validation:Optional
-	SessionConfiguration []SessionConfigurationParameters `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
+	SessionConfiguration *SessionConfigurationParameters `json:"sessionConfiguration,omitempty" tf:"session_configuration,omitempty"`
 
 	// Configuration block for streaming settings of the MCP gateway. See streaming_configuration below.
 	// +kubebuilder:validation:Optional
-	StreamingConfiguration []StreamingConfigurationParameters `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
+	StreamingConfiguration *StreamingConfigurationParameters `json:"streamingConfiguration,omitempty" tf:"streaming_configuration,omitempty"`
 
 	// Set of supported MCP protocol versions.
 	// +kubebuilder:validation:Optional

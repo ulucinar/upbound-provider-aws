@@ -16,7 +16,7 @@ import (
 type APIGatewayInitParameters struct {
 
 	// Configuration for API Gateway tools. See api_gateway_tool_configuration below.
-	APIGatewayToolConfiguration []APIGatewayToolConfigurationInitParameters `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
+	APIGatewayToolConfiguration *APIGatewayToolConfigurationInitParameters `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
 
 	// ID of the API Gateway REST API to invoke.
 	RestAPIID *string `json:"restApiId,omitempty" tf:"rest_api_id,omitempty"`
@@ -28,7 +28,7 @@ type APIGatewayInitParameters struct {
 type APIGatewayObservation struct {
 
 	// Configuration for API Gateway tools. See api_gateway_tool_configuration below.
-	APIGatewayToolConfiguration []APIGatewayToolConfigurationObservation `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
+	APIGatewayToolConfiguration *APIGatewayToolConfigurationObservation `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
 
 	// ID of the API Gateway REST API to invoke.
 	RestAPIID *string `json:"restApiId,omitempty" tf:"rest_api_id,omitempty"`
@@ -41,7 +41,7 @@ type APIGatewayParameters struct {
 
 	// Configuration for API Gateway tools. See api_gateway_tool_configuration below.
 	// +kubebuilder:validation:Optional
-	APIGatewayToolConfiguration []APIGatewayToolConfigurationParameters `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
+	APIGatewayToolConfiguration *APIGatewayToolConfigurationParameters `json:"apiGatewayToolConfiguration,omitempty" tf:"api_gateway_tool_configuration,omitempty"`
 
 	// ID of the API Gateway REST API to invoke.
 	// +kubebuilder:validation:Optional
@@ -211,13 +211,13 @@ type CredentialProviderConfigurationInitParameters struct {
 	APIKey *APIKeyInitParameters `json:"apiKey,omitempty" tf:"api_key,omitempty"`
 
 	// Caller IAM credentials-based authentication configuration. See caller_iam_credentials below.
-	CallerIAMCredentials []CallerIAMCredentialsInitParameters `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
+	CallerIAMCredentials *CallerIAMCredentialsInitParameters `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
 
 	// Use the gateway's IAM role for authentication. See gateway_iam_role below.
 	GatewayIAMRole *GatewayIAMRoleInitParameters `json:"gatewayIamRole,omitempty" tf:"gateway_iam_role,omitempty"`
 
 	// JWT passthrough-based authentication configuration. This is an empty configuration block.
-	JwtPassthrough []JwtPassthroughInitParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
+	JwtPassthrough *JwtPassthroughInitParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
 
 	// OAuth-based authentication configuration. See oauth below.
 	Oauth *OauthInitParameters `json:"oauth,omitempty" tf:"oauth,omitempty"`
@@ -229,13 +229,13 @@ type CredentialProviderConfigurationObservation struct {
 	APIKey *APIKeyObservation `json:"apiKey,omitempty" tf:"api_key,omitempty"`
 
 	// Caller IAM credentials-based authentication configuration. See caller_iam_credentials below.
-	CallerIAMCredentials []CallerIAMCredentialsObservation `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
+	CallerIAMCredentials *CallerIAMCredentialsObservation `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
 
 	// Use the gateway's IAM role for authentication. See gateway_iam_role below.
 	GatewayIAMRole *GatewayIAMRoleObservation `json:"gatewayIamRole,omitempty" tf:"gateway_iam_role,omitempty"`
 
 	// JWT passthrough-based authentication configuration. This is an empty configuration block.
-	JwtPassthrough []JwtPassthroughParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
+	JwtPassthrough *JwtPassthroughParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
 
 	// OAuth-based authentication configuration. See oauth below.
 	Oauth *OauthObservation `json:"oauth,omitempty" tf:"oauth,omitempty"`
@@ -249,7 +249,7 @@ type CredentialProviderConfigurationParameters struct {
 
 	// Caller IAM credentials-based authentication configuration. See caller_iam_credentials below.
 	// +kubebuilder:validation:Optional
-	CallerIAMCredentials []CallerIAMCredentialsParameters `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
+	CallerIAMCredentials *CallerIAMCredentialsParameters `json:"callerIamCredentials,omitempty" tf:"caller_iam_credentials,omitempty"`
 
 	// Use the gateway's IAM role for authentication. See gateway_iam_role below.
 	// +kubebuilder:validation:Optional
@@ -257,7 +257,7 @@ type CredentialProviderConfigurationParameters struct {
 
 	// JWT passthrough-based authentication configuration. This is an empty configuration block.
 	// +kubebuilder:validation:Optional
-	JwtPassthrough []JwtPassthroughParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
+	JwtPassthrough *JwtPassthroughParameters `json:"jwtPassthrough,omitempty" tf:"jwt_passthrough,omitempty"`
 
 	// OAuth-based authentication configuration. See oauth below.
 	// +kubebuilder:validation:Optional
@@ -323,7 +323,7 @@ type GatewayTargetInitParameters struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See private_endpoint below.
-	PrivateEndpoint []PrivateEndpointInitParameters `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
+	PrivateEndpoint *PrivateEndpointInitParameters `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
 
 	// Configuration for the target endpoint. See target_configuration below.
 	TargetConfiguration *TargetConfigurationInitParameters `json:"targetConfiguration,omitempty" tf:"target_configuration,omitempty"`
@@ -349,7 +349,7 @@ type GatewayTargetObservation struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See private_endpoint below.
-	PrivateEndpoint []PrivateEndpointObservation `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
+	PrivateEndpoint *PrivateEndpointObservation `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
 
 	// Region where this resource will be managed. Defaults to the Region set in the provider configuration.
 	// Region is the region you'd like your resource to be created in.
@@ -396,7 +396,7 @@ type GatewayTargetParameters struct {
 
 	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See private_endpoint below.
 	// +kubebuilder:validation:Optional
-	PrivateEndpoint []PrivateEndpointParameters `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
+	PrivateEndpoint *PrivateEndpointParameters `json:"privateEndpoint,omitempty" tf:"private_endpoint,omitempty"`
 
 	// Region where this resource will be managed. Defaults to the Region set in the provider configuration.
 	// Region is the region you'd like your resource to be created in.
@@ -411,20 +411,20 @@ type GatewayTargetParameters struct {
 type HTTPInitParameters struct {
 
 	// AgentCore Runtime target configuration. See agentcore_runtime below.
-	AgentcoreRuntime []AgentcoreRuntimeInitParameters `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
+	AgentcoreRuntime *AgentcoreRuntimeInitParameters `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
 }
 
 type HTTPObservation struct {
 
 	// AgentCore Runtime target configuration. See agentcore_runtime below.
-	AgentcoreRuntime []AgentcoreRuntimeObservation `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
+	AgentcoreRuntime *AgentcoreRuntimeObservation `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
 }
 
 type HTTPParameters struct {
 
 	// AgentCore Runtime target configuration. See agentcore_runtime below.
 	// +kubebuilder:validation:Optional
-	AgentcoreRuntime []AgentcoreRuntimeParameters `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
+	AgentcoreRuntime *AgentcoreRuntimeParameters `json:"agentcoreRuntime,omitempty" tf:"agentcore_runtime,omitempty"`
 }
 
 type InlinePayloadInitParameters struct {
@@ -1646,30 +1646,30 @@ type OutputSchemaPropertyPropertyParameters struct {
 type PrivateEndpointInitParameters struct {
 
 	// AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See managed_vpc_resource below.
-	ManagedVPCResource []ManagedVPCResourceInitParameters `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
+	ManagedVPCResource *ManagedVPCResourceInitParameters `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
 
 	// Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See self_managed_lattice_resource below.
-	SelfManagedLatticeResource []SelfManagedLatticeResourceInitParameters `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
+	SelfManagedLatticeResource *SelfManagedLatticeResourceInitParameters `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
 }
 
 type PrivateEndpointObservation struct {
 
 	// AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See managed_vpc_resource below.
-	ManagedVPCResource []ManagedVPCResourceObservation `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
+	ManagedVPCResource *ManagedVPCResourceObservation `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
 
 	// Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See self_managed_lattice_resource below.
-	SelfManagedLatticeResource []SelfManagedLatticeResourceObservation `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
+	SelfManagedLatticeResource *SelfManagedLatticeResourceObservation `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
 }
 
 type PrivateEndpointParameters struct {
 
 	// AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See managed_vpc_resource below.
 	// +kubebuilder:validation:Optional
-	ManagedVPCResource []ManagedVPCResourceParameters `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
+	ManagedVPCResource *ManagedVPCResourceParameters `json:"managedVpcResource,omitempty" tf:"managed_vpc_resource,omitempty"`
 
 	// Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See self_managed_lattice_resource below.
 	// +kubebuilder:validation:Optional
-	SelfManagedLatticeResource []SelfManagedLatticeResourceParameters `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
+	SelfManagedLatticeResource *SelfManagedLatticeResourceParameters `json:"selfManagedLatticeResource,omitempty" tf:"self_managed_lattice_resource,omitempty"`
 }
 
 type PropertyInitParameters struct {
@@ -2096,7 +2096,7 @@ type SmithyModelS3Parameters struct {
 type TargetConfigurationInitParameters struct {
 
 	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See http below.
-	HTTP []HTTPInitParameters `json:"http,omitempty" tf:"http,omitempty"`
+	HTTP *HTTPInitParameters `json:"http,omitempty" tf:"http,omitempty"`
 
 	// Model Context Protocol (MCP) configuration. See mcp below.
 	Mcp *TargetConfigurationMcpInitParameters `json:"mcp,omitempty" tf:"mcp,omitempty"`
@@ -2105,7 +2105,7 @@ type TargetConfigurationInitParameters struct {
 type TargetConfigurationMcpInitParameters struct {
 
 	// API Gateway target configuration. See api_gateway below.
-	APIGateway []APIGatewayInitParameters `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
+	APIGateway *APIGatewayInitParameters `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
 
 	// Lambda function target configuration. See lambda below.
 	Lambda *McpLambdaInitParameters `json:"lambda,omitempty" tf:"lambda,omitempty"`
@@ -2123,7 +2123,7 @@ type TargetConfigurationMcpInitParameters struct {
 type TargetConfigurationMcpObservation struct {
 
 	// API Gateway target configuration. See api_gateway below.
-	APIGateway []APIGatewayObservation `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
+	APIGateway *APIGatewayObservation `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
 
 	// Lambda function target configuration. See lambda below.
 	Lambda *McpLambdaObservation `json:"lambda,omitempty" tf:"lambda,omitempty"`
@@ -2142,7 +2142,7 @@ type TargetConfigurationMcpParameters struct {
 
 	// API Gateway target configuration. See api_gateway below.
 	// +kubebuilder:validation:Optional
-	APIGateway []APIGatewayParameters `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
+	APIGateway *APIGatewayParameters `json:"apiGateway,omitempty" tf:"api_gateway,omitempty"`
 
 	// Lambda function target configuration. See lambda below.
 	// +kubebuilder:validation:Optional
@@ -2164,7 +2164,7 @@ type TargetConfigurationMcpParameters struct {
 type TargetConfigurationObservation struct {
 
 	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See http below.
-	HTTP []HTTPObservation `json:"http,omitempty" tf:"http,omitempty"`
+	HTTP *HTTPObservation `json:"http,omitempty" tf:"http,omitempty"`
 
 	// Model Context Protocol (MCP) configuration. See mcp below.
 	Mcp *TargetConfigurationMcpObservation `json:"mcp,omitempty" tf:"mcp,omitempty"`
@@ -2174,7 +2174,7 @@ type TargetConfigurationParameters struct {
 
 	// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See http below.
 	// +kubebuilder:validation:Optional
-	HTTP []HTTPParameters `json:"http,omitempty" tf:"http,omitempty"`
+	HTTP *HTTPParameters `json:"http,omitempty" tf:"http,omitempty"`
 
 	// Model Context Protocol (MCP) configuration. See mcp below.
 	// +kubebuilder:validation:Optional

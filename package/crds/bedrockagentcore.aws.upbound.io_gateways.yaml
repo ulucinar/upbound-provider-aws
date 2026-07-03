@@ -112,44 +112,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -376,23 +370,21 @@ spec:
                       a gateway, the policy engine intercepts all agent requests and
                       determines whether to allow or deny each action based on the
                       defined policies. See policy_engine_configuration below.
-                    items:
-                      properties:
-                        arn:
-                          description: ARN of the policy engine. The policy engine
-                            contains Cedar policies that define fine-grained authorization
-                            rules specifying who can perform what actions on which
-                            resources as agents interact through the gateway.
-                          type: string
-                        mode:
-                          description: 'Enforcement mode for the policy engine. Valid
-                            values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
-                            engine evaluates actions and records traces but does not
-                            enforce decisions. In ENFORCE mode, the policy engine
-                            evaluates actions and enforces allow/deny decisions.'
-                          type: string
-                      type: object
-                    type: array
+                    properties:
+                      arn:
+                        description: ARN of the policy engine. The policy engine contains
+                          Cedar policies that define fine-grained authorization rules
+                          specifying who can perform what actions on which resources
+                          as agents interact through the gateway.
+                        type: string
+                      mode:
+                        description: 'Enforcement mode for the policy engine. Valid
+                          values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
+                          engine evaluates actions and records traces but does not
+                          enforce decisions. In ENFORCE mode, the policy engine evaluates
+                          actions and enforces allow/deny decisions.'
+                        type: string
+                    type: object
                   protocolConfiguration:
                     description: Protocol-specific configuration for the gateway.
                       See protocol_configuration below.
@@ -410,25 +402,21 @@ spec:
                           sessionConfiguration:
                             description: Configuration block for session settings
                               of the MCP gateway. See session_configuration below.
-                            items:
-                              properties:
-                                sessionTimeoutInSeconds:
-                                  description: Integer value for session timeout in
-                                    seconds. Must be between 900 and 28800.
-                                  type: number
-                              type: object
-                            type: array
+                            properties:
+                              sessionTimeoutInSeconds:
+                                description: Integer value for session timeout in
+                                  seconds. Must be between 900 and 28800.
+                                type: number
+                            type: object
                           streamingConfiguration:
                             description: Configuration block for streaming settings
                               of the MCP gateway. See streaming_configuration below.
-                            items:
-                              properties:
-                                enableResponseStreaming:
-                                  description: Boolean indicating whether response
-                                    streaming is enabled for the gateway.
-                                  type: boolean
-                              type: object
-                            type: array
+                            properties:
+                              enableResponseStreaming:
+                                description: Boolean indicating whether response streaming
+                                  is enabled for the gateway.
+                                type: boolean
+                            type: object
                           supportedVersions:
                             description: Set of supported MCP protocol versions.
                             items:
@@ -587,44 +575,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -851,23 +833,21 @@ spec:
                       a gateway, the policy engine intercepts all agent requests and
                       determines whether to allow or deny each action based on the
                       defined policies. See policy_engine_configuration below.
-                    items:
-                      properties:
-                        arn:
-                          description: ARN of the policy engine. The policy engine
-                            contains Cedar policies that define fine-grained authorization
-                            rules specifying who can perform what actions on which
-                            resources as agents interact through the gateway.
-                          type: string
-                        mode:
-                          description: 'Enforcement mode for the policy engine. Valid
-                            values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
-                            engine evaluates actions and records traces but does not
-                            enforce decisions. In ENFORCE mode, the policy engine
-                            evaluates actions and enforces allow/deny decisions.'
-                          type: string
-                      type: object
-                    type: array
+                    properties:
+                      arn:
+                        description: ARN of the policy engine. The policy engine contains
+                          Cedar policies that define fine-grained authorization rules
+                          specifying who can perform what actions on which resources
+                          as agents interact through the gateway.
+                        type: string
+                      mode:
+                        description: 'Enforcement mode for the policy engine. Valid
+                          values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
+                          engine evaluates actions and records traces but does not
+                          enforce decisions. In ENFORCE mode, the policy engine evaluates
+                          actions and enforces allow/deny decisions.'
+                        type: string
+                    type: object
                   protocolConfiguration:
                     description: Protocol-specific configuration for the gateway.
                       See protocol_configuration below.
@@ -885,25 +865,21 @@ spec:
                           sessionConfiguration:
                             description: Configuration block for session settings
                               of the MCP gateway. See session_configuration below.
-                            items:
-                              properties:
-                                sessionTimeoutInSeconds:
-                                  description: Integer value for session timeout in
-                                    seconds. Must be between 900 and 28800.
-                                  type: number
-                              type: object
-                            type: array
+                            properties:
+                              sessionTimeoutInSeconds:
+                                description: Integer value for session timeout in
+                                  seconds. Must be between 900 and 28800.
+                                type: number
+                            type: object
                           streamingConfiguration:
                             description: Configuration block for streaming settings
                               of the MCP gateway. See streaming_configuration below.
-                            items:
-                              properties:
-                                enableResponseStreaming:
-                                  description: Boolean indicating whether response
-                                    streaming is enabled for the gateway.
-                                  type: boolean
-                              type: object
-                            type: array
+                            properties:
+                              enableResponseStreaming:
+                                description: Boolean indicating whether response streaming
+                                  is enabled for the gateway.
+                                type: boolean
+                            type: object
                           supportedVersions:
                             description: Set of supported MCP protocol versions.
                             items:
@@ -1142,44 +1118,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -1267,23 +1237,21 @@ spec:
                       a gateway, the policy engine intercepts all agent requests and
                       determines whether to allow or deny each action based on the
                       defined policies. See policy_engine_configuration below.
-                    items:
-                      properties:
-                        arn:
-                          description: ARN of the policy engine. The policy engine
-                            contains Cedar policies that define fine-grained authorization
-                            rules specifying who can perform what actions on which
-                            resources as agents interact through the gateway.
-                          type: string
-                        mode:
-                          description: 'Enforcement mode for the policy engine. Valid
-                            values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
-                            engine evaluates actions and records traces but does not
-                            enforce decisions. In ENFORCE mode, the policy engine
-                            evaluates actions and enforces allow/deny decisions.'
-                          type: string
-                      type: object
-                    type: array
+                    properties:
+                      arn:
+                        description: ARN of the policy engine. The policy engine contains
+                          Cedar policies that define fine-grained authorization rules
+                          specifying who can perform what actions on which resources
+                          as agents interact through the gateway.
+                        type: string
+                      mode:
+                        description: 'Enforcement mode for the policy engine. Valid
+                          values: LOG_ONLY, ENFORCE. In LOG_ONLY mode, the policy
+                          engine evaluates actions and records traces but does not
+                          enforce decisions. In ENFORCE mode, the policy engine evaluates
+                          actions and enforces allow/deny decisions.'
+                        type: string
+                    type: object
                   protocolConfiguration:
                     description: Protocol-specific configuration for the gateway.
                       See protocol_configuration below.
@@ -1301,25 +1269,21 @@ spec:
                           sessionConfiguration:
                             description: Configuration block for session settings
                               of the MCP gateway. See session_configuration below.
-                            items:
-                              properties:
-                                sessionTimeoutInSeconds:
-                                  description: Integer value for session timeout in
-                                    seconds. Must be between 900 and 28800.
-                                  type: number
-                              type: object
-                            type: array
+                            properties:
+                              sessionTimeoutInSeconds:
+                                description: Integer value for session timeout in
+                                  seconds. Must be between 900 and 28800.
+                                type: number
+                            type: object
                           streamingConfiguration:
                             description: Configuration block for streaming settings
                               of the MCP gateway. See streaming_configuration below.
-                            items:
-                              properties:
-                                enableResponseStreaming:
-                                  description: Boolean indicating whether response
-                                    streaming is enabled for the gateway.
-                                  type: boolean
-                              type: object
-                            type: array
+                            properties:
+                              enableResponseStreaming:
+                                description: Boolean indicating whether response streaming
+                                  is enabled for the gateway.
+                                type: boolean
+                            type: object
                           supportedVersions:
                             description: Set of supported MCP protocol versions.
                             items:

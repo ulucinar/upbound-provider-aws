@@ -159,44 +159,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -233,51 +227,45 @@ spec:
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See efs_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         s3FilesAccessPoint:
                           description: Amazon S3 Files access point to mount as shared
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See s3_files_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         sessionStorage:
                           description: Session storage filesystem providing persistent
                             storage across agent runtime session invocations. Exactly
                             one of session_storage, s3_files_access_point, or efs_access_point
                             must be specified. See session_storage below.
-                          items:
-                            properties:
-                              mountPath:
-                                description: Mount path for the session storage filesystem
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            mountPath:
+                              description: Mount path for the session storage filesystem
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                       type: object
                     type: array
                   lifecycleConfiguration:
@@ -550,44 +538,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -624,51 +606,45 @@ spec:
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See efs_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         s3FilesAccessPoint:
                           description: Amazon S3 Files access point to mount as shared
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See s3_files_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         sessionStorage:
                           description: Session storage filesystem providing persistent
                             storage across agent runtime session invocations. Exactly
                             one of session_storage, s3_files_access_point, or efs_access_point
                             must be specified. See session_storage below.
-                          items:
-                            properties:
-                              mountPath:
-                                description: Mount path for the session storage filesystem
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            mountPath:
+                              description: Mount path for the session storage filesystem
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                       type: object
                     type: array
                   lifecycleConfiguration:
@@ -998,44 +974,38 @@ spec:
                                   description: Configuration block to define the value
                                     or values to match for and the relationship of
                                     the match. See authorizing_claim_match_value below.
-                                  items:
-                                    properties:
-                                      claimMatchOperator:
-                                        description: Relationship between the claim
-                                          field value and the value or values to match
-                                          for. Valid values are EQUALS, CONTAINS,
-                                          and CONTAINS_ANY. EQUALS can be used only
-                                          when inbound_token_claim_value_type is STRING.
-                                          CONTAINS or CONTAINS_ANY can be used only
-                                          when inbound_token_claim_value_type is STRING_ARRAY.
-                                        type: string
-                                      claimMatchValue:
-                                        description: Value or values to match for.
-                                          See claim_match_value below.
-                                        items:
-                                          properties:
-                                            matchValueString:
-                                              description: String value to match for.
-                                                Must be specified when claim_match_operator
-                                                is EQUALS or CONTAINS. Exactly one
-                                                of match_value_string or match_value_string_list
-                                                must be specified.
-                                              type: string
-                                            matchValueStringList:
-                                              description: List of strings to check
-                                                for a match. Must be specified when
-                                                claim_match_operator is CONTAINS_ANY.
-                                                Exactly one of match_value_string
-                                                or match_value_string_list must be
-                                                specified.
-                                              items:
-                                                type: string
-                                              type: array
-                                              x-kubernetes-list-type: set
-                                          type: object
-                                        type: array
-                                    type: object
-                                  type: array
+                                  properties:
+                                    claimMatchOperator:
+                                      description: Relationship between the claim
+                                        field value and the value or values to match
+                                        for. Valid values are EQUALS, CONTAINS, and
+                                        CONTAINS_ANY. EQUALS can be used only when
+                                        inbound_token_claim_value_type is STRING.
+                                        CONTAINS or CONTAINS_ANY can be used only
+                                        when inbound_token_claim_value_type is STRING_ARRAY.
+                                      type: string
+                                    claimMatchValue:
+                                      description: Value or values to match for. See
+                                        claim_match_value below.
+                                      properties:
+                                        matchValueString:
+                                          description: String value to match for.
+                                            Must be specified when claim_match_operator
+                                            is EQUALS or CONTAINS. Exactly one of
+                                            match_value_string or match_value_string_list
+                                            must be specified.
+                                          type: string
+                                        matchValueStringList:
+                                          description: List of strings to check for
+                                            a match. Must be specified when claim_match_operator
+                                            is CONTAINS_ANY. Exactly one of match_value_string
+                                            or match_value_string_list must be specified.
+                                          items:
+                                            type: string
+                                          type: array
+                                          x-kubernetes-list-type: set
+                                      type: object
+                                  type: object
                                 inboundTokenClaimName:
                                   description: Name of the custom claim field to check.
                                   type: string
@@ -1072,51 +1042,45 @@ spec:
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See efs_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         s3FilesAccessPoint:
                           description: Amazon S3 Files access point to mount as shared
                             file storage. Exactly one of session_storage, s3_files_access_point,
                             or efs_access_point must be specified. See s3_files_access_point
                             below.
-                          items:
-                            properties:
-                              accessPointArn:
-                                description: ARN of the Amazon S3 Files access point
-                                  to mount into the agent runtime.
-                                type: string
-                              mountPath:
-                                description: Mount path for the S3 Files access point
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            accessPointArn:
+                              description: ARN of the Amazon S3 Files access point
+                                to mount into the agent runtime.
+                              type: string
+                            mountPath:
+                              description: Mount path for the S3 Files access point
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                         sessionStorage:
                           description: Session storage filesystem providing persistent
                             storage across agent runtime session invocations. Exactly
                             one of session_storage, s3_files_access_point, or efs_access_point
                             must be specified. See session_storage below.
-                          items:
-                            properties:
-                              mountPath:
-                                description: Mount path for the session storage filesystem
-                                  inside the agent runtime. Must be under /mnt with
-                                  exactly one subdirectory level (for example, /mnt/data).
-                                type: string
-                            type: object
-                          type: array
+                          properties:
+                            mountPath:
+                              description: Mount path for the session storage filesystem
+                                inside the agent runtime. Must be under /mnt with
+                                exactly one subdirectory level (for example, /mnt/data).
+                              type: string
+                          type: object
                       type: object
                     type: array
                   id:

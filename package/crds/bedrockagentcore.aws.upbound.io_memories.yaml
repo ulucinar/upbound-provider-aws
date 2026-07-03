@@ -263,43 +263,35 @@ spec:
                   streamDeliveryResources:
                     description: Configuration for streaming memory record data to
                       external resources. See stream_delivery_resources below.
-                    items:
-                      properties:
-                        resource:
-                          description: List of stream delivery resource configurations.
-                            See resource below.
-                          items:
+                    properties:
+                      resource:
+                        description: List of stream delivery resource configurations.
+                          See resource below.
+                        properties:
+                          kinesis:
+                            description: Kinesis Data Stream configuration. See kinesis
+                              below.
                             properties:
-                              kinesis:
-                                description: Kinesis Data Stream configuration. See
-                                  kinesis below.
-                                items:
-                                  properties:
-                                    contentConfiguration:
-                                      description: Content configurations for stream
-                                        delivery. See content_configuration below.
-                                      items:
-                                        properties:
-                                          level:
-                                            description: Level of detail for streamed
-                                              content. Valid values are METADATA_ONLY
-                                              and FULL_CONTENT. Defaults to METADATA_ONLY.
-                                            type: string
-                                          type:
-                                            description: Type of content to stream.
-                                              Valid value is MEMORY_RECORDS.
-                                            type: string
-                                        type: object
-                                      type: array
-                                    dataStreamArn:
-                                      description: ARN of the Kinesis Data Stream.
-                                      type: string
-                                  type: object
-                                type: array
+                              contentConfiguration:
+                                description: Content configurations for stream delivery.
+                                  See content_configuration below.
+                                properties:
+                                  level:
+                                    description: Level of detail for streamed content.
+                                      Valid values are METADATA_ONLY and FULL_CONTENT.
+                                      Defaults to METADATA_ONLY.
+                                    type: string
+                                  type:
+                                    description: Type of content to stream. Valid
+                                      value is MEMORY_RECORDS.
+                                    type: string
+                                type: object
+                              dataStreamArn:
+                                description: ARN of the Kinesis Data Stream.
+                                type: string
                             type: object
-                          type: array
-                      type: object
-                    type: array
+                        type: object
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
@@ -507,43 +499,35 @@ spec:
                   streamDeliveryResources:
                     description: Configuration for streaming memory record data to
                       external resources. See stream_delivery_resources below.
-                    items:
-                      properties:
-                        resource:
-                          description: List of stream delivery resource configurations.
-                            See resource below.
-                          items:
+                    properties:
+                      resource:
+                        description: List of stream delivery resource configurations.
+                          See resource below.
+                        properties:
+                          kinesis:
+                            description: Kinesis Data Stream configuration. See kinesis
+                              below.
                             properties:
-                              kinesis:
-                                description: Kinesis Data Stream configuration. See
-                                  kinesis below.
-                                items:
-                                  properties:
-                                    contentConfiguration:
-                                      description: Content configurations for stream
-                                        delivery. See content_configuration below.
-                                      items:
-                                        properties:
-                                          level:
-                                            description: Level of detail for streamed
-                                              content. Valid values are METADATA_ONLY
-                                              and FULL_CONTENT. Defaults to METADATA_ONLY.
-                                            type: string
-                                          type:
-                                            description: Type of content to stream.
-                                              Valid value is MEMORY_RECORDS.
-                                            type: string
-                                        type: object
-                                      type: array
-                                    dataStreamArn:
-                                      description: ARN of the Kinesis Data Stream.
-                                      type: string
-                                  type: object
-                                type: array
+                              contentConfiguration:
+                                description: Content configurations for stream delivery.
+                                  See content_configuration below.
+                                properties:
+                                  level:
+                                    description: Level of detail for streamed content.
+                                      Valid values are METADATA_ONLY and FULL_CONTENT.
+                                      Defaults to METADATA_ONLY.
+                                    type: string
+                                  type:
+                                    description: Type of content to stream. Valid
+                                      value is MEMORY_RECORDS.
+                                    type: string
+                                type: object
+                              dataStreamArn:
+                                description: ARN of the Kinesis Data Stream.
+                                type: string
                             type: object
-                          type: array
-                      type: object
-                    type: array
+                        type: object
+                    type: object
                   tags:
                     additionalProperties:
                       type: string
@@ -699,43 +683,35 @@ spec:
                   streamDeliveryResources:
                     description: Configuration for streaming memory record data to
                       external resources. See stream_delivery_resources below.
-                    items:
-                      properties:
-                        resource:
-                          description: List of stream delivery resource configurations.
-                            See resource below.
-                          items:
+                    properties:
+                      resource:
+                        description: List of stream delivery resource configurations.
+                          See resource below.
+                        properties:
+                          kinesis:
+                            description: Kinesis Data Stream configuration. See kinesis
+                              below.
                             properties:
-                              kinesis:
-                                description: Kinesis Data Stream configuration. See
-                                  kinesis below.
-                                items:
-                                  properties:
-                                    contentConfiguration:
-                                      description: Content configurations for stream
-                                        delivery. See content_configuration below.
-                                      items:
-                                        properties:
-                                          level:
-                                            description: Level of detail for streamed
-                                              content. Valid values are METADATA_ONLY
-                                              and FULL_CONTENT. Defaults to METADATA_ONLY.
-                                            type: string
-                                          type:
-                                            description: Type of content to stream.
-                                              Valid value is MEMORY_RECORDS.
-                                            type: string
-                                        type: object
-                                      type: array
-                                    dataStreamArn:
-                                      description: ARN of the Kinesis Data Stream.
-                                      type: string
-                                  type: object
-                                type: array
+                              contentConfiguration:
+                                description: Content configurations for stream delivery.
+                                  See content_configuration below.
+                                properties:
+                                  level:
+                                    description: Level of detail for streamed content.
+                                      Valid values are METADATA_ONLY and FULL_CONTENT.
+                                      Defaults to METADATA_ONLY.
+                                    type: string
+                                  type:
+                                    description: Type of content to stream. Valid
+                                      value is MEMORY_RECORDS.
+                                    type: string
+                                type: object
+                              dataStreamArn:
+                                description: ARN of the Kinesis Data Stream.
+                                type: string
                             type: object
-                          type: array
-                      type: object
-                    type: array
+                        type: object
+                    type: object
                   tags:
                     additionalProperties:
                       type: string

@@ -16,39 +16,39 @@ import (
 type CertificateLocationInitParameters struct {
 
 	// AWS Secrets Manager location of the certificate. See secrets_manager below.
-	SecretsManager []LocationSecretsManagerInitParameters `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
+	SecretsManager *LocationSecretsManagerInitParameters `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
 }
 
 type CertificateLocationObservation struct {
 
 	// AWS Secrets Manager location of the certificate. See secrets_manager below.
-	SecretsManager []LocationSecretsManagerObservation `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
+	SecretsManager *LocationSecretsManagerObservation `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
 }
 
 type CertificateLocationParameters struct {
 
 	// AWS Secrets Manager location of the certificate. See secrets_manager below.
 	// +kubebuilder:validation:Optional
-	SecretsManager []LocationSecretsManagerParameters `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
+	SecretsManager *LocationSecretsManagerParameters `json:"secretsManager,omitempty" tf:"secrets_manager,omitempty"`
 }
 
 type CodeInterpreterCertificateInitParameters struct {
 
 	// Location from which to retrieve the certificate. See certificates.location below.
-	Location []CertificateLocationInitParameters `json:"location,omitempty" tf:"location,omitempty"`
+	Location *CertificateLocationInitParameters `json:"location,omitempty" tf:"location,omitempty"`
 }
 
 type CodeInterpreterCertificateObservation struct {
 
 	// Location from which to retrieve the certificate. See certificates.location below.
-	Location []CertificateLocationObservation `json:"location,omitempty" tf:"location,omitempty"`
+	Location *CertificateLocationObservation `json:"location,omitempty" tf:"location,omitempty"`
 }
 
 type CodeInterpreterCertificateParameters struct {
 
 	// Location from which to retrieve the certificate. See certificates.location below.
 	// +kubebuilder:validation:Optional
-	Location []CertificateLocationParameters `json:"location,omitempty" tf:"location,omitempty"`
+	Location *CertificateLocationParameters `json:"location,omitempty" tf:"location,omitempty"`
 }
 
 type CodeInterpreterInitParameters struct {
