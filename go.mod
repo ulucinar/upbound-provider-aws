@@ -20,7 +20,7 @@ require (
 	github.com/aws/smithy-go v1.24.2
 	github.com/crossplane/crossplane-runtime/v2 v2.2.0
 	github.com/crossplane/crossplane-tools v0.0.0-20250731192036-00d407d8b7ec
-	github.com/crossplane/upjet/v2 v2.3.0
+	github.com/crossplane/upjet/v2 v2.3.1-0.20260703134037-c73cc3a2d247
 	github.com/go-git/go-git/v5 v5.17.1 // indirect; indirect - CVE fixes
 	github.com/go-ini/ini v1.46.0
 	github.com/google/go-cmp v0.7.0
