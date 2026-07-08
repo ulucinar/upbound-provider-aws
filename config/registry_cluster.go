@@ -22,6 +22,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 
 	"github.com/upbound/provider-aws/v2/config/cluster"
+	"github.com/upbound/provider-aws/v2/config/templates"
 	"github.com/upbound/provider-aws/v2/hack"
 )
 

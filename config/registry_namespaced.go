@@ -16,6 +16,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/upbound/provider-aws/v2/config/namespaced"
+	"github.com/upbound/provider-aws/v2/config/templates"
 	"github.com/upbound/provider-aws/v2/hack"
 )
 
