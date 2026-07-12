@@ -150,8 +150,8 @@ func TestLBListenerRuleCustomDiff(t *testing.T) {
 			reason: "keys that do not match action.*.target_group_arn are left untouched",
 			diff: &terraform.InstanceDiff{
 				Attributes: map[string]*terraform.ResourceAttrDiff{
-					"action.0.type":             {Old: "", New: "forward"},
-					"other.0.target_group_arn":  {Old: "", New: testARN},
+					"action.0.type":            {Old: "", New: "forward"},
+					"other.0.target_group_arn": {Old: "", New: testARN},
 				},
 			},
 			cfg:      configWithForward(),

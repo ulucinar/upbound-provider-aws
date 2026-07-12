@@ -167,7 +167,7 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 	})
 }
 
-func lbListenerRuleCustomDiff(diff *terraform.InstanceDiff, state *terraform.InstanceState, cfg *terraform.ResourceConfig) (*terraform.InstanceDiff, error) {
+func lbListenerRuleCustomDiff(diff *terraform.InstanceDiff, state *terraform.InstanceState, cfg *terraform.ResourceConfig) (*terraform.InstanceDiff, error) { //nolint:gocyclo // easier to follow as a unit
 	if diff == nil || diff.Empty() || diff.Destroy || diff.Attributes == nil {
 		return diff, nil
 	}
