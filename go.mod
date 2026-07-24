@@ -489,4 +489,4 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/upbound/terraform-provider-aws v0.0.0-20260721215125-e62c99ecbab2
+replace github.com/hashicorp/terraform-provider-aws => github.com/ulucinar/terraform-provider-aws v1.60.1-0.20260803053201-b6ed0a55617e
